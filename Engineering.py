@@ -51,40 +51,39 @@ if page == 'Mechanical parts':
                 with ASAHI:
                     image2 = open('2.jpg', 'rb').read()
                     st.image(image2,  width=200)
-                    if st.button('Go to Web Page',key="button2"):
-                        url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
+                    
+                    url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with INA:
                     image3 = open('3.jpg', 'rb').read()
                     st.image(image3, width=200)
-                    if st.button('Go to Web Page',key="button3"):
-                        url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
+                    
+                    url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with IKO:
                     image4 = open('4.jpg', 'rb').read()
                     st.image(image4,  width=200)
-                    if st.button('Go to Web Page',key="button4"):
-                        url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
+                    
+                    url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with KBC:
                     image5 = open('5.jpg', 'rb').read()
                     st.image(image5,  width=200)
-                    if st.button('Go to Web Page',key="button5"):
-                        url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
+                    
+                    url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with NTN:
                     image6 = open('6.png', 'rb').read()
                     st.image(image6,  width=200)
-                    if st.button('Go to Web Page',key="button6"):
-                        url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
+                    
+                    url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with NB:
                     image7 = open('7.jpg', 'rb').read()
                     st.image(image7, width=200)
-                    if st.button('Go to Web Page',key="button7"):
-                        url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
-
+                    
+                    url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab2:
             Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
             st.dataframe(Belts)
