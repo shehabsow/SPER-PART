@@ -46,9 +46,8 @@ if page == 'Mechanical parts':
                 with SKF:
                     image1 = open('1.jpeg', 'rb').read()
                     st.image(image1, width=200)
-                    if st.button('Go to Web Page',key="button1"):
-                        url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Click here</a>')
+                    url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with ASAHI:
                     image2 = open('2.jpg', 'rb').read()
                     st.image(image2,  width=200)
