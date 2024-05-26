@@ -489,7 +489,7 @@ if page == 'FETTE':
 
     def main():
 
-        st.title('Find your GLATT parts')
+        st.title('Find your FETTE parts')
         col1, col2, col3 = st.columns([5,.5, 2])
         with col1:
             FETTE = df_f[df_f['Comments'] == 'Fette'].sort_values(by='Comments')
