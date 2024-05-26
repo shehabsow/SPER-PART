@@ -496,14 +496,6 @@ if page == 'FETTE':
             st.dataframe(FETTE)
 
         with col3:
-            if st.button('image  for  these  part'):
-
-                image = open('small_c3fd8f0984028bc7dafbe91cf808227543df0eec_450653_0001.jpg', 'rb').read()
-                st.image(image, caption='FETTE', width=200)
-            
-            # Redirect to a web page
-                url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
     if __name__ == '__main__':
 
