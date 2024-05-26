@@ -495,8 +495,6 @@ if page == 'FETTE':
             FETTE = df_f[df_f['Comments'] == 'Fette'].sort_values(by='Comments')
             st.dataframe(FETTE)
 
-        with col3:
-
     if __name__ == '__main__':
 
         main()
