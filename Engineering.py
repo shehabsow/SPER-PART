@@ -85,8 +85,27 @@ if page == 'Mechanical parts':
                     url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab2:
-            Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
-            st.dataframe(Belts)
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
+                st.dataframe(Belts)
+            with col3:
+                st.subheader('image  for  these  part')
+
+                SKF2,ASAHI2 = st.tabs(['SKF2','ASAHI2'])
+
+                with SKF2:
+                    image1 = open('1.jpeg', 'rb').read()
+                    st.image(image1, width=200)
+                    url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with ASAHI2:
+                    image2 = open('2.jpg', 'rb').read()
+                    st.image(image2,  width=200)
+                    
+                    url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+            
 
         with tab3:
             Shaft = df_f[df_f['Comments'] == 'Shaft'].sort_values(by='Comments')
