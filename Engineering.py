@@ -85,7 +85,7 @@ if page == 'Mechanical parts':
                     url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab2:
-            col1, col2, col3 = st.columns([30,3,13])
+            col1, col2, col3 = st.columns([40,3,13])
             with col1:
                 Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
                 st.dataframe(Belts)
