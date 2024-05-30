@@ -873,16 +873,15 @@ if page == 'Utility area':
         Find your Utility parts
     </h2>
 """, unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([10,3,13])
+        col1, col2, col3 = st.columns([5,5,5])
         with col1:
             select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
     
-    # إضافة كود CSS لتغيير حجم ولون النص
             st.markdown("""
                 <style>
                 .stSelectbox label {
-                    font-size: 20px; /* حجم النص */
-                    color: blue; /* لون النص */
+                    font-size: 20px; 
+                    color: blue; 
                 }
                 </style>
             """, unsafe_allow_html=True)
