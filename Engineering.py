@@ -879,8 +879,8 @@ if page == 'Utility area':
         st.markdown("""
             <style>
             .st-af8e0cfe.st-7d {
-                font-size: 100px; /* تكبير حجم النص */
-                color: blue ; /* تغيير لون النص */
+                font-size: 25px; /* تكبير حجم النص */
+                color: blue !important; /* تغيير لون النص */
             }
             </style>
         """, unsafe_allow_html=True)
