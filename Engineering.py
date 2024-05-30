@@ -73,7 +73,7 @@ if page == 'Mechanical parts':
                 SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
 
                 with SKF:
-                    image1 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/1.jpeg', 'rb').read()
+                    image1 = open('SPER-PART/images/1.jpeg', 'rb').read()
                     st.image(image1, width=150)
                     url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
