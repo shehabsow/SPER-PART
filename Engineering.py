@@ -873,7 +873,7 @@ if page == 'Utility area':
         Find your Utility parts
     </h2>
 """, unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([1,3,3])
+        col1, col2, col3 = st.columns([1,2,2])
         with col1:
             select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
     
@@ -902,7 +902,7 @@ if page == 'Utility area':
                     image33 = open('images/33.jpg', 'rb').read()
                     st.image(image33, width=150)
                     url = 'https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/conductivity-transmitter-clm223?t.tabId=product-overview'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: blue;">Go to Web Page</a>')
                     
             with tab2:
                 col1, col2, col3 = st.columns([30,3,13])
