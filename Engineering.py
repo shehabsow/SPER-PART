@@ -894,7 +894,7 @@ if page == 'Utility area':
             'Flow monitor','conductivity','Stilmas sensor','Valve','test','pump','Uv','Ro'])
             
             with tab1:
-                col1, col2, col3 = st.columns([30,3,13])
+                col1, col2, col3 = st.columns([10,3,13])
                 with col1:
                     Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
                     st.dataframe(Conductivity_transmitter)
