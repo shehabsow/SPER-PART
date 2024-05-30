@@ -48,7 +48,7 @@ if page == 'Mechanical parts':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
 
         # Once data is loaded, display a message
         st.markdown("""
@@ -411,7 +411,7 @@ if page == 'Electrical parts':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
 
             st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -757,7 +757,7 @@ if page == 'Pneumatic parts':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -813,7 +813,7 @@ if page == 'FORKLIFT':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -872,7 +872,7 @@ if page == 'Utility area':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
 
         # Once data is loaded, display a message
       
@@ -1219,7 +1219,7 @@ if page == 'LOTOTO':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
         
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1252,7 +1252,7 @@ if page == 'GLATT':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(4)
+            time.sleep(1)
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1295,7 +1295,7 @@ if page == 'FETTE':
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
-            time.sleep(2)
+            time.sleep(1)
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
