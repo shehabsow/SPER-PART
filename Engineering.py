@@ -873,7 +873,17 @@ if page == 'Utility area':
         Find your Utility parts
     </h2>
 """, unsafe_allow_html=True)
-        select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'])
+        select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
+
+# إضافة كود CSS لتغيير حجم ولون النص
+        st.markdown("""
+            <style>
+            .stSelectbox label {
+                font-size: 20px; /* حجم النص */
+                color: blue; /* لون النص */
+            }
+            </style>
+        """, unsafe_allow_html=True)
         st.subheader('Select from these items')
 
         if select_col == 'Water Station':
