@@ -19,18 +19,10 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 
 
-page =  st.sidebar.radio('Select page', ['About','Utility area','Mechanical parts', 'Electrical parts',
+page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Pneumatic parts','GLATT','FETTE','FORKLIFT','LOTOTO'])
 
 
-if page == '+':
-    
-    def main():
-        st.subheader('Select from these items')
-        
-    if __name__ == '__main__':
-
-        main()
 
 if page == 'Mechanical parts':
     def main():
