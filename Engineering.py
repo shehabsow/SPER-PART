@@ -878,9 +878,9 @@ if page == 'Utility area':
 # إضافة كود CSS لتكبير حجم النص وتغيير اللون
         st.markdown("""
             <style>
-            .stSelectbox label {
-                font-size: 2500px; /* تكبير حجم النص */
-                color: blue; /* تغيير لون النص */
+            .st-af8e0cfe.st-7d {
+                font-size: 250px; /* تكبير حجم النص */
+                color: blue !important; /* تغيير لون النص */
             }
             </style>
         """, unsafe_allow_html=True)
