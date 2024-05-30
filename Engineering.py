@@ -80,31 +80,31 @@ if page == 'Mechanical parts':
 
                 with ASAHI:
                     image2 = open('images/2.jpg', 'rb').read()
-                    st.image(image2, caption='FETTE', width=150)
+                    st.image(image2,  width=150)
                     url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with INA:
                     image3 = open('images/3.jpg', 'rb').read()
-                    st.image(image3, caption='FETTE', width=150)
+                    st.image(image3, width=150)
                     url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with IKO:
                     image4 = open('images/4.jpg', 'rb').read()
-                    st.image(image4, caption='FETTE', width=150)
+                    st.image(image4,  width=150)
                     url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with KBC:
                     image5 = open('images/5.jpg', 'rb').read()
-                    st.image(image5, caption='FETTE', width=150)
+                    st.image(image5,  width=150)
                     url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with NTN:
                     image6 = open('images/6.png', 'rb').read()
-                    st.image(image6, caption='FETTE', width=150)
+                    st.image(image6,  width=150)
                     url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
@@ -1312,7 +1312,7 @@ if page == 'FETTE':
             if st.button('image  for  these  part'):
 
                 image = open('small_c3fd8f0984028bc7dafbe91cf808227543df0eec_450653_0001.jpg', 'rb').read()
-                st.image(image, caption='FETTE', width=150)
+                st.image(image,  width=150)
             
             # Redirect to a web page
                 url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
