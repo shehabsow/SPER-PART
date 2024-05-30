@@ -879,7 +879,7 @@ if page == 'Utility area':
         st.markdown("""
             <style>
             .st-af8e0cfe.st-7d {
-                font-size: 250px; /* تكبير حجم النص */
+                font-size: 10 px; /* تكبير حجم النص */
                 color: blue !important; /* تغيير لون النص */
             }
             </style>
