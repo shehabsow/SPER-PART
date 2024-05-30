@@ -875,12 +875,12 @@ if page == 'Utility area':
 """, unsafe_allow_html=True)
         select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
 
-# إضافة كود CSS لتغيير حجم ولون النص
+
         st.markdown("""
             <style>
             .stSelectbox label {
-                font-size: 20px; /* حجم النص */
-                color: blue; /* لون النص */
+                font-size: 50px; 
+                color: blue; 
             }
             </style>
         """, unsafe_allow_html=True)
