@@ -888,7 +888,7 @@ if page == 'Utility area':
         st.subheader('Select from these items')
 
         if select_col == 'Water Station':
-            col1, col2, col3 = st.columns([30,1,1])
+            col1, col2, col3 = st.columns([20,1,1])
             with col1:
             
                 tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
