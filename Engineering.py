@@ -876,10 +876,10 @@ if page == 'Utility area':
         select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
 
 # إضافة كود CSS لتكبير حجم النص وتغيير اللون
-        st.write("""
+        st.markdown("""
             <style>
-            div[data-baseweb="select"]>div {
-                font-size: 55px; /* تكبير حجم النص */
+            .stSelectbox label {
+                font-size: 25px; /* تكبير حجم النص */
                 color: blue; /* تغيير لون النص */
             }
             </style>
