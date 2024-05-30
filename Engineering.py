@@ -79,37 +79,37 @@ if page == 'Mechanical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with ASAHI:
-                    image2 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/2.jpg', 'rb').read()
+                    image2 = open('images/2.jpg', 'rb').read()
                     st.image(image2, caption='FETTE', width=150)
                     url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with INA:
-                    image3 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/3.jpg', 'rb').read()
+                    image3 = open('images/3.jpg', 'rb').read()
                     st.image(image3, caption='FETTE', width=150)
                     url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with IKO:
-                    image4 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/4.jpg', 'rb').read()
+                    image4 = open('images/4.jpg', 'rb').read()
                     st.image(image4, caption='FETTE', width=150)
                     url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with KBC:
-                    image5 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/5.jpg', 'rb').read()
+                    image5 = open('images/5.jpg', 'rb').read()
                     st.image(image5, caption='FETTE', width=150)
                     url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with NTN:
-                    image6 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/6.png', 'rb').read()
+                    image6 = open('images/6.png', 'rb').read()
                     st.image(image6, caption='FETTE', width=150)
                     url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with NB:
-                    image7 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/7.jpg', 'rb').read()
+                    image7 = open('images/7.jpg', 'rb').read()
                     st.image(image7, caption='FETTE', width=150)
                     url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -125,20 +125,20 @@ if page == 'Mechanical parts':
                 OPTIBELT ,FEC, timing_belt = st.tabs(['OPTIBELT','FEC','timing belt'])
 
                 with OPTIBELT:
-                    image8 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/8.jpg', 'rb').read()
+                    image8 = open('images/8.jpg', 'rb').read()
                     st.image(image8, width=150)
                     url = 'https://www.optibelt.com/en/home/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
 
                 with FEC:
-                    image9 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/9.jpg', 'rb').read()
+                    image9 = open('images/9.jpg', 'rb').read()
                     st.image(image9, width=150)
                     url = 'https://www.fecconsulting.dk/en/timing-belts/megaflex-timing-belts/pu-timing-belts-t10-flex/t10-2550.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with timing_belt:
-                    image10 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/10.jpg', 'rb').read()
+                    image10 = open('images/10.jpg', 'rb').read()
                     st.image(image10, width=150)
                     url = 'https://www.konlidainc.com/gear/timing-belt.asp'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -154,14 +154,14 @@ if page == 'Mechanical parts':
                 GRUNDFOS, uhlmann  = st.tabs(['GRUNDFOS','uhlmann'])
 
                 with GRUNDFOS:
-                    image11 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/11.jpeg', 'rb').read()
+                    image11 = open('images/11.jpeg', 'rb').read()
                     st.image(image11, width=150)
                     url = 'https://product-selection.grundfos.com/eg/products/service-partkit/spare-shaft-seal-96488302?pumpsystemid=2346046284&tab=variant-specifications'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
 
                 with uhlmann:
-                    image12 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/12.jpg', 'rb').read()
+                    image12 = open('images/12.jpg', 'rb').read()
                     st.image(image12, width=150)
                     url = 'https://www.uhlmann.de/services/support-services/spare-parts/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -177,14 +177,14 @@ if page == 'Mechanical parts':
 
                 TENSION,PRESSURE  = st.tabs(['TENSION','PRESSURE'])
                 with TENSION:
-                    image13 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/13.jpg', 'rb').read()
+                    image13 = open('images/13.jpg', 'rb').read()
                     st.image(image13, width=150)
                     url = 'https://www.sawane-spring.com/product/use/tension_spring_extension_spring.php'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
 
                 with PRESSURE:
-                    image14 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/14.jpg', 'rb').read()
+                    image14 = open('images/14.jpg', 'rb').read()
                     st.image(image14, width=150)
                     url = 'https://metal-spring.com/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -200,13 +200,13 @@ if page == 'Mechanical parts':
 
                 Alumnum,rubber  = st.tabs(['Alumnum','rubber'])
                 with Alumnum:
-                    image15 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/15.jpg', 'rb').read()
+                    image15 = open('images/15.jpg', 'rb').read()
                     st.image(image15, width=150)
                     url = 'https://www.jctprinting.com/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with rubber:
-                    image16 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/16.jpeg', 'rb').read()
+                    image16 = open('images/16.jpeg', 'rb').read()
                     st.image(image16, width=150)
                     url = 'https://www.jctprinting.com/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -223,19 +223,19 @@ if page == 'Mechanical parts':
 
                 Cam_SKF,Cam_INA,Cam_IKO  = st.tabs(['Cam_SKF','Cam_INA','Cam_IKO'])
                 with Cam_SKF:
-                    image17 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/17.jpg', 'rb').read()
+                    image17 = open('images/17.jpg', 'rb').read()
                     st.image(image17, width=150)
                     url = 'https://www.skf.com/sg/products/rolling-bearings/track-rollers/cam-followers/productid-KR%2022'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Cam_INA:
-                    image18 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/18.jpg', 'rb').read()
+                    image18 = open('images/18.jpg', 'rb').read()
                     st.image(image18, width=150)
                     url = 'https://www.abf.store/s/en/bearings/KR19-PP-A-NMT-INA/501413'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Cam_IKO:
-                    image19 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/19.jpg', 'rb').read()
+                    image19 = open('images/19.jpg', 'rb').read()
                     st.image(image19, width=150)
                     url = 'https://www.acorn-ind.co.uk/p/iko/cam-followers/cr10-iko/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -252,13 +252,13 @@ if page == 'Mechanical parts':
 
                 Mechanical,Electrical   = st.tabs(['Mechanical','Electrical '])
                 with Mechanical:
-                    image20 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/20.jpg', 'rb').read()
+                    image20 = open('images/20.jpg', 'rb').read()
                     st.image(image20, width=150)
                     url = 'https://www.psbearings.com/html_products/mzeu-series-cam-type-cam-clutch-346.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Electrical :
-                    image21 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/21.jpeg', 'rb').read()
+                    image21 = open('images/21.jpeg', 'rb').read()
                     st.image(image21, width=150)
                     url = 'https://peacosupport.com/electromagnetic-brake-6nm-400nm'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -275,13 +275,13 @@ if page == 'Mechanical parts':
 
                 HYDRAULIC,Gear   = st.tabs(['HYDRAULIC','Gear '])
                 with HYDRAULIC:
-                    image22 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/22.jpg', 'rb').read()
+                    image22 = open('images/22.jpg', 'rb').read()
                     st.image(image22, width=150)
                     url = 'https://www.schaefferoil.com/h1-hydraulic-oil.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Gear :
-                    image23 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/23.jpg', 'rb').read()
+                    image23 = open('images/23.jpg', 'rb').read()
                     st.image(image23, width=150)
                     url = 'https://stores.buy1oils.com/new-schaeffer-products/schaeffer-2009-supreme-open-gear-lube-37-lbs/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -295,7 +295,7 @@ if page == 'Mechanical parts':
                 st.dataframe(Chain)
             with col3:
                 st.subheader('image  for  these  part')
-                image24 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/24.jpg', 'rb').read()
+                image24 = open('images/24.jpg', 'rb').read()
                 st.image(image24, width=150)
                 url = 'https://www.uhlmann.de/services/support-services/spare-parts/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -313,13 +313,13 @@ if page == 'Mechanical parts':
 
                 BEVEL,Nema   = st.tabs(['BEVEL','Nema '])
                 with BEVEL:
-                    image25 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/25.jpg', 'rb').read()
+                    image25 = open('images/25.jpg', 'rb').read()
                     st.image(image25, width=150)
                     url = 'https://www.unimec.eu/en/products/bevel-gearboxes/110/RR.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Nema :
-                    image26 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/26.jpg', 'rb').read()
+                    image26 = open('images/26.jpg', 'rb').read()
                     st.image(image26, width=150)
                     url = 'https://www.phidgets.com/?prodid=1082'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -336,19 +336,19 @@ if page == 'Mechanical parts':
 
                 Dorma,Cam_Hydraulic,Handl  = st.tabs(['Dorma','Cam_Hydraulic','Handl'])
                 with Dorma:
-                    image27 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/27.jpg', 'rb').read()
+                    image27 = open('images/27.jpg', 'rb').read()
                     st.image(image27, width=150)
                     url = 'https://doorcontrolsdirect.co.uk/door-closer-spare-parts/1043-dorma-g-n-slide-arm-channel'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Cam_Hydraulic:
-                    image28 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/28.jpg', 'rb').read()
+                    image28 = open('images/28.jpg', 'rb').read()
                     st.image(image28, width=150)
                     url = 'https://www.dnd.com.tw/en/category/Door-Closer.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with Handl:
-                    image29 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/29.jpg', 'rb').read()
+                    image29 = open('images/29.jpg', 'rb').read()
                     st.image(image29, width=150)
                     url = 'https://www.handleking.co.uk/heavy-duty-door-handles-with-return-to-door-lever-grade-3'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -365,13 +365,13 @@ if page == 'Mechanical parts':
 
                 Flexible_Couplin, BoWex_Couplin   = st.tabs(['Flexible_Couplin','BoWex_Couplin '])
                 with Flexible_Couplin:
-                    image30 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/30.jpeg', 'rb').read()
+                    image30 = open('images/30.jpeg', 'rb').read()
                     st.image(image30, width=150)
                     url = 'https://www.ttco.com/encoders/ae087-10-10.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with BoWex_Couplin :
-                    image31 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/31.jpg', 'rb').read()
+                    image31 = open('images/31.jpg', 'rb').read()
                     st.image(image31, width=150)
                     url = 'https://www.ktr.com/no/products/bowex-curved-tooth-gear-couplings/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -385,7 +385,7 @@ if page == 'Mechanical parts':
                 st.dataframe(Wheel_CASTOR)
             with col3:
                 st.subheader('image  for  these  part')
-                image32 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/32.jpg', 'rb').read()
+                image32 = open('images/32.jpg', 'rb').read()
                 st.image(image32, width=150)
                 url = 'https://www.shoplinco.com/colson-polyurethane-heavy-duty-total-lock-swivel-caster-8-x-2-1000-lbs-cap/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -434,19 +434,19 @@ if page == 'Electrical parts':
 
                 BALLUFF,MICRO_DETECTORS,IFM  = st.tabs(['BALLUFF','MICRO_DETECTORS','IFM'])
                 with BALLUFF:
-                    image57 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/57.PNG', 'rb').read()
+                    image57 = open('images/57.PNG', 'rb').read()
                     st.image(image57, width=150)
                     url = 'https://valinonline.com/products/dw-as-503-m30-002'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with MICRO_DETECTORS:
-                    image58= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/58.PNG', 'rb').read()
+                    image58= open('images/58.PNG', 'rb').read()
                     st.image(image58, width=150)
                     url = 'https://www.electricautomationnetwork.com/en/micro-detectors/am1-an-1a-micro-detectors-inductive-sensor-m12-shielded-no-npn-cable-2m-axial'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with IFM:
-                    image59 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/59.PNG', 'rb').read()
+                    image59 = open('images/59.PNG', 'rb').read()
                     st.image(image59, width=150)
                     url = 'https://www.ifm.com/in/en/product/IF5345'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -462,19 +462,19 @@ if page == 'Electrical parts':
 
                 SICK,BAUMER,DATALOGIC  = st.tabs(['SICK','BAUMER','DATALOGIC'])
                 with SICK:
-                    image60 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/60.PNG', 'rb').read()
+                    image60 = open('images/60.PNG', 'rb').read()
                     st.image(image60, width=150)
                     url = 'https://www.sick.com/be/en/catalog/products/detection-sensors/color-sensors/cs8/cs81-p1112/p/p138054'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with BAUMER:
-                    image61= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/61.PNG', 'rb').read()
+                    image61= open('images/61.PNG', 'rb').read()
                     st.image(image61, width=150)
                     url = 'https://www.kempstoncontrols.com/FPDK-10N5101-S35A/Baumer/sku/136377'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with DATALOGIC:
-                    image62 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/62.PNG', 'rb').read()
+                    image62 = open('images/62.PNG', 'rb').read()
                     st.image(image62, width=150)
                     url = 'https://www.electricautomationnetwork.com/en/datalogic/s41-photoelectric-sensors-datalogic-s41-2-c-p-950701010'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -487,7 +487,7 @@ if page == 'Electrical parts':
                 st.dataframe(Fiber_sensor)
             with col3:
                 st.subheader('image  for  these  part')
-                image63 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/63.PNG', 'rb').read()
+                image63 = open('images/63.PNG', 'rb').read()
                 st.image(image63, width=150)
                 url = 'https://www.wenglor.com/en/Sensors/Photoelectronic-Sensors/Fiber-Optic-Sensors/Fiber-Optic-Cable-Amplifiers/Fiber-optic-amplifier/p/UM55PA2'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -500,7 +500,7 @@ if page == 'Electrical parts':
                 st.dataframe(Amplifier)
             with col3:
                 st.subheader('image  for  these  part')
-                image64 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/64.PNG', 'rb').read()
+                image64 = open('images/64.PNG', 'rb').read()
                 st.image(image64, width=150)
                 url = 'https://www.pepperl-fuchs.com/global/en/classid_6.htm?view=productdetails&prodid=95425'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -513,7 +513,7 @@ if page == 'Electrical parts':
                 st.dataframe(Socket)
             with col3:
                 st.subheader('image  for  these  part')
-                image65 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/65.PNG', 'rb').read()
+                image65 = open('images/65.PNG', 'rb').read()
                 st.image(image65, width=150)
                 url = 'https://ie.farnell.com/hirschmann/ca6ld/cir-connector-receptacle-6pos/dp/3611905'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -526,7 +526,7 @@ if page == 'Electrical parts':
                 st.dataframe(Selector)
             with col3:
                 st.subheader('image  for  these  part')
-                image66 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/66.PNG', 'rb').read()
+                image66 = open('images/66.PNG', 'rb').read()
                 st.image(image66, width=150)
                 url = 'https://www.se.com/eg/en/product/XA2ED33/selector-switch-%C3%B822-standard-handle-3-positions-2no/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -539,7 +539,7 @@ if page == 'Electrical parts':
                 st.dataframe(Button)
             with col3:
                 st.subheader('image  for  these  part')
-                image67= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/67.PNG', 'rb').read()
+                image67= open('images/67.PNG', 'rb').read()
                 st.image(image67, width=150)
                 url = 'https://za.rs-online.com/web/p/push-button-heads/3308975/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -555,19 +555,19 @@ if page == 'Electrical parts':
 
                 SICK,MOUJEN,SCHNEIDER  = st.tabs(['SICK','MOUJEN','SCHNEIDER'])
                 with SICK:
-                    image68 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/68.PNG', 'rb').read()
+                    image68 = open('images/68.PNG', 'rb').read()
                     st.image(image68, width=150)
                     url = 'https://www.sick.com/us/en/catalog/products/safety/safety-switches/re1/re11-sa03/p/p315664'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with MOUJEN:
-                    image69= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/69.PNG', 'rb').read()
+                    image69= open('images/69.PNG', 'rb').read()
                     st.image(image69, width=150)
                     url = 'https://www.moujenswitch.com/product/me-8108-m/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with SCHNEIDER:
-                    image70 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/70.PNG', 'rb').read()
+                    image70 = open('images/70.PNG', 'rb').read()
                     st.image(image70, width=150)
                     url = 'https://www.se.com/th/en/all-products'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -583,13 +583,13 @@ if page == 'Electrical parts':
 
                 Filux,LED_OUTLET  = st.tabs(['Filux','LED OUTLET'])
                 with Filux:
-                    image71 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/71.PNG', 'rb').read()
+                    image71 = open('images/71.PNG', 'rb').read()
                     st.image(image71, width=150)
                     url = 'https://filux.com/en/t8-pro-led-tubes/-t8-led-tube-9w-60cm-cct-3000k-4000k-6500k-130lm-w-5-years-warranty-6350.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with LED_OUTLET:
-                    image72= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/72.PNG', 'rb').read()
+                    image72= open('images/72.PNG', 'rb').read()
                     st.image(image72, width=150)
                     url = 'https://www.ledoutletpr.com/products/flood-lamp-200w'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -602,7 +602,7 @@ if page == 'Electrical parts':
                 st.dataframe(Fan)
             with col3:
                 st.subheader('image  for  these  part')
-                image73= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/73.PNG', 'rb').read()
+                image73= open('images/73.PNG', 'rb').read()
                 st.image(image73, width=150)
                 url = 'https://au.element14.com/multicomp/sf23080a-2083hsl-gn/fan-80mm-230vac-23cfm-31dba/dp/9606238'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -618,19 +618,19 @@ if page == 'Electrical parts':
 
                 CONNECTION,CAT6_CABLE,FIBER_OPTIC  = st.tabs(['SICK','CAT6 CABLE','FIBER OPTIC'])
                 with CONNECTION:
-                    image74 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/74.PNG', 'rb').read()
+                    image74 = open('images/74.PNG', 'rb').read()
                     st.image(image74, width=150)
                     url = 'https://asi.net.nz/category/Sensor-Leads-Connectors-Valve-Cables'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with CAT6_CABLE:
-                    image75= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/75.PNG', 'rb').read()
+                    image75= open('images/75.PNG', 'rb').read()
                     st.image(image75, width=150)
                     url = 'https://de.assmann.shop/en/Copper-Network-Technology/Network-Cables/Installation-Cables/ASSNET250-Cat-6-U-UTP-installation-cable-305-m-Eca.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with FIBER_OPTIC:
-                    image76 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/76.PNG', 'rb').read()
+                    image76 = open('images/76.PNG', 'rb').read()
                     st.image(image76, width=150)
                     url = 'https://www.wenglor.com/pt/Sensors/Sensores-optoelectronicos/Fiber-Optic-Sensors/Glass-Fiber-Optic-Cables/Glass-Fiber-Optic-Cable-Through-Beam-Mode/p/SLK2313'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -646,13 +646,13 @@ if page == 'Electrical parts':
 
                 GLASS,CRAMIC  = st.tabs(['GLASS','CRAMIC'])
                 with GLASS:
-                    image77 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/77.PNG', 'rb').read()
+                    image77 = open('images/77.PNG', 'rb').read()
                     st.image(image77, width=150)
                     url = 'https://makerselectronics.com/product/fuse-1a-250v-t5x20mm'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                 with CRAMIC:
-                    image78= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/78.PNG', 'rb').read()
+                    image78= open('images/78.PNG', 'rb').read()
                     st.image(image78, width=150)
                     url = 'https://witonics.com/products/siba-ceramic-fuse-6-3x32mm-time-delay-t200ma-7006565-0-200'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -896,7 +896,7 @@ if page == 'Utility area':
                     st.dataframe(Conductivity_transmitter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image33 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/33.jpg', 'rb').read()
+                    image33 = open('images/33.jpg', 'rb').read()
                     st.image(image33, width=150)
                     url = 'https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/conductivity-transmitter-clm223?t.tabId=product-overview'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -908,7 +908,7 @@ if page == 'Utility area':
                     st.dataframe(Flowmeter_controller)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image34= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/34.PNG', 'rb').read()
+                    image34= open('images/34.PNG', 'rb').read()
                     st.image(image34, width=150)
                     url = 'https://www.burkert.com/en/type/8035'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -920,7 +920,7 @@ if page == 'Utility area':
                     st.dataframe(Flow_module)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image35= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/35.PNG', 'rb').read()
+                    image35= open('images/35.PNG', 'rb').read()
                     st.image(image35, width=150)
                     url = 'https://www.burkert.com/en/type/SE32'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -932,7 +932,7 @@ if page == 'Utility area':
                     st.dataframe(Flow_monitor)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image36= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/36.PNG', 'rb').read()
+                    image36= open('images/36.PNG', 'rb').read()
                     st.image(image36, width=150)
                     url = 'https://www.ifm.com/de/en/product/SI1000'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -944,7 +944,7 @@ if page == 'Utility area':
                     st.dataframe(conductivity)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image37= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/37.PNG', 'rb').read()
+                    image37= open('images/37.PNG', 'rb').read()
                     st.image(image37, width=150)
                     url = 'https://www.directindustry.com/prod/emerson-automation-solutions-rosemount/product-36718-949557.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -956,7 +956,7 @@ if page == 'Utility area':
                     st.dataframe(STILMAS_SENSOR)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image38= open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/38.PNG', 'rb').read()
+                    image38= open('images/38.PNG', 'rb').read()
                     st.image(image38, width=150)
                     url = 'https://www.ifm.com/my/en/product/TR7432'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -972,13 +972,13 @@ if page == 'Utility area':
 
                     pressure_transmitter, Angle_Valve   = st.tabs(['pressure_transmitter','Angle_Valve '])
                     with pressure_transmitter:
-                        image39 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/39.PNG', 'rb').read()
+                        image39 = open('images/39.PNG', 'rb').read()
                         st.image(image39, width=150)
                         url = 'https://www.endress.com/en/field-instruments-overview/pressure/pressure-transmitter-cerabar-pmp71b?t.tabId=product-overview'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                     with Angle_Valve :
-                        image40 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/40.PNG', 'rb').read()
+                        image40 = open('images/40.PNG', 'rb').read()
                         st.image(image40, width=150)
                         url = 'https://tameson.co.uk/products/al2a-spp-100-b-16-g1inch-ptfe-16bar-nc-angle-seat-valve-stainless-steel-brass'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -994,13 +994,13 @@ if page == 'Utility area':
 
                     PHOTOMETERS, Colorimetric = st.tabs(['PHOTOMETERS','Colorimetric'])
                     with PHOTOMETERS:
-                        image42 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/42.PNG', 'rb').read()
+                        image42 = open('images/42.PNG', 'rb').read()
                         st.image(image42, width=150)
                         url = 'https://www.hannaservice.eu/water/environmental/photometers'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                     with Colorimetric:
-                        image41 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/41.PNG', 'rb').read()
+                        image41 = open('images/41.PNG', 'rb').read()
                         st.image(image41, width=150)
                         url = 'https://www.hannaservice.eu/total-hardness-colorimetric-reagents-hi93735-0-product'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1016,13 +1016,13 @@ if page == 'Utility area':
 
                     LOBE_PUMP,WHEEL_PUMP = st.tabs(['LOBE PUMP','WHEEL PUMP'])
                     with LOBE_PUMP:
-                        image43 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/43.jpg', 'rb').read()
+                        image43 = open('images/43.jpg', 'rb').read()
                         st.image(image43, width=150)
                         url = 'https://www.chinastainlesssteelpump.com/Stainless-Steel-rotary-lobe-Pumps/Rotary-Lobe-Pumps-for-Chocolate.html'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                     with WHEEL_PUMP:
-                        image44 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/44.jpg', 'rb').read()
+                        image44 = open('images/44.jpg', 'rb').read()
                         st.image(image44, width=150)
                         url = 'https://www.flowpumps.de/product-page/peripheral-pump-pe50brt'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1035,7 +1035,7 @@ if page == 'Utility area':
                 st.dataframe(Uv)
             with col3:
                 st.subheader('image  for  these  part')
-                image45 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/45.jpeg', 'rb').read()
+                image45 = open('images/45.jpeg', 'rb').read()
                 st.image(image45, width=150)
                 url = 'https://pureaqua.com/viqua-sterilight-uv/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1048,7 +1048,7 @@ if page == 'Utility area':
                 st.dataframe(Ro)
             with col3:
                 st.subheader('image  for  these  part')
-                image46 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/46.jpeg', 'rb').read()
+                image46 = open('images/46.jpeg', 'rb').read()
                 st.image(image46, width=150)
                 url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1065,7 +1065,7 @@ if page == 'Utility area':
                     st.dataframe(Fire_detector)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image47 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/47.PNG', 'rb').read()
+                    image47 = open('images/47.PNG', 'rb').read()
                     st.image(image47, width=150)
                     url = 'https://www.royal.ps/en/sanitary-ware/products/fire-fighting-system/water-flow-detector'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1079,7 +1079,7 @@ if page == 'Utility area':
                     st.dataframe(Fire_valve)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image48 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/48.PNG', 'rb').read()
+                    image48 = open('images/48.PNG', 'rb').read()
                     st.image(image48, width=150)
                     url = 'https://www.giacomini.com/product/A56'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1093,7 +1093,7 @@ if page == 'Utility area':
                 st.dataframe(AHU_Valve)
             with col3:
                 st.subheader('image  for  these  part')
-                image49 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/49.PNG', 'rb').read()
+                image49 = open('images/49.PNG', 'rb').read()
                 st.image(image49, width=150)
                 url = 'https://www.indiamart.com/proddetail/butterfly-valve-22160377997.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1112,7 +1112,7 @@ if page == 'Utility area':
                     st.dataframe(Hepa_filter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image50 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/50.PNG', 'rb').read()
+                    image50 = open('images/50.PNG', 'rb').read()
                     st.image(image50, width=150)
                     url = 'https://www.indiamart.com/proddetail/hepa-filters-13677374133.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1125,7 +1125,7 @@ if page == 'Utility area':
                     st.dataframe(High_filter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image51 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/51.PNG', 'rb').read()
+                    image51 = open('images/51.PNG', 'rb').read()
                     st.image(image51, width=150)
                     url = 'https://www.indiamart.com/proddetail/hepa-filters-13677374133.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1138,7 +1138,7 @@ if page == 'Utility area':
                     st.dataframe(Pre_filter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image52 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/52.PNG', 'rb').read()
+                    image52 = open('images/52.PNG', 'rb').read()
                     st.image(image52, width=150)
                     url = 'https://dir.indiamart.com/pune/pre-filter.html?enqformpdp=1'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1151,7 +1151,7 @@ if page == 'Utility area':
                     st.dataframe(Packfilter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image53 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/53.PNG', 'rb').read()
+                    image53 = open('images/53.PNG', 'rb').read()
                     st.image(image53, width=150)
                     url = 'https://hepafiltersales.com/products/80085-01499-19-7-8x21-1-2x1-air-filter-12-pack'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1164,7 +1164,7 @@ if page == 'Utility area':
                     st.dataframe(Pump_filter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image55 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/55.PNG', 'rb').read()
+                    image55 = open('images/55.PNG', 'rb').read()
                     st.image(image55, width=150)
                     url = 'https://www.buschvacuum.com/in/en/products/spare-parts-and-accessories/spare-parts/inlet-filters/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1177,7 +1177,7 @@ if page == 'Utility area':
                     st.dataframe(Emflon_filter)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image54 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/54.PNG', 'rb').read()
+                    image54 = open('images/54.PNG', 'rb').read()
                     st.image(image54, width=150)
                     url = 'https://shop.pall.com/us/en/food-beverage/cannabis/zidMCY2230PFRWH4?CategoryName=filter-cartridges&CatalogID=products'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
@@ -1190,7 +1190,7 @@ if page == 'Utility area':
                     st.dataframe(Filters_cartage)
                 with col3:
                     st.subheader('image  for  these  part')
-                    image56 = open('D:/DIPLOMA DATA/DIPLOMA DATA/Spare parts finl/images/56.PNG', 'rb').read()
+                    image56 = open('images/56.PNG', 'rb').read()
                     st.image(image56, width=150)
                     url = 'https://shop.pall.com/us/en/food-beverage/zidimmfdh4o'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
