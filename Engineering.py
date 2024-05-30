@@ -879,7 +879,7 @@ if page == 'Utility area':
         st.markdown("""
             <style>
             .stSelectbox label {
-                font-size: 50px; 
+                font-size: 500px; 
                 color: blue; 
             }
             </style>
