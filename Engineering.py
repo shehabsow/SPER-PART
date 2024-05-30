@@ -873,7 +873,7 @@ if page == 'Utility area':
         Find your Utility parts
     </h2>
 """, unsafe_allow_html=True)
-        col1, col2, col3 = st.columns([5,5,5])
+        col1, col2, col3 = st.columns([3,3,3])
         with col1:
             select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
     
