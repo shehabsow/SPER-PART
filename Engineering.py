@@ -11,13 +11,6 @@ st.set_page_config(
 )
 
 
-df_f = pd.read_csv('Eng Spare parts.csv')
-
-url = 'https://drive.google.com/file/d/1D-616oIyvdCAudFIRJb5s1A8KGHiGfvv/view?usp=drive_link'
-
-csv_path = 'Eng Spare parts.csv'
-
-
 
 
 
@@ -68,7 +61,7 @@ if page == 'Mechanical parts':
                         file.write(response.content)
                     return pd.read_csv('Eng Spare parts.csv')
                 def save_data(df_f):
-                    df.to_csv('Eng Spare parts.csv', index=False)
+                    df_f.to_csv('Eng Spare parts.csv', index=False)
                     st.experimental_rerun()
                 
                 df_f = load_data()
