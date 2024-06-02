@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 
-
+df_f = pd.read_csv('Eng Spare parts.csv')
 
 
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
