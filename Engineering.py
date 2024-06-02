@@ -86,11 +86,11 @@ if page == 'Mechanical parts':
                 if st.button('Update Quantity'):
                     if not st.session_state.update_button_clicked:
         # خصم الكمية المحددة
-                        df.loc[row_number, 'Quantity'] -= deduct_quantity
-                        st.success(f'{deduct_quantity} units deducted from {df.loc[row_number, "Item"]}.')
+                        df_f.loc[row_number, 'Quantity'] -= deduct_quantity
+                        st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item"]}.')
                         
                         # تحديث البيانات في ملف CSV
-                        df.to_csv(csv_path, index=False)
+                        df_f.to_csv(csv_path, index=False)
                         
                         # تحديد حالة الزر على أنه تم الضغط عليه
                         st.session_state.update_button_clicked = True
@@ -104,7 +104,7 @@ if page == 'Mechanical parts':
 
 # تحميل الملف عند الطلب
                 if st.button('Download Updated CSV'):
-                    csv = df.to_csv(index=False).encode('utf-8')
+                    csv = df_f.to_csv(index=False).encode('utf-8')
                     st.download_button(
                         label="Download CSV",
                         data=csv,
