@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
-import gdown
+import requests
 
 st.set_page_config(
     layout="wide",
