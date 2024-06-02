@@ -86,8 +86,8 @@ if page == 'Mechanical parts':
                 if st.button('Update Quantity'):
                     if not st.session_state.update_button_clicked:
         # خصم الكمية المحددة
-                        df_f.loc[row_number, 'Quantity'] -= deduct_quantity
-                        st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item"]}.')
+                        df_f.loc[row_number, 'Qty.'] -= deduct_quantity
+                        st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
                         
                         # تحديث البيانات في ملف CSV
                         df_f.to_csv(csv_path, index=False)
