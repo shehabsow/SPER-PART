@@ -79,23 +79,37 @@ if page == 'Mechanical parts':
                 deduct_quantity = st.number_input('Enter quantity to deduct:', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
 
                 # زر لتحديث الكمية
+                if 'update_button_clicked' not in st.session_state:
+                    st.session_state.update_button_clicked = False
+
+# زر لتحديث الكمية
                 if st.button('Update Quantity'):
-                    # خصم الكمية المحددة
-                    df_f.loc[row_number, 'Qty.'] -= deduct_quantity
-                    st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
-                    
-                    # تحديث البيانات في ملف CSV
-                    df_f.to_csv('Eng Spare parts.csv', index=False)
-                    
-                    # إعادة تحميل البيانات من ملف CSV لتحديث العرض
-                    st.experimental_rerun()
-                if st.button('Download Updated csv'):
-                    csv = df_f.to_csv(index=False)
+                    if not st.session_state.update_button_clicked:
+        # خصم الكمية المحددة
+                        df.loc[row_number, 'Quantity'] -= deduct_quantity
+                        st.success(f'{deduct_quantity} units deducted from {df.loc[row_number, "Item"]}.')
+                        
+                        # تحديث البيانات في ملف CSV
+                        df.to_csv(csv_path, index=False)
+                        
+                        # تحديد حالة الزر على أنه تم الضغط عليه
+                        st.session_state.update_button_clicked = True
+                        
+                        # إعادة تحميل البيانات من ملف CSV لتحديث العرض
+                        st.experimental_rerun()
+
+# إعادة تعيين حالة الزر عند إعادة تحميل الصفحة
+                if st.session_state.update_button_clicked:
+                    st.session_state.update_button_clicked = False
+
+# تحميل الملف عند الطلب
+                if st.button('Download Updated CSV'):
+                    csv = df.to_csv(index=False).encode('utf-8')
                     st.download_button(
-                        label="Download csv",
-                        data=excel,
+                        label="Download CSV",
+                        data=csv,
                         file_name='updated_inventory.csv',
-                        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                        mime='text/csv',
                     )
             with col3:
                 st.subheader('image  for  these  part')
