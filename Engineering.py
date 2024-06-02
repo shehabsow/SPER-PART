@@ -52,7 +52,7 @@ if page == 'Mechanical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                url = 'https://drive.google.com/file/d/1D-616oIyvdCAudFIRJb5s1A8KGHiGfvv/view?usp=drive_link'
+                url = 'https://drive.google.com/file/d/1D-616oIyvdCAudFIRJb5s1A8KGHiGfvv/view?usp=sharing'
                 @st.cache_data
                 def load_data():
                     # تحميل الملف من Google Drive
