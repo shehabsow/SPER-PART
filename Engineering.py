@@ -13,7 +13,7 @@ st.set_page_config(
 
 df_f = pd.read_csv('Eng Spare parts.csv')
 
-
+url = 'https://drive.google.com/file/d/1D-616oIyvdCAudFIRJb5s1A8KGHiGfvv/view?usp=drive_link'
 
 csv_path = 'Eng Spare parts.csv'
 
@@ -59,10 +59,18 @@ if page == 'Mechanical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                if os.path.exists(csv_path):
-                    df_f = pd.read_csv(csv_path)
-                else:
-                    df_f.to_csv(csv_path, index=False)
+                @st.cache_data
+                def load_data():
+                    # تحميل الملف من Google Drive
+                    response = requests.get(url)
+                    with open('Eng Spare parts.csv', 'wb') as file:
+                        file.write(response.content)
+                    return pd.read_csv('Eng Spare parts.csv')
+                def save_data(df_f):
+                    df.to_csv('Eng Spare parts.csv', index=False)
+                    st.experimental_rerun()
+                
+                df_f = load_data()
                     
                 peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
                 st.dataframe(peraing,width=2000)
