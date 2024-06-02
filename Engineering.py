@@ -13,7 +13,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 
 
-
+csv_path = 'Eng Spare parts.csv'
 
 
 
@@ -57,8 +57,45 @@ if page == 'Mechanical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
+                if os.path.exists(csv_path):
+                    df_f = pd.read_csv(csv_path)
+                else:
+                    df_f.to_csv(csv_path, index=False)
+                    
                 peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
                 st.dataframe(peraing,width=2000)
+                st.title('Inventory Management')
+
+                # عرض الداتا فري
+                # اختيار رقم الصف
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+
+                # عرض المعلومات عن الصف المختار
+                st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
+
+                # اختيار كمية الخصم
+                deduct_quantity = st.number_input('Enter quantity to deduct:', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+
+                # زر لتحديث الكمية
+                if st.button('Update Quantity'):
+                    # خصم الكمية المحددة
+                    df_f.loc[row_number, 'Qty.'] -= deduct_quantity
+                    st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
+                    
+                    # تحديث البيانات في ملف CSV
+                    df_f.to_csv('Eng Spare parts.csv', index=False)
+                    
+                    # إعادة تحميل البيانات من ملف CSV لتحديث العرض
+                    st.experimental_rerun()
+                if st.button('Download Updated csv'):
+                    csv = df_f.to_csv(index=False)
+                    st.download_button(
+                        label="Download csv",
+                        data=excel,
+                        file_name='updated_inventory.csv',
+                        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                    )
             with col3:
                 st.subheader('image  for  these  part')
 
