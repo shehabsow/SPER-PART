@@ -52,11 +52,7 @@ if page == 'Mechanical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                if os.path.exists(csv_path):
-                    df_f = pd.read_csv(csv_path)
-                else:
-                    df_f.to_csv(csv_path, index=False)
-                  
+               
                 peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
                 st.dataframe(peraing,width=2000)
                 st.title('Inventory Management')
