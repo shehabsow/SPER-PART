@@ -179,7 +179,22 @@ if page == 'Mechanical parts':
             st.session_state.update_button_clicked = False
     
     # تحميل الملف عند الطلب
+        if st.button('Update Quantity'):
+            df_f.loc[row_number, 'Qty.'] += add_quantity
+            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_number, 'Qty.']}")
+            df_f.to_csv('data.csv', index=False)
         
+        # إضافة سطر جديد
+        st.markdown("<h3 style='color: #000000;'>Add New Item</h3>", unsafe_allow_html=True)
+        new_item = st.text_input('Enter item description:')
+        new_quantity = st.number_input('Enter quantity:', min_value=0, step=1)
+
+# إضافة السطر الجديد عند الضغط على زر الإضافة
+        if st.button('Add New Item'):
+            new_row = {'Item description': new_item, 'Qty.': new_quantity}
+            df_f = df_f.append(new_row, ignore_index=True)
+            st.success(f"New item '{new_item}' added successfully with quantity {new_quantity}!")
+            df_f.to_csv('data.csv', index=False)
         csv = df_f.to_csv(index=False).encode('utf-8')
         st.download_button(
             label="Download CSV",
