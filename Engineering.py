@@ -52,68 +52,48 @@ if page == 'Mechanical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                url = 'https://drive.google.com/file/d/1D-616oIyvdCAudFIRJb5s1A8KGHiGfvv/view?usp=sharing'
-                @st.cache_data
-                def load_data():
-                    # تحميل الملف من Google Drive
-                    response = requests.get(url)
-                    with open('inventory.csv', 'wb') as file:
-                        file.write(response.content)
-                    return pd.read_csv('inventory.csv')
-                
-                def save_data(df_f):
-                    df_f.to_csv('inventory.csv', index=False)
-                    st.experimental_rerun()
-                
-                df_f = load_data()
-               
                 peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
                 st.dataframe(peraing,width=2000)
                 st.title('Inventory Management')
 
                 # عرض الداتا فري
                 # اختيار رقم الصف
-                
-                
-                st.title('Inventory Management')
-                
-                # عرض الداتا فريم
-             
-                
-                # اختيار رقم الصف
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df)-1, step=1)
-                
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+
                 # عرض المعلومات عن الصف المختار
-                st.write(f"Selected Item: {df.loc[row_number, 'Item']}")
-                st.write(f"Current Quantity: {df.loc[row_number, 'Quantity']}")
-                
+                st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
+
                 # اختيار كمية الخصم
-                deduct_quantity = st.number_input('Enter quantity to deduct:', min_value=1, max_value=int(df.loc[row_number, 'Quantity']), step=1)
-                
-                # التأكد من وجود session_state لزر التحديث
+                deduct_quantity = st.number_input('Enter quantity to deduct:', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+
+                # زر لتحديث الكمية
                 if 'update_button_clicked' not in st.session_state:
                     st.session_state.update_button_clicked = False
-                
-                # زر لتحديث الكمية
+
+# زر لتحديث الكمية
                 if st.button('Update Quantity'):
                     if not st.session_state.update_button_clicked:
-                        # خصم الكمية المحددة
-                        df.loc[row_number, 'Quantity'] -= deduct_quantity
-                        st.success(f'{deduct_quantity} units deducted from {df.loc[row_number, "Item"]}.')
+        # خصم الكمية المحددة
+                        df_f.loc[row_number, 'Qty.'] -= deduct_quantity
+                        st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
                         
                         # تحديث البيانات في ملف CSV
-                        save_data(df)
+                        df_f.to_csv(csv_path, index=False)
                         
                         # تحديد حالة الزر على أنه تم الضغط عليه
                         st.session_state.update_button_clicked = True
-                
-                # إعادة تعيين حالة الزر عند إعادة تحميل الصفحة
+                        
+                        # إعادة تحميل البيانات من ملف CSV لتحديث العرض
+                        st.experimental_rerun()
+
+# إعادة تعيين حالة الزر عند إعادة تحميل الصفحة
                 if st.session_state.update_button_clicked:
                     st.session_state.update_button_clicked = False
-                
-                # تحميل الملف عند الطلب
+
+# تحميل الملف عند الطلب
                 if st.button('Download Updated CSV'):
-                    csv = df.to_csv(index=False).encode('utf-8')
+                    csv = df_f.to_csv(index=False).encode('utf-8')
                     st.download_button(
                         label="Download CSV",
                         data=csv,
