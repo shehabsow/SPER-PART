@@ -176,7 +176,7 @@ if page == 'Mechanical parts':
                     st.session_state.update_button_clicked = False
 
 # زر لتحديث الكمية
-                if st.button('Update Quantity'):
+                if st.button('Update Quantity', key='Update_quantity'):
                     if not st.session_state.update_button_clicked:
         # خصم الكمية المحددة
                         df_f.loc[row_number, 'Qty.'] -= deduct_quantity
