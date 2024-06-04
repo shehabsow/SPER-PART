@@ -135,7 +135,24 @@ if page == 'Mechanical parts':
         col1, col2, col3 = st.columns([1,2,2])
         with col1:
 
-            deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+            input_style = """
+<style>
+.custom-label {
+    color: #FF5733;
+    font-size: 20px;
+    font-weight: bold;
+}
+</style>
+"""
+
+# Inject the custom CSS
+            st.markdown(input_style, unsafe_allow_html=True)
+            
+            # Custom label for the number input
+            st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
+            
+            # Number input for deducting quantity
+            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
 
         # زر لتحديث الكمية
         if 'update_button_clicked' not in st.session_state:
