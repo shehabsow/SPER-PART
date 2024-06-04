@@ -111,22 +111,22 @@ if page == 'Mechanical parts':
 
     # عرض المعلومات عن الصف المختار
         
-        
-        item_style = """
-<style>
-.item-text {
-    color: #FF5733;
-    font-size: 24px;
-}
-.quantity-text {
-    color: #33C3FF;
-    font-size: 24px;
-}
-</style>
-"""
-
-# Inject the custom CSS
-        st.markdown(item_style, unsafe_allow_html=True)
+            
+            item_style = """
+    <style>
+    .item-text {
+        color: #FF5733;
+        font-size: 24px;
+    }
+    .quantity-text {
+        color: #33C3FF;
+        font-size: 24px;
+    }
+    </style>
+    """
+    
+    # Inject the custom CSS
+            st.markdown(item_style, unsafe_allow_html=True)
         
         # Display the selected item and current quantity with custom styles
         st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
