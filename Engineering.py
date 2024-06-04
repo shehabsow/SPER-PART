@@ -140,7 +140,7 @@ if page == 'Mechanical parts':
 .custom-label {
     color: #000000;
     font-size: 20px;
-    font-weight: bold;
+    
 }
 </style>
 """
