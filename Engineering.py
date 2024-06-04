@@ -103,7 +103,7 @@ if page == 'Mechanical parts':
                     url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
-        st.title('Inventory Management')
+        st.subheader('Inventory Management')
         col1, col2, col3 = st.columns([1,2,2])
         with col1:
                 # عرض الداتا فري  
