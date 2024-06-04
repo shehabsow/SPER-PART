@@ -61,11 +61,11 @@ if page == 'Mechanical parts':
                 row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
 
                 # عرض المعلومات عن الصف المختار
-                st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
 
                 # اختيار كمية الخصم
-                deduct_quantity = st.number_input('Enter quantity to deduct:', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
 
                 # زر لتحديث الكمية
                 if 'update_button_clicked' not in st.session_state:
@@ -92,14 +92,14 @@ if page == 'Mechanical parts':
                     st.session_state.update_button_clicked = False
 
 # تحميل الملف عند الطلب
-                if st.button('Download Updated CSV'):
-                    csv = df_f.to_csv(index=False).encode('utf-8')
-                    st.download_button(
-                        label="Download CSV",
-                        data=csv,
-                        file_name='updated_inventory.csv',
-                        mime='text/csv',
-                    )
+                
+                csv = df_f.to_csv(index=False).encode('utf-8')
+                st.download_button(
+                    label="Download CSV",
+                    data=csv,
+                    file_name='updated_inventory.csv',
+                    mime='text/csv',
+                )
 
             with col3:
                 st.subheader('image  for  these  part')
