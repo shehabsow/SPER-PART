@@ -60,7 +60,7 @@ if page == 'Mechanical parts':
                 # اختيار رقم الصف
                 col4, col5, col6= st.columns([1,2,2])
                 with col4:    
-                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_number')
 
                 # عرض المعلومات عن الصف المختار
                     
@@ -69,7 +69,7 @@ if page == 'Mechanical parts':
                 col7, col8, col9 = st.columns([1,2,2])
                 with col7:
     
-                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='deduct_quantity')
     
                     # زر لتحديث الكمية
                 if 'update_button_clicked' not in st.session_state:
@@ -160,7 +160,7 @@ if page == 'Mechanical parts':
                 st.dataframe(Belts,width=2000)
                 col10, col11, col12 = st.columns([1,2,2])
                 with col10:    
-                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_number')
 
                 # عرض المعلومات عن الصف المختار
                     
@@ -169,7 +169,7 @@ if page == 'Mechanical parts':
                 col13, col14, col15 = st.columns([1,2,2])
                 with col13:
     
-                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='deduct_quantity')
     
                     # زر لتحديث الكمية
                 if 'update_button_clicked' not in st.session_state:
