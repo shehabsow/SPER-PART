@@ -58,8 +58,8 @@ if page == 'Mechanical parts':
 
                 # عرض الداتا فري
                 # اختيار رقم الصف
-                col1, col2, col3= st.columns([1,2,2])
-                with col1:    
+                4, 5, 6= st.columns([1,2,2])
+                with 4:    
                     row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
 
                 # عرض المعلومات عن الصف المختار
