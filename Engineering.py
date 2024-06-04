@@ -52,13 +52,6 @@ if page == 'Mechanical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-               
-                peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
-                st.dataframe(peraing,width=2000)
-                st.title('Inventory Management')
-
-                # عرض الداتا فري
-                # اختيار رقم الصف
                 @st.cache_data
                 def load_data():
                     # تحميل الملف من Google Drive
@@ -67,16 +60,24 @@ if page == 'Mechanical parts':
                         file.write(response.content)
                     return pd.read_csv('inventory.csv')
                 
-                def save_data(df):
+                def save_data(df_f):
                     df.to_csv('inventory.csv', index=False)
                     st.experimental_rerun()
                 
-                df = load_data()
+                df_f = load_data()
+               
+                peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
+                st.dataframe(peraing,width=2000)
+                st.title('Inventory Management')
+
+                # عرض الداتا فري
+                # اختيار رقم الصف
+                
                 
                 st.title('Inventory Management')
                 
                 # عرض الداتا فريم
-                st.dataframe(df)
+             
                 
                 # اختيار رقم الصف
                 row_number = st.number_input('Select row number:', min_value=0, max_value=len(df)-1, step=1)
