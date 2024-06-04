@@ -203,6 +203,7 @@ if page == 'Mechanical parts':
                     data=csv,
                     file_name='updated_inventory.csv',
                     mime='text/csv',
+                    key='download'
                 )
             with col3:
                 st.subheader('image  for  these  part')
