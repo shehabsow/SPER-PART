@@ -138,7 +138,7 @@ if page == 'Mechanical parts':
             input_style = """
 <style>
 .custom-label {
-    color: #FF5733;
+    color: #000000;
     font-size: 20px;
     font-weight: bold;
 }
