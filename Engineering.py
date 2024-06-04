@@ -60,7 +60,7 @@ if page == 'Mechanical parts':
                 # اختيار رقم الصف
                 col11, col12, col13 = st.columns([1,2,2])
                 with col11:    
-                    row_number = st.number_input('Select row number:', min_value=0.0, max_value=len(df_f)-1, step=1)
+                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
 
                 # عرض المعلومات عن الصف المختار
                     
@@ -69,7 +69,7 @@ if page == 'Mechanical parts':
                 col14, col15, col16 = st.columns([1,2,2])
                 with col14:
     
-                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
     
                     # زر لتحديث الكمية
                 if 'update_button_clicked' not in st.session_state:
