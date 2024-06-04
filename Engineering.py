@@ -120,7 +120,7 @@ if page == 'Mechanical parts':
 }
 .quantity-text {
     color: #33C3FF;
-    font-size: 20px;
+    font-size: 24px;
 }
 </style>
 """
