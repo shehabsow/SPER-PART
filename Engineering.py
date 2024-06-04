@@ -158,7 +158,7 @@ if page == 'Mechanical parts':
             with col1:
                 Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
                 st.dataframe(Belts,width=2000)
-                col10, col11, col12 st.columns([1,2,2])
+                col10, col11, col12 = st.columns([1,2,2])
                 with col10:    
                     row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
 
