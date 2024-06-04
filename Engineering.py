@@ -66,9 +66,10 @@ if page == 'Mechanical parts':
                     
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                col14, col15, col16 = st.columns([1,2,2])
+                with col14:
     
-                    # اختيار كمية الخصم
-                deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
     
                     # زر لتحديث الكمية
                 if 'update_button_clicked' not in st.session_state:
