@@ -1058,7 +1058,7 @@ if page == 'Utility area':
                     st.image(image33, width=150)
                     url = 'https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/conductivity-transmitter-clm223?t.tabId=product-overview'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            st.subheader('Inventory Management')
+        st.subheader('Inventory Management')
         col1, col2, col3 = st.columns([1,2,2])
         with col1:
                 # عرض الداتا فري  
