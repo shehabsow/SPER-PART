@@ -154,8 +154,8 @@ if page == 'Mechanical parts':
 
 
         with tab2:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
+            colA1, colA2, colA3 = st.columns([30,3,13])
+            with colA1:
                 Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
                 st.dataframe(Belts,width=2000)
                 st.title('Inventory Management')
