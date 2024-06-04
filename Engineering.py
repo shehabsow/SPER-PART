@@ -519,7 +519,86 @@ if page == 'Electrical parts':
                     st.image(image59, width=150)
                     url = 'https://www.ifm.com/in/en/product/IF5345'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+        st.subheader('Inventory Management')
+        col1, col2, col3 = st.columns([1,2,2])
+        with col1:
+                # عرض الداتا فري  
+            row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+
+    # عرض المعلومات عن الصف المختار
+        
+        
+        item_style = """
+<style>
+.item-text {
+    color: #FF5733;
+    font-size: 24px;
+}
+.quantity-text {
+    color: #33C3FF;
+    font-size: 24px;
+}
+</style>
+"""
+
+# Inject the custom CSS
+        st.markdown(item_style, unsafe_allow_html=True)
+        
+        # Display the selected item and current quantity with custom styles
+        st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
+        st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
+
+        col1, col2, col3 = st.columns([1,2,2])
+        with col1:
+
+            input_style = """
+<style>
+.custom-label {
+    color: #000000;
+    font-size: 20px;
+    
+}
+</style>
+"""
+
+# Inject the custom CSS
+            st.markdown(input_style, unsafe_allow_html=True)
             
+            # Custom label for the number input
+            st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
+            
+            # Number input for deducting quantity
+            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+
+        # زر لتحديث الكمية
+        if 'update_button_clicked' not in st.session_state:
+            st.session_state.update_button_clicked = False
+    
+    # زر لتحديث الكمية
+        if st.button('Update Quantity'):
+            if not st.session_state.update_button_clicked:
+    # خصم الكمية المحددة
+                df_f.loc[row_number, 'Qty.'] -= deduct_quantity
+                st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
+                
+                # تحديث البيانات في ملف CSV
+                df_f.to_csv(csv_path, index=False)
+                
+                # تحديد حالة الزر على أنه تم الضغط عليه
+                st.session_state.update_button_clicked = True
+                
+                # إعادة تحميل البيانات من ملف CSV لتحديث العرض
+                st.experimental_rerun()
+    
+    # إعادة تعيين حالة الزر عند إعادة تحميل الصفحة
+       
+        csv = df_f.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="Download CSV",
+            data=csv,
+            file_name='updated_inventory.csv',
+            mime='text/csv',
+        )
         with tab2:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
