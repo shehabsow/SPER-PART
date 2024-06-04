@@ -62,7 +62,7 @@ if page == 'Mechanical parts':
                     return pd.read_csv('inventory.csv')
                 
                 def save_data(df_f):
-                    df.to_csv('inventory.csv', index=False)
+                    df_f.to_csv('inventory.csv', index=False)
                     st.experimental_rerun()
                 
                 df_f = load_data()
