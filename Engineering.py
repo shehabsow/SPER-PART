@@ -162,7 +162,7 @@ if page == 'Mechanical parts':
 
                 # عرض الداتا فري
                 # اختيار رقم الصف
-                col10, col11, col12= st.columns([1,2,2])
+                col4, col5, col6= st.columns([1,2,2])
                 with col10:    
                     row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
 
