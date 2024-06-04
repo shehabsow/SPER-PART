@@ -104,12 +104,14 @@ if page == 'Mechanical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
         st.title('Inventory Management')
-
+        col1, col2, col3 = st.columns([1,2,2])
+        with col1:
                 # عرض الداتا فري  
-        row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+            row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
 
     # عرض المعلومات عن الصف المختار
         
+     
         st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
         st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
 
