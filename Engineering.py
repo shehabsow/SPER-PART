@@ -64,8 +64,8 @@ if page == 'Mechanical parts':
 
                 # عرض المعلومات عن الصف المختار
                     
-                    st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                    st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
     
                     # اختيار كمية الخصم
                     deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=1, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
