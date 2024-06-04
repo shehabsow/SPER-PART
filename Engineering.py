@@ -149,9 +149,11 @@ if page == 'Mechanical parts':
             mime='text/csv',
         )
         with tab2:
-            Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
-            st.dataframe(Belts,width=2000)
-                
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
+                st.dataframe(Belts,width=2000)
+                    
             with col3:
                 st.subheader('image  for  these  part')
                 OPTIBELT ,FEC, timing_belt = st.tabs(['OPTIBELT','FEC','timing belt'])
