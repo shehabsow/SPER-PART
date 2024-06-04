@@ -154,60 +154,10 @@ if page == 'Mechanical parts':
 
 
         with tab2:
-            colA1, colA2, colA3 = st.columns([30,3,13])
-            with colA1:
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
                 Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
                 st.dataframe(Belts,width=2000)
-                st.title('Inventory Management')
-
-                # عرض الداتا فري
-                # اختيار رقم الصف
-                col4, col5, col6= st.columns([1,2,2])
-                with col4:    
-                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
-
-                # عرض المعلومات عن الصف المختار
-                    
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                col13, col14, col15 = st.columns([1,2,2])
-                with col13:
-    
-                    deduct_quantity = st.number_input('Enter quantity to deduct :', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
-    
-                    # زر لتحديث الكمية
-                if 'update_button_clicked' not in st.session_state:
-                    st.session_state.update_button_clicked = False
-
-# زر لتحديث الكمية
-                if st.button('Update Quantity'):
-                    if not st.session_state.update_button_clicked:
-        # خصم الكمية المحددة
-                        df_f.loc[row_number, 'Qty.'] -= deduct_quantity
-                        st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
-                        
-                        # تحديث البيانات في ملف CSV
-                        df_f.to_csv(csv_path, index=False)
-                        
-                        # تحديد حالة الزر على أنه تم الضغط عليه
-                        st.session_state.update_button_clicked = True
-                        
-                        # إعادة تحميل البيانات من ملف CSV لتحديث العرض
-                        st.experimental_rerun()
-
-# إعادة تعيين حالة الزر عند إعادة تحميل الصفحة
-                if st.session_state.update_button_clicked:
-                    st.session_state.update_button_clicked = False
-
-# تحميل الملف عند الطلب
-                
-                csv = df_f.to_csv(index=False).encode('utf-8')
-                st.download_button(
-                    label="Download CSV",
-                    data=csv,
-                    file_name='updated_inventory.csv',
-                    mime='text/csv',
-                )
             with col3:
                 st.subheader('image  for  these  part')
                 OPTIBELT ,FEC, timing_belt = st.tabs(['OPTIBELT','FEC','timing belt'])
