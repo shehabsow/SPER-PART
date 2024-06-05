@@ -872,6 +872,7 @@ if page == 'Electrical parts':
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Sensor)
+            display_tab('Control')
         with tab15:
             Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
             st.dataframe(Conductor)
