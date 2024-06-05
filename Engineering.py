@@ -1481,6 +1481,9 @@ if page == 'LOTOTO':
 
         LOTOTO = df_f[df_f['Comments'] == 'Lototo'].sort_values(by='Comments')
         st.dataframe(LOTOTO)
+        col4, col5, col6 = st.columns([3,1,2])
+        with col4:
+            display_tab('LOTOTO')
 
     if __name__ == '__main__':
 
@@ -1517,12 +1520,21 @@ if page == 'GLATT':
         with tab1:
             Glatt_nozzle = df_f[df_f['Comments'] == 'Glatt nozzle'].sort_values(by='Comments')
             st.dataframe(Glatt_nozzle)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Glatt_nozzle')
         with tab2:
             Glatt_switch = df_f[df_f['Comments'] == 'Glatt  switch'].sort_values(by='Comments')
             st.dataframe(Glatt_switch)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Glatt_switch')
         with tab3:
             Glatt_valve = df_f[df_f['Comments'] == 'Glatt valve'].sort_values(by='Comments')
             st.dataframe(Glatt_valve)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Glatt_valve')
 
     if __name__ == '__main__':
 
@@ -1558,7 +1570,9 @@ if page == 'FETTE':
         with col1:
             FETTE = df_f[df_f['Comments'] == 'Fette'].sort_values(by='Comments')
             st.dataframe(FETTE)
-
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('FETTE')
         with col3:
             if st.button('image  for  these  part'):
 
