@@ -509,7 +509,7 @@ if page == 'Electrical parts':
                 row_number = st.selectbox('Select row number :', df_f.index, key='tab1')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                add_quantity = st.number_input('Enter quantity to add for Tab1:', min_value=0, step=1, key='tab1_qty')
+                add_quantity = st.number_input('Enter quantity to add for Proximity:', min_value=0, step=1, key='tab1_qty')
                 if st.button('Update Quantity'):
                     update_quantity(row_number, add_quantity)
 
@@ -544,7 +544,7 @@ if page == 'Electrical parts':
                 row_number = st.selectbox('Select row number :', df_f.index, key='tab2')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                add_quantity = st.number_input('Enter quantity to add for Tab1:', min_value=0, step=1, key='tab1_qty')
+                add_quantity = st.number_input('Enter quantity to add for Sensor:', min_value=0, step=1, key='tab2_qty')
                 if st.button('Update Quantity'):
                     update_quantity(row_number, add_quantity)
             with col3:
