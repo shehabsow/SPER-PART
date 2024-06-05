@@ -518,6 +518,7 @@ if page == 'Electrical parts':
                     st.image(image62, width=150)
                     url = 'https://www.electricautomationnetwork.com/en/datalogic/s41-photoelectric-sensors-datalogic-s41-2-c-p-950701010'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             
         with tab3:
             col1, col2, col3 = st.columns([30,3,13])
@@ -533,6 +534,7 @@ if page == 'Electrical parts':
                 st.image(image63, width=150)
                 url = 'https://www.wenglor.com/en/Sensors/Photoelectronic-Sensors/Fiber-Optic-Sensors/Fiber-Optic-Cable-Amplifiers/Fiber-optic-amplifier/p/UM55PA2'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
     
         with tab4:
             col1, col2, col3 = st.columns([30,3,13])
@@ -548,6 +550,7 @@ if page == 'Electrical parts':
                 st.image(image64, width=150)
                 url = 'https://www.pepperl-fuchs.com/global/en/classid_6.htm?view=productdetails&prodid=95425'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
             
         with tab5:
             col1, col2, col3 = st.columns([30,3,13])
@@ -564,6 +567,7 @@ if page == 'Electrical parts':
                 st.image(image65, width=150)
                 url = 'https://ie.farnell.com/hirschmann/ca6ld/cir-connector-receptacle-6pos/dp/3611905'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
             
         with tab6:
             col1, col2, col3 = st.columns([30,3,13])
@@ -579,6 +583,7 @@ if page == 'Electrical parts':
                 st.image(image66, width=150)
                 url = 'https://www.se.com/eg/en/product/XA2ED33/selector-switch-%C3%B822-standard-handle-3-positions-2no/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
             
         with tab7:
             col1, col2, col3 = st.columns([30,3,13])
@@ -594,6 +599,7 @@ if page == 'Electrical parts':
                 st.image(image67, width=150)
                 url = 'https://za.rs-online.com/web/p/push-button-heads/3308975/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
             
         with tab8:
             col1, col2, col3 = st.columns([30,3,13])
@@ -621,6 +627,7 @@ if page == 'Electrical parts':
                     st.image(image70, width=150)
                     url = 'https://www.se.com/th/en/all-products'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             
         with tab9:
             col1, col2, col3 = st.columns([30,3,13])
@@ -643,6 +650,7 @@ if page == 'Electrical parts':
                     st.image(image72, width=150)
                     url = 'https://www.ledoutletpr.com/products/flood-lamp-200w'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             
         with tab10:
             col1, col2, col3 = st.columns([30,3,13])
@@ -658,6 +666,7 @@ if page == 'Electrical parts':
                 st.image(image73, width=150)
                 url = 'https://au.element14.com/multicomp/sf23080a-2083hsl-gn/fan-80mm-230vac-23cfm-31dba/dp/9606238'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
             
         with tab11:
             col1, col2, col3 = st.columns([30,3,13])
@@ -685,6 +694,7 @@ if page == 'Electrical parts':
                     st.image(image76, width=150)
                     url = 'https://www.wenglor.com/pt/Sensors/Sensores-optoelectronicos/Fiber-Optic-Sensors/Glass-Fiber-Optic-Cables/Glass-Fiber-Optic-Cable-Through-Beam-Mode/p/SLK2313'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             
         with tab12:
             col1, col2, col3 = st.columns([30,3,13])
@@ -730,6 +740,7 @@ if page == 'Electrical parts':
                     st.image(image77, width=150)
                     url = 'https://makerselectronics.com/product/fuse-1a-250v-t5x20mm'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                     
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
@@ -1046,90 +1057,113 @@ if page == 'Utility area':
                 with col1:
                     Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
                     st.dataframe(Conductivity_transmitter)
-                   
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Conductivity_transmitter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image33 = open('images/33.jpg', 'rb').read()
                     st.image(image33, width=100)
                     url = 'https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/conductivity-transmitter-clm223?t.tabId=product-overview'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                   
             with tab2:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Flowmeter_controller = df_f[df_f['Comments'] == 'Flowmeter controller'].sort_values(by='Comments')
                     st.dataframe(Flowmeter_controller)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Flowmeter_controller')
                 with col3:
                     st.subheader('image  for  these  part')
                     image34= open('images/34.PNG', 'rb').read()
                     st.image(image34, width=150)
                     url = 'https://www.burkert.com/en/type/8035'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 
             with tab3:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Flow_module = df_f[df_f['Comments'] == 'Flow module'].sort_values(by='Comments')
                     st.dataframe(Flow_module)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Flow_module')
                 with col3:
                     st.subheader('image  for  these  part')
                     image35= open('images/35.PNG', 'rb').read()
                     st.image(image35, width=150)
                     url = 'https://www.burkert.com/en/type/SE32'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 
             with tab4:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Flow_monitor = df_f[df_f['Comments'] == 'Flow monitor sensor'].sort_values(by='Comments')
                     st.dataframe(Flow_monitor)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Flow_monitor')
                 with col3:
                     st.subheader('image  for  these  part')
                     image36= open('images/36.PNG', 'rb').read()
                     st.image(image36, width=150)
                     url = 'https://www.ifm.com/de/en/product/SI1000'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 
             with tab5:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     conductivity = df_f[df_f['Comments'] == 'Water conductivity'].sort_values(by='Comments')
                     st.dataframe(conductivity)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('conductivity')
                 with col3:
                     st.subheader('image  for  these  part')
                     image37= open('images/37.PNG', 'rb').read()
                     st.image(image37, width=150)
                     url = 'https://www.directindustry.com/prod/emerson-automation-solutions-rosemount/product-36718-949557.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 
             with tab6:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     STILMAS_SENSOR = df_f[df_f['Comments'] == 'Stilmas sensor'].sort_values(by='Comments')
                     st.dataframe(STILMAS_SENSOR)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('STILMAS_SENSOR')
                 with col3:
                     st.subheader('image  for  these  part')
                     image38= open('images/38.PNG', 'rb').read()
                     st.image(image38, width=150)
                     url = 'https://www.ifm.com/my/en/product/TR7432'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 
             with tab8:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    
                     Valve = df_f[df_f['Comments'] == 'Water valve'].sort_values(by='Comments')
                     st.dataframe(Valve)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Valve')
                 with col3:
                     st.subheader('image  for  these  part')
-
                     pressure_transmitter, Angle_Valve   = st.tabs(['pressure_transmitter','Angle_Valve '])
                     with pressure_transmitter:
                         image39 = open('images/39.PNG', 'rb').read()
                         st.image(image39, width=150)
                         url = 'https://www.endress.com/en/field-instruments-overview/pressure/pressure-transmitter-cerabar-pmp71b?t.tabId=product-overview'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                     with Angle_Valve :
                         image40 = open('images/40.PNG', 'rb').read()
                         st.image(image40, width=150)
@@ -1139,41 +1173,42 @@ if page == 'Utility area':
             with tab9:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    
                     test = df_f[df_f['Comments'] == 'Water test '].sort_values(by='Comments')
                     st.dataframe(test)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('test')
                 with col3:
                     st.subheader('image  for  these  part')
-
                     PHOTOMETERS, Colorimetric = st.tabs(['PHOTOMETERS','Colorimetric'])
                     with PHOTOMETERS:
                         image42 = open('images/42.PNG', 'rb').read()
                         st.image(image42, width=150)
                         url = 'https://www.hannaservice.eu/water/environmental/photometers'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                     with Colorimetric:
                         image41 = open('images/41.PNG', 'rb').read()
                         st.image(image41, width=150)
                         url = 'https://www.hannaservice.eu/total-hardness-colorimetric-reagents-hi93735-0-product'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
                 
             with tab10:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    
                     pump = df_f[df_f['Comments'] == 'Water pump'].sort_values(by='Comments')
                     st.dataframe(pump)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('pump')
                 with col3:
                     st.subheader('image  for  these  part')
-
                     LOBE_PUMP,WHEEL_PUMP = st.tabs(['LOBE PUMP','WHEEL PUMP'])
                     with LOBE_PUMP:
                         image43 = open('images/43.jpg', 'rb').read()
                         st.image(image43, width=150)
                         url = 'https://www.chinastainlesssteelpump.com/Stainless-Steel-rotary-lobe-Pumps/Rotary-Lobe-Pumps-for-Chocolate.html'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                     with WHEEL_PUMP:
                         image44 = open('images/44.jpg', 'rb').read()
                         st.image(image44, width=150)
@@ -1183,9 +1218,11 @@ if page == 'Utility area':
             with tab12:
                 col1, col2, col3 = st.columns([30,3,13])
             with col1:
-
                 Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
                 st.dataframe(Uv)
+                col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Uv')
             with col3:
                 st.subheader('image  for  these  part')
                 image45 = open('images/45.jpeg', 'rb').read()
@@ -1193,12 +1230,15 @@ if page == 'Utility area':
                 url = 'https://pureaqua.com/viqua-sterilight-uv/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
+                
             with tab13:
                 col1, col2, col3 = st.columns([30,3,13])
             with col1:
-
                 Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
                 st.dataframe(Ro)
+                col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Ro')
             with col3:
                 st.subheader('image  for  these  part')
                 image46 = open('images/46.jpeg', 'rb').read()
@@ -1207,15 +1247,18 @@ if page == 'Utility area':
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
                 
+                
         elif select_col == 'Fire Fighting':
             
             Fire_detector, Fire_valve = st.tabs(['Fire_detector','Fire_valve'])
             with Fire_detector:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-
                     Fire_detector = df_f[df_f['Comments'] == 'Fire detector'].sort_values(by='Comments')
                     st.dataframe(Fire_detector)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Fire_detector')
                 with col3:
                     st.subheader('image  for  these  part')
                     image47 = open('images/47.PNG', 'rb').read()
@@ -1227,9 +1270,11 @@ if page == 'Utility area':
             with Fire_valve:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-
                     Fire_valve = df_f[df_f['Comments'] == 'Fire valve'].sort_values(by='Comments')
                     st.dataframe(Fire_valve)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Fire_valve')
                 with col3:
                     st.subheader('image  for  these  part')
                     image48 = open('images/48.PNG', 'rb').read()
@@ -1241,9 +1286,11 @@ if page == 'Utility area':
         elif select_col == 'AHU':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-
                 AHU_Valve = df_f[df_f['Comments'] == 'Valve ahu'].sort_values(by='Comments')
                 st.dataframe(AHU_Valve)
+                col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('AHU_Valve')
             with col3:
                 st.subheader('image  for  these  part')
                 image49 = open('images/49.PNG', 'rb').read()
@@ -1263,6 +1310,9 @@ if page == 'Utility area':
                 with col1:
                     Hepa_filter = df_f[df_f['Comments'] == 'Hepa filter'].sort_values(by='Comments')
                     st.dataframe(Hepa_filter)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Hepa_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image50 = open('images/50.PNG', 'rb').read()
@@ -1276,6 +1326,9 @@ if page == 'Utility area':
                 with col1:
                     High_filter = df_f[df_f['Comments'] == 'High filter'].sort_values(by='Comments')
                     st.dataframe(High_filter)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('High_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image51 = open('images/51.PNG', 'rb').read()
@@ -1289,6 +1342,9 @@ if page == 'Utility area':
                 with col1:
                     Pre_filter = df_f[df_f['Comments'] == 'Pre-filter'].sort_values(by='Comments')
                     st.dataframe(Pre_filter)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Pre_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image52 = open('images/52.PNG', 'rb').read()
@@ -1302,6 +1358,9 @@ if page == 'Utility area':
                 with col1:
                     Packfilter = df_f[df_f['Comments'] == 'Packfilter'].sort_values(by='Comments')
                     st.dataframe(Packfilter)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Packfilter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image53 = open('images/53.PNG', 'rb').read()
@@ -1315,6 +1374,9 @@ if page == 'Utility area':
                 with col1:
                     Pump_filter = df_f[df_f['Comments'] == 'Pump filter'].sort_values(by='Comments')
                     st.dataframe(Pump_filter)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Pump_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image55 = open('images/55.PNG', 'rb').read()
@@ -1328,6 +1390,9 @@ if page == 'Utility area':
                 with col1:
                     Emflon_filter = df_f[df_f['Comments'] == 'Emflon filter'].sort_values(by='Comments')
                     st.dataframe(Emflon_filter)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Emflon_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image54 = open('images/54.PNG', 'rb').read()
@@ -1341,12 +1406,17 @@ if page == 'Utility area':
                 with col1:
                     Filters_cartage = df_f[df_f['Comments'] == 'Filters cartage'].sort_values(by='Comments')
                     st.dataframe(Filters_cartage)
+                    col4, col5, col6 = st.columns([3,1,2])
+                    with col4:
+                        display_tab('Filters_cartage')
                 with col3:
                     st.subheader('image  for  these  part')
                     image56 = open('images/56.PNG', 'rb').read()
                     st.image(image56, width=150)
                     url = 'https://shop.pall.com/us/en/food-beverage/zidimmfdh4o'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+            csv = df_f.to_csv(index=False)
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
                     
                   
             
