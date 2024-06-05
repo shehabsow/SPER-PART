@@ -839,50 +839,50 @@ if page == 'Electrical parts':
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Sensor)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Control')
+            with col4:
+                display_tab('Control')
         with tab15:
             Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
             st.dataframe(Conductor)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Conductor')
+            with col4:
+                display_tab('Conductor')
         with tab16:
             Contactor = df_f[df_f['Comments'] == 'Contactor'].sort_values(by='Comments')
             st.dataframe(Contactor)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Contactor')
+            with col4:
+                display_tab('Contactor')
         with tab17:
             Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
             st.dataframe(Controller)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Controller')
+            with col4:
+                display_tab('Controller')
         with tab18:
             Inverter = df_f[df_f['Comments'] == 'Inverter'].sort_values(by='Comments')
             st.dataframe(Inverter)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Inverter')
+            with col4:
+                display_tab('Inverter')
         with tab19:
             Relay = df_f[df_f['Comments'] == 'Relay'].sort_values(by='Comments')
             st.dataframe(Relay)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Relay')
+            with col4:
+                display_tab('Relay')
         with tab20:
             Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
             st.dataframe(Jumper)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Jumper')
+            with col4:
+                display_tab('Jumper')
         with tab21:
             Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
             st.dataframe(Panel)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Panel')
+            with col4:
+                display_tab('Panel')
         with tab22:
             Heater = df_f[df_f['Comments'] == 'Heater'].sort_values(by='Comments')
             st.dataframe(Heater)
@@ -890,14 +890,14 @@ if page == 'Electrical parts':
             Thermostate = df_f[df_f['Comments'] == 'Thermostate'].sort_values(by='Comments')
             st.dataframe(Thermostate)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Thermostate')
+            with col4:
+                display_tab('Thermostate')
         with tab24:
             Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
             st.dataframe(Thermocouple)
             col4, col5, col6 = st.columns([3,1,2])
-                with col4:
-                    display_tab('Thermocouple')
+            with col4:
+                display_tab('Thermocouple')
 
         st.header('Select from these items')
      
