@@ -584,6 +584,13 @@ if page == 'Electrical parts':
                 
                 Fiber_sensor = df_f[df_f['Comments'] == 'Fiber sensor'].sort_values(by='Comments')
                 st.dataframe(Fiber_sensor)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
                 image63 = open('images/63.PNG', 'rb').read()
@@ -610,6 +617,13 @@ if page == 'Electrical parts':
                 
                 Socket = df_f[df_f['Comments'] == 'Socket'].sort_values(by='Comments')
                 st.dataframe(Socket)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
                 image65 = open('images/65.PNG', 'rb').read()
@@ -623,6 +637,13 @@ if page == 'Electrical parts':
                 
                 Selector = df_f[df_f['Comments'] == 'Selector'].sort_values(by='Comments')
                 st.dataframe(Selector)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
                 image66 = open('images/66.PNG', 'rb').read()
@@ -636,6 +657,13 @@ if page == 'Electrical parts':
                 
                 Button = df_f[df_f['Comments'] == 'Button'].sort_values(by='Comments')
                 st.dataframe(Button)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
                 image67= open('images/67.PNG', 'rb').read()
@@ -649,6 +677,13 @@ if page == 'Electrical parts':
                 
                 Switch = df_f[df_f['Comments'] == 'Switch'].sort_values(by='Comments')
                 st.dataframe(Switch)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -677,6 +712,13 @@ if page == 'Electrical parts':
                 
                 Light = df_f[df_f['Comments'] == 'Light'].sort_values(by='Comments')
                 st.dataframe(Light)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -699,6 +741,13 @@ if page == 'Electrical parts':
                 
                 Fan = df_f[df_f['Comments'] == 'Fan'].sort_values(by='Comments')
                 st.dataframe(Fan)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
                 image73= open('images/73.PNG', 'rb').read()
@@ -712,6 +761,13 @@ if page == 'Electrical parts':
                 
                 Cable = df_f[df_f['Comments'] == 'Cable'].sort_values(by='Comments')
                 st.dataframe(Cable)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -740,6 +796,13 @@ if page == 'Electrical parts':
                 
                 Fuse = df_f[df_f['Comments'] == 'Fuse'].sort_values(by='Comments')
                 st.dataframe(Fuse)
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
 
