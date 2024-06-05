@@ -141,7 +141,7 @@ if page == 'Mechanical parts':
         st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
             
             # Number input for deducting quantity
-            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='key1')
+        deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='key1')
 
         # زر لتحديث الكمية
         if 'update_button_clicked' not in st.session_state:
