@@ -860,6 +860,15 @@ if page == 'Electrical parts':
                 col16, col2, col3 = st.columns([30,3,13])
                 with col16:
                     display_tab('Converter')
+            with col3:
+                st.subheader('image  for  these  part')
+
+                GLASS,CRAMIC  = st.tabs(['GLASS','CRAMIC'])
+                with GLASS:
+                    image77 = open('images/77.PNG', 'rb').read()
+                    st.image(image77, width=150)
+                    url = 'https://makerselectronics.com/product/fuse-1a-250v-t5x20mm'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Sensor)
