@@ -134,14 +134,14 @@ if page == 'Mechanical parts':
             st.markdown(item_style, unsafe_allow_html=True)
         
         # Display the selected item and current quantity with custom styles
-        st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
-        st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
-    
-            # Custom label for the number input
-        st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
-            
-            # Number input for deducting quantity
-        deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='key1')
+            st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
+            st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
+        
+                # Custom label for the number input
+            st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
+                
+                # Number input for deducting quantity
+            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='key1')
 
         # زر لتحديث الكمية
         if 'update_button_clicked' not in st.session_state:
