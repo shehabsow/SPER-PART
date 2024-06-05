@@ -512,8 +512,8 @@ if page == 'Electrical parts':
                 with col11:
                 
                     row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
-                    st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                    st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                     quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1)
                     operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                     
