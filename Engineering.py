@@ -548,7 +548,7 @@ if page == 'Electrical parts':
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
                 st.dataframe(Proximity)
-                col11, col12, col13 = st.columns([3,1,2])
+                col1, col2, col3 = st.columns([3,1,2])
                 with col11:
                     display_tab('Proximity')
                 
