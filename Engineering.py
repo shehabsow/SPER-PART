@@ -495,10 +495,13 @@ if page == 'Electrical parts':
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
         'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
         
-        def update_quantity(row_index, quantity):
-            df_f.loc[row_index, 'Qty.'] += quantity
-            df_f.to_csv('data.csv', index=False)
-            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
+        def update_quantity(row_index, quantity, operation):
+            if operation == 'add':
+                df.loc[row_index, 'Qty.'] += quantity
+            elif operation == 'subtract':
+                df.loc[row_index, 'Qty.'] -= quantity
+            df.to_csv('data.csv', index=False)
+            st.success(f"Quantity updated successfully! New Quantity: {df.loc[row_index, 'Qty.']}")
 
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
@@ -506,12 +509,13 @@ if page == 'Electrical parts':
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
                 st.dataframe(Proximity)    
-                row_number = st.selectbox('Select row number :', df_f.index, key='tab1')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                add_quantity = st.number_input('Enter quantity to add for Proximity:', min_value=0, step=1, key='tab1_qty')
-                if st.button('Update Quantity', key='tab1'):
-                    update_quantity(row_number, add_quantity)
+                row_number = st.selectbox('Select row number for Tab1:', df.index, key='tab1_row')
+                st.write(f"Selected Item : {df.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
+                if st.button('Update Quantity for Tab1', key='tab1_btn'):
+                    update_quantity(row_number, quantity, operation)
 
             with col3:
                 st.subheader('image  for  these  part')
@@ -541,12 +545,13 @@ if page == 'Electrical parts':
                 
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
-                row_number = st.selectbox('Select row number :', df_f.index, key='tab2')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                add_quantity = st.number_input('Enter quantity to add for Sensor:', min_value=0, step=1, key='tab2_qty')
-                if st.button('Update Quantity', key='tab2'):
-                    update_quantity(row_number, add_quantity)
+                row_number = st.selectbox('Select row number for Tab2:', df.index, key='tab2_row')
+                st.write(f"Selected Item : {df.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
+                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                    update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
 
