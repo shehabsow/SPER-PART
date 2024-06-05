@@ -963,7 +963,7 @@ if page == 'Electrical parts':
             if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
                 update_quantity(row_number, quantity, operation)
             csv = df_f.to_csv(index=False)
-            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv'))
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
 
         tab25, tab26 ,tab27, tab28,tab29, tab30 ,tab31, tab32, tab33  = st.tabs(['Ups','Power strip','Power supply','Electricity','Electricity pin',
         'Feedback','Battery','Electronic board','Electronic buzzer'])
