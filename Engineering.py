@@ -488,13 +488,13 @@ if page == 'Electrical parts':
     </h2>
 """, unsafe_allow_html=True)
         st.subheader('Select from these items')
+        if 'df' not in st.session_state:
+            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+        df_f = st.session_state.df
         
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
         'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
-        if 'df' not in st.session_state:
-            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
         
-        df_f = st.session_state.df
         def update_quantity(row_index, quantity):
             df_f.loc[row_index, 'Qty.'] += quantity
             df_f.to_csv('data.csv', index=False)
@@ -505,15 +505,12 @@ if page == 'Electrical parts':
             with col1:
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
-                st.dataframe(Proximity)
-                df = st.session_state.df
-
-
-                row_number = st.selectbox('Select row number for Tab1:', df_f.index, key='tab1')
+                st.dataframe(Proximity)    
+                row_number = st.selectbox('Select row number :', df_f.index, key='tab1')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 add_quantity = st.number_input('Enter quantity to add for Tab1:', min_value=0, step=1, key='tab1_qty')
-                if st.button('Update Quantity for Tab1'):
+                if st.button('Update Quantity'):
                     update_quantity(row_number, add_quantity)
 
             with col3:
@@ -623,6 +620,12 @@ if page == 'Electrical parts':
                 
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
+                row_number = st.selectbox('Select row number :', df_f.index, key='tab1')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                add_quantity = st.number_input('Enter quantity to add for Tab1:', min_value=0, step=1, key='tab1_qty')
+                if st.button('Update Quantity'):
+                    update_quantity(row_number, add_quantity
             with col3:
                 st.subheader('image  for  these  part')
 
