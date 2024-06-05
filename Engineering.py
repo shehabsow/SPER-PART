@@ -515,7 +515,7 @@ if page == 'Electrical parts':
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1)
-                    operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                     
                     if st.button('Update Quantity'):
                         update_quantity(row_number, quantity, operation)
