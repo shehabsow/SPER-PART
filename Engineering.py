@@ -1067,13 +1067,14 @@ if page == 'Utility area':
                         df_f.loc[row_number, 'Qty.'] += quantity
                     elif operation == 'subtract':
                         df_f.loc[row_number, 'Qty.'] -= quantity
-                    st.success(f"Quantity updated successfully for {tab_name}! New Quantity: {df_f.loc[row_number, 'Qty.']}")
+                    
                     st.session_state.df = df_f  # تحديث البيانات في session_state
             
                     # حفظ DataFrame المعدل إلى ملف CSV مؤقت
                     df_f.to_csv('updated_data.csv', index=False)
                 if st.button(f'Refresh Data for {tab_name}', key=f'refresh_button_{tab_name}'):
                     update_data(tab_name)
+                    st.success(f"Quantity updated successfully for {tab_name}! New Quantity: {df_f.loc[row_number, 'Qty.']}")
                     
 
             tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
