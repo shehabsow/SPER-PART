@@ -905,6 +905,63 @@ if page == 'Electrical parts':
             st.dataframe(Thermocouple)
 
         st.header('Select from these items')
+        if 'df' not in st.session_state:
+            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+
+        df_f = st.session_state.df
+
+        def update_quantity(row_index, quantity, operation):
+            if operation == 'add':
+                df_f.loc[row_index, 'Qty.'] += quantity
+            elif operation == 'subtract':
+                df_f.loc[row_index, 'Qty.'] -= quantity
+            df_f.to_csv('data.csv', index=False)
+            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
+            st.session_state.update_button_clicked = True
+        
+        def display_tab(tab_name):
+            st.header(f'{tab_name} Tab')
+        
+            # تنسيق Select row number
+            st.markdown("""
+                <style>
+                .custom-input label {
+                    font-size: 20px; 
+                    color: blue; 
+                }
+                .custom-input input {
+                    font-size: 18px;
+                    color: black;
+                }
+                </style>
+                """, unsafe_allow_html=True)
+            row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(df_f)-1, step=1, key=f'{tab_name}_row_number', format='%d', class_='custom-input')
+        
+            # تنسيق الكتابة
+            st.markdown(f"""
+                <p style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>
+                <p style='font-size: 20px; color: green;'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>
+                """, unsafe_allow_html=True)
+            
+            # تنسيق Enter quantity
+            st.markdown("""
+                <style>
+                .custom-quantity-input label {
+                    font-size: 20px; 
+                    color: red; 
+                }
+                .custom-quantity-input input {
+                    font-size: 18px;
+                    color: black;
+                }
+                </style>
+                """, unsafe_allow_html=True)
+            quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'{tab_name}_quantity', format='%d', class_='custom-quantity-input')
+        
+            operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
+        
+            if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
+                update_quantity(row_number, quantity, operation)
 
         tab25, tab26 ,tab27, tab28,tab29, tab30 ,tab31, tab32, tab33  = st.tabs(['Ups','Power strip','Power supply','Electricity','Electricity pin',
         'Feedback','Battery','Electronic board','Electronic buzzer'])
