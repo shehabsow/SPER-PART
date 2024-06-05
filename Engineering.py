@@ -719,7 +719,7 @@ if page == 'Electrical parts':
             with col1:
                 Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
                 st.dataframe(Converter)
-                col16, col2, col31 = st.columns([3,1,2]])
+                col16, col2, col31 = st.columns([3,1,2])
                 with col16:
                     display_tab('Converter')
             with col3:
