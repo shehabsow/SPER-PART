@@ -821,7 +821,7 @@ if page == 'Electrical parts':
             with col1:
                 Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
                 st.dataframe(Converter)
-                col16, col2, col31 = st.columns([3,.5,3])
+                col16, col2, col31 = st.columns([3,1,2])
                 with col16:
                     display_tab('Converter')
             with col3:
@@ -905,7 +905,7 @@ if page == 'Electrical parts':
         with tab25:
             Ups = df_f[df_f['Comments'] == 'Ups'].sort_values(by='Comments')
             st.dataframe(Ups)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Ups')
                 csv = df_f.to_csv(index=False)
@@ -913,49 +913,49 @@ if page == 'Electrical parts':
         with tab26:
             Power_strip = df_f[df_f['Comments'] == 'Power strip'].sort_values(by='Comments')
             st.dataframe(Power_strip)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Power_strip')
         with tab27:
             Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
             st.dataframe(Power_supply)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Power_supply')
         with tab28:
             Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
             st.dataframe(Electricity)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electricity')
         with tab29:
             Electricity_pin = df_f[df_f['Comments'] == 'Electricity pin'].sort_values(by='Comments')
             st.dataframe(Electricity_pin)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electricity_pin')
         with tab30:
             Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
             st.dataframe(Feedback)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Feedback')
         with tab31:
             Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
             st.dataframe(Battery)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Battery')
         with tab32:
             Electronic_board = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
             st.dataframe(Electronic_board)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electronic_board')
         with tab33:
             Electronic_buzzer = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
             st.dataframe(Electronic_buzzer)
-            col16, col2, col31 = st.columns([3,.5,3])
+            col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electronic_buzzer')
     
