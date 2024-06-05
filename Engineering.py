@@ -110,147 +110,69 @@ if page == 'Mechanical parts':
             with col1:
                 peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
                 st.dataframe(peraing,width=2000)
-                
-
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('peraing')
             with col3:
                 st.subheader('image  for  these  part')
-
                 SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
-
                 with SKF:
                     image1 = open('images/1.jpeg', 'rb').read()
                     st.image(image1, width=150)
                     url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with ASAHI:
                     image2 = open('images/2.jpg', 'rb').read()
                     st.image(image2,  width=150)
                     url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with INA:
                     image3 = open('images/3.jpg', 'rb').read()
                     st.image(image3, width=150)
                     url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with IKO:
                     image4 = open('images/4.jpg', 'rb').read()
                     st.image(image4,  width=150)
                     url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with KBC:
                     image5 = open('images/5.jpg', 'rb').read()
                     st.image(image5,  width=150)
                     url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with NTN:
                     image6 = open('images/6.png', 'rb').read()
                     st.image(image6,  width=150)
                     url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with NB:
                     image7 = open('images/7.jpg', 'rb').read()
                     st.image(image7, caption='FETTE', width=150)
                     url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
-        st.subheader('Inventory Management')
-        col1, col2, col3 = st.columns([1,2,2])
-        with col1:
-                # عرض الداتا فري  
-            row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
-
-    # عرض المعلومات عن الصف المختار
-        
-            
-            item_style = """
-    <style>
-    .item-text {
-        color: #FF5733;
-        font-size: 24px;
-    }
-    .quantity-text {
-        color: #33C3FF;
-        font-size: 24px;
-    }
-    .custom-label {
-    color: #000000;
-    font-size: 20px;
-    
-}
-    </style>
-    """
-    
-    # Inject the custom CSS
-            st.markdown(item_style, unsafe_allow_html=True)
-        
-        # Display the selected item and current quantity with custom styles
-            st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
-            st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
-        
-                # Custom label for the number input
-            st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
-                
-                # Number input for deducting quantity
-            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
-
-        # زر لتحديث الكمية
-        if 'update_button_clicked' not in st.session_state:
-            st.session_state.update_button_clicked = False
-    
-    # زر لتحديث الكمية
-        if st.button('Update Quantity'):
-            if not st.session_state.update_button_clicked:
-    # خصم الكمية المحددة
-                df_f.loc[row_number, 'Qty.'] -= deduct_quantity
-                st.success(f'{deduct_quantity} units deducted from {df_f.loc[row_number, "Item description"]}.')
-                
-                # تحديث البيانات في ملف CSV
-                df_f.to_csv(csv_path, index=False)
-                
-                # تحديد حالة الزر على أنه تم الضغط عليه
-                st.session_state.update_button_clicked = True
-                
-                # إعادة تحميل البيانات من ملف CSV لتحديث العرض
-                st.experimental_rerun()
-    
-    # إعادة تعيين حالة الزر عند إعادة تحميل الصفحة
-       
-        csv = df_f.to_csv(index=False).encode('utf-8')
-        st.download_button(
-            label="Download CSV",
-            data=csv,
-            file_name='updated_inventory.csv',
-            mime='text/csv',
-        )
         with tab2:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
                 st.dataframe(Belts,width=2000)
-                    
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Belts')
             with col3:
                 st.subheader('image  for  these  part')
                 OPTIBELT ,FEC, timing_belt = st.tabs(['OPTIBELT','FEC','timing belt'])
-
                 with OPTIBELT:
                     image8 = open('images/8.jpg', 'rb').read()
                     st.image(image8, width=150)
                     url = 'https://www.optibelt.com/en/home/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-
                 with FEC:
                     image9 = open('images/9.jpg', 'rb').read()
                     st.image(image9, width=150)
                     url = 'https://www.fecconsulting.dk/en/timing-belts/megaflex-timing-belts/pu-timing-belts-t10-flex/t10-2550.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with timing_belt:
                     image10 = open('images/10.jpg', 'rb').read()
                     st.image(image10, width=150)
@@ -263,17 +185,17 @@ if page == 'Mechanical parts':
             with col1:
                 Shaft = df_f[df_f['Comments'] == 'Shaft'].sort_values(by='Comments')
                 st.dataframe(Shaft)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Shaft')
             with col3:
                 st.subheader('image  for  these  part')
                 GRUNDFOS, uhlmann  = st.tabs(['GRUNDFOS','uhlmann'])
-
                 with GRUNDFOS:
                     image11 = open('images/11.jpeg', 'rb').read()
                     st.image(image11, width=150)
                     url = 'https://product-selection.grundfos.com/eg/products/service-partkit/spare-shaft-seal-96488302?pumpsystemid=2346046284&tab=variant-specifications'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-
                 with uhlmann:
                     image12 = open('images/12.jpg', 'rb').read()
                     st.image(image12, width=150)
@@ -286,17 +208,17 @@ if page == 'Mechanical parts':
             with col1:
                 Spring = df_f[df_f['Comments'] == 'Spring'].sort_values(by='Comments')
                 st.dataframe(Spring)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Spring')
             with col3:
                 st.subheader('image  for  these  part')
-
                 TENSION,PRESSURE  = st.tabs(['TENSION','PRESSURE'])
                 with TENSION:
                     image13 = open('images/13.jpg', 'rb').read()
                     st.image(image13, width=150)
                     url = 'https://www.sawane-spring.com/product/use/tension_spring_extension_spring.php'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-
                 with PRESSURE:
                     image14 = open('images/14.jpg', 'rb').read()
                     st.image(image14, width=150)
@@ -309,16 +231,17 @@ if page == 'Mechanical parts':
             with col1:
                 leaflet_rooler = df_f[df_f['Comments'] == 'Leaflet rooler'].sort_values(by='Comments')
                 st.dataframe(leaflet_rooler)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('leaflet_rooler')
             with col3:
                 st.subheader('image  for  these  part')
-
                 Alumnum,rubber  = st.tabs(['Alumnum','rubber'])
                 with Alumnum:
                     image15 = open('images/15.jpg', 'rb').read()
                     st.image(image15, width=150)
                     url = 'https://www.jctprinting.com/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with rubber:
                     image16 = open('images/16.jpeg', 'rb').read()
                     st.image(image16, width=150)
@@ -329,25 +252,24 @@ if page == 'Mechanical parts':
         with tab6:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Cam = df_f[df_f['Comments'] == 'Cam'].sort_values(by='Comments')
                 st.dataframe(Cam)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Cam')
             with col3:
                 st.subheader('image  for  these  part')
-
                 Cam_SKF,Cam_INA,Cam_IKO  = st.tabs(['Cam_SKF','Cam_INA','Cam_IKO'])
                 with Cam_SKF:
                     image17 = open('images/17.jpg', 'rb').read()
                     st.image(image17, width=150)
                     url = 'https://www.skf.com/sg/products/rolling-bearings/track-rollers/cam-followers/productid-KR%2022'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Cam_INA:
                     image18 = open('images/18.jpg', 'rb').read()
                     st.image(image18, width=150)
                     url = 'https://www.abf.store/s/en/bearings/KR19-PP-A-NMT-INA/501413'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Cam_IKO:
                     image19 = open('images/19.jpg', 'rb').read()
                     st.image(image19, width=150)
@@ -358,19 +280,19 @@ if page == 'Mechanical parts':
         with tab7:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Clutch = df_f[df_f['Comments'] == 'Clutch'].sort_values(by='Comments')
                 st.dataframe(Clutch)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Clutch')
             with col3:
                 st.subheader('image  for  these  part')
-
                 Mechanical,Electrical   = st.tabs(['Mechanical','Electrical '])
                 with Mechanical:
                     image20 = open('images/20.jpg', 'rb').read()
                     st.image(image20, width=150)
                     url = 'https://www.psbearings.com/html_products/mzeu-series-cam-type-cam-clutch-346.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Electrical :
                     image21 = open('images/21.jpeg', 'rb').read()
                     st.image(image21, width=150)
@@ -381,19 +303,19 @@ if page == 'Mechanical parts':
         with tab8:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Oil_grease = df_f[df_f['Comments'] == 'Oil _ grease'].sort_values(by='Comments')
                 st.dataframe(Oil_grease)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Oil_grease')
             with col3:
                 st.subheader('image  for  these  part')
-
                 HYDRAULIC,Gear   = st.tabs(['HYDRAULIC','Gear '])
                 with HYDRAULIC:
                     image22 = open('images/22.jpg', 'rb').read()
                     st.image(image22, width=150)
                     url = 'https://www.schaefferoil.com/h1-hydraulic-oil.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Gear :
                     image23 = open('images/23.jpg', 'rb').read()
                     st.image(image23, width=150)
@@ -404,34 +326,35 @@ if page == 'Mechanical parts':
         with tab10:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
-                Chain = df_f[df_f['Comments'] == 'Chain'].sort_values(by='Comments')
+                Chan = df_f[df_f['Comments'] == 'Chain'].sort_values(by='Comments')
                 st.dataframe(Chain)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Chain')
             with col3:
                 st.subheader('image  for  these  part')
                 image24 = open('images/24.jpg', 'rb').read()
                 st.image(image24, width=150)
                 url = 'https://www.uhlmann.de/services/support-services/spare-parts/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
             
             
         with tab11:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Gearbox = df_f[df_f['Comments'] == 'Gearbox'].sort_values(by='Comments')
                 st.dataframe(Gearbox)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Gearbox')
             with col3:
                 st.subheader('image  for  these  part')
-
                 BEVEL,Nema   = st.tabs(['BEVEL','Nema '])
                 with BEVEL:
                     image25 = open('images/25.jpg', 'rb').read()
                     st.image(image25, width=150)
                     url = 'https://www.unimec.eu/en/products/bevel-gearboxes/110/RR.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Nema :
                     image26 = open('images/26.jpg', 'rb').read()
                     st.image(image26, width=150)
@@ -442,25 +365,24 @@ if page == 'Mechanical parts':
         with tab12:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Door = df_f[df_f['Comments'] == 'Door'].sort_values(by='Comments')
                 st.dataframe(Door)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Door')
             with col3:
                 st.subheader('image  for  these  part')
-
                 Dorma,Cam_Hydraulic,Handl  = st.tabs(['Dorma','Cam_Hydraulic','Handl'])
                 with Dorma:
                     image27 = open('images/27.jpg', 'rb').read()
                     st.image(image27, width=150)
                     url = 'https://doorcontrolsdirect.co.uk/door-closer-spare-parts/1043-dorma-g-n-slide-arm-channel'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Cam_Hydraulic:
                     image28 = open('images/28.jpg', 'rb').read()
                     st.image(image28, width=150)
                     url = 'https://www.dnd.com.tw/en/category/Door-Closer.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with Handl:
                     image29 = open('images/29.jpg', 'rb').read()
                     st.image(image29, width=150)
@@ -471,19 +393,19 @@ if page == 'Mechanical parts':
         with tab13:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Couplin = df_f[df_f['Comments'] == 'Couplin'].sort_values(by='Comments')
                 st.dataframe(Couplin)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Couplin')
             with col3:
                 st.subheader('image  for  these  part')
-
                 Flexible_Couplin, BoWex_Couplin   = st.tabs(['Flexible_Couplin','BoWex_Couplin '])
                 with Flexible_Couplin:
                     image30 = open('images/30.jpeg', 'rb').read()
                     st.image(image30, width=150)
                     url = 'https://www.ttco.com/encoders/ae087-10-10.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with BoWex_Couplin :
                     image31 = open('images/31.jpg', 'rb').read()
                     st.image(image31, width=150)
@@ -494,9 +416,11 @@ if page == 'Mechanical parts':
         with tab14:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Wheel_CASTOR = df_f[df_f['Comments'] == 'Swivel castor'].sort_values(by='Comments')
                 st.dataframe(Wheel_CASTOR)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Wheel_CASTOR')
             with col3:
                 st.subheader('image  for  these  part')
                 image32 = open('images/32.jpg', 'rb').read()
@@ -544,29 +468,24 @@ if page == 'Electrical parts':
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
                 st.dataframe(Proximity)
                 col4, col5, col6 = st.columns([3,1,2])
                 with col4:
                     display_tab('Proximity')
-                
             with col3:
                 st.subheader('image  for  these  part')
-
                 BALLUFF,MICRO_DETECTORS,IFM  = st.tabs(['BALLUFF','MICRO_DETECTORS','IFM'])
                 with BALLUFF:
                     image57 = open('images/57.PNG', 'rb').read()
                     st.image(image57, width=150)
                     url = 'https://valinonline.com/products/dw-as-503-m30-002'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with MICRO_DETECTORS:
                     image58= open('images/58.PNG', 'rb').read()
                     st.image(image58, width=150)
                     url = 'https://www.electricautomationnetwork.com/en/micro-detectors/am1-an-1a-micro-detectors-inductive-sensor-m12-shielded-no-npn-cable-2m-axial'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with IFM:
                     image59 = open('images/59.PNG', 'rb').read()
                     st.image(image59, width=150)
@@ -576,29 +495,24 @@ if page == 'Electrical parts':
         with tab2:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
                 col4, col5, col6 = st.columns([3,1,2])
                 with col4:
                     display_tab('Sensor')
-              
             with col3:
                 st.subheader('image  for  these  part')
-
                 SICK,BAUMER,DATALOGIC  = st.tabs(['SICK','BAUMER','DATALOGIC'])
                 with SICK:
                     image60 = open('images/60.PNG', 'rb').read()
                     st.image(image60, width=150)
                     url = 'https://www.sick.com/be/en/catalog/products/detection-sensors/color-sensors/cs8/cs81-p1112/p/p138054'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with BAUMER:
                     image61= open('images/61.PNG', 'rb').read()
                     st.image(image61, width=150)
                     url = 'https://www.kempstoncontrols.com/FPDK-10N5101-S35A/Baumer/sku/136377'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with DATALOGIC:
                     image62 = open('images/62.PNG', 'rb').read()
                     st.image(image62, width=150)
@@ -608,7 +522,6 @@ if page == 'Electrical parts':
         with tab3:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Fiber_sensor = df_f[df_f['Comments'] == 'Fiber sensor'].sort_values(by='Comments')
                 st.dataframe(Fiber_sensor)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -620,11 +533,10 @@ if page == 'Electrical parts':
                 st.image(image63, width=150)
                 url = 'https://www.wenglor.com/en/Sensors/Photoelectronic-Sensors/Fiber-Optic-Sensors/Fiber-Optic-Cable-Amplifiers/Fiber-optic-amplifier/p/UM55PA2'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        
+    
         with tab4:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Amplifier = df_f[df_f['Comments'] == 'Amplifier'].sort_values(by='Comments')
                 st.dataframe(Amplifier)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -656,7 +568,6 @@ if page == 'Electrical parts':
         with tab6:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Selector = df_f[df_f['Comments'] == 'Selector'].sort_values(by='Comments')
                 st.dataframe(Selector)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -671,8 +582,7 @@ if page == 'Electrical parts':
             
         with tab7:
             col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                
+            with col1:   
                 Button = df_f[df_f['Comments'] == 'Button'].sort_values(by='Comments')
                 st.dataframe(Button)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -687,8 +597,7 @@ if page == 'Electrical parts':
             
         with tab8:
             col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                
+            with col1:   
                 Switch = df_f[df_f['Comments'] == 'Switch'].sort_values(by='Comments')
                 st.dataframe(Switch)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -696,20 +605,17 @@ if page == 'Electrical parts':
                     display_tab('Switch')
             with col3:
                 st.subheader('image  for  these  part')
-
                 SICK,MOUJEN,SCHNEIDER  = st.tabs(['SICK','MOUJEN','SCHNEIDER'])
                 with SICK:
                     image68 = open('images/68.PNG', 'rb').read()
                     st.image(image68, width=150)
                     url = 'https://www.sick.com/us/en/catalog/products/safety/safety-switches/re1/re11-sa03/p/p315664'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with MOUJEN:
                     image69= open('images/69.PNG', 'rb').read()
                     st.image(image69, width=150)
                     url = 'https://www.moujenswitch.com/product/me-8108-m/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with SCHNEIDER:
                     image70 = open('images/70.PNG', 'rb').read()
                     st.image(image70, width=150)
@@ -719,7 +625,6 @@ if page == 'Electrical parts':
         with tab9:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Light = df_f[df_f['Comments'] == 'Light'].sort_values(by='Comments')
                 st.dataframe(Light)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -727,14 +632,12 @@ if page == 'Electrical parts':
                     display_tab('Light')
             with col3:
                 st.subheader('image  for  these  part')
-
                 Filux,LED_OUTLET  = st.tabs(['Filux','LED OUTLET'])
                 with Filux:
                     image71 = open('images/71.PNG', 'rb').read()
                     st.image(image71, width=150)
                     url = 'https://filux.com/en/t8-pro-led-tubes/-t8-led-tube-9w-60cm-cct-3000k-4000k-6500k-130lm-w-5-years-warranty-6350.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with LED_OUTLET:
                     image72= open('images/72.PNG', 'rb').read()
                     st.image(image72, width=150)
@@ -744,7 +647,6 @@ if page == 'Electrical parts':
         with tab10:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                
                 Fan = df_f[df_f['Comments'] == 'Fan'].sort_values(by='Comments')
                 st.dataframe(Fan)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -759,8 +661,7 @@ if page == 'Electrical parts':
             
         with tab11:
             col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                
+            with col1:               
                 Cable = df_f[df_f['Comments'] == 'Cable'].sort_values(by='Comments')
                 st.dataframe(Cable)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -768,20 +669,17 @@ if page == 'Electrical parts':
                     display_tab('Cable')
             with col3:
                 st.subheader('image  for  these  part')
-
                 CONNECTION,CAT6_CABLE,FIBER_OPTIC  = st.tabs(['SICK','CAT6 CABLE','FIBER OPTIC'])
                 with CONNECTION:
                     image74 = open('images/74.PNG', 'rb').read()
                     st.image(image74, width=150)
                     url = 'https://asi.net.nz/category/Sensor-Leads-Connectors-Valve-Cables'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with CAT6_CABLE:
                     image75= open('images/75.PNG', 'rb').read()
                     st.image(image75, width=150)
                     url = 'https://de.assmann.shop/en/Copper-Network-Technology/Network-Cables/Installation-Cables/ASSNET250-Cat-6-U-UTP-installation-cable-305-m-Eca.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with FIBER_OPTIC:
                     image76 = open('images/76.PNG', 'rb').read()
                     st.image(image76, width=150)
@@ -790,8 +688,7 @@ if page == 'Electrical parts':
             
         with tab12:
             col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                
+            with col1:       
                 Fuse = df_f[df_f['Comments'] == 'Fuse'].sort_values(by='Comments')
                 st.dataframe(Fuse)
                 col4, col5, col6 = st.columns([3,1,2])
@@ -799,14 +696,12 @@ if page == 'Electrical parts':
                     display_tab('Fuse')
             with col3:
                 st.subheader('image  for  these  part')
-
                 GLASS,CRAMIC  = st.tabs(['GLASS','CRAMIC'])
                 with GLASS:
                     image77 = open('images/77.PNG', 'rb').read()
                     st.image(image77, width=150)
                     url = 'https://makerselectronics.com/product/fuse-1a-250v-t5x20mm'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
                 with CRAMIC:
                     image78= open('images/78.PNG', 'rb').read()
                     st.image(image78, width=150)
@@ -824,75 +719,88 @@ if page == 'Electrical parts':
             with col1:
                 Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
                 st.dataframe(Converter)
-                col16, col2, col31 = st.columns([2,1,2])
+                col16, col2, col31 = st.columns([3,1,2]])
                 with col16:
                     display_tab('Converter')
             with col3:
                 st.subheader('image  for  these  part')
-
                 GLASS,CRAMIC  = st.tabs(['GLASS','CRAMIC'])
                 with GLASS:
                     image77 = open('images/77.PNG', 'rb').read()
                     st.image(image77, width=150)
                     url = 'https://makerselectronics.com/product/fuse-1a-250v-t5x20mm'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Control)
-            col4, col5, col6 = st.columns([2,1,2])
+            col4, col5, col6 = st.columns([3,1,2]])
             with col4:
                 display_tab('Control')
+                
         with tab15:
             Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
             st.dataframe(Conductor)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Conductor')
+                
         with tab16:
             Contactor = df_f[df_f['Comments'] == 'Contactor'].sort_values(by='Comments')
             st.dataframe(Contactor)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Contactor')
+                
         with tab17:
             Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
             st.dataframe(Controller)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Controller')
+                
         with tab18:
             Inverter = df_f[df_f['Comments'] == 'Inverter'].sort_values(by='Comments')
             st.dataframe(Inverter)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Inverter')
+                
         with tab19:
             Relay = df_f[df_f['Comments'] == 'Relay'].sort_values(by='Comments')
             st.dataframe(Relay)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Relay')
+                
         with tab20:
             Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
             st.dataframe(Jumper)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Jumper')
+                
         with tab21:
             Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
             st.dataframe(Panel)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Panel')
+                
         with tab22:
             Heater = df_f[df_f['Comments'] == 'Heater'].sort_values(by='Comments')
             st.dataframe(Heater)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Heater')
+                
         with tab23:
             Thermostate = df_f[df_f['Comments'] == 'Thermostate'].sort_values(by='Comments')
             st.dataframe(Thermostate)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Thermostate')
+                
         with tab24:
             Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
             st.dataframe(Thermocouple)
@@ -911,56 +819,63 @@ if page == 'Electrical parts':
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Ups')
-                csv = df_f.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+               
         with tab26:
             Power_strip = df_f[df_f['Comments'] == 'Power strip'].sort_values(by='Comments')
             st.dataframe(Power_strip)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Power_strip')
+                
         with tab27:
             Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
             st.dataframe(Power_supply)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Power_supply')
+                
         with tab28:
             Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
             st.dataframe(Electricity)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electricity')
+                
         with tab29:
             Electricity_pin = df_f[df_f['Comments'] == 'Electricity pin'].sort_values(by='Comments')
             st.dataframe(Electricity_pin)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electricity_pin')
+                
         with tab30:
             Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
             st.dataframe(Feedback)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Feedback')
+                
         with tab31:
             Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
             st.dataframe(Battery)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Battery')
+                
         with tab32:
             Electronic_board = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
             st.dataframe(Electronic_board)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electronic_board')
+                
         with tab33:
             Electronic_buzzer = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
             st.dataframe(Electronic_buzzer)
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electronic_buzzer')
+                
     
     if __name__ == '__main__':
 
