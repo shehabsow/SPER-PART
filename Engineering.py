@@ -1004,6 +1004,35 @@ if page == 'Utility area':
         st.subheader('Select from these items')
 
         if select_col == 'Water Station':
+            if 'df' not in st.session_state:
+                st.session_state.df = load_data()
+            
+            df_f = st.session_state.df
+            
+            def update_data(tab_name):
+                st.subheader(f'{tab_name} Data')
+                filtered_df = df_f[df_f['Category'] == tab_name]
+                row_number = st.selectbox(f'Select row number for {tab_name}:', filtered_df.index, key=f'row_number_{tab_name}')
+                st.write(f"Selected Item: {filtered_df.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity: {filtered_df.loc[row_number, 'Qty.']}")
+            
+                quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'quantity_{tab_name}')
+                operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
+            
+                if st.button(f'Update Quantity for {tab_name}', key=f'update_button_{tab_name}'):
+                    if operation == 'add':
+                        df_f.loc[row_number, 'Qty.'] += quantity
+                    elif operation == 'subtract':
+                        df_f.loc[row_number, 'Qty.'] -= quantity
+                    st.success(f"Quantity updated successfully for {tab_name}! New Quantity: {df_f.loc[row_number, 'Qty.']}")
+                    st.session_state.df = df_f  # تحديث البيانات في session_state
+            
+                    # حفظ DataFrame المعدل إلى ملف CSV مؤقت
+                    df_f.to_csv('updated_data.csv', index=False)
+                    if st.button(f'Refresh Data for {tab_name}', key=f'refresh_button_{tab_name}'):
+                        st.session_state.df = load_data()
+                        st.experimental_rerun() 
+
             tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
                 'Flow monitor','conductivity','Stilmas sensor','Valve','test','pump','Uv','Ro'])
             
@@ -1012,6 +1041,7 @@ if page == 'Utility area':
                 with col1:
                     Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
                     st.dataframe(Conductivity_transmitter)
+                    update_data('Conductivity transmitter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image33 = open('images/33.jpg', 'rb').read()
