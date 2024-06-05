@@ -492,12 +492,22 @@ if page == 'Electrical parts':
             st.session_state.df = pd.read_csv('Eng Spare parts.csv')
         df_f = st.session_state.df
         def update_quantity(row_index, quantity, operation):
+            if 'update_button_clicked' not in st.session_state:
+                st.session_state.update_button_clicked = False
+        
+    # زر لتحديث الكمية
+            if st.button('Update Quantity'):
+                if not st.session_state.update_button_clicked:
             if operation == 'add':
                 df_f.loc[row_index, 'Qty.'] += quantity
             elif operation == 'subtract':
                 df_f.loc[row_index, 'Qty.'] -= quantity
             df_f.to_csv('data.csv', index=False)
             st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
+            st.session_state.update_button_clicked = True
+                
+                # إعادة تحميل البيانات من ملف CSV لتحديث العرض
+                st.experimental_rerun()
         
             
         
