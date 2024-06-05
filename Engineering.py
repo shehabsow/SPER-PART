@@ -48,7 +48,7 @@ def display_tab(tab_name):
     # تنسيق الكتابة
     st.markdown(f"""
         <div style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
-        <div style='font-size: 20px; color: green;'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</div>
+        <div style='font-size: 20px; color: red;'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</div>
         """, unsafe_allow_html=True)
     
     # تنسيق Enter quantity
@@ -71,7 +71,7 @@ def display_tab(tab_name):
 
     if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
         update_quantity(row_number, quantity, operation)
-    csv = df_f.to_csv(index=False)
+    
 
 
 
