@@ -627,6 +627,9 @@ if page == 'Electrical parts':
                 
                 Amplifier = df_f[df_f['Comments'] == 'Amplifier'].sort_values(by='Comments')
                 st.dataframe(Amplifier)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Amplifier')
             with col3:
                 st.subheader('image  for  these  part')
                 image64 = open('images/64.PNG', 'rb').read()
@@ -821,7 +824,7 @@ if page == 'Electrical parts':
             with col1:
                 Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
                 st.dataframe(Converter)
-                col16, col2, col31 = st.columns([3,1,2])
+                col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Converter')
             with col3:
@@ -836,7 +839,7 @@ if page == 'Electrical parts':
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Control)
-            col4, col5, col6 = st.columns([3,1,2])
+            col4, col5, col6 = st.columns([2,1,2])
             with col4:
                 display_tab('Control')
         with tab15:
