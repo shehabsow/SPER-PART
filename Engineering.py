@@ -498,7 +498,7 @@ if page == 'Electrical parts':
                 df_f.loc[row_index, 'Qty.'] -= quantity
             df_f.to_csv('data.csv', index=False)
             st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
-        count = st_autorefresh(interval=10*1000, key="refresh")
+        
             
         
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
