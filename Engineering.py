@@ -1415,8 +1415,8 @@ if page == 'Utility area':
                     st.image(image56, width=150)
                     url = 'https://shop.pall.com/us/en/food-beverage/zidimmfdh4o'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            csv = df_f.to_csv(index=False)
-            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
+        csv = df_f.to_csv(index=False)
+        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
                     
                   
             
