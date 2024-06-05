@@ -524,7 +524,7 @@ if page == 'Electrical parts':
                 quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                 if 'update_button_clicked' not in st.session_state:
-                st.session_state.update_button_clicked = False
+                    st.session_state.update_button_clicked = False
         
         # زر لتحديث الكمية
                 if st.button('Update Quantity'):
