@@ -1014,7 +1014,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([1,2,2])
                 with col1:
                         # عرض الداتا فري  
-                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab5')
+                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='col1')
         
             # عرض المعلومات عن الصف المختار
                 
