@@ -584,10 +584,10 @@ if page == 'Electrical parts':
                 
                 Fiber_sensor = df_f[df_f['Comments'] == 'Fiber sensor'].sort_values(by='Comments')
                 st.dataframe(Fiber_sensor)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab3')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab3_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
                 if st.button('Update Quantity for Tab2', key='tab2_btn'):
                     update_quantity(row_number, quantity, operation)
@@ -617,10 +617,10 @@ if page == 'Electrical parts':
                 
                 Socket = df_f[df_f['Comments'] == 'Socket'].sort_values(by='Comments')
                 st.dataframe(Socket)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab4')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab4_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
                 if st.button('Update Quantity for Tab2', key='tab2_btn'):
                     update_quantity(row_number, quantity, operation)
@@ -637,10 +637,10 @@ if page == 'Electrical parts':
                 
                 Selector = df_f[df_f['Comments'] == 'Selector'].sort_values(by='Comments')
                 st.dataframe(Selector)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab5')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab5_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
                 if st.button('Update Quantity for Tab2', key='tab2_btn'):
                     update_quantity(row_number, quantity, operation)
@@ -657,10 +657,10 @@ if page == 'Electrical parts':
                 
                 Button = df_f[df_f['Comments'] == 'Button'].sort_values(by='Comments')
                 st.dataframe(Button)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab6')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab6_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
                 if st.button('Update Quantity for Tab2', key='tab2_btn'):
                     update_quantity(row_number, quantity, operation)
@@ -677,10 +677,10 @@ if page == 'Electrical parts':
                 
                 Switch = df_f[df_f['Comments'] == 'Switch'].sort_values(by='Comments')
                 st.dataframe(Switch)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab7')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
+                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab7_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
                 if st.button('Update Quantity for Tab2', key='tab2_btn'):
                     update_quantity(row_number, quantity, operation)
