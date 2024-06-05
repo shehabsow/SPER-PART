@@ -510,7 +510,7 @@ if page == 'Electrical parts':
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 add_quantity = st.number_input('Enter quantity to add for Proximity:', min_value=0, step=1, key='tab1_qty')
-                if st.button('Update Quantity', key='tab1):
+                if st.button('Update Quantity', key='tab1'):
                     update_quantity(row_number, add_quantity)
 
             with col3:
