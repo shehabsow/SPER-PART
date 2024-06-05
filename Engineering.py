@@ -502,6 +502,7 @@ if page == 'Electrical parts':
                 df_f.loc[row_index, 'Qty.'] -= quantity
             df_f.to_csv('data.csv', index=False)
             st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
+            st.experimental_rerun()
 
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
