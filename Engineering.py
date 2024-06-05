@@ -919,6 +919,7 @@ if page == 'Electrical parts':
             col16, col2, col31 = st.columns([3,.5,3])
             with col16:
                 display_tab('Ups')
+                csv = df_f.to_csv(index=False)
                 st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
         with tab26:
             Power_strip = df_f[df_f['Comments'] == 'Power strip'].sort_values(by='Comments')
