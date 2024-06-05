@@ -107,7 +107,7 @@ if page == 'Mechanical parts':
         col1, col2, col3 = st.columns([1,2,2])
         with col1:
                 # عرض الداتا فري  
-            row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+            row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='key1')
 
     # عرض المعلومات عن الصف المختار
         
@@ -122,6 +122,11 @@ if page == 'Mechanical parts':
         color: #33C3FF;
         font-size: 24px;
     }
+    .custom-label {
+    color: #000000;
+    font-size: 20px;
+    
+}
     </style>
     """
     
@@ -132,27 +137,14 @@ if page == 'Mechanical parts':
         st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
         st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
 
-        col1, col2, col3 = st.columns([1,2,2])
-        with col1:
-
-            input_style = """
-<style>
-.custom-label {
-    color: #000000;
-    font-size: 20px;
-    
-}
-</style>
-"""
-
-# Inject the custom CSS
-            st.markdown(input_style, unsafe_allow_html=True)
+     
+            st.markdown(tem_style, unsafe_allow_html=True)
             
             # Custom label for the number input
-            st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
+        st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
             
             # Number input for deducting quantity
-            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+            deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1, key='key1')
 
         # زر لتحديث الكمية
         if 'update_button_clicked' not in st.session_state:
@@ -518,10 +510,10 @@ if page == 'Electrical parts':
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
                 st.dataframe(Proximity)    
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab1')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='key2')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
+                quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='key2')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                 if st.button('Update Quantity'):
                     update_quantity(row_number, quantity, operation)
@@ -1002,79 +994,6 @@ if page == 'Utility area':
                 </style>
             """, unsafe_allow_html=True)
         st.subheader('Select from these items')
-
-        if select_col == 'Water Station':
-            if 'df' not in st.session_state:
-                st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-            
-            df_f = st.session_state.df
-            
-            def update_data(tab_name):
-                st.subheader(f'{tab_name} Data')
-                col1, col2, col3 = st.columns([1,2,2])
-                with col1:
-                        # عرض الداتا فري  
-                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_number')
-        
-            # عرض المعلومات عن الصف المختار
-                
-                    
-                    item_style = """
-            <style>
-            .item-text {
-                color: #FF5733;
-                font-size: 24px;
-            }
-            .quantity-text {
-                color: #33C3FF;
-                font-size: 24px;
-            }
-            </style>
-            """
-            
-            # Inject the custom CSS
-                    st.markdown(item_style, unsafe_allow_html=True)
-                
-                # Display the selected item and current quantity with custom styles
-                st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
-                st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
-        
-                col1, col2, col3 = st.columns([1,2,2])
-                with col1:
-        
-                    input_style = """
-        <style>
-        .custom-label {
-            color: #000000;
-            font-size: 20px;
-            
-        }
-        </style>
-        """
-        
-        # Inject the custom CSS
-                    st.markdown(input_style, unsafe_allow_html=True)
-                    
-                    # Custom label for the number input
-                    st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
-                    
-                    # Number input for deducting quantity
-                    quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1 ,key='row_tab3')
-                    operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
-            
-           
-                    if operation == 'add':
-                        df_f.loc[row_number, 'Qty.'] += quantity
-                    elif operation == 'subtract':
-                        df_f.loc[row_number, 'Qty.'] -= quantity
-                    
-                    st.session_state.df = df_f  # تحديث البيانات في session_state
-            
-                    # حفظ DataFrame المعدل إلى ملف CSV مؤقت
-                    df_f.to_csv('updated_data.csv', index=False)
-                if st.button(f'Refresh Data for {tab_name}', key=f'refresh_button_{tab_name}'):
-                    update_data(tab_name)
-                    st.success(f"Quantity updated successfully for {tab_name}! New Quantity: {df_f.loc[row_number, 'Qty.']}")
                     
 
             tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
@@ -1085,7 +1004,7 @@ if page == 'Utility area':
                 with col1:
                     Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
                     st.dataframe(Conductivity_transmitter)
-                    update_data('Conductivity transmitter')
+                   
                 with col3:
                     st.subheader('image  for  these  part')
                     image33 = open('images/33.jpg', 'rb').read()
