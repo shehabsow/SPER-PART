@@ -491,10 +491,6 @@ if page == 'Electrical parts':
         if 'df' not in st.session_state:
             st.session_state.df = pd.read_csv('Eng Spare parts.csv')
         df_f = st.session_state.df
-        
-        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
-        'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
-        
         def update_quantity(row_index, quantity, operation):
             if operation == 'add':
                 df_f.loc[row_index, 'Qty.'] += quantity
@@ -503,6 +499,11 @@ if page == 'Electrical parts':
             df_f.to_csv('data.csv', index=False)
             st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
             st.experimental_rerun()
+        
+        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
+        'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
+        
+        
 
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
