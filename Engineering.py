@@ -931,7 +931,7 @@ if page == 'Pneumatic parts':
         with tab2:
             Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
             st.dataframe(Gasket)
-           col4, col5, col6 = st.columns([3,1,2])
+            col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Gasket')
                 
