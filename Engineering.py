@@ -1011,7 +1011,7 @@ if page == 'Utility area':
             
             def update_data(tab_name):
                 st.subheader(f'{tab_name} Data')
-                row_number = st.number_input(f'Select row number for {tab_name}:', df_f.index, key=f'row_number_{tab_name}')
+                row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(df_f)-1, step=1 key=f'row_number_{tab_name}')
                 st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
             
