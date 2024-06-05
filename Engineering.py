@@ -509,7 +509,7 @@ if page == 'Electrical parts':
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
                 st.dataframe(Proximity)    
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df)-1, step=1, key='row_tab1')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab1')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
@@ -545,7 +545,7 @@ if page == 'Electrical parts':
                 
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
-                row_number = st.number_input('Select row number for Tab2:', df_f.index, key='tab2_row')
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
                 st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
