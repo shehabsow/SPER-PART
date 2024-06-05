@@ -550,7 +550,7 @@ if page == 'Electrical parts':
                 st.dataframe(Proximity)
                 col11, col12, col13 = st.columns([3,1,2])
                 with col11:
-                    display_tab('Converter')
+                    display_tab('Proximity')
                 
             with col3:
                 st.subheader('image  for  these  part')
