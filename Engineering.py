@@ -29,9 +29,7 @@ def update_quantity(row_index, quantity, operation):
     st.session_state.update_button_clicked = True
 
 def display_tab(tab_name):
-    st.header(f'{tab_name} Tab')
-
-    # تنسيق Select row number
+  # تنسق Select row number
     st.markdown("""
         <style>
         .custom-input label {
