@@ -1014,7 +1014,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([1,2,2])
                 with col1:
                         # عرض الداتا فري  
-                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab5)
         
             # عرض المعلومات عن الصف المختار
                 
@@ -1059,7 +1059,7 @@ if page == 'Utility area':
                     st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
                     
                     # Number input for deducting quantity
-                    quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1 ,key='row_tab3)
                     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
             
            
