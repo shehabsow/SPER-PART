@@ -1003,7 +1003,7 @@ if page == 'FORKLIFT':
 """, unsafe_allow_html=True)
         st.subheader('Select from these items')
       
-        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant','Forklift switch',
+        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant',
         'Forklift control','Forklift carbon','Forklift break'])
 
         with tab1:
@@ -1026,13 +1026,6 @@ if page == 'FORKLIFT':
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
                 display_tab('Forklift_coolant')
-            
-        with tab4:
-            Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
-            st.dataframe(Forklift_switch)
-            col4, col5, col6 = st.columns([3,1,2])
-            with col4:
-                display_tab('Forklift_switch')
                 
         with tab5:
             Forklift_control = df_f[df_f['Comments'] == 'Forklift control'].sort_values(by='Comments')
