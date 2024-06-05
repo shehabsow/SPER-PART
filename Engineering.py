@@ -1062,7 +1062,7 @@ if page == 'Utility area':
                     quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
                     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
             
-                if st.button(f'Update Quantity for {tab_name}', key=f'update_button_{tab_name}'):
+           
                     if operation == 'add':
                         df_f.loc[row_number, 'Qty.'] += quantity
                     elif operation == 'subtract':
