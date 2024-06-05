@@ -580,13 +580,9 @@ if page == 'Electrical parts':
                 
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab2')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
-                if st.button('Update Quantity for Tab2', key='tab2_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Proximity')
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -615,13 +611,9 @@ if page == 'Electrical parts':
                 
                 Fiber_sensor = df_f[df_f['Comments'] == 'Fiber sensor'].sort_values(by='Comments')
                 st.dataframe(Fiber_sensor)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab3')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab3_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab3_op')
-                if st.button('Update Quantity for Tab2', key='tab3_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Proximity')
             with col3:
                 st.subheader('image  for  these  part')
                 image63 = open('images/63.PNG', 'rb').read()
