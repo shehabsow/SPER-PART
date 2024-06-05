@@ -1009,24 +1009,53 @@ if page == 'FORKLIFT':
         with tab1:
             Forklift_wheel = df_f[df_f['Comments'] == 'Forklift wheel'].sort_values(by='Comments')
             st.dataframe(Forklift_wheel)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_wheel')
+                
         with tab2:
             Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
             st.dataframe(Forklift_switch)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_switch')
+                
         with tab3:
             Forklift_coolant = df_f[df_f['Comments'] == 'Forklift coolant'].sort_values(by='Comments')
             st.dataframe(Forklift_coolant)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_coolant')
+            
         with tab4:
             Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
             st.dataframe(Forklift_switch)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_switch')
+                
         with tab5:
             Forklift_control = df_f[df_f['Comments'] == 'Forklift control'].sort_values(by='Comments')
             st.dataframe(Forklift_control)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_control')
+                
         with tab6:
             Forklift_carbon = df_f[df_f['Comments'] == 'Forklift carbon'].sort_values(by='Comments')
             st.dataframe(Forklift_carbon)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_carbon')
+                
         with tab7:
             Forklift_break = df_f[df_f['Comments'] == 'Forklift break'].sort_values(by='Comments')
             st.dataframe(Forklift_break)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Forklift_break')
+        csv = df_f.to_csv(index=False)
+        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
     if __name__ == '__main__':
 
         main()
