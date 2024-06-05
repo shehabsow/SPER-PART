@@ -821,6 +821,30 @@ if page == 'Electrical parts':
            
 
         st.header('Select from these items')
+        if 'df' not in st.session_state:
+            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+
+        df_f = st.session_state.df
+
+        def update_quantity(row_index, quantity, operation):
+            if operation == 'add':
+                df_f.loc[row_index, 'Qty.'] += quantity
+            elif operation == 'subtract':
+                df_f.loc[row_index, 'Qty.'] -= quantity
+            df_f.to_csv('data.csv', index=False)
+            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
+            st.session_state.update_button_clicked = True
+        
+        def display_tab(tab_name):
+            st.header(f'{tab_name} Tab')
+            row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(df_f)-1, step=1, key=f'{tab_name}_row_number')
+            st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
+            st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
+            quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'{tab_name}_quantity')
+            operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
+        
+            if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
+                update_quantity(row_number, quantity, operation)
 
         tab13, tab14 ,tab15, tab16,tab17, tab18 ,tab19, tab20, tab21 ,tab22, tab23 ,tab24  = st.tabs(['Converter','Control','Conductor','Contactor','Controller',
         'Inverter','Relay','Jumper','Panel','Heater','Thermostate','Thermocouple'])
@@ -828,6 +852,7 @@ if page == 'Electrical parts':
         with tab13:
             Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
             st.dataframe(Converter)
+            display_tab('Converter')
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Sensor)
