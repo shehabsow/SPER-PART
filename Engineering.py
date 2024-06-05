@@ -969,6 +969,7 @@ if page == 'Electrical parts':
         with tab25:
             Ups = df_f[df_f['Comments'] == 'Ups'].sort_values(by='Comments')
             st.dataframe(Ups)
+            display_tab('Ups')
         with tab26:
             Power_strip = df_f[df_f['Comments'] == 'Power strip'].sort_values(by='Comments')
             st.dataframe(Power_strip)
