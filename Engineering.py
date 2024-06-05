@@ -481,19 +481,14 @@ if page == 'Electrical parts':
             st.session_state.df = pd.read_csv('Eng Spare parts.csv')
         df_f = st.session_state.df
         def update_quantity(row_index, quantity, operation):
-            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
-            st.session_state.update_button_clicked = True
-            row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
-            st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-            st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-            quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1)
-            operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
             
             if operation == 'add':
                 df_f.loc[row_index, 'Qty.'] += quantity
             elif operation == 'subtract':
                 df_f.loc[row_index, 'Qty.'] -= quantity
             df_f.to_csv('data.csv', index=False)
+            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
+            st.session_state.update_button_clicked = True
             
             
                 
@@ -512,7 +507,12 @@ if page == 'Electrical parts':
             with col1:
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
-                st.dataframe(Proximity)    
+                st.dataframe(Proximity) 
+                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1)
+                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                 
                 if st.button('Update Quantity'):
                     update_quantity(row_number, quantity, operation)
