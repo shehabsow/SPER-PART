@@ -642,13 +642,9 @@ if page == 'Electrical parts':
                 
                 Socket = df_f[df_f['Comments'] == 'Socket'].sort_values(by='Comments')
                 st.dataframe(Socket)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab4')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab4_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab4_op')
-                if st.button('Update Quantity for Tab2', key='tab4_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Socket')
             with col3:
                 st.subheader('image  for  these  part')
                 image65 = open('images/65.PNG', 'rb').read()
@@ -662,13 +658,9 @@ if page == 'Electrical parts':
                 
                 Selector = df_f[df_f['Comments'] == 'Selector'].sort_values(by='Comments')
                 st.dataframe(Selector)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab5')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab5_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab5_op')
-                if st.button('Update Quantity for Tab2', key='tab5_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Selector')
             with col3:
                 st.subheader('image  for  these  part')
                 image66 = open('images/66.PNG', 'rb').read()
@@ -682,13 +674,9 @@ if page == 'Electrical parts':
                 
                 Button = df_f[df_f['Comments'] == 'Button'].sort_values(by='Comments')
                 st.dataframe(Button)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab6')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab6_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab6_op')
-                if st.button('Update Quantity for Tab2', key='tab6_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Button')
             with col3:
                 st.subheader('image  for  these  part')
                 image67= open('images/67.PNG', 'rb').read()
@@ -702,13 +690,9 @@ if page == 'Electrical parts':
                 
                 Switch = df_f[df_f['Comments'] == 'Switch'].sort_values(by='Comments')
                 st.dataframe(Switch)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab7')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab7_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab7_op')
-                if st.button('Update Quantity for Tab2', key='tab7_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Switch')
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -737,13 +721,9 @@ if page == 'Electrical parts':
                 
                 Light = df_f[df_f['Comments'] == 'Light'].sort_values(by='Comments')
                 st.dataframe(Light)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab8')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab8_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab8_op')
-                if st.button('Update Quantity for Tab2', key='tab8_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Light')
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -766,13 +746,9 @@ if page == 'Electrical parts':
                 
                 Fan = df_f[df_f['Comments'] == 'Fan'].sort_values(by='Comments')
                 st.dataframe(Fan)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab9')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab9_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab9_op')
-                if st.button('Update Quantity for Tab2', key='tab9_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Fan')
             with col3:
                 st.subheader('image  for  these  part')
                 image73= open('images/73.PNG', 'rb').read()
@@ -786,13 +762,9 @@ if page == 'Electrical parts':
                 
                 Cable = df_f[df_f['Comments'] == 'Cable'].sort_values(by='Comments')
                 st.dataframe(Cable)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab10')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab10_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab10_op')
-                if st.button('Update Quantity for Tab2', key='tab10_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Cable')
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -821,13 +793,9 @@ if page == 'Electrical parts':
                 
                 Fuse = df_f[df_f['Comments'] == 'Fuse'].sort_values(by='Comments')
                 st.dataframe(Fuse)
-                row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1, key='row_tab11')
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab11_qty')
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab11_op')
-                if st.button('Update Quantity for Tab2', key='tab11_btn'):
-                    update_quantity(row_number, quantity, operation)
+                col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Fuse')
             with col3:
                 st.subheader('image  for  these  part')
 
@@ -870,37 +838,66 @@ if page == 'Electrical parts':
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Sensor)
-            display_tab('Control')
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Control')
         with tab15:
             Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
             st.dataframe(Conductor)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Conductor')
         with tab16:
             Contactor = df_f[df_f['Comments'] == 'Contactor'].sort_values(by='Comments')
             st.dataframe(Contactor)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Contactor')
         with tab17:
             Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
             st.dataframe(Controller)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Controller')
         with tab18:
             Inverter = df_f[df_f['Comments'] == 'Inverter'].sort_values(by='Comments')
             st.dataframe(Inverter)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Inverter')
         with tab19:
             Relay = df_f[df_f['Comments'] == 'Relay'].sort_values(by='Comments')
             st.dataframe(Relay)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Relay')
         with tab20:
             Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
             st.dataframe(Jumper)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Jumper')
         with tab21:
             Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
             st.dataframe(Panel)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Panel')
         with tab22:
             Heater = df_f[df_f['Comments'] == 'Heater'].sort_values(by='Comments')
             st.dataframe(Heater)
         with tab23:
             Thermostate = df_f[df_f['Comments'] == 'Thermostate'].sort_values(by='Comments')
             st.dataframe(Thermostate)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Thermostate')
         with tab24:
             Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
             st.dataframe(Thermocouple)
+            col4, col5, col6 = st.columns([3,1,2])
+                with col4:
+                    display_tab('Thermocouple')
 
         st.header('Select from these items')
      
@@ -918,31 +915,52 @@ if page == 'Electrical parts':
         with tab26:
             Power_strip = df_f[df_f['Comments'] == 'Power strip'].sort_values(by='Comments')
             st.dataframe(Power_strip)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Power_strip')
         with tab27:
             Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
             st.dataframe(Power_supply)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Power_supply')
         with tab28:
             Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
             st.dataframe(Electricity)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Electricity')
         with tab29:
             Electricity_pin = df_f[df_f['Comments'] == 'Electricity pin'].sort_values(by='Comments')
             st.dataframe(Electricity_pin)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Electricity_pin')
         with tab30:
             Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
             st.dataframe(Feedback)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Feedback')
         with tab31:
             Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
             st.dataframe(Battery)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Battery')
         with tab32:
             Electronic_board = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
             st.dataframe(Electronic_board)
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Electronic_board')
         with tab33:
             Electronic_buzzer = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
             st.dataframe(Electronic_buzzer)
-            tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
-        'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
-
-
+            col16, col2, col31 = st.columns([3,.5,3])
+            with col16:
+                display_tab('Electronic_buzzer')
+    
     if __name__ == '__main__':
 
         main()
