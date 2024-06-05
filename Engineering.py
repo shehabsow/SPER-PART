@@ -853,9 +853,13 @@ if page == 'Electrical parts':
         'Inverter','Relay','Jumper','Panel','Heater','Thermostate','Thermocouple'])
 
         with tab13:
-            Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
-            st.dataframe(Converter)
-            display_tab('Converter')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
+                st.dataframe(Converter)
+                col16, col2, col3 = st.columns([30,3,13])
+                with col16:
+                    display_tab('Converter')
         with tab14:
             Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
             st.dataframe(Sensor)
