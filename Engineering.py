@@ -491,6 +491,10 @@ if page == 'Electrical parts':
         
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
         'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
+        if 'df' not in st.session_state:
+            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+        
+        df_f = st.session_state.df
         def update_quantity(row_index, quantity):
             df_f.loc[row_index, 'Qty.'] += quantity
             df_f.to_csv('data.csv', index=False)
