@@ -924,24 +924,52 @@ if page == 'Pneumatic parts':
         with tab1:
             Oil_seal = df_f[df_f['Comments'] == 'Oil seal'].sort_values(by='Comments')
             st.dataframe(Oil_seal)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Oil_seal')
+                
         with tab2:
             Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
             st.dataframe(Gasket)
+           col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Gasket')
+                
         with tab3:
             Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
             st.dataframe(Gauge)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Gauge')
+                
         with tab4:
             Solenoid_valve = df_f[df_f['Comments'] == 'Solenoid valve'].sort_values(by='Comments')
             st.dataframe(Solenoid_valve)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Solenoid_valve')
+                
         with tab5:
             Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
             st.dataframe(Neumatic_hose)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Neumatic_hose')
+                
         with tab6:
             Cylinder = df_f[df_f['Comments'] == 'Cylinder'].sort_values(by='Comments')
             st.dataframe(Cylinder)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Cylinder')
         with tab7:
             Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
             st.dataframe(Regulator)
+            col4, col5, col6 = st.columns([3,1,2])
+            with col4:
+                display_tab('Regulator')\
+    csv = df_f.to_csv(index=False)
+    st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
     if __name__ == '__main__':
 
         main()
