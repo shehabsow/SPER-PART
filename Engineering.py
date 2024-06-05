@@ -967,7 +967,7 @@ if page == 'Pneumatic parts':
             st.dataframe(Regulator)
             col4, col5, col6 = st.columns([3,1,2])
             with col4:
-                display_tab('Regulator')\
+                display_tab('Regulator')
         csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
     if __name__ == '__main__':
