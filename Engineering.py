@@ -1011,10 +1011,9 @@ if page == 'Utility area':
             
             def update_data(tab_name):
                 st.subheader(f'{tab_name} Data')
-                filtered_df = df_f[df_f['Category'] == tab_name]
-                row_number = st.selectbox(f'Select row number for {tab_name}:', filtered_df.index, key=f'row_number_{tab_name}')
-                st.write(f"Selected Item: {filtered_df.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity: {filtered_df.loc[row_number, 'Qty.']}")
+                row_number = st.selectbox(f'Select row number for {tab_name}:', df_f.index, key=f'row_number_{tab_name}')
+                st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
             
                 quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'quantity_{tab_name}')
                 operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
@@ -1030,7 +1029,6 @@ if page == 'Utility area':
                     # حفظ DataFrame المعدل إلى ملف CSV مؤقت
                     df_f.to_csv('updated_data.csv', index=False)
                     if st.button(f'Refresh Data for {tab_name}', key=f'refresh_button_{tab_name}'):
-                        st.session_state.df = load_data()
                         st.experimental_rerun() 
 
             tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
