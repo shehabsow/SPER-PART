@@ -1011,12 +1011,56 @@ if page == 'Utility area':
             
             def update_data(tab_name):
                 st.subheader(f'{tab_name} Data')
-                row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(df_f)-1, step=1, key=f'row_number_{tab_name}')
-                st.write(f"Selected Item: {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity: {df_f.loc[row_number, 'Qty.']}")
+                col1, col2, col3 = st.columns([1,2,2])
+                with col1:
+                        # عرض الداتا فري  
+                    row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
+        
+            # عرض المعلومات عن الصف المختار
+                
+                    
+                    item_style = """
+            <style>
+            .item-text {
+                color: #FF5733;
+                font-size: 24px;
+            }
+            .quantity-text {
+                color: #33C3FF;
+                font-size: 24px;
+            }
+            </style>
+            """
             
-                quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'quantity_{tab_name}')
-                operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
+            # Inject the custom CSS
+                    st.markdown(item_style, unsafe_allow_html=True)
+                
+                # Display the selected item and current quantity with custom styles
+                st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
+                st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
+        
+                col1, col2, col3 = st.columns([1,2,2])
+                with col1:
+        
+                    input_style = """
+        <style>
+        .custom-label {
+            color: #000000;
+            font-size: 20px;
+            
+        }
+        </style>
+        """
+        
+        # Inject the custom CSS
+                    st.markdown(input_style, unsafe_allow_html=True)
+                    
+                    # Custom label for the number input
+                    st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
+                    
+                    # Number input for deducting quantity
+                    deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
             
                 if st.button(f'Update Quantity for {tab_name}', key=f'update_button_{tab_name}'):
                     if operation == 'add':
