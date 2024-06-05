@@ -1221,8 +1221,8 @@ if page == 'Utility area':
                 Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
                 st.dataframe(Uv)
                 col4, col5, col6 = st.columns([3,1,2])
-                    with col4:
-                        display_tab('Uv')
+                with col4:
+                    display_tab('Uv')
             with col3:
                 st.subheader('image  for  these  part')
                 image45 = open('images/45.jpeg', 'rb').read()
@@ -1237,8 +1237,8 @@ if page == 'Utility area':
                 Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
                 st.dataframe(Ro)
                 col4, col5, col6 = st.columns([3,1,2])
-                    with col4:
-                        display_tab('Ro')
+                with col4:
+                    display_tab('Ro')
             with col3:
                 st.subheader('image  for  these  part')
                 image46 = open('images/46.jpeg', 'rb').read()
@@ -1289,8 +1289,8 @@ if page == 'Utility area':
                 AHU_Valve = df_f[df_f['Comments'] == 'Valve ahu'].sort_values(by='Comments')
                 st.dataframe(AHU_Valve)
                 col4, col5, col6 = st.columns([3,1,2])
-                    with col4:
-                        display_tab('AHU_Valve')
+                with col4:
+                    display_tab('AHU_Valve')
             with col3:
                 st.subheader('image  for  these  part')
                 image49 = open('images/49.PNG', 'rb').read()
