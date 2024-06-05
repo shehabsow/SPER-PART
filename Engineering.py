@@ -500,12 +500,7 @@ if page == 'Electrical parts':
             df_f.to_csv('data.csv', index=False)
             st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
             st.session_state.update_button_clicked = True
-            if 'update_button_clicked' not in st.session_state:
-                st.session_state.update_button_clicked = False
-        
-    # زر لتحديث الكمية
-            if st.button('Update Quantity'):
-                if not st.session_state.update_button_clicked:
+            
                 
                 # إعادة تحميل البيانات من ملف CSV لتحديث العرض
                     st.experimental_rerun()
@@ -529,8 +524,11 @@ if page == 'Electrical parts':
                 quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                 if 'update_button_clicked' not in st.session_state:
-                    st.session_state.update_button_clicked = False
-                if st.button('Update Quantity for Tab1', key='tab1_btn'):
+                st.session_state.update_button_clicked = False
+        
+        # زر لتحديث الكمية
+                if st.button('Update Quantity'):
+                    if not st.session_state.update_button_clicked:
                     update_quantity(row_number, quantity, operation)
                     st.session_state.update_button_clicked = True
                 
