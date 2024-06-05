@@ -875,6 +875,7 @@ if page == 'Electrical parts':
             col16, col2, col31 = st.columns([3,1,2])
             with col16:
                 display_tab('Electronic_buzzer')
+        csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')     
     
     if __name__ == '__main__':
