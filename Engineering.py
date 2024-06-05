@@ -589,7 +589,7 @@ if page == 'Electrical parts':
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab3_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab3_op')
-                if st.button('Update Quantity for Tab2', key='tab2_btn'):
+                if st.button('Update Quantity for Tab2', key='tab3_btn'):
                     update_quantity(row_number, quantity, operation)
             with col3:
                 st.subheader('image  for  these  part')
