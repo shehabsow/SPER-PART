@@ -545,9 +545,9 @@ if page == 'Electrical parts':
                 
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
-                row_number = st.selectbox('Select row number for Tab2:', df.index, key='tab2_row')
-                st.write(f"Selected Item : {df.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df.loc[row_number, 'Qty.']}")
+                row_number = st.selectbox('Select row number for Tab2:', df_f.index, key='tab2_row')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab2:', min_value=0, step=1, key='tab2_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab2_op')
                 if st.button('Update Quantity for Tab2', key='tab2_btn'):
