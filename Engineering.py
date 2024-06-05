@@ -612,7 +612,7 @@ if page == 'Electrical parts':
                 
                 Fiber_sensor = df_f[df_f['Comments'] == 'Fiber sensor'].sort_values(by='Comments')
                 st.dataframe(Fiber_sensor)
-                col7, col8, col9 = st.columns([3,1,2])
+                col4, col5, col6 = st.columns([3,1,2])
                 with col4:
                     display_tab('Fiber sensor')
             with col3:
