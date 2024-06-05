@@ -508,7 +508,7 @@ if page == 'Electrical parts':
                 if not st.session_state.update_button_clicked:
                 
                 # إعادة تحميل البيانات من ملف CSV لتحديث العرض
-                st.experimental_rerun()
+                    st.experimental_rerun()
         
             
         
