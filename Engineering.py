@@ -1005,7 +1005,7 @@ if page == 'Utility area':
 
         if select_col == 'Water Station':
             if 'df' not in st.session_state:
-                st.session_state.df = load_data()
+                st.session_state.df = pd.read_csv('Eng Spare parts.csv')
             
             df_f = st.session_state.df
             
@@ -1059,7 +1059,7 @@ if page == 'Utility area':
                     st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
                     
                     # Number input for deducting quantity
-                    deduct_quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
+                    quantity = st.number_input('', min_value=0, max_value=int(df_f.loc[row_number, 'Qty.']), step=1)
                     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'operation_{tab_name}')
             
                 if st.button(f'Update Quantity for {tab_name}', key=f'update_button_{tab_name}'):
