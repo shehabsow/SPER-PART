@@ -968,6 +968,7 @@ if page == 'Electrical parts':
                 .custom-input input {
                     font-size: 18px;
                     color: black;
+                    width: 10px; /* عرض مربع الإدخال */
                 }
                 </style>
                 """, unsafe_allow_html=True)
@@ -989,6 +990,7 @@ if page == 'Electrical parts':
                 .custom-quantity-input input {
                     font-size: 18px;
                     color: black;
+                    width: 10px; /* عرض مربع الإدخال */
                 }
                 </style>
                 """, unsafe_allow_html=True)
