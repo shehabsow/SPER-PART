@@ -580,9 +580,7 @@ if page == 'Electrical parts':
                 
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
                 st.dataframe(Sensor)
-                col7, col8, col9 = st.columns([3,1,2])
-                with col7:
-                    display_tab('Proximity')
+              
             with col3:
                 st.subheader('image  for  these  part')
 
