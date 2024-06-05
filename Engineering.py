@@ -136,10 +136,7 @@ if page == 'Mechanical parts':
         # Display the selected item and current quantity with custom styles
         st.markdown(f"<p class='item-text'>Selected Item: {df_f.loc[row_number, 'Item description']}</p>", unsafe_allow_html=True)
         st.markdown(f"<p class='quantity-text'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</p>", unsafe_allow_html=True)
-
-     
-            st.markdown(tem_style, unsafe_allow_html=True)
-            
+    
             # Custom label for the number input
         st.markdown("<p class='custom-label'>Enter quantity to deduct:</p>", unsafe_allow_html=True)
             
