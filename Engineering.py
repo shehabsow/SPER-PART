@@ -523,15 +523,10 @@ if page == 'Electrical parts':
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
-                if 'update_button_clicked' not in st.session_state:
-                    st.session_state.update_button_clicked = False
-        
-        # زر لتحديث الكمية
                 if st.button('Update Quantity'):
-                    if not st.session_state.update_button_clicked:
-                        update_quantity(row_number, quantity, operation)
-                        st.session_state.update_button_clicked = True
-                        st.experimental_rerun()
+                    update_quantity(row_number, quantity, operation)
+                
+                   
                     
 
                     
