@@ -523,8 +523,7 @@ if page == 'Electrical parts':
                     update_quantity(row_number, quantity, operation)
                     st.session_state.update_button_clicked = True
                 
-                # إعادة تحميل البيانات من ملف CSV لتحديث العرض
-                    st.experimental_rerun()
+
                     
             with col3:
                 st.subheader('image  for  these  part')
