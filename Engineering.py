@@ -1003,7 +1003,7 @@ if page == 'FORKLIFT':
 """, unsafe_allow_html=True)
         st.subheader('Select from these items')
       
-        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant',
+        tab1, tab2 ,tab3, tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant',
         'Forklift control','Forklift carbon','Forklift break'])
 
         with tab1:
