@@ -1073,7 +1073,8 @@ if page == 'Utility area':
                     # حفظ DataFrame المعدل إلى ملف CSV مؤقت
                     df_f.to_csv('updated_data.csv', index=False)
                 if st.button(f'Refresh Data for {tab_name}', key=f'refresh_button_{tab_name}'):
-                    st.experimental_rerun() 
+                    update_data(tab_name)
+                    
 
             tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
                 'Flow monitor','conductivity','Stilmas sensor','Valve','test','pump','Uv','Ro'])
