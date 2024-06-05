@@ -517,8 +517,14 @@ if page == 'Electrical parts':
                 st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1, key='tab1_qty')
                 operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
+                if 'update_button_clicked' not in st.session_state:
+                    st.session_state.update_button_clicked = False
                 if st.button('Update Quantity for Tab1', key='tab1_btn'):
                     update_quantity(row_number, quantity, operation)
+                    st.session_state.update_button_clicked = True
+                
+                # إعادة تحميل البيانات من ملف CSV لتحديث العرض
+                    st.experimental_rerun()
                     
             with col3:
                 st.subheader('image  for  these  part')
