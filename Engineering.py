@@ -508,14 +508,14 @@ if page == 'Electrical parts':
                 
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
                 st.dataframe(Proximity)
-                col11, col12, col13 = st.columns([2,2,2])
+                col11, col12, col13 = st.columns([2,3,2])
                 with col11:
                 
                     row_number = st.number_input('Select row number:', min_value=0, max_value=len(df_f)-1, step=1)
-                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
-                quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1)
-                operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
+                    st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                    st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
+                    quantity = st.number_input('Enter quantity for Tab1:', min_value=0, step=1)
+                    operation = st.radio('Choose operation:', ('add', 'subtract'), key='tab1_op')
                     
                     if st.button('Update Quantity'):
                         update_quantity(row_number, quantity, operation)
