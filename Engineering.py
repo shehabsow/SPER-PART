@@ -492,9 +492,9 @@ if page == 'Electrical parts':
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
         'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
         def update_quantity(row_index, quantity):
-            df.loc[row_index, 'Qty.'] += quantity
-            df.to_csv('data.csv', index=False)
-            st.success(f"Quantity updated successfully! New Quantity: {df.loc[row_index, 'Qty.']}")
+            df_f.loc[row_index, 'Qty.'] += quantity
+            df_f.to_csv('data.csv', index=False)
+            st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
 
         with tab1:
             col1, col2, col3 = st.columns([30,3,13])
@@ -505,9 +505,9 @@ if page == 'Electrical parts':
                 df = st.session_state.df
 
 
-                row_number = st.selectbox('Select row number for Tab1:', df.index, key='tab1')
-                st.write(f"Selected Item : {df.loc[row_number, 'Item description']}")
-                st.write(f"Current Quantity : {df.loc[row_number, 'Qty.']}")
+                row_number = st.selectbox('Select row number for Tab1:', df_f.index, key='tab1')
+                st.write(f"Selected Item : {df_f.loc[row_number, 'Item description']}")
+                st.write(f"Current Quantity : {df_f.loc[row_number, 'Qty.']}")
                 add_quantity = st.number_input('Enter quantity to add for Tab1:', min_value=0, step=1, key='tab1_qty')
                 if st.button('Update Quantity for Tab1'):
                     update_quantity(row_number, add_quantity)
