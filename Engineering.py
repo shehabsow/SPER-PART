@@ -103,7 +103,7 @@ if page == 'Mechanical parts':
     </h2>
 """, unsafe_allow_html=True)
         st.subheader('Select from these items')
-        load_data()
+    
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
         'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
 
