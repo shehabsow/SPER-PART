@@ -18,7 +18,11 @@ page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Ele
                     'Pneumatic parts','GLATT','FETTE','FORKLIFT','LOTOTO'])
 def load_data():
     if 'df' not in st.session_state:
-        st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+        try:
+            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+        except FileNotFoundError:
+            st.error("CSV file not found. Please make sure 'Eng Spare parts.csv' is in the correct path.")
+            st.stop()
 
 # حفظ البيانات في ملف CSV
 def save_data():
