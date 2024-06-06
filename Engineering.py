@@ -16,25 +16,18 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Pneumatic parts','GLATT','FETTE','FORKLIFT','LOTOTO'])
-def load_data():
-    if 'df' not in st.session_state:
-        try:
-            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-        except FileNotFoundError:
-            st.error("CSV file not found. Please make sure 'Eng Spare parts.csv' is in the correct path.")
-            st.stop()
+if 'df' not in st.session_state:
+    st.session_state.df = pd.read_csv('Eng Spare parts.csv')
 
-# حفظ البيانات في ملف CSV
-def save_data():
-    st.session_state.df.to_csv('Eng Spare parts.csv', index=False)
+df_f = st.session_state.df
 
 def update_quantity(row_index, quantity, operation):
     if operation == 'add':
-        st.session_state.df.loc[row_index, 'Qty.'] += quantity
+        df_f.loc[row_index, 'Qty.'] += quantity
     elif operation == 'subtract':
-        st.session_state.df.loc[row_index, 'Qty.'] -= quantity
-    save_data()
-    st.success(f"Quantity updated successfully! New Quantity: {st.session_state.df.loc[row_index, 'Qty.']}")
+        df_f.loc[row_index, 'Qty.'] -= quantity
+    df_f.to_csv('Eng Spare parts.csv', index=False)
+    st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
     st.session_state.update_button_clicked = True
 
 def display_tab(tab_name):
@@ -52,12 +45,12 @@ def display_tab(tab_name):
         <label class="custom-label-{tab_name}">Select row number for {tab_name}:</label>
         """, unsafe_allow_html=True)
 
-    row_number = st.number_input('', min_value=0, max_value=len(st.session_state.df)-1, step=1, key=f'{tab_name}_row_number', help="Enter the row number to select the item")
+    row_number = st.number_input('', min_value=0, max_value=len(df_f)-1, step=1, key=f'{tab_name}_row_number', help="Enter the row number to select the item")
 
     # تنسيق الكتابة
     st.markdown(f"""
-        <div style='font-size: 20px; color: green;'>Selected Item: {st.session_state.df.loc[row_number, 'Item description']}</div>
-        <div style='font-size: 20px; color: green;'>Current Quantity: {st.session_state.df.loc[row_number, 'Qty.']}</div>
+        <div style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
+        <div style='font-size: 20px; color: green;'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</div>
         """, unsafe_allow_html=True)
     
     # تنسيق Enter quantity
@@ -77,8 +70,9 @@ def display_tab(tab_name):
         update_quantity(row_number, quantity, operation)
 
     # زر لتحميل الملف بعد التعديل
-    csv = st.session_state.df.to_csv(index=False)
+    csv = df_f.to_csv(index=False)
     st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+
 
 
 
