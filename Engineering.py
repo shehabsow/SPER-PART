@@ -16,15 +16,18 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Pneumatic parts','GLATT','FETTE','FORKLIFT','LOTOTO'])
-if 'df' not in st.session_state:
-            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-df_f = st.session_state.df
+def load_data():
+    if 'df' not in st.session_state:
+        st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+def save_data():
+    st.session_state.df.to_csv('Eng Spare parts.csv', index=False)
+    
 def update_quantity(row_index, quantity, operation):
     if operation == 'add':
         df_f.loc[row_index, 'Qty.'] += quantity
     elif operation == 'subtract':
         df_f.loc[row_index, 'Qty.'] -= quantity
-    df_f.to_csv('data.csv', index=False)
+    save_data()
     st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
     st.session_state.update_button_clicked = True
 
@@ -71,12 +74,14 @@ def display_tab(tab_name):
 
     if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
         update_quantity(row_number, quantity, operation)
+    csv = st.session_state.df.to_csv(index=False)
     
 
 
 
 if page == 'Mechanical parts':
     def main():
+        load_data()
         st.markdown("""
     <style>
         /* Add your custom CSS styles here */
