@@ -58,7 +58,7 @@ def display_tab(tab_name):
         <style>
         .custom-quantity-{tab_name} {{
             font-size: 20px; 
-            color: red; 
+            color: blue; 
         }}
         </style>
         <label class="custom-quantity-{tab_name}">Enter quantity for {tab_name}:</label>
