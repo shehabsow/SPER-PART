@@ -39,6 +39,7 @@ def display_tab(tab_name):
         .custom-label-{tab_name} {{
             font-size: 20px; /* حجم الخط */
             text-decoration: underline;
+            font-style: italic;
             color: blue; /* لون النص */
         }}
         </style>
