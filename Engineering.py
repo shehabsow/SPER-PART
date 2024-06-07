@@ -58,7 +58,9 @@ def display_tab(tab_name):
     st.markdown(f"""
         <style>
         .custom-quantity-{tab_name} {{
-            font-size: 20px; 
+            font-size: 20px;
+            text-decoration: underline;
+            font-style: italic;
             color: blue; 
         }}
         </style>
