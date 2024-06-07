@@ -56,13 +56,14 @@ def display_tab(tab_name):
     # تنسيق Enter quantity
     st.markdown(f"""
         <style>
-        .custom-quantity-input-{tab_name} {{
+        .custom-quantity-{tab_name} {{
             font-size: 20px; 
             color: red; 
         }}
         </style>
+        <label class="custom-quantity-{tab_name}">Enter quantity for {tab_name}:</label>
         """, unsafe_allow_html=True)
-    quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'{tab_name}_quantity')
+    quantity = st.number_input('', min_value=1, step=1, key=f'{tab_name}_quantity')
 
     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
 
