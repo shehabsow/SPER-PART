@@ -37,7 +37,7 @@ def display_tab(tab_name):
     st.markdown(f"""
         <style>
         .custom-label-{tab_name} {{
-            font-size: 24px; /* حجم الخط */
+            font-size: 20px; /* حجم الخط */
           
             color: blue; /* لون النص */
         }}
