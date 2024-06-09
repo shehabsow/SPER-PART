@@ -775,18 +775,41 @@ if page == 'Electrical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab15:
-            Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
-            st.dataframe(Conductor)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Conductor')
+             col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
+                st.dataframe(Conductor)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Conductor')
+            with col3:
+                st.subheader('image  for  these  part')
+                image82 = open('images/82.PNG', 'rb').read()
+                st.image(image82, width=150)
+                url = 'https://www.wago.com/global/rail-mount-terminal-blocks/2-conductor-ground-terminal-block/p/280-907'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab16:
-            Contactor = df_f[df_f['Comments'] == 'Contactor'].sort_values(by='Comments')
-            st.dataframe(Contactor)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Contactor')
+             col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Contactor = df_f[df_f['Comments'] == 'Contactor'].sort_values(by='Comments')
+                st.dataframe(Contactor)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Contactor')
+            with col3:
+                st.subheader('image  for  these  part')
+                NHP ,SCHNEIDER = st.tabs(['NHP ','SCHNEIDER'])
+                with NHP :
+                    image83 = open('images/83.PNG', 'rb').read()
+                    st.image(image83, width=150)
+                    url = 'https://www.nhp.com.au/product/ca79e1024vdc'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with SCHNEIDER:
+                    image84= open('images/84.PNG', 'rb').read()
+                    st.image(image84, width=150)
+                    url = 'https://www.se.com/eg/en/product/LC1D18B7/tesys-d-contactor-3p3-no-ac3-440-v-18-a-24-v-ac-coil/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab17:
             Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
