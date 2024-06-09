@@ -49,8 +49,8 @@ def display_tab(tab_name):
 
     # تنسيق الكتابة
     st.markdown(f"""
-        <div style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
-        <div style='font-size: 20px; color: green;'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</div>
+        <div style='font-size: 15px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
+        <div style='font-size: 15px; color: green;'>Current Quantity: {df_f.loc[row_number, 'Qty.']}</div>
         """, unsafe_allow_html=True)
     
     # تنسيق Enter quantity
