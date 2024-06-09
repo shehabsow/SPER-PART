@@ -814,23 +814,8 @@ if page == 'Electrical parts':
         with tab17:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                Inverter = df_f[df_f['Comments'] == 'Inverter'].sort_values(by='Comments')
-                st.dataframe(Inverter)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Inverter')
-            with col3:
-                st.subheader('image  for  these  part')
-                image86 = open('images/86.PNG', 'rb').read()
-                st.image(image86, width=150)
-                url = 'https://www.se.com/in/en/product-range/7654-conext-xw/#overview'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab18:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
                 Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
-                st.dataframe(Controller)
+                st.dataframe(Inverter)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Controller')
@@ -838,6 +823,21 @@ if page == 'Electrical parts':
                 st.subheader('image  for  these  part')
                 image85 = open('images/85.PNG', 'rb').read()
                 st.image(image85, width=150)
+                url = 'https://www.se.com/in/en/product-range/7654-conext-xw/#overview'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+        with tab18:
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Inverter = df_f[df_f['Comments'] == 'Inverter'].sort_values(by='Comments')
+                st.dataframe(Inverter)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Controller')
+            with col3:
+                st.subheader('image  for  these  part')
+                image86 = open('images/86.PNG', 'rb').read()
+                st.image(image86, width=150)
                 url = 'https://www.se.com/in/en/product/TM262M35MESS8T/motion-controller-modicon-m262-3ns-per-instruction-24-axes-ethernet-sercos/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
