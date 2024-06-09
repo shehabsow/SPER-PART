@@ -775,7 +775,7 @@ if page == 'Electrical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab15:
-            col1, col2, col3 = st.columns([30,3,13])
+             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
                 st.dataframe(Conductor)
