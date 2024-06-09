@@ -38,7 +38,6 @@ def display_tab(tab_name):
         <style>
         .custom-label-{tab_name} {{
             font-size: 20px; /* حجم الخط */
-            
             font-style: italic;
             color: blue; /* لون النص */
         }}
@@ -59,7 +58,6 @@ def display_tab(tab_name):
         <style>
         .custom-quantity-{tab_name} {{
             font-size: 20px;
-            text-decoration: underline;
             font-style: italic;
             color: blue; 
         }}
