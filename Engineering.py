@@ -757,7 +757,7 @@ if page == 'Electrical parts':
                     display_tab('Control')
             with col3:
                 st.subheader('image  for  these  part')
-                UHLMANN ,SCHNEIDER,SIEMENS  = st.tabs(['UHLMANN ','SCHNEIDER','IFM'])
+                UHLMANN ,SCHNEIDER,SIEMENS  = st.tabs(['UHLMANN ','SCHNEIDER','SIEMENS'])
                 with UHLMANN :
                     image79 = open('images/79.PNG', 'rb').read()
                     st.image(image79, width=150)
