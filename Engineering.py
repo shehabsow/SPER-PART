@@ -815,7 +815,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
-                st.dataframe(Inverter)
+                st.dataframe(Controller)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Controller')
@@ -833,7 +833,7 @@ if page == 'Electrical parts':
                 st.dataframe(Inverter)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Controller')
+                    display_tab('Inverter')
             with col3:
                 st.subheader('image  for  these  part')
                 image86 = open('images/86.PNG', 'rb').read()
