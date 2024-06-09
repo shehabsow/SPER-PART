@@ -1144,7 +1144,7 @@ if page == 'Utility area':
                 with col1:
                     Flow_module = df_f[df_f['Comments'] == 'Flow module'].sort_values(by='Comments')
                     st.dataframe(Flow_module)
-                    col4, col5, col6 = st.columns(2,1,2])
+                    col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Flow_module')
                 with col3:
