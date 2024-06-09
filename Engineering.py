@@ -748,11 +748,31 @@ if page == 'Electrical parts':
                     
                     
         with tab14:
-            Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
-            st.dataframe(Control)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Control')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
+                st.dataframe(Control)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Control')
+            with col3:
+                st.subheader('image  for  these  part')
+                UHLMANN ,SCHNEIDER,SIEMENS  = st.tabs(['UHLMANN ','SCHNEIDER','IFM'])
+                with UHLMANN :
+                    image79 = open('images/79.PNG', 'rb').read()
+                    st.image(image79, width=150)
+                    url = 'https://industrie-24-de.myshopify.com/products/uhlmann-tsg4-v05-thyistor-steuergerat?shpxid=44aab6e7-988c-4f35-b98e-18acaff4cfee'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with SCHNEIDER:
+                    image80= open('images/80.PNG', 'rb').read()
+                    st.image(image80, width=150)
+                    url = 'https://eshop.se.com/ae/nfc-3-phase-monitoring-relay-harmony-8a-2co-multifunction-208a-480v-ac-rmnf22tb30.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with SIEMENS:
+                    image81 = open('images/81.PNG', 'rb').read()
+                    st.image(image81, width=150)
+                    url = 'https://www.lemu.dk/en/catalog/products/simatic-s7-1500f-cpu-1516f-3-pndp-central-processing-unit-with-15-mb-work-memory-for-program-and-5-mb-for-data/7889231828'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab15:
             Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
