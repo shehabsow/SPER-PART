@@ -842,11 +842,31 @@ if page == 'Electrical parts':
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab19:
-            Relay = df_f[df_f['Comments'] == 'Relay'].sort_values(by='Comments')
-            st.dataframe(Relay)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Relay')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:               
+                Relay = df_f[df_f['Comments'] == 'Relay'].sort_values(by='Comments')
+                st.dataframe(Relay)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Relay')
+            with col3:
+                st.subheader('image  for  these  part')
+                relay,solid_relay,PILZ_relay  = st.tabs(['relay','solid relay','PILZ relay'])
+                with relay:
+                    image87 = open('images/87.PNG', 'rb').read()
+                    st.image(image87, width=150)
+                    url = 'https://www.se.com/in/en/product/RPM31F7/power-plugin-relay-15-a-3-co-120-v-ac/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with solid_relay:
+                    image88= open('images/88.PNG', 'rb').read()
+                    st.image(image88, width=150)
+                    url = 'https://www.se.com/eg/en/product/SSP3A225BDT/solid-state-relay-panelinput-432vdc-output-48530vac-25athermal-interface/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with PILZ_relay:
+                    image89 = open('images/89.PNG', 'rb').read()
+                    st.image(image89, width=150)
+                    url = 'https://www.pilz.com/en-IE/eshop/Small-controllers-PNOZmulti/Safety-systems-PNOZmulti-Classic/PNOZmulti-I-O-modules/PNOZmulti-safe-I-O-modules/c/0010100203701880G2'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab20:
             Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
