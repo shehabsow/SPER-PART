@@ -881,11 +881,26 @@ if page == 'Electrical parts':
                 url = 'https://www.wago.com/us/protection-devices/push-in-type-jumper-bar/p/859-408'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab21:
-            Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
-            st.dataframe(Panel)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Panel')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
+                st.dataframe(Light)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Panel')
+            with col3:
+                st.subheader('image  for  these  part')
+                GUK,Laetus  = st.tabs(['GUK','Laetus'])
+                with GUK:
+                    image93 = open('images/93.PNG', 'rb').read()
+                    st.image(image93, width=150)
+                    url = 'https://www.guk-vijuk.net/folding-machines/packaging-line-leaflet-folders-feeders/rs-21070-roll-fed-folder.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with Laetus:
+                    image92= open('images/92.PNG', 'rb').read()
+                    st.image(image92, width=150)
+                    url = 'https://permasale.de/GUK-folding-machine-FA-35-2-SVA-VAR'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab22:
             Heater = df_f[df_f['Comments'] == 'Heater'].sort_values(by='Comments')
