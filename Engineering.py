@@ -926,11 +926,19 @@ if page == 'Electrical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab24:
-            Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
-            st.dataframe(Thermocouple)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Thermocouple')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
+                st.dataframe(Thermocouple)
+                col16, col2, col31 = st.columns([2,1,2])
+                with col16:
+                    display_tab('Thermocouple')
+            with col3:
+                st.subheader('image  for  these  part')
+                image96 = open('images/96.PNG', 'rb').read()
+                st.image(image96, width=150)
+                url = 'https://www.circuits-diy.com/what-is-a-thermocouple-and-how-does-it-work/'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
         st.header('Select from these items')
      
