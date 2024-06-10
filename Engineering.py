@@ -975,7 +975,7 @@ if page == 'Electrical parts':
                 st.dataframe(Power_supply)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Power supply')
+                    display_tab('Power_supply')
             with col3:
                 st.subheader('image  for  these  part')
                 SIEMENS, OMRON  = st.tabs(['SIEMENS','OMRON'])
