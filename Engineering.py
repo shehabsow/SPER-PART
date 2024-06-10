@@ -971,7 +971,7 @@ if page == 'Electrical parts':
         with tab27:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                Power_supply = df_f[df_f['Comments'] == 'Power_supply'].sort_values(by='Comments')
+                Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
                 st.dataframe(Power_supply)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
@@ -1032,7 +1032,7 @@ if page == 'Electrical parts':
         with tab31:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                Battery = df_f[df_f['Comments'] == ' Battery'].sort_values(by='Comments')
+                Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
                 st.dataframe( Battery)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
@@ -1054,11 +1054,11 @@ if page == 'Electrical parts':
         with tab32:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                Electronic_board  = df_f[df_f['Comments'] == 'Electronic_board '].sort_values(by='Comments')
+                Electronic_board  = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
                 st.dataframe(Electronic_board )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
-                    display_tab('Electronic board ')
+                    display_tab('Electronic board')
             with col3:
                 st.subheader('image  for  these  part')
                 image106 = open('images/106.PNG', 'rb').read()
@@ -1069,11 +1069,11 @@ if page == 'Electrical parts':
         with tab33:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                Electronic_buzzer  = df_f[df_f['Comments'] == 'Electronic_buzzer '].sort_values(by='Comments')
+                Electronic_buzzer  = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
                 st.dataframe(Electronic_buzzer )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
-                    display_tab('Electronic buzzer ')
+                    display_tab('Electronic buzzer')
             with col3:
                 st.subheader('image  for  these  part')
                 image107 = open('images/107.PNG', 'rb').read()
