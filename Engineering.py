@@ -821,7 +821,7 @@ if page == 'Electrical parts':
                 st.subheader('image  for  these  part')
                 image85 = open('images/85.PNG', 'rb').read()
                 st.image(image85, width=150)
-                url = 'https://www.se.com/in/en/product-range/7654-conext-xw/#overview'
+                url = 'https://www.se.com/in/en/product/TM262M35MESS8T/motion-controller-modicon-m262-3ns-per-instruction-24-axes-ethernet-sercos/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab18:
@@ -836,7 +836,7 @@ if page == 'Electrical parts':
                 st.subheader('image  for  these  part')
                 image86 = open('images/86.PNG', 'rb').read()
                 st.image(image86, width=150)
-                url = 'https://www.se.com/in/en/product/TM262M35MESS8T/motion-controller-modicon-m262-3ns-per-instruction-24-axes-ethernet-sercos/'
+                url = 'https://www.se.com/in/en/product-range/7654-conext-xw/#overview'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab19:
