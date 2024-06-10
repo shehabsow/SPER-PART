@@ -942,7 +942,7 @@ if page == 'Electrical parts':
 
         st.header('Select from these items')
      
-        tab25 ,tab27, tab28, tab30 ,tab31, tab32, tab33  = st.tabs(['Ups','Power supply','Electricity',
+        tab25 ,tab26, tab27, tab28 ,tab29, tab30, tab31  = st.tabs(['Ups','Power supply','Electricity',
         'Feedback','Battery','Electronic board','Electronic buzzer'])
 
         with tab25:
@@ -968,7 +968,7 @@ if page == 'Electrical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                
                 
-        with tab27:
+        with tab26:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
@@ -990,7 +990,7 @@ if page == 'Electrical parts':
                     url = 'https://www.indiamart.com/proddetail/s8vk-t24024-omron-smps-power-supply-25938847955.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
-        with tab28:
+        with tab27:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
@@ -1013,7 +1013,7 @@ if page == 'Electrical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
                 
-        with tab30:
+        with tab28:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
@@ -1029,7 +1029,7 @@ if page == 'Electrical parts':
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
         
-        with tab31:
+        with tab29:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
@@ -1051,7 +1051,7 @@ if page == 'Electrical parts':
                     url = 'https://free-electronic.com/product/ultracell-battery-ul2-2-12-sealed-lead-acid-battery-12v2-2a/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
-        with tab32:
+        with tab30:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Electronic_board  = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
@@ -1066,7 +1066,7 @@ if page == 'Electrical parts':
                 url = 'https://fares-pcb.com/product-category/fares-products/interface-cards-and-modules/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
-        with tab33:
+        with tab31:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Electronic_buzzer  = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
@@ -1080,8 +1080,7 @@ if page == 'Electrical parts':
                 st.image(image107, width=150)
                 url = 'https://electroshope.com/product/panel-buzzer-24vdc-cbz-10dc'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        csv = df_f.to_csv(index=False)
-        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')     
+           
     
     if __name__ == '__main__':
 
