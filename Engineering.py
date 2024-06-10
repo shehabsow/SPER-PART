@@ -1081,6 +1081,9 @@ if page == 'Electrical parts':
                 st.image(image107, width=150)
                 url = 'https://electroshope.com/product/panel-buzzer-24vdc-cbz-10dc'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+        csv = st.session_state.df.to_csv(index=False)
+        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+
            
     
     if __name__ == '__main__':
