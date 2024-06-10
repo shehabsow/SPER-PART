@@ -1017,7 +1017,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
-                st.dataframe(Feedback)
+                st.dataframe(Electricity)
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Feedback')
@@ -1080,6 +1080,7 @@ if page == 'Electrical parts':
                 st.image(image107, width=150)
                 url = 'https://electroshope.com/product/panel-buzzer-24vdc-cbz-10dc'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+        csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')     
     
     if __name__ == '__main__':
