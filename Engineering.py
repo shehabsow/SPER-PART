@@ -942,72 +942,144 @@ if page == 'Electrical parts':
 
         st.header('Select from these items')
      
-        tab25, tab26 ,tab27, tab28,tab29, tab30 ,tab31, tab32, tab33  = st.tabs(['Ups','Power strip','Power supply','Electricity','Electricity pin',
+        tab25 ,tab27, tab28, tab30 ,tab31, tab32, tab33  = st.tabs(['Ups','Power supply','Electricity',
         'Feedback','Battery','Electronic board','Electronic buzzer'])
 
         with tab25:
-            Ups = df_f[df_f['Comments'] == 'Ups'].sort_values(by='Comments')
-            st.dataframe(Ups)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Ups')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Ups = df_f[df_f['Comments'] == 'Ups'].sort_values(by='Comments')
+                st.dataframe(Ups)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Ups')
+            with col3:
+                st.subheader('image  for  these  part')
+                battery_UPS, QUINT_UPS  = st.tabs(['battery UPS','QUINT UPS'])
+                with battery_UPS:
+                    image97 = open('images/97.PNG', 'rb').read()
+                    st.image(image97, width=150)
+                    url = 'https://plc-direct.com/products/2320319'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with QUINT_UPS:
+                    image98= open('images/98.PNG', 'rb').read()
+                    st.image(image98, width=150)
+                    url = 'https://www.phoenixcontact.com/en-us/products/uninterruptible-power-supply-quint-ups-24dc-24dc20-2320238'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                
-        with tab26:
-            Power_strip = df_f[df_f['Comments'] == 'Power strip'].sort_values(by='Comments')
-            st.dataframe(Power_strip)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Power_strip')
                 
         with tab27:
-            Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
-            st.dataframe(Power_supply)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Power_supply')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Power_supply = df_f[df_f['Comments'] == 'Power_supply'].sort_values(by='Comments')
+                st.dataframe(Power_supply)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Power_supply')
+            with col3:
+                st.subheader('image  for  these  part')
+                SIEMENS, OMRON  = st.tabs(['SIEMENS','OMRON'])
+                with SIEMENS:
+                    image99 = open('images/99.PNG', 'rb').read()
+                    st.image(image99, width=150)
+                    url = 'https://www.siemens.com/global/en/products/automation/power-supply/special-design.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with OMRON:
+                    image100= open('images/100.PNG', 'rb').read()
+                    st.image(image100, width=150)
+                    url = 'https://www.indiamart.com/proddetail/s8vk-t24024-omron-smps-power-supply-25938847955.html
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab28:
-            Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
-            st.dataframe(Electricity)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Electricity')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                 Electricity = df_f[df_f['Comments'] == ' Electricity'].sort_values(by='Comments')
+                st.dataframe( Electricity)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab(' Electricity')
+            with col3:
+                st.subheader('image  for  these  part')
+                END_PLATE, INSERT_CRIMP  = st.tabs(['END PLATE','INSERT CRIMP'])
+                with END_PLATE:
+                    image101 = open('images/101.PNG', 'rb').read()
+                    st.image(image101, width=150)
+                    url = 'https://www.wago.com/global/rail-mount-terminal-blocks/end-and-intermediate-plate/p/2000-1392'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with INSERT_CRIMP:
+                    image102= open('images/102.PNG', 'rb').read()
+                    st.image(image102, width=150)
+                    url = 'https://www.elecbee.com/en-57967-hee-46-pin-female-insert-crimp-terminal'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
-        with tab29:
-            Electricity_pin = df_f[df_f['Comments'] == 'Electricity pin'].sort_values(by='Comments')
-            st.dataframe(Electricity_pin)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Electricity_pin')
                 
         with tab30:
-            Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
-            st.dataframe(Feedback)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Feedback')
-                
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
+                st.dataframe(Feedback)
+                col16, col2, col31 = st.columns([2,1,2])
+                with col16:
+                    display_tab('Feedback')
+            with col3:
+                st.subheader('image  for  these  part')
+                image103 = open('images/103.PNG', 'rb').read()
+                st.image(image103, width=150)
+                url = 'https://www.kempstoncontrols.co.uk/SRS50-HWA0-K21/Sick/sku/411694'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+
+        
         with tab31:
-            Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
-            st.dataframe(Battery)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Battery')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                 Battery = df_f[df_f['Comments'] == ' Battery'].sort_values(by='Comments')
+                st.dataframe( Battery)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab(' Battery')
+            with col3:
+                st.subheader('image  for  these  part')
+                Battery_module,  Battery  = st.tabs(['Battery module',' Battery'])
+                with Battery_module:
+                    image104 = open('images/104.PNG', 'rb').read()
+                    st.image(image104, width=150)
+                    url = 'https://www.electricautomationnetwork.com/en/siemens/6ep4135-0gb00-0ay0-6ep41350gb000ay0-siemens-sitop-ups1100-battery-module-with-service-free-sealed-lead-batter'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with  Battery:
+                    image105= open('images/105.PNG', 'rb').read()
+                    st.image(image105, width=150)
+                    url = 'https://free-electronic.com/product/ultracell-battery-ul2-2-12-sealed-lead-acid-battery-12v2-2a/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab32:
-            Electronic_board = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
-            st.dataframe(Electronic_board)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Electronic_board')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Electronic_board  = df_f[df_f['Comments'] == 'Electronic_board '].sort_values(by='Comments')
+                st.dataframe(Electronic_board )
+                col16, col2, col31 = st.columns([2,1,2])
+                with col16:
+                    display_tab('Electronic_board ')
+            with col3:
+                st.subheader('image  for  these  part')
+                image106 = open('images/106.PNG', 'rb').read()
+                st.image(image106, width=150)
+                url = 'https://fares-pcb.com/product-category/fares-products/interface-cards-and-modules/'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab33:
-            Electronic_buzzer = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
-            st.dataframe(Electronic_buzzer)
-            col16, col2, col31 = st.columns([2,1,2])
-            with col16:
-                display_tab('Electronic_buzzer')
-        csv = df_f.to_csv(index=False)
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Electronic_buzzer  = df_f[df_f['Comments'] == 'Electronic_buzzer '].sort_values(by='Comments')
+                st.dataframe(Electronic_buzzer )
+                col16, col2, col31 = st.columns([2,1,2])
+                with col16:
+                    display_tab('Electronic_buzzer ')
+            with col3:
+                st.subheader('image  for  these  part')
+                image107 = open('images/107.PNG', 'rb').read()
+                st.image(image107, width=150)
+                url = 'https://electroshope.com/product/panel-buzzer-24vdc-cbz-10dc'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')     
     
     if __name__ == '__main__':
