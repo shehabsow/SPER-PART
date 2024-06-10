@@ -987,7 +987,7 @@ if page == 'Electrical parts':
                 with OMRON:
                     image100= open('images/100.PNG', 'rb').read()
                     st.image(image100, width=150)
-                    url = 'https://www.indiamart.com/proddetail/s8vk-t24024-omron-smps-power-supply-25938847955.html
+                    url = 'https://www.indiamart.com/proddetail/s8vk-t24024-omron-smps-power-supply-25938847955.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab28:
