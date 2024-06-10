@@ -937,13 +937,14 @@ if page == 'Electrical parts':
                 st.subheader('image  for  these  part')
                 image96 = open('images/96.PNG', 'rb').read()
                 st.image(image96, width=150)
-                url = 'https://www.circuits-diy.com/what-is-a-thermocouple-and-how-does-it-work/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
 
         st.header('Select from these items')
-     
-        tab25 ,tab26, tab27, tab28 ,tab29, tab30, tab31  = st.tabs(['Ups','Power supply','Electricity',
-        'Feedback','Battery','Electronic board','Electronic buzzer'])
+        tab25 ,tab26, tab27, tab28 ,tab29, tab30, tab31  = st.tabs(['Ups','Power_supply','Electricity',
+        'Feedback','Battery','Electronic_board','Electronic_buzzer'])
+
+        
 
         with tab25:
             col1, col2, col3 = st.columns([30,3,13])
@@ -1058,7 +1059,7 @@ if page == 'Electrical parts':
                 st.dataframe(Electronic_board )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
-                    display_tab('Electronic board')
+                    display_tab('Electronic_board')
             with col3:
                 st.subheader('image  for  these  part')
                 image106 = open('images/106.PNG', 'rb').read()
