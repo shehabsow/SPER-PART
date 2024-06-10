@@ -739,12 +739,10 @@ if page == 'Electrical parts':
                     display_tab('Converter')
             with col3:
                 st.subheader('image  for  these  part')
-                GLASS,CRAMIC  = st.tabs(['GLASS','CRAMIC'])
-                with GLASS:
-                    image77 = open('images/77.PNG', 'rb').read()
-                    st.image(image77, width=150)
-                    url = 'https://makerselectronics.com/product/fuse-1a-250v-t5x20mm'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                image90 = open('images/90.PNG', 'rb').read()
+                st.image(image90, width=150)
+                url = 'https://www.pepperl-fuchs.com/great_britain/en/classid_1830.htm?view=productdetails&prodid=48337'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
                     
         with tab14:
@@ -869,12 +867,19 @@ if page == 'Electrical parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab20:
-            Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
-            st.dataframe(Jumper)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Jumper')
-                
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
+                st.dataframe(Jumper)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Jumper')
+            with col3:
+                st.subheader('image  for  these  part')
+                image91 = open('images/91.PNG', 'rb').read()
+                st.image(image91, width=150)
+                url = 'https://www.wago.com/us/protection-devices/push-in-type-jumper-bar/p/859-408'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab21:
             Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
             st.dataframe(Panel)
