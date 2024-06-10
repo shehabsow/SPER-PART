@@ -726,8 +726,8 @@ if page == 'Electrical parts':
 
         st.header('Select from these items')
         
-        tab13, tab14 ,tab15, tab16,tab17, tab18 ,tab19, tab20, tab21 ,tab22, tab23 ,tab24  = st.tabs(['Converter','Control','Conductor','Contactor','Controller',
-        'Inverter','Relay','Jumper','Panel','Heater','Thermostate','Thermocouple'])
+        tab13, tab14 ,tab15, tab16,tab17, tab18 ,tab19, tab20, tab21 , tab23 ,tab24  = st.tabs(['Converter','Control','Conductor','Contactor','Controller',
+        'Inverter','Relay','Jumper','Panel','Thermostate','Thermocouple'])
 
         with tab13:
             col1, col2, col3 = st.columns([30,3,13])
@@ -902,19 +902,28 @@ if page == 'Electrical parts':
                     url = 'https://permasale.de/GUK-folding-machine-FA-35-2-SVA-VAR'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
-        with tab22:
-            Heater = df_f[df_f['Comments'] == 'Heater'].sort_values(by='Comments')
-            st.dataframe(Heater)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Heater')
                 
         with tab23:
-            Thermostate = df_f[df_f['Comments'] == 'Thermostate'].sort_values(by='Comments')
-            st.dataframe(Thermostate)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Thermostate')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Thermostate = df_f[df_f['Comments'] == 'Thermostate'].sort_values(by='Comments')
+                st.dataframe(Thermostate)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Thermostate')
+            with col3:
+                st.subheader('image  for  these  part')
+                JUMO, GLATT  = st.tabs(['JUMO','GLATT'])
+                with JUMO:
+                    image94 = open('images/94.PNG', 'rb').read()
+                    st.image(image94, width=150)
+                    url = 'https://www.ebay.co.uk/itm/255381109138'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with GLATT:
+                    image95= open('images/95.PNG', 'rb').read()
+                    st.image(image95, width=150)
+                    url = 'https://www.directindustry.com/prod/acs-control-system-gmbh/product-37041-2485593.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab24:
             Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
