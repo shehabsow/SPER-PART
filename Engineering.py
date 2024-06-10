@@ -975,7 +975,7 @@ if page == 'Electrical parts':
                 st.dataframe(Power_supply)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Power_supply')
+                    display_tab('Power supply')
             with col3:
                 st.subheader('image  for  these  part')
                 SIEMENS, OMRON  = st.tabs(['SIEMENS','OMRON'])
@@ -993,11 +993,11 @@ if page == 'Electrical parts':
         with tab28:
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
-                Electricity = df_f[df_f['Comments'] == ' Electricity'].sort_values(by='Comments')
+                Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
                 st.dataframe( Electricity)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab(' Electricity')
+                    display_tab('Electricity')
             with col3:
                 st.subheader('image  for  these  part')
                 END_PLATE, INSERT_CRIMP  = st.tabs(['END PLATE','INSERT CRIMP'])
@@ -1017,7 +1017,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
-                st.dataframe(Electricity)
+                st.dataframe(Feedback)
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Feedback')
@@ -1036,7 +1036,7 @@ if page == 'Electrical parts':
                 st.dataframe( Battery)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab(' Battery')
+                    display_tab('Battery')
             with col3:
                 st.subheader('image  for  these  part')
                 Battery_module,  Battery  = st.tabs(['Battery module',' Battery'])
@@ -1058,7 +1058,7 @@ if page == 'Electrical parts':
                 st.dataframe(Electronic_board )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
-                    display_tab('Electronic_board ')
+                    display_tab('Electronic board ')
             with col3:
                 st.subheader('image  for  these  part')
                 image106 = open('images/106.PNG', 'rb').read()
@@ -1073,7 +1073,7 @@ if page == 'Electrical parts':
                 st.dataframe(Electronic_buzzer )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
-                    display_tab('Electronic_buzzer ')
+                    display_tab('Electronic buzzer ')
             with col3:
                 st.subheader('image  for  these  part')
                 image107 = open('images/107.PNG', 'rb').read()
