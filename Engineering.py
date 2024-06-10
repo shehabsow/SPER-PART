@@ -432,6 +432,9 @@ if page == 'Mechanical parts':
                 st.image(image32, width=150)
                 url = 'https://www.shoplinco.com/colson-polyurethane-heavy-duty-total-lock-swivel-caster-8-x-2-1000-lbs-cap/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+
+        csv = df_f.to_csv(index=False)
+        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
             
 
     if __name__ == '__main__':
