@@ -1259,11 +1259,31 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab6:
-            Cylinder = df_f[df_f['Comments'] == 'Cylinder'].sort_values(by='Comments')
-            st.dataframe(Cylinder)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Cylinder')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Cylinder = df_f[df_f['Comments'] == 'Cylinder'].sort_values(by='Comments')
+                st.dataframe(Cylinder,width=2000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Cylinder')
+            with col3:
+                st.subheader('image  for  these  part')
+                RODLESS_CYLINDER ,VDMA_CYLINDER, PNEUMATIC_CYLINDER = st.tabs(['RODLESS CYLINDER','VDMA CYLINDER','PNEUMATIC CYLINDER'])
+                with RODLESS_CYLINDER:
+                    image122 = open('images/122.PNG', 'rb').read()
+                    st.image(image122, width=150)
+                    url = 'https://www.disumtec.com/en/pneumatic-cylinders/50170028-rodless-cylinder.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with VDMA_CYLINDER:
+                    image123 = open('images/123.PNG', 'rb').read()
+                    st.image(image123, width=150)
+                    url = 'https://www.disumtec.com/en/pneumatic-cylinders/50040026-cnomo-pcn-cylinder.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with PNEUMATIC_CYLINDER:
+                    image124 = open('images/124.PNG', 'rb').read()
+                    st.image(image124, width=150)
+                    url = 'https://www.disumtec.com/en/pneumatic-cylinders/50010004-pneumatic-cylinder-iso-6432.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab7:
             Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
             st.dataframe(Regulator)
