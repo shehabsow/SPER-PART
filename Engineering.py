@@ -1178,10 +1178,10 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
                 with Valve_Seat:
-                image114 = open('images/114.PNG', 'rb').read()
-                st.image(image114, width=150)
-                url = 'https://www.brewerygaskets.com/tassalini-butterfly-valve-seat-1-1-2-orange-silicone-oem-style/'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    image114 = open('images/114.PNG', 'rb').read()
+                    st.image(image114, width=150)
+                    url = 'https://www.brewerygaskets.com/tassalini-butterfly-valve-seat-1-1-2-orange-silicone-oem-style/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab3:
             Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
