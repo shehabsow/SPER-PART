@@ -1228,6 +1228,7 @@ if page == 'Neumatic parts':
                     st.image(image118, width=200)
                     url = 'https://www.electricsolenoidvalves.com/1-8-3-way-2-position-pneumatic-solenoid-valve/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 with Solenoid_Valve:
                     image119 = open('images/119.PNG', 'rb').read()
                     st.image(image119, width=200)
@@ -1235,11 +1236,27 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab5:
-            Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
-            st.dataframe(Neumatic_hose)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Neumatic_hose')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
+                st.dataframe(Neumatic_hose,width=2000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Neumatic hose')
+            with col3:
+                st.subheader('image  for  these  part')
+                 PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
+                with PVC_hose:
+                    image120 = open('images/120.PNG', 'rb').read()
+                    st.image(image120, width=150)
+                    url = 'https://www.camthorne.co.uk/product/clear-braided-pvc-hose/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with pneumatic_hose:
+                    image121 = open('images/121.PNG', 'rb').read()
+                    st.image(image121, width=200)
+                    url = 'https://hpcontrol.eu/przewod-waz-pneumatyczny-poliuretanowy-pu-8-5-mm-50mb-niebieski.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab6:
             Cylinder = df_f[df_f['Comments'] == 'Cylinder'].sort_values(by='Comments')
