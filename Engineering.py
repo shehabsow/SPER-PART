@@ -1122,11 +1122,31 @@ if page == 'Neumatic parts':
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Oil seal','Gasket','Gauge','Solenoid valve','Neumatic hose','Cylinder','Regulator'])
 
         with tab1:
-            Oil_seal = df_f[df_f['Comments'] == 'Oil seal'].sort_values(by='Comments')
-            st.dataframe(Oil_seal)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Oil_seal')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Oil_seal = df_f[df_f['Comments'] == 'Oil seal'].sort_values(by='Comments')
+                st.dataframe(Oil_seal,width=2000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Oil seal')
+            with col3:
+                st.subheader('image  for  these  part')
+                O_RING ,OIL_SEAL, MECHANICAL_SEAL = st.tabs(['O RING','OIL SEAL','Mechanical SEAL'])
+                with O_RING:
+                    image8 = open('images/8.jpg', 'rb').read()
+                    st.image(image8, width=150)
+                    url = 'https://www.optibelt.com/en/home/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with OIL_SEAL:
+                    image9 = open('images/9.jpg', 'rb').read()
+                    st.image(image9, width=150)
+                    url = 'https://www.fecconsulting.dk/en/timing-belts/megaflex-timing-belts/pu-timing-belts-t10-flex/t10-2550.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with MECHANICAL_SEA:
+                    image10 = open('images/10.jpg', 'rb').read()
+                    st.image(image10, width=150)
+                    url = 'https://www.konlidainc.com/gear/timing-belt.asp'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab2:
             Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
