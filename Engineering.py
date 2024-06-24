@@ -1271,17 +1271,19 @@ if page == 'Neumatic parts':
                 RODLESS_CYLINDER ,VDMA_CYLINDER, PNEUMATIC_CYLINDER = st.tabs(['RODLESS CYLINDER','VDMA CYLINDER','PNEUMATIC CYLINDER'])
                 with RODLESS_CYLINDER:
                     image122 = open('images/122.PNG', 'rb').read()
-                    st.image(image122, width=150)
+                    st.image(image122, width=200)
                     url = 'https://www.disumtec.com/en/pneumatic-cylinders/50170028-rodless-cylinder.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 with VDMA_CYLINDER:
                     image123 = open('images/123.PNG', 'rb').read()
-                    st.image(image123, width=150)
+                    st.image(image123, width=200)
                     url = 'https://www.disumtec.com/en/pneumatic-cylinders/50040026-cnomo-pcn-cylinder.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 with PNEUMATIC_CYLINDER:
                     image124 = open('images/124.PNG', 'rb').read()
-                    st.image(image124, width=150)
+                    st.image(image124, width=200)
                     url = 'https://www.disumtec.com/en/pneumatic-cylinders/50010004-pneumatic-cylinder-iso-6432.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab7:
