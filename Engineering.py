@@ -1133,19 +1133,19 @@ if page == 'Neumatic parts':
                 st.subheader('image  for  these  part')
                 O_RING ,OIL_SEAL, MECHANICAL_SEAL = st.tabs(['O RING','OIL SEAL','Mechanical SEAL'])
                 with O_RING:
-                    image8 = open('images/8.jpg', 'rb').read()
-                    st.image(image8, width=150)
-                    url = 'https://www.optibelt.com/en/home/'
+                    image108 = open('images/108.jpg', 'rb').read()
+                    st.image(image108, width=150)
+                    url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/static-seals/o-rings/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with OIL_SEAL:
-                    image9 = open('images/9.jpg', 'rb').read()
-                    st.image(image9, width=150)
-                    url = 'https://www.fecconsulting.dk/en/timing-belts/megaflex-timing-belts/pu-timing-belts-t10-flex/t10-2550.html'
+                    image109 = open('images/109.jpg', 'rb').read()
+                    st.image(image109, width=150)
+                    url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/rotary-seals/simmerrings-radial-shaft-seals/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with MECHANICAL_SEA:
-                    image10 = open('images/10.jpg', 'rb').read()
-                    st.image(image10, width=150)
-                    url = 'https://www.konlidainc.com/gear/timing-belt.asp'
+                with MECHANICAL_SEAL:
+                    image110 = open('images/110.jpg', 'rb').read()
+                    st.image(image110, width=150)
+                    url = 'https://mechanical-seal.pro/eng/tortsevye-uplotneniya/r-109_r-8u/ushch-lnyuvach-mekhan-chniy-r-8u-11-8-car-sic-viton-304-pg/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab2:
