@@ -15,7 +15,7 @@ st.set_page_config(
 df_f = pd.read_csv('Eng Spare parts.csv')
 csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
-                    'Neumatic parts','GLATT','FETTE','FORKLIFT','LOTOTO'])
+                    'Neumatic parts','FORKLIFT','LOTOTO'])
 if 'df' not in st.session_state:
     st.session_state.df = pd.read_csv('Eng Spare parts.csv')
 
