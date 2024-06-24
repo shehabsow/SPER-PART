@@ -1158,7 +1158,7 @@ if page == 'Neumatic parts':
                     display_tab('Gasket')
             with col3:
                 st.subheader('image  for  these  part')
-                Silicone ,Viton, Teflon,Valve_Seat = st.tabs(['O RING','OIL SEAL','Mechanical SEAL','Valve Seat'])
+                Silicone ,Viton, Teflon,Valve_Seat = st.tabs(['Silicone','Viton','Teflon','Valve Seat'])
                 with Silicone:
                     image111 = open('images/111.PNG', 'rb').read()
                     st.image(image111, width=200)
