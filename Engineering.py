@@ -1149,11 +1149,39 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab2:
-            Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
-            st.dataframe(Gasket)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Gasket')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
+                st.dataframe(Gasket,width=2000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Gasket')
+            with col3:
+                st.subheader('image  for  these  part')
+                Silicone ,Viton, Teflon,Valve_Seat = st.tabs(['O RING','OIL SEAL','Mechanical SEAL','Valve Seat'])
+                with Silicone:
+                    image111 = open('images/111.PNG', 'rb').read()
+                    st.image(image111, width=150)
+                    url = 'https://www.brewerygaskets.com/1-5-red-silicone-tri-clamp-gasket/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with Viton:
+                    image112 = open('images/112.PNG', 'rb').read()
+                    st.image(image112, width=150)
+                    url = 'https://www.brewerygaskets.com/2-white-viton-tri-clamp-gasket/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with Teflon:
+                    image113 = open('images/113.PNG', 'rb').read()
+                    st.image(image113, width=150)
+                    url = 'https://www.brewerygaskets.com/1-5-white-teflon-100-virgin-ptfe-tri-clamp-gasket/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with Valve_Seat:
+                image114 = open('images/114.PNG', 'rb').read()
+                st.image(image114, width=150)
+                url = 'https://www.brewerygaskets.com/tassalini-butterfly-valve-seat-1-1-2-orange-silicone-oem-style/'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab3:
             Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
