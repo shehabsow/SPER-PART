@@ -1292,7 +1292,7 @@ if page == 'Neumatic parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
-                st.dataframe(Regulator,width=1000)
+                st.dataframe(Regulator,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Regulator')
