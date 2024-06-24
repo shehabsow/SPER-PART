@@ -1425,8 +1425,8 @@ if page == 'FORKLIFT':
                     display_tab('Forklift break')
             with col3:
                 st.subheader('image  for  these  part')
-                image130= open('images/130.PNG', 'rb').read()
-                st.image(image130, width=150)
+                image131= open('images/131.PNG', 'rb').read()
+                st.image(image131, width=150)
                 url = 'https://directparts.eu/linde/5122-brake-shoe-108116.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         csv = df_f.to_csv(index=False)
