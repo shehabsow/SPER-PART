@@ -189,7 +189,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Shaft = df_f[df_f['Comments'] == 'Shaft'].sort_values(by='Comments')
-                st.dataframe(Shaft)
+                st.dataframe(Shaft,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Shaft')
@@ -212,7 +212,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Spring = df_f[df_f['Comments'] == 'Spring'].sort_values(by='Comments')
-                st.dataframe(Spring)
+                st.dataframe(Spring,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Spring')
@@ -235,7 +235,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 leaflet_rooler = df_f[df_f['Comments'] == 'Leaflet rooler'].sort_values(by='Comments')
-                st.dataframe(leaflet_rooler)
+                st.dataframe(leaflet_rooler,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('leaflet_rooler')
@@ -258,7 +258,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Cam = df_f[df_f['Comments'] == 'Cam'].sort_values(by='Comments')
-                st.dataframe(Cam)
+                st.dataframe(Cam,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Cam')
@@ -286,7 +286,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Clutch = df_f[df_f['Comments'] == 'Clutch'].sort_values(by='Comments')
-                st.dataframe(Clutch)
+                st.dataframe(Clutch,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Clutch')
@@ -309,7 +309,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Oil_grease = df_f[df_f['Comments'] == 'Oil _ grease'].sort_values(by='Comments')
-                st.dataframe(Oil_grease)
+                st.dataframe(Oil_grease,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Oil_grease')
@@ -332,7 +332,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Chain = df_f[df_f['Comments'] == 'Chain'].sort_values(by='Comments')
-                st.dataframe(Chain)
+                st.dataframe(Chain,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Chain')
@@ -348,7 +348,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Gearbox = df_f[df_f['Comments'] == 'Gearbox'].sort_values(by='Comments')
-                st.dataframe(Gearbox)
+                st.dataframe(Gearbox,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Gearbox')
@@ -371,7 +371,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Door = df_f[df_f['Comments'] == 'Door'].sort_values(by='Comments')
-                st.dataframe(Door)
+                st.dataframe(Door,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Door')
@@ -399,7 +399,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Couplin = df_f[df_f['Comments'] == 'Couplin'].sort_values(by='Comments')
-                st.dataframe(Couplin)
+                st.dataframe(Couplin,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Couplin')
@@ -422,7 +422,7 @@ if page == 'Mechanical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Wheel_CASTOR = df_f[df_f['Comments'] == 'Swivel castor'].sort_values(by='Comments')
-                st.dataframe(Wheel_CASTOR)
+                st.dataframe(Wheel_CASTOR,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Wheel_CASTOR')
