@@ -1184,11 +1184,27 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab3:
-            Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
-            st.dataframe(Gauge)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Gauge')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
+                st.dataframe(Gauge,width=2000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Gauge')
+            with col3:
+                st.subheader('image  for  these  part')
+                Vacuum_Gauge , Differential_pressure = st.tabs(['Vacuum Gauge','Differential pressure'])
+                with Vacuum_Gauge:
+                    image115 = open('images/115.PNG', 'rb').read()
+                    st.image(image115, width=200)
+                    url = 'https://shop.prmfiltration.com/products/30-0-in-hg-vacuum-gauge-35-3'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with Differential_pressure:
+                    image116 = open('images/116.PNG', 'rb').read()
+                    st.image(image116, width=200)
+                    url = 'https://shop.prmfiltration.com/collections/differential-pressure-gauges/products/differential-pressure-gauge-0-0-25-inches-of-water'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab4:
             Solenoid_valve = df_f[df_f['Comments'] == 'Solenoid valve'].sort_values(by='Comments')
