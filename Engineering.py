@@ -1137,11 +1137,13 @@ if page == 'Neumatic parts':
                     st.image(image108, width=150)
                     url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/static-seals/o-rings/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 with OIL_SEAL:
                     image109 = open('images/109.PNG', 'rb').read()
                     st.image(image109, width=150)
                     url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/rotary-seals/simmerrings-radial-shaft-seals/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
                 with MECHANICAL_SEAL:
                     image110 = open('images/110.PNG', 'rb').read()
                     st.image(image110, width=150)
@@ -1287,11 +1289,19 @@ if page == 'Neumatic parts':
                     url = 'https://www.disumtec.com/en/pneumatic-cylinders/50010004-pneumatic-cylinder-iso-6432.html'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         with tab7:
-            Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
-            st.dataframe(Regulator)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Regulator')
+            col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
+                    st.dataframe(Regulator,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Regulator')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image125= open('images/125.PNG', 'rb').read()
+                    st.image(image125, width=150)
+                    url = 'https://www.disumtec.com/en/compressed-air-filter-regulators/32030008-22543-compressed-air-filter-regulator.html?mot_tcid=16c9b4d0-9039-43d1-bbd9-0c536a6fe56e#/thread-1_4'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
     if __name__ == '__main__':
