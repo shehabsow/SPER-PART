@@ -1161,25 +1161,25 @@ if page == 'Neumatic parts':
                 Silicone ,Viton, Teflon,Valve_Seat = st.tabs(['O RING','OIL SEAL','Mechanical SEAL','Valve Seat'])
                 with Silicone:
                     image111 = open('images/111.PNG', 'rb').read()
-                    st.image(image111, width=150)
+                    st.image(image111, width=200)
                     url = 'https://www.brewerygaskets.com/1-5-red-silicone-tri-clamp-gasket/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
                 with Viton:
                     image112 = open('images/112.PNG', 'rb').read()
-                    st.image(image112, width=150)
+                    st.image(image112, width=200)
                     url = 'https://www.brewerygaskets.com/2-white-viton-tri-clamp-gasket/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
                 with Teflon:
                     image113 = open('images/113.PNG', 'rb').read()
-                    st.image(image113, width=150)
+                    st.image(image113, width=200)
                     url = 'https://www.brewerygaskets.com/1-5-white-teflon-100-virgin-ptfe-tri-clamp-gasket/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
                 with Valve_Seat:
                     image114 = open('images/114.PNG', 'rb').read()
-                    st.image(image114, width=150)
+                    st.image(image114, width=200)
                     url = 'https://www.brewerygaskets.com/tassalini-butterfly-valve-seat-1-1-2-orange-silicone-oem-style/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
