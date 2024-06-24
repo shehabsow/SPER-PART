@@ -1488,7 +1488,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
-                    st.dataframe(Conductivity_transmitter)
+                    st.dataframe(Conductivity_transmitter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Conductivity_transmitter')
@@ -1504,7 +1504,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Flowmeter_controller = df_f[df_f['Comments'] == 'Flowmeter controller'].sort_values(by='Comments')
-                    st.dataframe(Flowmeter_controller)
+                    st.dataframe(Flowmeter_controller,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Flowmeter_controller')
@@ -1520,7 +1520,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Flow_module = df_f[df_f['Comments'] == 'Flow module'].sort_values(by='Comments')
-                    st.dataframe(Flow_module)
+                    st.dataframe(Flow_module,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Flow_module')
@@ -1536,7 +1536,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Flow_monitor = df_f[df_f['Comments'] == 'Flow monitor sensor'].sort_values(by='Comments')
-                    st.dataframe(Flow_monitor)
+                    st.dataframe(Flow_monitor,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Flow_monitor')
@@ -1552,7 +1552,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     conductivity = df_f[df_f['Comments'] == 'Water conductivity'].sort_values(by='Comments')
-                    st.dataframe(conductivity)
+                    st.dataframe(conductivity,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('conductivity')
@@ -1568,7 +1568,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     STILMAS_SENSOR = df_f[df_f['Comments'] == 'Stilmas sensor'].sort_values(by='Comments')
-                    st.dataframe(STILMAS_SENSOR)
+                    st.dataframe(STILMAS_SENSOR,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('STILMAS_SENSOR')
@@ -1584,7 +1584,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Valve = df_f[df_f['Comments'] == 'Water valve'].sort_values(by='Comments')
-                    st.dataframe(Valve)
+                    st.dataframe(Valve,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Valve')
@@ -1606,7 +1606,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     test = df_f[df_f['Comments'] == 'Water test '].sort_values(by='Comments')
-                    st.dataframe(test)
+                    st.dataframe(test,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('test')
@@ -1629,7 +1629,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     pump = df_f[df_f['Comments'] == 'Water pump'].sort_values(by='Comments')
-                    st.dataframe(pump)
+                    st.dataframe(pump,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('pump')
@@ -1651,7 +1651,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
-                st.dataframe(Uv)
+                st.dataframe(Uv,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Uv')
@@ -1667,7 +1667,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
-                st.dataframe(Ro)
+                st.dataframe(Ro,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Ro')
@@ -1687,7 +1687,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Fire_detector = df_f[df_f['Comments'] == 'Fire detector'].sort_values(by='Comments')
-                    st.dataframe(Fire_detector)
+                    st.dataframe(Fire_detector,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Fire_detector')
@@ -1703,7 +1703,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Fire_valve = df_f[df_f['Comments'] == 'Fire valve'].sort_values(by='Comments')
-                    st.dataframe(Fire_valve)
+                    st.dataframe(Fire_valve,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Fire_valve')
@@ -1719,7 +1719,7 @@ if page == 'Utility area':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 AHU_Valve = df_f[df_f['Comments'] == 'Valve ahu'].sort_values(by='Comments')
-                st.dataframe(AHU_Valve)
+                st.dataframe(AHU_Valve,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('AHU_Valve')
@@ -1741,7 +1741,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Hepa_filter = df_f[df_f['Comments'] == 'Hepa filter'].sort_values(by='Comments')
-                    st.dataframe(Hepa_filter)
+                    st.dataframe(Hepa_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Hepa_filter')
@@ -1757,7 +1757,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     High_filter = df_f[df_f['Comments'] == 'High filter'].sort_values(by='Comments')
-                    st.dataframe(High_filter)
+                    st.dataframe(High_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('High_filter')
@@ -1773,7 +1773,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Pre_filter = df_f[df_f['Comments'] == 'Pre-filter'].sort_values(by='Comments')
-                    st.dataframe(Pre_filter)
+                    st.dataframe(Pre_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Pre_filter')
@@ -1789,7 +1789,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Packfilter = df_f[df_f['Comments'] == 'Packfilter'].sort_values(by='Comments')
-                    st.dataframe(Packfilter)
+                    st.dataframe(Packfilter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Packfilter')
@@ -1805,7 +1805,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Pump_filter = df_f[df_f['Comments'] == 'Pump filter'].sort_values(by='Comments')
-                    st.dataframe(Pump_filter)
+                    st.dataframe(Pump_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Pump_filter')
@@ -1821,7 +1821,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Emflon_filter = df_f[df_f['Comments'] == 'Emflon filter'].sort_values(by='Comments')
-                    st.dataframe(Emflon_filter)
+                    st.dataframe(Emflon_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Emflon_filter')
@@ -1837,7 +1837,7 @@ if page == 'Utility area':
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
                     Filters_cartage = df_f[df_f['Comments'] == 'Filters cartage'].sort_values(by='Comments')
-                    st.dataframe(Filters_cartage)
+                    st.dataframe(Filters_cartage,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
                         display_tab('Filters_cartage')
