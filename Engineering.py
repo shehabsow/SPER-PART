@@ -1245,7 +1245,7 @@ if page == 'Neumatic parts':
                     display_tab('Neumatic hose')
             with col3:
                 st.subheader('image  for  these  part')
-                 PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
+                PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
                 with PVC_hose:
                     image120 = open('images/120.PNG', 'rb').read()
                     st.image(image120, width=150)
