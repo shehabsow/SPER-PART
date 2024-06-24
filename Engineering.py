@@ -1219,7 +1219,7 @@ if page == 'Neumatic parts':
                 Non_Return_Valve  , PNEUMATIC_VALVE ,Solenoid_Valve = st.tabs(['Non Return Valve ','PNEUMATIC VALVE','Solenoid Valve'])
                 with Non_Return_Valve:
                     image117 = open('images/117.PNG', 'rb').read()
-                    st.image(image117, width=200)
+                    st.image(image117, width=150)
                     url = 'https://tameson.com/products/617-12-012-g1-2inch-brass-relief-valve-2-12-bar-29-174-psi'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
