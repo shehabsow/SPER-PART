@@ -1224,13 +1224,13 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
                 with PNEUMATIC_VALVE:
-                    image119 = open('images/119.PNG', 'rb').read()
-                    st.image(image119, width=200)
+                    image118 = open('images/118.PNG', 'rb').read()
+                    st.image(image118, width=200)
                     url = 'https://www.electricsolenoidvalves.com/1-8-3-way-2-position-pneumatic-solenoid-valve/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 with Solenoid_Valve:
-                    image118 = open('images/118.PNG', 'rb').read()
-                    st.image(image118, width=200)
+                    image119 = open('images/119.PNG', 'rb').read()
+                    st.image(image119, width=200)
                     url = 'https://www.electricsolenoidvalves.com/1-2-stainless-steel-steam-solenoid-valve/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
