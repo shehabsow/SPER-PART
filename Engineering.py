@@ -1341,46 +1341,94 @@ if page == 'FORKLIFT':
         'Forklift control','Forklift carbon','Forklift break'])
 
         with tab1:
-            Forklift_wheel = df_f[df_f['Comments'] == 'Forklift wheel'].sort_values(by='Comments')
-            st.dataframe(Forklift_wheel)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Forklift_wheel')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Forklift_wheel = df_f[df_f['Comments'] == 'Forklift wheel'].sort_values(by='Comments')
+                st.dataframe(Forklift_wheel,width=900)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Forklift wheel')
+            with col3:
+                st.subheader('image  for  these  part')
+                image126= open('images/126.PNG', 'rb').read()
+                st.image(image126, width=150)
+                url = 'https://directparts.eu/still/4974-230x70-82-45-drive-wheel-vulkollan-still-4359920-10009.html'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab2:
-            Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
-            st.dataframe(Forklift_switch)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Forklift_switch')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
+                st.dataframe(Forklift_switch,width=900)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Forklift switch')
+            with col3:
+                st.subheader('image  for  these  part')
+                image127= open('images/127.PNG', 'rb').read()
+                st.image(image127, width=150)
+                url = 'https://directparts.eu/linde/5144-microswitch-linde-7915497021-10906.html'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab3:
-            Forklift_coolant = df_f[df_f['Comments'] == 'Forklift coolant'].sort_values(by='Comments')
-            st.dataframe(Forklift_coolant)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Forklift_coolant')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Forklift_coolant = df_f[df_f['Comments'] == 'Forklift coolant'].sort_values(by='Comments')
+                st.dataframe(Forklift_coolant,width=900)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Forklift coolant')
+            with col3:
+                st.subheader('image  for  these  part')
+                image128= open('images/128.PNG', 'rb').read()
+                st.image(image128, width=150)
+                url = 'https://www.gsistore.com/products/york-013-03344-000-glycol-coolant'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab5:
-            Forklift_control = df_f[df_f['Comments'] == 'Forklift control'].sort_values(by='Comments')
-            st.dataframe(Forklift_control)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Forklift_control')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Forklift_control = df_f[df_f['Comments'] == 'Forklift control'].sort_values(by='Comments')
+                st.dataframe(Forklift_control,width=900)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Forklift control')
+            with col3:
+                st.subheader('image  for  these  part')
+                image129= open('images/129.PNG', 'rb').read()
+                st.image(image129, width=150)
+                url = 'https://directparts.eu/still/5482-contactor-iskra-12088.html'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab6:
-            Forklift_carbon = df_f[df_f['Comments'] == 'Forklift carbon'].sort_values(by='Comments')
-            st.dataframe(Forklift_carbon)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Forklift_carbon')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Forklift_carbon = df_f[df_f['Comments'] == 'Forklift carbon'].sort_values(by='Comments')
+                st.dataframe(Forklift_carbon,width=900)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Forklift carbon')
+            with col3:
+                st.subheader('image  for  these  part')
+                image130= open('images/130.PNG', 'rb').read()
+                st.image(image130, width=150)
+                url = 'https://directparts.eu/linde/5096-carbon-brush-4457096-10663.html'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab7:
-            Forklift_break = df_f[df_f['Comments'] == 'Forklift break'].sort_values(by='Comments')
-            st.dataframe(Forklift_break)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Forklift_break')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Forklift_break = df_f[df_f['Comments'] == 'Forklift break'].sort_values(by='Comments')
+                st.dataframe(Forklift_break,width=900)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Forklift break')
+            with col3:
+                st.subheader('image  for  these  part')
+                image130= open('images/130.PNG', 'rb').read()
+                st.image(image130, width=150)
+                url = 'https://directparts.eu/linde/5122-brake-shoe-108116.html'
+                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
     if __name__ == '__main__':
