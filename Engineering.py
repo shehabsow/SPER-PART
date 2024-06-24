@@ -1207,11 +1207,32 @@ if page == 'Neumatic parts':
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab4:
-            Solenoid_valve = df_f[df_f['Comments'] == 'Solenoid valve'].sort_values(by='Comments')
-            st.dataframe(Solenoid_valve)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('Solenoid_valve')
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                Solenoid_valve = df_f[df_f['Comments'] == 'Solenoid valve'].sort_values(by='Comments')
+                st.dataframe(Solenoid_valve,width=2000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('Solenoid valve')
+            with col3:
+                st.subheader('image  for  these  part')
+                Non_Return_Valve  , PNEUMATIC_VALVE ,Solenoid_Valve = st.tabs(['Non Return Valve ','PNEUMATIC VALVE','Solenoid Valve'])
+                with Non_Return_Valve:
+                    image117 = open('images/117.PNG', 'rb').read()
+                    st.image(image117, width=200)
+                    url = 'https://tameson.com/products/617-12-012-g1-2inch-brass-relief-valve-2-12-bar-29-174-psi'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with PNEUMATIC_VALVE:
+                    image119 = open('images/119.PNG', 'rb').read()
+                    st.image(image119, width=200)
+                    url = 'https://www.electricsolenoidvalves.com/1-8-3-way-2-position-pneumatic-solenoid-valve/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with Solenoid_Valve:
+                    image118 = open('images/118.PNG', 'rb').read()
+                    st.image(image118, width=200)
+                    url = 'https://www.electricsolenoidvalves.com/1-2-stainless-steel-steam-solenoid-valve/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
         with tab5:
             Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
