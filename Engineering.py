@@ -477,7 +477,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Proximity = df_f[df_f['Comments'] == 'Proximity'].sort_values(by='Comments')
-                st.dataframe(Proximity)
+                st.dataframe(Proximity,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Proximity')
@@ -504,7 +504,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Sensor = df_f[df_f['Comments'] == 'Sensor'].sort_values(by='Comments')
-                st.dataframe(Sensor)
+                st.dataframe(Sensor,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Sensor')
@@ -532,7 +532,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Fiber_sensor = df_f[df_f['Comments'] == 'Fiber sensor'].sort_values(by='Comments')
-                st.dataframe(Fiber_sensor)
+                st.dataframe(Fiber_sensor,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Fiber sensor')
@@ -548,7 +548,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Amplifier = df_f[df_f['Comments'] == 'Amplifier'].sort_values(by='Comments')
-                st.dataframe(Amplifier)
+                st.dataframe(Amplifier,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Amplifier')
@@ -565,7 +565,7 @@ if page == 'Electrical parts':
             with col1:
                 
                 Socket = df_f[df_f['Comments'] == 'Socket'].sort_values(by='Comments')
-                st.dataframe(Socket)
+                st.dataframe(Socket,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Socket')
@@ -581,7 +581,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Selector = df_f[df_f['Comments'] == 'Selector'].sort_values(by='Comments')
-                st.dataframe(Selector)
+                st.dataframe(Selector,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Selector')
@@ -597,7 +597,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:   
                 Button = df_f[df_f['Comments'] == 'Button'].sort_values(by='Comments')
-                st.dataframe(Button)
+                st.dataframe(Button,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Button')
@@ -613,7 +613,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:   
                 Switch = df_f[df_f['Comments'] == 'Switch'].sort_values(by='Comments')
-                st.dataframe(Switch)
+                st.dataframe(Switch,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Switch')
@@ -641,7 +641,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Light = df_f[df_f['Comments'] == 'Light'].sort_values(by='Comments')
-                st.dataframe(Light)
+                st.dataframe(Light,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Light')
@@ -664,7 +664,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Fan = df_f[df_f['Comments'] == 'Fan'].sort_values(by='Comments')
-                st.dataframe(Fan)
+                st.dataframe(Fan,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Fan')
@@ -680,7 +680,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:               
                 Cable = df_f[df_f['Comments'] == 'Cable'].sort_values(by='Comments')
-                st.dataframe(Cable)
+                st.dataframe(Cable,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Cable')
@@ -708,7 +708,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:       
                 Fuse = df_f[df_f['Comments'] == 'Fuse'].sort_values(by='Comments')
-                st.dataframe(Fuse)
+                st.dataframe(Fuse,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Fuse')
@@ -736,7 +736,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Converter = df_f[df_f['Comments'] == 'Converter'].sort_values(by='Comments')
-                st.dataframe(Converter)
+                st.dataframe(Converter,width=2000)
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Converter')
@@ -752,7 +752,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Control = df_f[df_f['Comments'] == 'Control'].sort_values(by='Comments')
-                st.dataframe(Control)
+                st.dataframe(Control,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Control')
@@ -779,7 +779,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Conductor = df_f[df_f['Comments'] == 'Conductor'].sort_values(by='Comments')
-                st.dataframe(Conductor)
+                st.dataframe(Conductor,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Conductor')
@@ -794,7 +794,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Contactor = df_f[df_f['Comments'] == 'Contactor'].sort_values(by='Comments')
-                st.dataframe(Contactor)
+                st.dataframe(Contactor,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Contactor')
@@ -816,7 +816,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Controller = df_f[df_f['Comments'] == 'Controller'].sort_values(by='Comments')
-                st.dataframe(Controller)
+                st.dataframe(Controller,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Controller')
@@ -831,7 +831,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Inverter = df_f[df_f['Comments'] == 'Inverter'].sort_values(by='Comments')
-                st.dataframe(Inverter)
+                st.dataframe(Inverter,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Inverter')
@@ -846,7 +846,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:               
                 Relay = df_f[df_f['Comments'] == 'Relay'].sort_values(by='Comments')
-                st.dataframe(Relay)
+                st.dataframe(Relay,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Relay')
@@ -873,7 +873,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Jumper = df_f[df_f['Comments'] == 'Jumper'].sort_values(by='Comments')
-                st.dataframe(Jumper)
+                st.dataframe(Jumper,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Jumper')
@@ -887,7 +887,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Panel = df_f[df_f['Comments'] == 'Panel'].sort_values(by='Comments')
-                st.dataframe(Panel)
+                st.dataframe(Panel,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Panel')
@@ -910,7 +910,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Thermostate = df_f[df_f['Comments'] == 'Thermostate'].sort_values(by='Comments')
-                st.dataframe(Thermostate)
+                st.dataframe(Thermostate,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Thermostate')
@@ -932,7 +932,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Thermocouple = df_f[df_f['Comments'] == 'Thermocouple'].sort_values(by='Comments')
-                st.dataframe(Thermocouple)
+                st.dataframe(Thermocouple,width=2000)
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Thermocouple')
@@ -953,7 +953,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Ups = df_f[df_f['Comments'] == 'Ups'].sort_values(by='Comments')
-                st.dataframe(Ups)
+                st.dataframe(Ups,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Ups')
@@ -976,7 +976,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Power_supply = df_f[df_f['Comments'] == 'Power supply'].sort_values(by='Comments')
-                st.dataframe(Power_supply)
+                st.dataframe(Power_supply,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Power_supply')
@@ -998,7 +998,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Electricity = df_f[df_f['Comments'] == 'Electricity'].sort_values(by='Comments')
-                st.dataframe( Electricity)
+                st.dataframe( Electricity,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Electricity')
@@ -1021,7 +1021,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Feedback = df_f[df_f['Comments'] == 'Feedback'].sort_values(by='Comments')
-                st.dataframe(Feedback)
+                st.dataframe(Feedback,width=2000)
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Feedback')
@@ -1037,7 +1037,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Battery = df_f[df_f['Comments'] == 'Battery'].sort_values(by='Comments')
-                st.dataframe( Battery)
+                st.dataframe( Battery,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('Battery')
@@ -1059,7 +1059,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Electronic_board  = df_f[df_f['Comments'] == 'Electronic board'].sort_values(by='Comments')
-                st.dataframe(Electronic_board )
+                st.dataframe(Electronic_board ,width=2000)
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Electronic_board')
@@ -1074,7 +1074,7 @@ if page == 'Electrical parts':
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 Electronic_buzzer  = df_f[df_f['Comments'] == 'Electronic buzzer'].sort_values(by='Comments')
-                st.dataframe(Electronic_buzzer )
+                st.dataframe(Electronic_buzzer,width=2000 )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
                     display_tab('Electronic buzzer')
