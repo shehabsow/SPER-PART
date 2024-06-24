@@ -1351,7 +1351,7 @@ if page == 'FORKLIFT':
             with col3:
                 st.subheader('image  for  these  part')
                 image126= open('images/126.PNG', 'rb').read()
-                st.image(image126, width=150)
+                st.image(image126, width=200)
                 url = 'https://directparts.eu/still/4974-230x70-82-45-drive-wheel-vulkollan-still-4359920-10009.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
@@ -1366,7 +1366,7 @@ if page == 'FORKLIFT':
             with col3:
                 st.subheader('image  for  these  part')
                 image127= open('images/127.PNG', 'rb').read()
-                st.image(image127, width=150)
+                st.image(image127, width=200)
                 url = 'https://directparts.eu/linde/5144-microswitch-linde-7915497021-10906.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
@@ -1381,7 +1381,7 @@ if page == 'FORKLIFT':
             with col3:
                 st.subheader('image  for  these  part')
                 image128= open('images/128.PNG', 'rb').read()
-                st.image(image128, width=150)
+                st.image(image128, width=200)
                 url = 'https://www.gsistore.com/products/york-013-03344-000-glycol-coolant'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
@@ -1396,7 +1396,7 @@ if page == 'FORKLIFT':
             with col3:
                 st.subheader('image  for  these  part')
                 image129= open('images/129.PNG', 'rb').read()
-                st.image(image129, width=150)
+                st.image(image129, width=200)
                 url = 'https://directparts.eu/still/5482-contactor-iskra-12088.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
@@ -1411,7 +1411,7 @@ if page == 'FORKLIFT':
             with col3:
                 st.subheader('image  for  these  part')
                 image130= open('images/130.PNG', 'rb').read()
-                st.image(image130, width=150)
+                st.image(image130, width=200)
                 url = 'https://directparts.eu/linde/5096-carbon-brush-4457096-10663.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 
@@ -1426,7 +1426,7 @@ if page == 'FORKLIFT':
             with col3:
                 st.subheader('image  for  these  part')
                 image131= open('images/131.PNG', 'rb').read()
-                st.image(image131, width=150)
+                st.image(image131, width=200)
                 url = 'https://directparts.eu/linde/5122-brake-shoe-108116.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         csv = df_f.to_csv(index=False)
