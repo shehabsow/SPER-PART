@@ -1248,7 +1248,7 @@ if page == 'Neumatic parts':
                 PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
                 with PVC_hose:
                     image120 = open('images/120.PNG', 'rb').read()
-                    st.image(image120, width=150)
+                    st.image(image120, width=200)
                     url = 'https://www.camthorne.co.uk/product/clear-braided-pvc-hose/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                     
