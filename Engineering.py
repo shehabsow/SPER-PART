@@ -13,6 +13,10 @@ st.set_page_config(
 
 
 df_f = pd.read_csv('Eng Spare parts.csv')
+# استبدال قيم NaN بـ 0
+df_f['Qty.'] = df_f['Qty.'].fillna(0)
+
+# تحويل العمود Qty. إلى نوع int
 df_f['Qty.'] = df_f['Qty.'].astype(int)
 csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
