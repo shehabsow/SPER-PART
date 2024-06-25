@@ -62,7 +62,7 @@ def display_tab(tab_name):
             color: blue; 
         }}
         </style>
-        <label class="custom-quantity-{tab_name}">Enter quantity for :  {tab_name}:</label>
+        <label class="custom-quantity-{tab_name}">Enter quantity for :  {tab_name} </label>
         """, unsafe_allow_html=True)
     quantity = st.number_input('', min_value=1, step=1, key=f'{tab_name}_quantity')
 
