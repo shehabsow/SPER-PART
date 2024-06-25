@@ -1128,7 +1128,7 @@ if page == 'Neumatic parts':
                 st.dataframe(Oil_seal,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Oil seal')
+                    display_tab('Oil_seal')
             with col3:
                 st.subheader('image  for  these  part')
                 O_RING ,OIL_SEAL, MECHANICAL_SEAL = st.tabs(['O RING','OIL SEAL','Mechanical SEAL'])
@@ -1244,7 +1244,7 @@ if page == 'Neumatic parts':
                 st.dataframe(Neumatic_hose,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Neumatic hose')
+                    display_tab('Neumatic_hose')
             with col3:
                 st.subheader('image  for  these  part')
                 PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
@@ -1347,7 +1347,7 @@ if page == 'FORKLIFT':
                 st.dataframe(Forklift_wheel,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Forklift wheel')
+                    display_tab('Forklift_wheel')
             with col3:
                 st.subheader('image  for  these  part')
                 image126= open('images/126.PNG', 'rb').read()
@@ -1362,7 +1362,7 @@ if page == 'FORKLIFT':
                 st.dataframe(Forklift_switch,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Forklift switch')
+                    display_tab('Forklift_switch')
             with col3:
                 st.subheader('image  for  these  part')
                 image127= open('images/127.PNG', 'rb').read()
@@ -1377,7 +1377,7 @@ if page == 'FORKLIFT':
                 st.dataframe(Forklift_coolant,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Forklift coolant')
+                    display_tab('Forklift_coolant')
             with col3:
                 st.subheader('image  for  these  part')
                 image128= open('images/128.PNG', 'rb').read()
@@ -1392,7 +1392,7 @@ if page == 'FORKLIFT':
                 st.dataframe(Forklift_control,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Forklift control')
+                    display_tab('Forklift_control')
             with col3:
                 st.subheader('image  for  these  part')
                 image129= open('images/129.PNG', 'rb').read()
@@ -1407,7 +1407,7 @@ if page == 'FORKLIFT':
                 st.dataframe(Forklift_carbon,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Forklift carbon')
+                    display_tab('Forklift_carbon')
             with col3:
                 st.subheader('image  for  these  part')
                 image130= open('images/130.PNG', 'rb').read()
@@ -1422,7 +1422,7 @@ if page == 'FORKLIFT':
                 st.dataframe(Forklift_break,width=900)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Forklift break')
+                    display_tab('Forklift_break')
             with col3:
                 st.subheader('image  for  these  part')
                 image131= open('images/131.PNG', 'rb').read()
