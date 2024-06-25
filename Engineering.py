@@ -52,9 +52,9 @@ def display_tab(tab_name):
 
     # تنسيق الكتابة
     st.markdown(f"""
-        <div style='font-size: 17px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
-        <div style='font-size: 17px; color: green;'>Current Quantity: {int(df_f.loc[row_number, 'Qty.'])}</div>
-        <div style='font-size: 17px; color: green;'>Location: {df_f.loc[row_number, 'Location']}</div>
+        <div style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
+        <div style='font-size: 20px; color: green;'>Current Quantity: {int(df_f.loc[row_number, 'Qty.'])}</div>
+        <div style='font-size: 20px; color: green;'>Location: {df_f.loc[row_number, 'Location']}</div>
         """, unsafe_allow_html=True)
     
     # تنسيق Enter quantity
