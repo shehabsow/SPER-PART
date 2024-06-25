@@ -1128,7 +1128,7 @@ if page == 'Neumatic parts':
                 st.dataframe(Oil_seal,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Oil seal')
+                    display_tab('Oil_seal')
             with col3:
                 st.subheader('image  for  these  part')
                 O_RING ,OIL_SEAL, MECHANICAL_SEAL = st.tabs(['O RING','OIL SEAL','Mechanical SEAL'])
