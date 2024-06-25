@@ -1215,7 +1215,7 @@ if page == 'Neumatic parts':
                 st.dataframe(Solenoid_valve,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    display_tab('Solenoid valve')
+                    display_tab('Solenoid_valve')
             with col3:
                 st.subheader('image  for  these  part')
                 Non_Return_Valve  , PNEUMATIC_VALVE ,Solenoid_Valve = st.tabs(['Non Return Valve ','PNEUMATIC VALVE','Solenoid Valve'])
