@@ -42,7 +42,7 @@ def display_tab(tab_name):
             color: blue; /* لون النص */
         }}
         </style>
-        <label class="custom-label-{tab_name}">Select row number for :  {tab_name}</label>
+        <label class="custom-label-{tab_name}">Select row number : {tab_name}</label>
         """, unsafe_allow_html=True)
 
     row_number = st.number_input('', min_value=0, max_value=len(df_f)-1, step=1, key=f'{tab_name}_row_number', help="Enter the row number to select the item")
@@ -62,7 +62,7 @@ def display_tab(tab_name):
             color: blue; 
         }}
         </style>
-        <label class="custom-quantity-{tab_name}">Enter quantity for :  {tab_name} </label>
+        <label class="custom-quantity-{tab_name}">Enter quantity : {tab_name} </label>
         """, unsafe_allow_html=True)
     quantity = st.number_input('', min_value=1, step=1, key=f'{tab_name}_quantity')
 
