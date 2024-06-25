@@ -1894,13 +1894,13 @@ if page == 'LOTOTO':
                 display_tab('LOTOTO')
         with col3:
             st.subheader('image  for  these  part')
-            BOX ,GROUP LOCK   = st.tabs(['BOX','GROUP LOCK'])
+            BOX ,GROUP_LOCK   = st.tabs(['BOX','GROUP LOCK'])
             with BOX:
                 image57 = open('images/57.PNG', 'rb').read()
                 st.image(image57, width=150)
                 url = 'https://valinonline.com/products/dw-as-503-m30-002'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            with GROUP LOCK:
+            with GROUP_LOCK:
                 image58= open('images/58.PNG', 'rb').read()
                 st.image(image58, width=150)
                 url = 'https://www.electricautomationnetwork.com/en/micro-detectors/am1-an-1a-micro-detectors-inductive-sensor-m12-shielded-no-npn-cable-2m-axial'
