@@ -1888,19 +1888,19 @@ if page == 'LOTOTO':
         col1, col2, col3 = st.columns([30,3,13])
         with col1:
             LOTOTO = df_f[df_f['Comments'] == 'Lototo'].sort_values(by='Comments')
-            st.dataframe(LOTOTO)
+            st.dataframe(LOTOTO,width=1000)
             col4, col5, col6 = st.columns([2,1,2])
             with col4:
                 display_tab('LOTOTO')
         with col3:
             st.subheader('image  for  these  part')
-            BALLUFF,MICRO_DETECTORS,IFM  = st.tabs(['BALLUFF','MICRO_DETECTORS','IFM'])
-            with BALLUFF:
+            BOX ,GROUP LOCK   = st.tabs(['BOX','GROUP LOCK'])
+            with BOX:
                 image57 = open('images/57.PNG', 'rb').read()
                 st.image(image57, width=150)
                 url = 'https://valinonline.com/products/dw-as-503-m30-002'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            with MICRO_DETECTORS:
+            with GROUP LOCK:
                 image58= open('images/58.PNG', 'rb').read()
                 st.image(image58, width=150)
                 url = 'https://www.electricautomationnetwork.com/en/micro-detectors/am1-an-1a-micro-detectors-inductive-sensor-m12-shielded-no-npn-cable-2m-axial'
