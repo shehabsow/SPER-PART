@@ -1896,14 +1896,14 @@ if page == 'LOTOTO':
             st.subheader('image  for  these  part')
             BOX ,GROUP_LOCK   = st.tabs(['BOX','GROUP LOCK'])
             with BOX:
-                image57 = open('images/57.PNG', 'rb').read()
-                st.image(image57, width=150)
-                url = 'https://valinonline.com/products/dw-as-503-m30-002'
+                image132 = open('images/132.PNG', 'rb').read()
+                st.image(image132, width=200)
+                url = 'https://www.lockeylock.com/13-locks-portable-metal-group-lock-box-lk02-2-product/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
             with GROUP_LOCK:
-                image58= open('images/58.PNG', 'rb').read()
-                st.image(image58, width=150)
-                url = 'https://www.electricautomationnetwork.com/en/micro-detectors/am1-an-1a-micro-detectors-inductive-sensor-m12-shielded-no-npn-cable-2m-axial'
+                image133= open('images/133.PNG', 'rb').read()
+                st.image(image133, width=200)
+                url = 'https://www.lockeylock.com/factory-directly-loto-tools-combined-safety-lockout-tagout-station-kit-lg12-lockey-product/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
         
