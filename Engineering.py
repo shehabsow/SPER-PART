@@ -1081,7 +1081,7 @@ if page == 'Electrical parts':
                 st.dataframe(Electronic_buzzer,width=2000 )
                 col16, col2, col31 = st.columns([2,1,2])
                 with col16:
-                    display_tab('Electronic buzzer')
+                    display_tab('Electronic_buzzer')
             with col3:
                 st.subheader('image  for  these  part')
                 image107 = open('images/107.PNG', 'rb').read()
