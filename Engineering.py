@@ -1336,7 +1336,7 @@ if page == 'FORKLIFT':
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
-        Find your FORKLIFT parts
+        Find your Forklift parts
     </h2>
 """, unsafe_allow_html=True)
         st.subheader('Select from these items')
