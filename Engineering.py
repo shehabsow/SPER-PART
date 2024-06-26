@@ -1748,7 +1748,7 @@ if page == 'Utility area':
                     st.dataframe(Hepa_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Hepa filter')
+                        display_tab('Hepa_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image50 = open('images/50.PNG', 'rb').read()
@@ -1764,7 +1764,7 @@ if page == 'Utility area':
                     st.dataframe(High_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('High filter')
+                        display_tab('High_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image51 = open('images/51.PNG', 'rb').read()
@@ -1780,7 +1780,7 @@ if page == 'Utility area':
                     st.dataframe(Pre_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Pre filter')
+                        display_tab('Pre_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image52 = open('images/52.PNG', 'rb').read()
@@ -1796,7 +1796,7 @@ if page == 'Utility area':
                     st.dataframe(Packfilter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Pack filter')
+                        display_tab('Pack_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image53 = open('images/53.PNG', 'rb').read()
@@ -1812,7 +1812,7 @@ if page == 'Utility area':
                     st.dataframe(Pump_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Pump filter')
+                        display_tab('Pump_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image55 = open('images/55.PNG', 'rb').read()
@@ -1828,7 +1828,7 @@ if page == 'Utility area':
                     st.dataframe(Emflon_filter,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Emflon filter')
+                        display_tab('Emflon_filter')
                 with col3:
                     st.subheader('image  for  these  part')
                     image54 = open('images/54.PNG', 'rb').read()
@@ -1844,7 +1844,7 @@ if page == 'Utility area':
                     st.dataframe(Filters_cartage,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Filters cartage')
+                        display_tab('Filters_cartage')
                 with col3:
                     st.subheader('image  for  these  part')
                     image56 = open('images/56.PNG', 'rb').read()
