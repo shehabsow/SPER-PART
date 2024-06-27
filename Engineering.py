@@ -25,7 +25,7 @@ page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Ele
 
 search_option = st.sidebar.radio(
     'Search in:',
-    ('Item Description', 'Location', 'Qty.', 'All Columns')
+    ('All Columns')
 )
 
 search_keyword = st.sidebar.text_input("Enter keyword to search:")
