@@ -1906,6 +1906,8 @@ if page == 'LOTOTO':
                 st.image(image133, width=200)
                 url = 'https://www.lockeylock.com/factory-directly-loto-tools-combined-safety-lockout-tagout-station-kit-lg12-lockey-product/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+        csv = df_f.to_csv(index=False)
+        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')        
 
         
 
