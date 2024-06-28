@@ -88,6 +88,7 @@ if page == 'Mechanical parts':
             import time
             time.sleep(1)
 
+        search_keyword = st.session_state.get('search_keyword', '')
         col1, col2 = st.columns([2, 0.75])
         with col1:
             st.markdown("""
