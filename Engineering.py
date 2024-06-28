@@ -2005,16 +2005,7 @@ if page == 'Add New Item & delete':
 
 # Function to define the main content of the Streamlit app
     def main():
-        st.title('My Streamlit Application')
-    
-        # Load data
         df_f = load_data()
-    
-        # Example: Display data and interact with it
-        st.write('## Displaying Data')
-        st.dataframe(df_f)
-    
-        # Example: Add new item functionality
         st.write('## Add New Item')
         new_item = st.text_input('Enter item description:')
         new_quantity = st.number_input('Enter quantity:', min_value=0, step=1)
@@ -2025,8 +2016,6 @@ if page == 'Add New Item & delete':
             st.success(f"New item '{new_item}' added successfully with quantity {new_quantity}!")
             # Save updated dataframe to CSV
             df_f.to_csv('data.csv', index=False)
-    
-        # Example: Delete item functionality
         st.write('## Delete Item')
         row_to_delete = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
     
@@ -2039,8 +2028,7 @@ if page == 'Add New Item & delete':
                 df_f.to_csv('data.csv', index=False)
             except KeyError:
                 st.error(f"Row {row_to_delete} does not exist!")
-    
-    # Entry point to run the Streamlit app
+ 
     if __name__ == '__main__':
         main()
      
