@@ -16,18 +16,13 @@ st.set_page_config(
 
 
 df_f = pd.read_csv('Eng Spare parts.csv')
-
-
-
 csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Neumatic parts','FORKLIFT','LOTOTO'])
 
 
-
 if 'df' not in st.session_state:
     st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-
 df_f = st.session_state.df
 
 def update_quantity(row_index, quantity, operation):
@@ -41,8 +36,6 @@ def update_quantity(row_index, quantity, operation):
 
 def display_tab(tab_name):
     st.header(f'{tab_name}')
-
-    # تنسيق Select row number
     st.markdown(f"""
         <style>
         .custom-label-{tab_name} {{
@@ -56,14 +49,11 @@ def display_tab(tab_name):
 
     row_number = st.number_input('', min_value=0, max_value=len(df_f)-1, step=1, key=f'{tab_name}_row_number', help="Enter the row number to select the item")
 
-    # تنسيق الكتابة
     st.markdown(f"""
         <div style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
         <div style='font-size: 20px; color: green;'>Current Quantity: {int(df_f.loc[row_number, 'Qty.'])}</div>
         <div style='font-size: 20px; color: red;'>Location: {df_f.loc[row_number, 'Location']}</div>
         """, unsafe_allow_html=True)
-    
-    # تنسيق Enter quantity
     st.markdown(f"""
         <style>
         .custom-quantity-{tab_name} {{
@@ -75,19 +65,12 @@ def display_tab(tab_name):
         <label class="custom-quantity-{tab_name}">Enter quantity : </label>
         """, unsafe_allow_html=True)
     quantity = st.number_input('', min_value=1, step=1, key=f'{tab_name}_quantity')
-
     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
-
+    
     if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
         update_quantity(row_number, quantity, operation)
-
-    # زر لتحميل الملف بعد التعديل
     csv = df_f.to_csv(index=False)
    
-
-
-
-
 
 if page == 'Mechanical parts':
     def main():
@@ -101,15 +84,11 @@ if page == 'Mechanical parts':
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Display a placeholder while loading data
         with st.spinner("Data loaded successfully!"):
-            # Simulate loading data
             import time
             time.sleep(1)
 
         col1, col2 = st.columns([2, 2])
-
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -120,11 +99,7 @@ if page == 'Mechanical parts':
         with col2:
             search_keyword = st.text_input("Enter keyword to search:")
             search_button = st.button("Search")
-        
-        # تعريف خيار البحث والإعدادات
-        search_option = 'All Columns'
-        
-        # تعريف وظيفة البحث
+            search_option = 'All Columns'
         def search_in_dataframe(df_f, keyword, option):
             if option == 'All Columns':
                 result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
@@ -132,21 +107,15 @@ if page == 'Mechanical parts':
                 result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
             return result
         
-        # عرض النتائج بناءً على البحث
         if search_button and search_keyword:
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            
-            # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
             st.dataframe(search_results, width=700, height=200)
                 
-
-    
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
         'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
-
+        
         with tab1:
-            
             col1, col2, col3 = st.columns([30,3,13])
             with col1:
                 peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
@@ -469,11 +438,9 @@ if page == 'Mechanical parts':
                 st.image(image32, width=150)
                 url = 'https://www.shoplinco.com/colson-polyurethane-heavy-duty-total-lock-swivel-caster-8-x-2-1000-lbs-cap/'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
         csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
             
-
     if __name__ == '__main__':
 
         main()
@@ -489,15 +456,12 @@ if page == 'Electrical parts':
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Display a placeholder while loading data
         with st.spinner("Data loaded successfully!"):
             # Simulate loading data
             import time
             time.sleep(1)
 
-            col1, col2 = st.columns([2, 2])
-
+        col1, col2 = st.columns([2, 2])
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -508,11 +472,7 @@ if page == 'Electrical parts':
         with col2:
             search_keyword = st.text_input("Enter keyword to search:")
             search_button = st.button("Search")
-        
-        # تعريف خيار البحث والإعدادات
-        search_option = 'All Columns'
-        
-        # تعريف وظيفة البحث
+            search_option = 'All Columns'
         def search_in_dataframe(df_f, keyword, option):
             if option == 'All Columns':
                 result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
@@ -520,26 +480,14 @@ if page == 'Electrical parts':
                 result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
             return result
         
-        # عرض النتائج بناءً على البحث
         if search_button and search_keyword:
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            
-            # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
-            st.dataframe(search_results, width=1000, height=600)
-
-            st.markdown("""
-    <h2 style='text-align: center; font-size: 40px; color: red;'>
-        Find your Electrical parts
-    </h2>
-""", unsafe_allow_html=True)
-        st.subheader('Select from these items')
+            st.dataframe(search_results, width=700, height=200)
         
             
-        
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8, tab9 ,tab10, tab11 ,tab12  = st.tabs(['Proximity','Sensor','Fiber sensor','Amplifier','Socket',
         'Selector','Button','Switch','Light','Fan','Cable','Fuse'])
-        
         
 
         with tab1:
@@ -1156,7 +1104,6 @@ if page == 'Electrical parts':
         csv = st.session_state.df.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
 
-           
     
     if __name__ == '__main__':
 
@@ -1174,12 +1121,33 @@ if page == 'Neumatic parts':
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Display a placeholder while loading data
         with st.spinner("Data loaded successfully!"):
-            # Simulate loading data
             import time
             time.sleep(1)
+
+        col1, col2 = st.columns([2, 2])
+        with col1:
+            st.markdown("""
+                <h2 style='text-align: center; font-size: 40px; color: red;'>
+                    Find your Mechanical parts
+                </h2>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            search_keyword = st.text_input("Enter keyword to search:")
+            search_button = st.button("Search")
+            search_option = 'All Columns'
+        def search_in_dataframe(df_f, keyword, option):
+            if option == 'All Columns':
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+            else:
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+            return result
+    
+        if search_button and search_keyword:
+            search_results = search_in_dataframe(df_f, search_keyword, search_option)
+            st.write(f"Search results for '{search_keyword}' in {search_option}:")
+            st.dataframe(search_results, width=700, height=200)
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1373,12 +1341,10 @@ if page == 'Neumatic parts':
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+        
     if __name__ == '__main__':
 
         main()
-
-
-               
 
 
 if page == 'FORKLIFT': 
@@ -1392,12 +1358,34 @@ if page == 'FORKLIFT':
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Display a placeholder while loading data
+        
         with st.spinner("Data loaded successfully!"):
-            # Simulate loading data
             import time
             time.sleep(1)
+
+        col1, col2 = st.columns([2, 2])         
+        with col1:
+            st.markdown("""
+                <h2 style='text-align: center; font-size: 40px; color: red;'>
+                    Find your Mechanical parts
+                </h2>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            search_keyword = st.text_input("Enter keyword to search:")
+            search_button = st.button("Search")
+            search_option = 'All Columns'
+        def search_in_dataframe(df_f, keyword, option):
+            if option == 'All Columns':
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+            else:
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+            return result
+        
+        if search_button and search_keyword:
+            search_results = search_in_dataframe(df_f, search_keyword, search_option)
+            st.write(f"Search results for '{search_keyword}' in {search_option}:")
+            st.dataframe(search_results, width=700, height=200)
 
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1505,9 +1493,6 @@ if page == 'FORKLIFT':
         main()
 
 
-
-
-
 if page == 'Utility area':
     
     def main():
@@ -1521,14 +1506,34 @@ if page == 'Utility area':
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Display a placeholder while loading data
+        
         with st.spinner("Data loaded successfully!"):
-            # Simulate loading data
             import time
             time.sleep(1)
 
-        # Once data is loaded, display a message
+        col1, col2 = st.columns([2, 2])
+        with col1:
+            st.markdown("""
+                <h2 style='text-align: center; font-size: 40px; color: red;'>
+                    Find your Mechanical parts
+                </h2>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            search_keyword = st.text_input("Enter keyword to search:")
+            search_button = st.button("Search")
+            search_option = 'All Columns'
+        def search_in_dataframe(df_f, keyword, option):
+            if option == 'All Columns':
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+            else:
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+            return result
+            
+        if search_button and search_keyword:
+            search_results = search_in_dataframe(df_f, search_keyword, search_option)
+            st.write(f"Search results for '{search_keyword}' in {search_option}:")
+            st.dataframe(search_results, width=700, height=200)
       
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1799,10 +1804,7 @@ if page == 'Utility area':
                 url = 'https://www.indiamart.com/proddetail/butterfly-valve-22160377997.html'
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
-            
-
         elif select_col == 'Filters':
-
 
             tab1, tab2 ,tab3, tab4, tab5, tab6 ,tab7  = st.tabs(['Hepa filter','High filter','Pre filter','Pack filter','Pump filter','Emflon filter','Filters cartage'])
 
@@ -1938,12 +1940,33 @@ if page == 'LOTOTO':
         }
     </style>
 """, unsafe_allow_html=True)
-
-# Display a placeholder while loading data
         with st.spinner("Data loaded successfully!"):
-            # Simulate loading data
             import time
             time.sleep(1)
+            
+        col1, col2 = st.columns([2, 2])
+        with col1:
+            st.markdown("""
+                <h2 style='text-align: center; font-size: 40px; color: red;'>
+                    Find your Mechanical parts
+                </h2>
+            """, unsafe_allow_html=True)
+            
+        with col2:
+            search_keyword = st.text_input("Enter keyword to search:")
+            search_button = st.button("Search")
+            search_option = 'All Columns'
+        def search_in_dataframe(df_f, keyword, option):
+            if option == 'All Columns':
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+            else:
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+            return result
+            
+        if search_button and search_keyword:
+            search_results = search_in_dataframe(df_f, search_keyword, search_option)
+            st.write(f"Search results for '{search_keyword}' in {search_option}:")
+            st.dataframe(search_results, width=700, height=200)
         
         st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1973,8 +1996,7 @@ if page == 'LOTOTO':
                 st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
         csv = df_f.to_csv(index=False)
         st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')        
-
-        
+  
 
     if __name__ == '__main__':
 
