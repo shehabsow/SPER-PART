@@ -2025,6 +2025,8 @@ if page == 'Add New Item & delete':
             add_new_item(item_description, quantity)
             st.write('## Updated Items')
             st.dataframe(df_f)
+
+        st.write('## Delete Item')
     
     if __name__ == '__main__':
         main()
