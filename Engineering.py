@@ -465,7 +465,7 @@ if page == 'Electrical parts':
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Mechanical parts
+                    Find your Electrical parts
                 </h2>
             """, unsafe_allow_html=True)
         
@@ -1129,7 +1129,7 @@ if page == 'Neumatic parts':
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Mechanical parts
+                    Find your Neumatic parts
                 </h2>
             """, unsafe_allow_html=True)
         
@@ -1148,12 +1148,6 @@ if page == 'Neumatic parts':
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
-
-        st.markdown("""
-    <h2 style='text-align: center; font-size: 40px; color: red;'>
-        Find your Neumatic parts
-    </h2>
-""", unsafe_allow_html=True)
         st.subheader('Select from these items')
       
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Oil seal','Gasket','Gauge','Solenoid valve','Neumatic hose','Cylinder','Regulator'])
@@ -1367,7 +1361,7 @@ if page == 'FORKLIFT':
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Mechanical parts
+                    Find your Forklift parts
                 </h2>
             """, unsafe_allow_html=True)
         
@@ -1386,12 +1380,7 @@ if page == 'FORKLIFT':
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
-
-        st.markdown("""
-    <h2 style='text-align: center; font-size: 40px; color: red;'>
-        Find your Forklift parts
-    </h2>
-""", unsafe_allow_html=True)
+            
         st.subheader('Select from these items')
       
         tab1, tab2 ,tab3, tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant',
@@ -1515,7 +1504,7 @@ if page == 'Utility area':
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Mechanical parts
+                    Find your Utility parts
                 </h2>
             """, unsafe_allow_html=True)
         
@@ -1535,11 +1524,6 @@ if page == 'Utility area':
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
       
-        st.markdown("""
-    <h2 style='text-align: center; font-size: 40px; color: red;'>
-        Find your Utility parts
-    </h2>
-""", unsafe_allow_html=True)
         col1, col2, col3 = st.columns([1,2,2])
         with col1:
             select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
@@ -1948,7 +1932,7 @@ if page == 'LOTOTO':
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Mechanical parts
+                    Find your LOTOTO parts
                 </h2>
             """, unsafe_allow_html=True)
             
@@ -1967,12 +1951,7 @@ if page == 'LOTOTO':
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
-        
-        st.markdown("""
-    <h2 style='text-align: center; font-size: 40px; color: red;'>
-        Find your LOTOTO parts
-    </h2>
-""", unsafe_allow_html=True)
+
         st.subheader('Select from these items')
         col1, col2, col3 = st.columns([30,3,13])
         with col1:
