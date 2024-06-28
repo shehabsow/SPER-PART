@@ -123,7 +123,7 @@ if page == 'Mechanical parts':
             st.session_state.search_keyword = search_keyword
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            st.dataframe(search_results, width=850, height=200)
+            st.dataframe(search_results, width=1000, height=200)
         
         # Set refreshed state to clear search keyword on page refresh
         st.session_state.refreshed = True 
