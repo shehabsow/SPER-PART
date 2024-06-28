@@ -1952,7 +1952,6 @@ if page == 'LOTOTO':
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
 
-        st.subheader('Select from these items')
         col1, col2, col3 = st.columns([30,3,13])
         with col1:
             LOTOTO = df_f[df_f['Comments'] == 'Lototo'].sort_values(by='Comments')
