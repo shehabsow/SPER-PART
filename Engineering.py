@@ -138,7 +138,7 @@ if page == 'Mechanical parts':
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             
             # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
-            st.dataframe(search_results, width=1000, height=200)
+            st.dataframe(search_results, width=500, height=200)
                 
 
     
