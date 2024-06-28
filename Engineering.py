@@ -112,7 +112,7 @@ if page == 'Mechanical parts':
             st.session_state.search_keyword = ''
             st.session_state.refreshed = False
         
-        if search_button and search_keyword:ز
+        if search_button and search_keyword:
             st.session_state.search_keyword = search_keyword
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
