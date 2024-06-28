@@ -134,7 +134,7 @@ if page == 'Mechanical parts':
     """, unsafe_allow_html=True)
 
             if search_button and search_keyword:
-                search_results = search_in_dataframe(df_f, search_keyword)
+                search_results = search_in_dataframe(df, search_keyword)
                 st.write(f"Search results for '{search_keyword}':")
                 
                 # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
