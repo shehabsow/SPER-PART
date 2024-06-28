@@ -125,16 +125,16 @@ if page == 'Mechanical parts':
         search_option = 'All Columns'
         
         # تعريف وظيفة البحث
-        def search_in_dataframe(df, keyword, option):
+        def search_in_dataframe(df_f, keyword, option):
             if option == 'All Columns':
-                result = df[df.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
             else:
-                result = df[df[option].astype(str).str.contains(keyword, case=False)]
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
             return result
         
         # عرض النتائج بناءً على البحث
         if search_button and search_keyword:
-            search_results = search_in_dataframe(df, search_keyword, search_option)
+            search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             
             # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
