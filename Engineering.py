@@ -151,7 +151,6 @@ if page == 'Mechanical parts':
                 st.dataframe(peraing,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
-                    tab_content("peraing")
                     display_tab('peraing')
             with col3:
                 st.subheader('image  for  these  part')
