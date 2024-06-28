@@ -97,6 +97,7 @@ if page == 'Mechanical parts':
             """, unsafe_allow_html=True)
         
         with col2:
+            search_keyword = st.session_state.get('search_keyword', '')
             search_keyword = st.text_input("Enter keyword to search:")
             search_button = st.button("Search")
             search_option = 'All Columns'
@@ -108,10 +109,11 @@ if page == 'Mechanical parts':
             return result
 
         if st.session_state.get('refreshed', False):
-            search_keyword = ''
+            st.session_state.search_keyword = ''
             st.session_state.refreshed = False
         
-        if search_button and search_keyword:
+        if search_button and search_keyword:ز
+            st.session_state.search_keyword = search_keyword
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
