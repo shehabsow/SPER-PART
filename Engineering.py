@@ -2010,6 +2010,13 @@ if page == 'Add New Item & delete':
         df_f = df_f.append(new_row, ignore_index=True)
         df_f.to_csv('Eng Spare parts.csv', index=False)
         st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
+
+    def delete_item(row_index):
+        global df_f
+        item_description = df_f.loc[row_index, 'Item description']
+        df_f = df_f.drop(index=row_index).reset_index(drop=True)
+        df_f.to_csv('Eng Spare parts.csv', index=False)
+        st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
     
     # Streamlit app
     def main():
@@ -2027,6 +2034,13 @@ if page == 'Add New Item & delete':
             st.dataframe(df_f)
 
         st.write('## Delete Item')
+        row_index = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
+
+    # Button to delete item
+        if st.button('Delete Item', key='delete_item'):
+            delete_item(row_index)
+            st.write('## Updated Items')
+            st.dataframe(df_f)
     
     if __name__ == '__main__':
         main()
