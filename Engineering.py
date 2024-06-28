@@ -23,26 +23,6 @@ csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Neumatic parts','FORKLIFT','LOTOTO'])
 
-search_option = st.sidebar.radio(
-    'Search in:',
-    ( 'Location','All Columns')
-)
-
-search_keyword = st.sidebar.text_input("Enter keyword to search:")
-
-# تعريف وظيفة البحث
-def search_in_dataframe(df_f, keyword, option):
-    if option == 'All Columns':
-        result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-    else:
-        result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-    return result
-
-# عرض النتائج بناءً على البحث
-if search_keyword:
-    search_results = search_in_dataframe(df_f, search_keyword, search_option)
-    st.write(f"Search results for '{search_keyword}' in {search_option}:")
-    st.write(search_results)
 
 
 if 'df' not in st.session_state:
