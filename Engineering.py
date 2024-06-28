@@ -2000,8 +2000,8 @@ if page == 'Add New Item & delete':
 
     def load_data():
     # Example: Load data from a CSV file
-    df_f = pd.read_csv('data.csv')
-    return df_f
+        df_f = pd.read_csv('Eng Spare parts.csv')
+        return df_f
 
 # Function to define the main content of the Streamlit app
     def main():
