@@ -1998,54 +1998,53 @@ if page == 'LOTOTO':
 
 if page == 'Add New Item & delete':
 
+    def load_data():
+    # Example: Load data from a CSV file
+    df_f = pd.read_csv('data.csv')
+    return df_f
+
+# Function to define the main content of the Streamlit app
     def main():
-        st.markdown("""
-    <style>
-        /* Add your custom CSS styles here */
-        .stProgress > div > div > div {
-            background-color: #FFD700; /* Change the color of the loading spinner */
-            border-radius: 50%; /* Make the loading spinner circular */
-        }
-    </style>
-""", unsafe_allow_html=True)
-        with st.spinner("Data loaded successfully!"):
-            import time
-            time.sleep(1)
-
-        st.markdown("<h3 style='color: #000000;'>Add New Item</h3>", unsafe_allow_html=True)
-
-# Input fields for new item
+        st.title('My Streamlit Application')
+    
+        # Load data
+        df_f = load_data()
+    
+        # Example: Display data and interact with it
+        st.write('## Displaying Data')
+        st.dataframe(df_f)
+    
+        # Example: Add new item functionality
+        st.write('## Add New Item')
         new_item = st.text_input('Enter item description:')
         new_quantity = st.number_input('Enter quantity:', min_value=0, step=1)
-        
-        # Add new item to dataframe
+    
         if st.button('Add New Item'):
             new_row = {'Item description': new_item, 'Qty.': new_quantity}
             df_f = df_f.append(new_row, ignore_index=True)
             st.success(f"New item '{new_item}' added successfully with quantity {new_quantity}!")
-            df_f.to_csv('data.csv', index=False)  # Save updated dataframe to CSV after adding item
-        
-        # Display current dataframe with an option to delete rows
-        st.markdown("<h3 style='color: #000000;'>Current Items</h3>", unsafe_allow_html=True)
-        st.dataframe(df_f)
-        
-        # Input field for entering row number to delete
+            # Save updated dataframe to CSV
+            df_f.to_csv('data.csv', index=False)
+    
+        # Example: Delete item functionality
+        st.write('## Delete Item')
         row_to_delete = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
-        
-        # Delete row based on user input
-        if st.button('Delete Item') and row_to_delete is not None:
+    
+        if st.button('Delete Item'):
             try:
                 deleted_item = df_f.loc[row_to_delete, 'Item description']
                 df_f = df_f.drop(index=row_to_delete).reset_index(drop=True)
                 st.success(f"Item '{deleted_item}' deleted successfully!")
-                df_f.to_csv('data.csv', index=False)  # Save updated dataframe to CSV after deletion
+                # Save updated dataframe to CSV
+                df_f.to_csv('data.csv', index=False)
             except KeyError:
                 st.error(f"Row {row_to_delete} does not exist!")
-
-
+    
+    # Entry point to run the Streamlit app
     if __name__ == '__main__':
-
         main()
+     
+
 
 
 
