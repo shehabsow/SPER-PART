@@ -110,7 +110,7 @@ if page == 'Mechanical parts':
 
         
         # Once data is loaded, display a message
-        col1, col2 = st.columns([1, 3])
+        col1, col2 = st.columns([2, 2])
         with col1:
             st.markdown("""
         <h2 style='text-align: center; font-size: 40px; color: red;'>
