@@ -2015,7 +2015,7 @@ if page == 'Add New Item & delete':
             df_f = df_f.append(new_row, ignore_index=True)
             st.success(f"New item '{new_item}' added successfully with quantity {new_quantity}!")
             # Save updated dataframe to CSV
-            df_f.to_csv('data.csv', index=False)
+            df_f.to_csv('Eng Spare parts.csv', index=False)
         st.write('## Delete Item')
         row_to_delete = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
     
@@ -2025,7 +2025,7 @@ if page == 'Add New Item & delete':
                 df_f = df_f.drop(index=row_to_delete).reset_index(drop=True)
                 st.success(f"Item '{deleted_item}' deleted successfully!")
                 # Save updated dataframe to CSV
-                df_f.to_csv('data.csv', index=False)
+                df_f.to_csv('Eng Spare parts.csv', index=False)
             except KeyError:
                 st.error(f"Row {row_to_delete} does not exist!")
  
