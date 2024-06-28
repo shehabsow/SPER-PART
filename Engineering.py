@@ -151,6 +151,7 @@ if page == 'Mechanical parts':
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
                     display_tab('peraing')
+                    tab_content('peraing')
             with col3:
                 st.subheader('image  for  these  part')
                 SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
