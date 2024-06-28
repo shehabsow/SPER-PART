@@ -118,6 +118,10 @@ if page == 'Mechanical parts':
         </h2>
     """, unsafe_allow_html=True)
             st.subheader('Select from these items')
+            if search_button and search_keyword:
+                search_results = search_in_dataframe(df_f, search_keyword, search_option)
+                st.write(f"Search results for '{search_keyword}' in {search_option}:")
+                st.dataframe(search_results, width=1200, height=200)
 
         with col2:
             search_keyword = st.text_input("Enter keyword to search:")
@@ -133,12 +137,7 @@ if page == 'Mechanical parts':
                 else:
                     result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
                 return result
-            
-            # عرض النتائج بناءً على البحث
-            if search_button and search_keyword:
-                search_results = search_in_dataframe(df_f, search_keyword, search_option)
-                st.write(f"Search results for '{search_keyword}' in {search_option}:")
-                st.dataframe(search_results, width=1200, height=200)
+         
     
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
         'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
