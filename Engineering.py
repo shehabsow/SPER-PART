@@ -98,27 +98,35 @@ if page == 'Mechanical parts':
             """, unsafe_allow_html=True)
         
         with col2:
-            search_keyword = st.text_input("Enter keyword to search:")
+            # Retrieve or initialize search keyword from session state
+            search_keyword = st.session_state.get('search_keyword', '')
+            search_keyword = st.text_input("Enter keyword to search:", search_keyword)
             search_button = st.button("Search")
             search_option = 'All Columns'
+        
+        # Function to search in dataframe
         def search_in_dataframe(df_f, keyword, option):
             if option == 'All Columns':
                 result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
             else:
                 result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
             return result
-
-        if st.session_state.get('refreshed', False):
-           search_keyword = ''
-           st.session_state.search_keyword = search_keyword
-           st.session_state.refreshed = False
         
+        # Clear search keyword on page refresh
+        if st.session_state.get('refreshed', False):
+            st.session_state.search_keyword = ''
+            st.session_state.refreshed = False
+        
+        # Perform search if button is clicked and keyword is not empty
         if search_button and search_keyword:
+            # Update session state with current search keyword
             st.session_state.search_keyword = search_keyword
             search_results = search_in_dataframe(df_f, search_keyword, search_option)
             st.write(f"Search results for '{search_keyword}' in {search_option}:")
             st.dataframe(search_results, width=700, height=200)
-        st.session_state.refreshed = True
+        
+        # Set refreshed state to clear search keyword on page refresh
+        st.session_state.refreshed = True 
                 
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
         'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
