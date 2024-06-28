@@ -1998,37 +1998,32 @@ if page == 'LOTOTO':
 
 if page == 'Add New Item & delete':
 
-    def load_data():
-    # Example: Load data from a CSV file
+    try:
         df_f = pd.read_csv('Eng Spare parts.csv')
-        return df_f
-
-# Function to define the main content of the Streamlit app
+    except FileNotFoundError:
+        df_f = pd.DataFrame(columns=['Item description', 'Qty.'])
+    
+    # Function to add new item
+    def add_new_item(item_description, quantity):
+        new_row = {'Item description': item_description, 'Qty.': quantity}
+        df_f = df_f.append(new_row, ignore_index=True)
+        df_f.to_csv('Eng Spare parts.csv', index=False)
+        st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
+    
+    # Streamlit app
     def main():
-        df_f = load_data()
-        st.write('## Add New Item')
-        new_item = st.text_input('Enter item description:')
-        new_quantity = st.number_input('Enter quantity:', min_value=0, step=1)
+        st.title('Add New Item')
     
-        if st.button('Add New Item'):
-            new_row = {'Item description': new_item, 'Qty.': new_quantity}
-            df_f = df_f.append(new_row, ignore_index=True)
-            st.success(f"New item '{new_item}' added successfully with quantity {new_quantity}!")
-            # Save updated dataframe to CSV
-            df_f.to_csv('Eng Spare parts.csv', index=False)
-        st.write('## Delete Item')
-        row_to_delete = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
+        # User inputs
+        item_description = st.text_input('Enter item description:')
+        quantity = st.number_input('Enter quantity:', min_value=0, step=1)
     
-        if st.button('Delete Item'):
-            try:
-                deleted_item = df_f.loc[row_to_delete, 'Item description']
-                df_f = df_f.drop(index=row_to_delete).reset_index(drop=True)
-                st.success(f"Item '{deleted_item}' deleted successfully!")
-                # Save updated dataframe to CSV
-                df_f.to_csv('Eng Spare parts.csv', index=False)
-            except KeyError:
-                st.error(f"Row {row_to_delete} does not exist!")
- 
+        # Button to add new item
+        if st.button('Add Item'):
+            add_new_item(item_description, quantity)
+            st.write('## Updated Items')
+            st.dataframe(df_f)
+    
     if __name__ == '__main__':
         main()
      
