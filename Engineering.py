@@ -496,6 +496,38 @@ if page == 'Electrical parts':
             import time
             time.sleep(1)
 
+            col1, col2 = st.columns([2, 2])
+
+        with col1:
+            st.markdown("""
+                <h2 style='text-align: center; font-size: 40px; color: red;'>
+                    Find your Mechanical parts
+                </h2>
+            """, unsafe_allow_html=True)
+        
+        with col2:
+            search_keyword = st.text_input("Enter keyword to search:")
+            search_button = st.button("Search")
+        
+        # تعريف خيار البحث والإعدادات
+        search_option = 'All Columns'
+        
+        # تعريف وظيفة البحث
+        def search_in_dataframe(df_f, keyword, option):
+            if option == 'All Columns':
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+            else:
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+            return result
+        
+        # عرض النتائج بناءً على البحث
+        if search_button and search_keyword:
+            search_results = search_in_dataframe(df_f, search_keyword, search_option)
+            st.write(f"Search results for '{search_keyword}' in {search_option}:")
+            
+            # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
+            st.dataframe(search_results, width=1000, height=600)
+
             st.markdown("""
     <h2 style='text-align: center; font-size: 40px; color: red;'>
         Find your Electrical parts
