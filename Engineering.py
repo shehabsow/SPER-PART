@@ -1999,12 +1999,13 @@ if page == 'LOTOTO':
 if page == 'Add New Item & delete':
 
     try:
-        df_f = pd.read_csv('Eng Spare parts.csv')
+    df_f = pd.read_csv('Eng Spare parts.csv')
     except FileNotFoundError:
         df_f = pd.DataFrame(columns=['Item description', 'Qty.'])
     
     # Function to add new item
     def add_new_item(item_description, quantity):
+        global df_f  # Define df_f as global variable
         new_row = {'Item description': item_description, 'Qty.': quantity}
         df_f = df_f.append(new_row, ignore_index=True)
         df_f.to_csv('Eng Spare parts.csv', index=False)
@@ -2012,6 +2013,7 @@ if page == 'Add New Item & delete':
     
     # Streamlit app
     def main():
+        global df_f  # Define df_f as global variable
         st.title('Add New Item')
     
         # User inputs
