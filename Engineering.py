@@ -88,7 +88,7 @@ if page == 'Mechanical parts':
             import time
             time.sleep(1)
 
-        col1, col2 = st.columns([2, 2])
+        col1, col2 = st.columns([2, 1])
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -461,7 +461,7 @@ if page == 'Electrical parts':
             import time
             time.sleep(1)
 
-        col1, col2 = st.columns([2, 2])
+        col1, col2 = st.columns([2, 1])
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1125,7 +1125,7 @@ if page == 'Neumatic parts':
             import time
             time.sleep(1)
 
-        col1, col2 = st.columns([2, 2])
+        col1, col2 = st.columns([2, 1])
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1357,7 +1357,7 @@ if page == 'FORKLIFT':
             import time
             time.sleep(1)
 
-        col1, col2 = st.columns([2, 2])         
+        col1, col2 = st.columns([2,1])         
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1500,7 +1500,7 @@ if page == 'Utility area':
             import time
             time.sleep(1)
 
-        col1, col2 = st.columns([2, 2])
+        col1, col2 = st.columns([2, 1])
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
@@ -1928,7 +1928,7 @@ if page == 'LOTOTO':
             import time
             time.sleep(1)
             
-        col1, col2 = st.columns([2, 2])
+        col1, col2 = st.columns([2, 1])
         with col1:
             st.markdown("""
                 <h2 style='text-align: center; font-size: 40px; color: red;'>
