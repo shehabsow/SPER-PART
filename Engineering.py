@@ -108,41 +108,45 @@ if page == 'Mechanical parts':
             import time
             time.sleep(1)
 
+        def search_in_dataframe(df_f, keyword, option):
+            if option == 'All Columns':
+                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+            else:
+                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+            return result
         
-        # Once data is loaded, display a message
-        col1, col2 = st.columns([2, 2])
-        with col2:
-            search_keyword = st.text_input("Enter keyword to search:")
-            search_button = st.button("Search")
+        # تعريف حالة البحث
+        if 'search_keyword' not in st.session_state:
+            st.session_state.search_keyword = ''
+        if 'search_results' not in st.session_state:
+            st.session_state.search_results = df_f
 
-# تعريف خيار البحث والإعدادات
-            search_option = 'All Columns'
-
-# تعريف وظيفة البحث
-            def search_in_dataframe(df_f, keyword, option):
-                if option == 'All Columns':
-                    result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-                else:
-                    result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-                return result
-
-        with col1:
-            st.markdown("""
-        <h2 style='text-align: center; font-size: 40px; color: red;'>
-            Find your Mechanical parts
-        </h2>
-    """, unsafe_allow_html=True)
-
-            if search_button and search_keyword:
-                search_results = search_in_dataframe(df_f, search_keyword, search_option)
-                st.write(f"Search results for '{search_keyword}':")
-                
-                # عرض النتائج باستخدام st.dataframe لتوفير واجهة عرض أفضل
-                st.dataframe(search_results, width=1000, height=600)
-                 
     
         tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
         'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
+
+        def tab_content(tab_name):
+            col1, col2 = st.columns([2, 2])
+    
+            with col2:
+                search_keyword = st.text_input("Enter keyword to search:", key=f'{tab_name}_search')
+                search_button = st.button("Search", key=f'{tab_name}_button')
+        
+                if search_button and search_keyword:
+                    st.session_state.search_keyword = search_keyword
+                    st.session_state.search_results = search_in_dataframe(df_f, search_keyword, 'All Columns')
+
+            with col1:
+                st.markdown(f"""
+                    <h2 style='text-align: center; font-size: 40px; color: red;'>
+                        Find your Mechanical parts in {tab_name}
+                    </h2>
+                """, unsafe_allow_html=True)
+        
+                if st.session_state.search_keyword:
+                    st.write(f"Search results for '{st.session_state.search_keyword}':")
+                    st.dataframe(st.session_state.search_results, width=1500, height=200)
+
 
 
         with tab1:
@@ -152,6 +156,7 @@ if page == 'Mechanical parts':
                 st.dataframe(peraing,width=2000)
                 col4, col5, col6 = st.columns([2,1,2])
                 with col4:
+                    tab_content("peraing")
                     display_tab('peraing')
             with col3:
                 st.subheader('image  for  these  part')
