@@ -18,7 +18,7 @@ st.set_page_config(
 df_f = pd.read_csv('Eng Spare parts.csv')
 csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
-                    'Neumatic parts','FORKLIFT','LOTOTO'])
+                    'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete'])
 
 
 if 'df' not in st.session_state:
@@ -1995,6 +1995,61 @@ if page == 'LOTOTO':
     if __name__ == '__main__':
 
         main()
+
+if page == 'Add New Item & delete':
+
+    def main():
+        st.markdown("""
+    <style>
+        /* Add your custom CSS styles here */
+        .stProgress > div > div > div {
+            background-color: #FFD700; /* Change the color of the loading spinner */
+            border-radius: 50%; /* Make the loading spinner circular */
+        }
+    </style>
+""", unsafe_allow_html=True)
+        with st.spinner("Data loaded successfully!"):
+            import time
+            time.sleep(1)
+
+        st.markdown("<h3 style='color: #000000;'>Add New Item</h3>", unsafe_allow_html=True)
+
+# Input fields for new item
+        new_item = st.text_input('Enter item description:')
+        new_quantity = st.number_input('Enter quantity:', min_value=0, step=1)
+        
+        # Add new item to dataframe
+        if st.button('Add New Item'):
+            new_row = {'Item description': new_item, 'Qty.': new_quantity}
+            df_f = df_f.append(new_row, ignore_index=True)
+            st.success(f"New item '{new_item}' added successfully with quantity {new_quantity}!")
+            df_f.to_csv('data.csv', index=False)  # Save updated dataframe to CSV after adding item
+        
+        # Display current dataframe with an option to delete rows
+        st.markdown("<h3 style='color: #000000;'>Current Items</h3>", unsafe_allow_html=True)
+        st.dataframe(df_f)
+        
+        # Input field for entering row number to delete
+        row_to_delete = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
+        
+        # Delete row based on user input
+        if st.button('Delete Item') and row_to_delete is not None:
+            try:
+                deleted_item = df_f.loc[row_to_delete, 'Item description']
+                df_f = df_f.drop(index=row_to_delete).reset_index(drop=True)
+                st.success(f"Item '{deleted_item}' deleted successfully!")
+                df_f.to_csv('data.csv', index=False)  # Save updated dataframe to CSV after deletion
+            except KeyError:
+                st.error(f"Row {row_to_delete} does not exist!")
+
+
+    if __name__ == '__main__':
+
+        main()
+
+
+
+    
  
 
 
