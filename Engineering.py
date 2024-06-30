@@ -49,14 +49,14 @@ else:
 
 
     if 'df' not in st.session_state:
-            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-            st.session_state.logs = []
+        st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+        st.session_state.logs = []
     
-        df_f = st.session_state.df
+    df_f = st.session_state.df
     
         # الاحتفاظ بآخر مستخدم قام بالتعديل
-        if 'last_modified_by' not in st.session_state:
-            st.session_state.last_modified_by = None
+    if 'last_modified_by' not in st.session_state:
+        st.session_state.last_modified_by = None
     
     def update_quantity(row_index, quantity, operation, username):
             old_quantity = df_f.loc[row_index, 'Qty.']
