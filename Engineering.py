@@ -16,9 +16,8 @@ st.set_page_config(
 
 
 df_f = pd.read_csv('Eng Spare parts.csv')
-csv_path = 'Eng Spare parts.csv'
-page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
-                    'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete'])
+
+
 
 users = {
     "user1": "password1",
@@ -93,396 +92,398 @@ else:
     if 'df' not in st.session_state:
         st.session_state.df = pd.read_csv('Eng Spare parts.csv')
 
+    page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
+                    'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete'])
    
 
-if page == 'Mechanical parts':
-    def main():
-        
-        st.markdown("""
-    <style>
-        /* Add your custom CSS styles here */
-        .stProgress > div > div > div {
-            background-color: #FFD700; /* Change the color of the loading spinner */
-            border-radius: 50%; /* Make the loading spinner circular */
-        }
-    </style>
-""", unsafe_allow_html=True)
-        with st.spinner("Data loaded successfully!"):
-            import time
-            time.sleep(1)
-
-        
-        col1, col2 = st.columns([2, 0.75])
-        with col1:
+    if page == 'Mechanical parts':
+        def main():
+            
             st.markdown("""
-                <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Mechanical parts
-                </h2>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            # Retrieve or initialize search keyword from session state
-            search_keyword = st.session_state.get('search_keyword', '')
-            search_keyword = st.text_input("Enter keyword to search:", search_keyword)
-            search_button = st.button("Search")
-            search_option = 'All Columns'
-        
-        # Function to search in dataframe
-        def search_in_dataframe(df_f, keyword, option):
-            if option == 'All Columns':
-                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-            else:
-                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-            return result
-        
-        # Clear search keyword on page refresh
-        if st.session_state.get('refreshed', False):
-            st.session_state.search_keyword = ''
-            st.session_state.refreshed = False
-        
-        # Perform search if button is clicked and keyword is not empty
-        if search_button and search_keyword:
-            # Update session state with current search keyword
-            st.session_state.search_keyword = search_keyword
-            search_results = search_in_dataframe(df_f, search_keyword, search_option)
-            st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            st.dataframe(search_results, width=1000, height=200)
-        
-        # Set refreshed state to clear search keyword on page refresh
-        st.session_state.refreshed = True 
-                
-        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
-        'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
-        
-        with tab1:
-            col1, col2, col3 = st.columns([30,3,13])
+        <style>
+            /* Add your custom CSS styles here */
+            .stProgress > div > div > div {
+                background-color: #FFD700; /* Change the color of the loading spinner */
+                border-radius: 50%; /* Make the loading spinner circular */
+            }
+        </style>
+    """, unsafe_allow_html=True)
+            with st.spinner("Data loaded successfully!"):
+                import time
+                time.sleep(1)
+    
+            
+            col1, col2 = st.columns([2, 0.75])
             with col1:
-                peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
-                st.dataframe(peraing,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('peraing')
+                st.markdown("""
+                    <h2 style='text-align: center; font-size: 40px; color: red;'>
+                        Find your Mechanical parts
+                    </h2>
+                """, unsafe_allow_html=True)
+            
+            with col2:
+                # Retrieve or initialize search keyword from session state
+                search_keyword = st.session_state.get('search_keyword', '')
+                search_keyword = st.text_input("Enter keyword to search:", search_keyword)
+                search_button = st.button("Search")
+                search_option = 'All Columns'
+            
+            # Function to search in dataframe
+            def search_in_dataframe(df_f, keyword, option):
+                if option == 'All Columns':
+                    result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+                else:
+                    result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+                return result
+            
+            # Clear search keyword on page refresh
+            if st.session_state.get('refreshed', False):
+                st.session_state.search_keyword = ''
+                st.session_state.refreshed = False
+            
+            # Perform search if button is clicked and keyword is not empty
+            if search_button and search_keyword:
+                # Update session state with current search keyword
+                st.session_state.search_keyword = search_keyword
+                search_results = search_in_dataframe(df_f, search_keyword, search_option)
+                st.write(f"Search results for '{search_keyword}' in {search_option}:")
+                st.dataframe(search_results, width=1000, height=200)
+            
+            # Set refreshed state to clear search keyword on page refresh
+            st.session_state.refreshed = True 
                     
-            with col3:
-                st.subheader('image  for  these  part')
-                SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
-                with SKF:
-                    image1 = open('images/1.jpeg', 'rb').read()
-                    st.image(image1, width=150)
-                    url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with ASAHI:
-                    image2 = open('images/2.jpg', 'rb').read()
-                    st.image(image2,  width=150)
-                    url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with INA:
-                    image3 = open('images/3.jpg', 'rb').read()
-                    st.image(image3, width=150)
-                    url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with IKO:
-                    image4 = open('images/4.jpg', 'rb').read()
-                    st.image(image4,  width=150)
-                    url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with KBC:
-                    image5 = open('images/5.jpg', 'rb').read()
-                    st.image(image5,  width=150)
-                    url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with NTN:
-                    image6 = open('images/6.png', 'rb').read()
-                    st.image(image6,  width=150)
-                    url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with NB:
-                    image7 = open('images/7.jpg', 'rb').read()
-                    st.image(image7, caption='FETTE', width=150)
-                    url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-        with tab2:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
-                st.dataframe(Belts,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Belts')
-            with col3:
-                st.subheader('image  for  these  part')
-                OPTIBELT ,FEC, timing_belt = st.tabs(['OPTIBELT','FEC','timing belt'])
-                with OPTIBELT:
-                    image8 = open('images/8.jpg', 'rb').read()
-                    st.image(image8, width=150)
-                    url = 'https://www.optibelt.com/en/home/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with FEC:
-                    image9 = open('images/9.jpg', 'rb').read()
-                    st.image(image9, width=150)
-                    url = 'https://www.fecconsulting.dk/en/timing-belts/megaflex-timing-belts/pu-timing-belts-t10-flex/t10-2550.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with timing_belt:
-                    image10 = open('images/10.jpg', 'rb').read()
-                    st.image(image10, width=150)
-                    url = 'https://www.konlidainc.com/gear/timing-belt.asp'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-           
-
-        with tab3:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Shaft = df_f[df_f['Comments'] == 'Shaft'].sort_values(by='Comments')
-                st.dataframe(Shaft,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Shaft')
-            with col3:
-                st.subheader('image  for  these  part')
-                GRUNDFOS, uhlmann  = st.tabs(['GRUNDFOS','uhlmann'])
-                with GRUNDFOS:
-                    image11 = open('images/11.jpeg', 'rb').read()
-                    st.image(image11, width=150)
-                    url = 'https://product-selection.grundfos.com/eg/products/service-partkit/spare-shaft-seal-96488302?pumpsystemid=2346046284&tab=variant-specifications'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with uhlmann:
-                    image12 = open('images/12.jpg', 'rb').read()
-                    st.image(image12, width=150)
+            tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
+            'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
+            
+            with tab1:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    peraing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
+                    st.dataframe(peraing,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('peraing')
+                        
+                with col3:
+                    st.subheader('image  for  these  part')
+                    SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
+                    with SKF:
+                        image1 = open('images/1.jpeg', 'rb').read()
+                        st.image(image1, width=150)
+                        url = 'https://www.skf.com/id/productinfo/productid-6001-2Z%2FC3'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with ASAHI:
+                        image2 = open('images/2.jpg', 'rb').read()
+                        st.image(image2,  width=150)
+                        url = 'https://th.misumi-ec.com/en/vona2/detail/221000612127/?HissuCode=JAF10'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with INA:
+                        image3 = open('images/3.jpg', 'rb').read()
+                        st.image(image3, width=150)
+                        url = 'https://www.abf.store/s/en/bearings/STO12-INA/450653'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with IKO:
+                        image4 = open('images/4.jpg', 'rb').read()
+                        st.image(image4,  width=150)
+                        url = 'https://www.acorn-ind.co.uk/p/iko/closed-type-linear-ball-bearings/lme122232n-iko/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with KBC:
+                        image5 = open('images/5.jpg', 'rb').read()
+                        st.image(image5,  width=150)
+                        url = 'https://trimantec.com/products/kbc-bearings-radial-bearing-6004-d-6004-rs'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with NTN:
+                        image6 = open('images/6.png', 'rb').read()
+                        st.image(image6,  width=150)
+                        url = 'https://www.2rs.bg/en-gb/6004-llu-5k-ntn.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with NB:
+                        image7 = open('images/7.jpg', 'rb').read()
+                        st.image(image7, caption='FETTE', width=150)
+                        url = 'https://www.abf.store/s/en/bearings/6212-2NSE-NACHI/381266'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+            with tab2:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Belts = df_f[df_f['Comments'] == 'Belts'].sort_values(by='Comments')
+                    st.dataframe(Belts,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Belts')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    OPTIBELT ,FEC, timing_belt = st.tabs(['OPTIBELT','FEC','timing belt'])
+                    with OPTIBELT:
+                        image8 = open('images/8.jpg', 'rb').read()
+                        st.image(image8, width=150)
+                        url = 'https://www.optibelt.com/en/home/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with FEC:
+                        image9 = open('images/9.jpg', 'rb').read()
+                        st.image(image9, width=150)
+                        url = 'https://www.fecconsulting.dk/en/timing-belts/megaflex-timing-belts/pu-timing-belts-t10-flex/t10-2550.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with timing_belt:
+                        image10 = open('images/10.jpg', 'rb').read()
+                        st.image(image10, width=150)
+                        url = 'https://www.konlidainc.com/gear/timing-belt.asp'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+               
+    
+            with tab3:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Shaft = df_f[df_f['Comments'] == 'Shaft'].sort_values(by='Comments')
+                    st.dataframe(Shaft,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Shaft')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    GRUNDFOS, uhlmann  = st.tabs(['GRUNDFOS','uhlmann'])
+                    with GRUNDFOS:
+                        image11 = open('images/11.jpeg', 'rb').read()
+                        st.image(image11, width=150)
+                        url = 'https://product-selection.grundfos.com/eg/products/service-partkit/spare-shaft-seal-96488302?pumpsystemid=2346046284&tab=variant-specifications'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with uhlmann:
+                        image12 = open('images/12.jpg', 'rb').read()
+                        st.image(image12, width=150)
+                        url = 'https://www.uhlmann.de/services/support-services/spare-parts/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab4:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Spring = df_f[df_f['Comments'] == 'Spring'].sort_values(by='Comments')
+                    st.dataframe(Spring,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Spring')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    TENSION,PRESSURE  = st.tabs(['TENSION','PRESSURE'])
+                    with TENSION:
+                        image13 = open('images/13.jpg', 'rb').read()
+                        st.image(image13, width=150)
+                        url = 'https://www.sawane-spring.com/product/use/tension_spring_extension_spring.php'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with PRESSURE:
+                        image14 = open('images/14.jpg', 'rb').read()
+                        st.image(image14, width=150)
+                        url = 'https://metal-spring.com/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+    
+            with tab5:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    leaflet_rooler = df_f[df_f['Comments'] == 'Leaflet rooler'].sort_values(by='Comments')
+                    st.dataframe(leaflet_rooler,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('leaflet_rooler')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    Alumnum,rubber  = st.tabs(['Alumnum','rubber'])
+                    with Alumnum:
+                        image15 = open('images/15.jpg', 'rb').read()
+                        st.image(image15, width=150)
+                        url = 'https://www.jctprinting.com/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with rubber:
+                        image16 = open('images/16.jpeg', 'rb').read()
+                        st.image(image16, width=150)
+                        url = 'https://www.jctprinting.com/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab6:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Cam = df_f[df_f['Comments'] == 'Cam'].sort_values(by='Comments')
+                    st.dataframe(Cam,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Cam')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    Cam_SKF,Cam_INA,Cam_IKO  = st.tabs(['Cam_SKF','Cam_INA','Cam_IKO'])
+                    with Cam_SKF:
+                        image17 = open('images/17.jpg', 'rb').read()
+                        st.image(image17, width=150)
+                        url = 'https://www.skf.com/sg/products/rolling-bearings/track-rollers/cam-followers/productid-KR%2022'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Cam_INA:
+                        image18 = open('images/18.jpg', 'rb').read()
+                        st.image(image18, width=150)
+                        url = 'https://www.abf.store/s/en/bearings/KR19-PP-A-NMT-INA/501413'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Cam_IKO:
+                        image19 = open('images/19.jpg', 'rb').read()
+                        st.image(image19, width=150)
+                        url = 'https://www.acorn-ind.co.uk/p/iko/cam-followers/cr10-iko/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab7:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Clutch = df_f[df_f['Comments'] == 'Clutch'].sort_values(by='Comments')
+                    st.dataframe(Clutch,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Clutch')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    Mechanical,Electrical   = st.tabs(['Mechanical','Electrical '])
+                    with Mechanical:
+                        image20 = open('images/20.jpg', 'rb').read()
+                        st.image(image20, width=150)
+                        url = 'https://www.psbearings.com/html_products/mzeu-series-cam-type-cam-clutch-346.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Electrical :
+                        image21 = open('images/21.jpeg', 'rb').read()
+                        st.image(image21, width=150)
+                        url = 'https://peacosupport.com/electromagnetic-brake-6nm-400nm'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab8:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Oil_grease = df_f[df_f['Comments'] == 'Oil _ grease'].sort_values(by='Comments')
+                    st.dataframe(Oil_grease,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Oil_grease')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    HYDRAULIC,Gear   = st.tabs(['HYDRAULIC','Gear '])
+                    with HYDRAULIC:
+                        image22 = open('images/22.jpg', 'rb').read()
+                        st.image(image22, width=150)
+                        url = 'https://www.schaefferoil.com/h1-hydraulic-oil.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Gear :
+                        image23 = open('images/23.jpg', 'rb').read()
+                        st.image(image23, width=150)
+                        url = 'https://stores.buy1oils.com/new-schaeffer-products/schaeffer-2009-supreme-open-gear-lube-37-lbs/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab10:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Chain = df_f[df_f['Comments'] == 'Chain'].sort_values(by='Comments')
+                    st.dataframe(Chain,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Chain')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image24 = open('images/24.jpg', 'rb').read()
+                    st.image(image24, width=150)
                     url = 'https://www.uhlmann.de/services/support-services/spare-parts/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab4:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Spring = df_f[df_f['Comments'] == 'Spring'].sort_values(by='Comments')
-                st.dataframe(Spring,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Spring')
-            with col3:
-                st.subheader('image  for  these  part')
-                TENSION,PRESSURE  = st.tabs(['TENSION','PRESSURE'])
-                with TENSION:
-                    image13 = open('images/13.jpg', 'rb').read()
-                    st.image(image13, width=150)
-                    url = 'https://www.sawane-spring.com/product/use/tension_spring_extension_spring.php'
+                
+                
+            with tab11:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Gearbox = df_f[df_f['Comments'] == 'Gearbox'].sort_values(by='Comments')
+                    st.dataframe(Gearbox,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Gearbox')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    BEVEL,Nema   = st.tabs(['BEVEL','Nema '])
+                    with BEVEL:
+                        image25 = open('images/25.jpg', 'rb').read()
+                        st.image(image25, width=150)
+                        url = 'https://www.unimec.eu/en/products/bevel-gearboxes/110/RR.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Nema :
+                        image26 = open('images/26.jpg', 'rb').read()
+                        st.image(image26, width=150)
+                        url = 'https://www.phidgets.com/?prodid=1082'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab12:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Door = df_f[df_f['Comments'] == 'Door'].sort_values(by='Comments')
+                    st.dataframe(Door,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Door')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    Dorma,Cam_Hydraulic,Handl  = st.tabs(['Dorma','Cam_Hydraulic','Handl'])
+                    with Dorma:
+                        image27 = open('images/27.jpg', 'rb').read()
+                        st.image(image27, width=150)
+                        url = 'https://doorcontrolsdirect.co.uk/door-closer-spare-parts/1043-dorma-g-n-slide-arm-channel'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Cam_Hydraulic:
+                        image28 = open('images/28.jpg', 'rb').read()
+                        st.image(image28, width=150)
+                        url = 'https://www.dnd.com.tw/en/category/Door-Closer.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with Handl:
+                        image29 = open('images/29.jpg', 'rb').read()
+                        st.image(image29, width=150)
+                        url = 'https://www.handleking.co.uk/heavy-duty-door-handles-with-return-to-door-lever-grade-3'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+                
+            with tab13:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Couplin = df_f[df_f['Comments'] == 'Couplin'].sort_values(by='Comments')
+                    st.dataframe(Couplin,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Couplin')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    Flexible_Couplin, BoWex_Couplin   = st.tabs(['Flexible_Couplin','BoWex_Couplin '])
+                    with Flexible_Couplin:
+                        image30 = open('images/30.jpeg', 'rb').read()
+                        st.image(image30, width=150)
+                        url = 'https://www.ttco.com/encoders/ae087-10-10.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    with BoWex_Couplin :
+                        image31 = open('images/31.jpg', 'rb').read()
+                        st.image(image31, width=150)
+                        url = 'https://www.ktr.com/no/products/bowex-curved-tooth-gear-couplings/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                
+    
+            with tab14:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Wheel_CASTOR = df_f[df_f['Comments'] == 'Swivel castor'].sort_values(by='Comments')
+                    st.dataframe(Wheel_CASTOR,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Wheel CASTOR')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image32 = open('images/32.jpg', 'rb').read()
+                    st.image(image32, width=150)
+                    url = 'https://www.shoplinco.com/colson-polyurethane-heavy-duty-total-lock-swivel-caster-8-x-2-1000-lbs-cap/'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with PRESSURE:
-                    image14 = open('images/14.jpg', 'rb').read()
-                    st.image(image14, width=150)
-                    url = 'https://metal-spring.com/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-
-        with tab5:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                leaflet_rooler = df_f[df_f['Comments'] == 'Leaflet rooler'].sort_values(by='Comments')
-                st.dataframe(leaflet_rooler,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('leaflet_rooler')
-            with col3:
-                st.subheader('image  for  these  part')
-                Alumnum,rubber  = st.tabs(['Alumnum','rubber'])
-                with Alumnum:
-                    image15 = open('images/15.jpg', 'rb').read()
-                    st.image(image15, width=150)
-                    url = 'https://www.jctprinting.com/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with rubber:
-                    image16 = open('images/16.jpeg', 'rb').read()
-                    st.image(image16, width=150)
-                    url = 'https://www.jctprinting.com/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab6:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Cam = df_f[df_f['Comments'] == 'Cam'].sort_values(by='Comments')
-                st.dataframe(Cam,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Cam')
-            with col3:
-                st.subheader('image  for  these  part')
-                Cam_SKF,Cam_INA,Cam_IKO  = st.tabs(['Cam_SKF','Cam_INA','Cam_IKO'])
-                with Cam_SKF:
-                    image17 = open('images/17.jpg', 'rb').read()
-                    st.image(image17, width=150)
-                    url = 'https://www.skf.com/sg/products/rolling-bearings/track-rollers/cam-followers/productid-KR%2022'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Cam_INA:
-                    image18 = open('images/18.jpg', 'rb').read()
-                    st.image(image18, width=150)
-                    url = 'https://www.abf.store/s/en/bearings/KR19-PP-A-NMT-INA/501413'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Cam_IKO:
-                    image19 = open('images/19.jpg', 'rb').read()
-                    st.image(image19, width=150)
-                    url = 'https://www.acorn-ind.co.uk/p/iko/cam-followers/cr10-iko/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab7:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Clutch = df_f[df_f['Comments'] == 'Clutch'].sort_values(by='Comments')
-                st.dataframe(Clutch,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Clutch')
-            with col3:
-                st.subheader('image  for  these  part')
-                Mechanical,Electrical   = st.tabs(['Mechanical','Electrical '])
-                with Mechanical:
-                    image20 = open('images/20.jpg', 'rb').read()
-                    st.image(image20, width=150)
-                    url = 'https://www.psbearings.com/html_products/mzeu-series-cam-type-cam-clutch-346.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Electrical :
-                    image21 = open('images/21.jpeg', 'rb').read()
-                    st.image(image21, width=150)
-                    url = 'https://peacosupport.com/electromagnetic-brake-6nm-400nm'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab8:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Oil_grease = df_f[df_f['Comments'] == 'Oil _ grease'].sort_values(by='Comments')
-                st.dataframe(Oil_grease,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Oil_grease')
-            with col3:
-                st.subheader('image  for  these  part')
-                HYDRAULIC,Gear   = st.tabs(['HYDRAULIC','Gear '])
-                with HYDRAULIC:
-                    image22 = open('images/22.jpg', 'rb').read()
-                    st.image(image22, width=150)
-                    url = 'https://www.schaefferoil.com/h1-hydraulic-oil.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Gear :
-                    image23 = open('images/23.jpg', 'rb').read()
-                    st.image(image23, width=150)
-                    url = 'https://stores.buy1oils.com/new-schaeffer-products/schaeffer-2009-supreme-open-gear-lube-37-lbs/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab10:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Chain = df_f[df_f['Comments'] == 'Chain'].sort_values(by='Comments')
-                st.dataframe(Chain,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Chain')
-            with col3:
-                st.subheader('image  for  these  part')
-                image24 = open('images/24.jpg', 'rb').read()
-                st.image(image24, width=150)
-                url = 'https://www.uhlmann.de/services/support-services/spare-parts/'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-            
-        with tab11:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Gearbox = df_f[df_f['Comments'] == 'Gearbox'].sort_values(by='Comments')
-                st.dataframe(Gearbox,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Gearbox')
-            with col3:
-                st.subheader('image  for  these  part')
-                BEVEL,Nema   = st.tabs(['BEVEL','Nema '])
-                with BEVEL:
-                    image25 = open('images/25.jpg', 'rb').read()
-                    st.image(image25, width=150)
-                    url = 'https://www.unimec.eu/en/products/bevel-gearboxes/110/RR.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Nema :
-                    image26 = open('images/26.jpg', 'rb').read()
-                    st.image(image26, width=150)
-                    url = 'https://www.phidgets.com/?prodid=1082'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab12:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Door = df_f[df_f['Comments'] == 'Door'].sort_values(by='Comments')
-                st.dataframe(Door,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Door')
-            with col3:
-                st.subheader('image  for  these  part')
-                Dorma,Cam_Hydraulic,Handl  = st.tabs(['Dorma','Cam_Hydraulic','Handl'])
-                with Dorma:
-                    image27 = open('images/27.jpg', 'rb').read()
-                    st.image(image27, width=150)
-                    url = 'https://doorcontrolsdirect.co.uk/door-closer-spare-parts/1043-dorma-g-n-slide-arm-channel'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Cam_Hydraulic:
-                    image28 = open('images/28.jpg', 'rb').read()
-                    st.image(image28, width=150)
-                    url = 'https://www.dnd.com.tw/en/category/Door-Closer.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with Handl:
-                    image29 = open('images/29.jpg', 'rb').read()
-                    st.image(image29, width=150)
-                    url = 'https://www.handleking.co.uk/heavy-duty-door-handles-with-return-to-door-lever-grade-3'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-            
-        with tab13:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Couplin = df_f[df_f['Comments'] == 'Couplin'].sort_values(by='Comments')
-                st.dataframe(Couplin,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Couplin')
-            with col3:
-                st.subheader('image  for  these  part')
-                Flexible_Couplin, BoWex_Couplin   = st.tabs(['Flexible_Couplin','BoWex_Couplin '])
-                with Flexible_Couplin:
-                    image30 = open('images/30.jpeg', 'rb').read()
-                    st.image(image30, width=150)
-                    url = 'https://www.ttco.com/encoders/ae087-10-10.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                with BoWex_Couplin :
-                    image31 = open('images/31.jpg', 'rb').read()
-                    st.image(image31, width=150)
-                    url = 'https://www.ktr.com/no/products/bowex-curved-tooth-gear-couplings/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            
-
-        with tab14:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Wheel_CASTOR = df_f[df_f['Comments'] == 'Swivel castor'].sort_values(by='Comments')
-                st.dataframe(Wheel_CASTOR,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Wheel CASTOR')
-            with col3:
-                st.subheader('image  for  these  part')
-                image32 = open('images/32.jpg', 'rb').read()
-                st.image(image32, width=150)
-                url = 'https://www.shoplinco.com/colson-polyurethane-heavy-duty-total-lock-swivel-caster-8-x-2-1000-lbs-cap/'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        csv = df_f.to_csv(index=False)
-        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
-            
-    if __name__ == '__main__':
-
-        main()
+            csv = df_f.to_csv(index=False)
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+                
+        if __name__ == '__main__':
+    
+            main()
 
 if page == 'Electrical parts': 
     def main():
