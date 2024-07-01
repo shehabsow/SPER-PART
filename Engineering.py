@@ -1150,924 +1150,924 @@ else:
             main()
 
 
-if page == 'Neumatic parts': 
-    def main():
-        st.markdown("""
-    <style>
-        /* Add your custom CSS styles here */
-        .stProgress > div > div > div {
-            background-color: #FFD700; /* Change the color of the loading spinner */
-            border-radius: 50%; /* Make the loading spinner circular */
-        }
-    </style>
-""", unsafe_allow_html=True)
-        with st.spinner("Data loaded successfully!"):
-            import time
-            time.sleep(1)
-
-        col1, col2 = st.columns([2, 0.75])
-        with col1:
+    if page == 'Neumatic parts': 
+        def main():
             st.markdown("""
-                <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Neumatic parts
-                </h2>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            search_keyword = st.text_input("Enter keyword to search:")
-            search_button = st.button("Search")
-            search_option = 'All Columns'
-        def search_in_dataframe(df_f, keyword, option):
-            if option == 'All Columns':
-                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-            else:
-                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-            return result
+        <style>
+            /* Add your custom CSS styles here */
+            .stProgress > div > div > div {
+                background-color: #FFD700; /* Change the color of the loading spinner */
+                border-radius: 50%; /* Make the loading spinner circular */
+            }
+        </style>
+    """, unsafe_allow_html=True)
+            with st.spinner("Data loaded successfully!"):
+                import time
+                time.sleep(1)
     
-        if search_button and search_keyword:
-            search_results = search_in_dataframe(df_f, search_keyword, search_option)
-            st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            st.dataframe(search_results, width=700, height=200)
-        st.subheader('Select from these items')
-      
-        tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Oil seal','Gasket','Gauge','Solenoid valve','Neumatic hose','Cylinder','Regulator'])
-
-        with tab1:
-            col1, col2, col3 = st.columns([30,3,13])
+            col1, col2 = st.columns([2, 0.75])
             with col1:
-                Oil_seal = df_f[df_f['Comments'] == 'Oil seal'].sort_values(by='Comments')
-                st.dataframe(Oil_seal,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Oil_seal')
-            with col3:
-                st.subheader('image  for  these  part')
-                O_RING ,OIL_SEAL, MECHANICAL_SEAL = st.tabs(['O RING','OIL SEAL','Mechanical SEAL'])
-                with O_RING:
-                    image108 = open('images/108.PNG', 'rb').read()
-                    st.image(image108, width=150)
-                    url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/static-seals/o-rings/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with OIL_SEAL:
-                    image109 = open('images/109.PNG', 'rb').read()
-                    st.image(image109, width=150)
-                    url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/rotary-seals/simmerrings-radial-shaft-seals/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with MECHANICAL_SEAL:
-                    image110 = open('images/110.PNG', 'rb').read()
-                    st.image(image110, width=150)
-                    url = 'https://mechanical-seal.pro/eng/tortsevye-uplotneniya/r-109_r-8u/ushch-lnyuvach-mekhan-chniy-r-8u-11-8-car-sic-viton-304-pg/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab2:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
-                st.dataframe(Gasket,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Gasket')
-            with col3:
-                st.subheader('image  for  these  part')
-                Silicone ,Viton, Teflon,Valve_Seat = st.tabs(['Silicone','Viton','Teflon','Valve Seat'])
-                with Silicone:
-                    image111 = open('images/111.PNG', 'rb').read()
-                    st.image(image111, width=200)
-                    url = 'https://www.brewerygaskets.com/1-5-red-silicone-tri-clamp-gasket/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with Viton:
-                    image112 = open('images/112.PNG', 'rb').read()
-                    st.image(image112, width=200)
-                    url = 'https://www.brewerygaskets.com/2-white-viton-tri-clamp-gasket/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with Teflon:
-                    image113 = open('images/113.PNG', 'rb').read()
-                    st.image(image113, width=200)
-                    url = 'https://www.brewerygaskets.com/1-5-white-teflon-100-virgin-ptfe-tri-clamp-gasket/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with Valve_Seat:
-                    image114 = open('images/114.PNG', 'rb').read()
-                    st.image(image114, width=200)
-                    url = 'https://www.brewerygaskets.com/tassalini-butterfly-valve-seat-1-1-2-orange-silicone-oem-style/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab3:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
-                st.dataframe(Gauge,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Gauge')
-            with col3:
-                st.subheader('image  for  these  part')
-                Vacuum_Gauge , Differential_pressure = st.tabs(['Vacuum Gauge','Differential pressure'])
-                with Vacuum_Gauge:
-                    image115 = open('images/115.PNG', 'rb').read()
-                    st.image(image115, width=200)
-                    url = 'https://shop.prmfiltration.com/products/30-0-in-hg-vacuum-gauge-35-3'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with Differential_pressure:
-                    image116 = open('images/116.PNG', 'rb').read()
-                    st.image(image116, width=200)
-                    url = 'https://shop.prmfiltration.com/collections/differential-pressure-gauges/products/differential-pressure-gauge-0-0-25-inches-of-water'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab4:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Solenoid_valve = df_f[df_f['Comments'] == 'Solenoid valve'].sort_values(by='Comments')
-                st.dataframe(Solenoid_valve,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Solenoid_valve')
-            with col3:
-                st.subheader('image  for  these  part')
-                Non_Return_Valve  , PNEUMATIC_VALVE ,Solenoid_Valve = st.tabs(['Non Return Valve ','PNEUMATIC VALVE','Solenoid Valve'])
-                with Non_Return_Valve:
-                    image117 = open('images/117.PNG', 'rb').read()
-                    st.image(image117, width=150)
-                    url = 'https://tameson.com/products/617-12-012-g1-2inch-brass-relief-valve-2-12-bar-29-174-psi'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with PNEUMATIC_VALVE:
-                    image118 = open('images/118.PNG', 'rb').read()
-                    st.image(image118, width=200)
-                    url = 'https://www.electricsolenoidvalves.com/1-8-3-way-2-position-pneumatic-solenoid-valve/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with Solenoid_Valve:
-                    image119 = open('images/119.PNG', 'rb').read()
-                    st.image(image119, width=200)
-                    url = 'https://www.electricsolenoidvalves.com/1-2-stainless-steel-steam-solenoid-valve/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab5:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
-                st.dataframe(Neumatic_hose,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Neumatic_hose')
-            with col3:
-                st.subheader('image  for  these  part')
-                PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
-                with PVC_hose:
-                    image120 = open('images/120.PNG', 'rb').read()
-                    st.image(image120, width=200)
-                    url = 'https://www.camthorne.co.uk/product/clear-braided-pvc-hose/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with pneumatic_hose:
-                    image121 = open('images/121.PNG', 'rb').read()
-                    st.image(image121, width=200)
-                    url = 'https://hpcontrol.eu/przewod-waz-pneumatyczny-poliuretanowy-pu-8-5-mm-50mb-niebieski.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab6:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Cylinder = df_f[df_f['Comments'] == 'Cylinder'].sort_values(by='Comments')
-                st.dataframe(Cylinder,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Cylinder')
-            with col3:
-                st.subheader('image  for  these  part')
-                RODLESS_CYLINDER ,VDMA_CYLINDER, PNEUMATIC_CYLINDER = st.tabs(['RODLESS CYLINDER','VDMA CYLINDER','PNEUMATIC CYLINDER'])
-                with RODLESS_CYLINDER:
-                    image122 = open('images/122.PNG', 'rb').read()
-                    st.image(image122, width=200)
-                    url = 'https://www.disumtec.com/en/pneumatic-cylinders/50170028-rodless-cylinder.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with VDMA_CYLINDER:
-                    image123 = open('images/123.PNG', 'rb').read()
-                    st.image(image123, width=200)
-                    url = 'https://www.disumtec.com/en/pneumatic-cylinders/50040026-cnomo-pcn-cylinder.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                with PNEUMATIC_CYLINDER:
-                    image124 = open('images/124.PNG', 'rb').read()
-                    st.image(image124, width=200)
-                    url = 'https://www.disumtec.com/en/pneumatic-cylinders/50010004-pneumatic-cylinder-iso-6432.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        with tab7:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
-                st.dataframe(Regulator,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Regulator')
-            with col3:
-                st.subheader('image  for  these  part')
-                image125= open('images/125.PNG', 'rb').read()
-                st.image(image125, width=150)
-                url = 'https://www.disumtec.com/en/compressed-air-filter-regulators/32030008-22543-compressed-air-filter-regulator.html?mot_tcid=16c9b4d0-9039-43d1-bbd9-0c536a6fe56e#/thread-1_4'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        csv = df_f.to_csv(index=False)
-        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
-        
-    if __name__ == '__main__':
-
-        main()
-
-
-if page == 'FORKLIFT': 
-    def main():
-        st.markdown("""
-    <style>
-        /* Add your custom CSS styles here */
-        .stProgress > div > div > div {
-            background-color: #FFD700; /* Change the color of the loading spinner */
-            border-radius: 50%; /* Make the loading spinner circular */
-        }
-    </style>
-""", unsafe_allow_html=True)
-        
-        with st.spinner("Data loaded successfully!"):
-            import time
-            time.sleep(1)
-
-        col1, col2 = st.columns([2, 0.75])         
-        with col1:
-            st.markdown("""
-                <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Forklift parts
-                </h2>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            search_keyword = st.text_input("Enter keyword to search:")
-            search_button = st.button("Search")
-            search_option = 'All Columns'
-        def search_in_dataframe(df_f, keyword, option):
-            if option == 'All Columns':
-                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-            else:
-                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-            return result
-        
-        if search_button and search_keyword:
-            search_results = search_in_dataframe(df_f, search_keyword, search_option)
-            st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            st.dataframe(search_results, width=700, height=200)
+                st.markdown("""
+                    <h2 style='text-align: center; font-size: 40px; color: red;'>
+                        Find your Neumatic parts
+                    </h2>
+                """, unsafe_allow_html=True)
             
-        st.subheader('Select from these items')
-      
-        tab1, tab2 ,tab3, tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant',
-        'Forklift control','Forklift carbon','Forklift break'])
-
-        with tab1:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Forklift_wheel = df_f[df_f['Comments'] == 'Forklift wheel'].sort_values(by='Comments')
-                st.dataframe(Forklift_wheel,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Forklift_wheel')
-            with col3:
-                st.subheader('image  for  these  part')
-                image126= open('images/126.PNG', 'rb').read()
-                st.image(image126, width=200)
-                url = 'https://directparts.eu/still/4974-230x70-82-45-drive-wheel-vulkollan-still-4359920-10009.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab2:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
-                st.dataframe(Forklift_switch,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Forklift_switch')
-            with col3:
-                st.subheader('image  for  these  part')
-                image127= open('images/127.PNG', 'rb').read()
-                st.image(image127, width=200)
-                url = 'https://directparts.eu/linde/5144-microswitch-linde-7915497021-10906.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab3:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Forklift_coolant = df_f[df_f['Comments'] == 'Forklift coolant'].sort_values(by='Comments')
-                st.dataframe(Forklift_coolant,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Forklift_coolant')
-            with col3:
-                st.subheader('image  for  these  part')
-                image128= open('images/128.PNG', 'rb').read()
-                st.image(image128, width=200)
-                url = 'https://www.gsistore.com/products/york-013-03344-000-glycol-coolant'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab5:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Forklift_control = df_f[df_f['Comments'] == 'Forklift control'].sort_values(by='Comments')
-                st.dataframe(Forklift_control,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Forklift_control')
-            with col3:
-                st.subheader('image  for  these  part')
-                image129= open('images/129.PNG', 'rb').read()
-                st.image(image129, width=200)
-                url = 'https://directparts.eu/still/5482-contactor-iskra-12088.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab6:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Forklift_carbon = df_f[df_f['Comments'] == 'Forklift carbon'].sort_values(by='Comments')
-                st.dataframe(Forklift_carbon,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Forklift_carbon')
-            with col3:
-                st.subheader('image  for  these  part')
-                image130= open('images/130.PNG', 'rb').read()
-                st.image(image130, width=200)
-                url = 'https://directparts.eu/linde/5096-carbon-brush-4457096-10663.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-        with tab7:
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Forklift_break = df_f[df_f['Comments'] == 'Forklift break'].sort_values(by='Comments')
-                st.dataframe(Forklift_break,width=900)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Forklift_break')
-            with col3:
-                st.subheader('image  for  these  part')
-                image131= open('images/131.PNG', 'rb').read()
-                st.image(image131, width=200)
-                url = 'https://directparts.eu/linde/5122-brake-shoe-108116.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        csv = df_f.to_csv(index=False)
-        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
-    if __name__ == '__main__':
-
-        main()
-
-
-if page == 'Utility area':
-    
-    def main():
+            with col2:
+                search_keyword = st.text_input("Enter keyword to search:")
+                search_button = st.button("Search")
+                search_option = 'All Columns'
+            def search_in_dataframe(df_f, keyword, option):
+                if option == 'All Columns':
+                    result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+                else:
+                    result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+                return result
         
-        st.markdown("""
-    <style>
-        /* Add your custom CSS styles here */
-        .stProgress > div > div > div {
-            background-color: #FFD700; /* Change the color of the loading spinner */
-            border-radius: 50%; /* Make the loading spinner circular */
-        }
-    </style>
-""", unsafe_allow_html=True)
-        
-        with st.spinner("Data loaded successfully!"):
-            import time
-            time.sleep(1)
-
-        col1, col2 = st.columns([2, 0.75])
-        with col1:
-            st.markdown("""
-                <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your Utility parts
-                </h2>
-            """, unsafe_allow_html=True)
-        
-        with col2:
-            search_keyword = st.text_input("Enter keyword to search:")
-            search_button = st.button("Search")
-            search_option = 'All Columns'
-        def search_in_dataframe(df_f, keyword, option):
-            if option == 'All Columns':
-                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-            else:
-                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-            return result
-            
-        if search_button and search_keyword:
-            search_results = search_in_dataframe(df_f, search_keyword, search_option)
-            st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            st.dataframe(search_results, width=700, height=200)
-      
-        col1, col2, col3 = st.columns([1,2,2])
-        with col1:
-            select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
-    
-            st.markdown("""
-                <style>
-                .stSelectbox label {
-                    font-size: 20px; 
-                    color: blue; 
-                }
-                </style>
-            """, unsafe_allow_html=True)
+            if search_button and search_keyword:
+                search_results = search_in_dataframe(df_f, search_keyword, search_option)
+                st.write(f"Search results for '{search_keyword}' in {search_option}:")
+                st.dataframe(search_results, width=700, height=200)
             st.subheader('Select from these items')
-                    
-        if select_col == 'Water Station':    
-            tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
-                'Flow monitor','conductivity','Stilmas sensor','Valve','test','pump','Uv','Ro'])
-            
+          
+            tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7  = st.tabs(['Oil seal','Gasket','Gauge','Solenoid valve','Neumatic hose','Cylinder','Regulator'])
+    
             with tab1:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
-                    st.dataframe(Conductivity_transmitter,width=2000)
+                    Oil_seal = df_f[df_f['Comments'] == 'Oil seal'].sort_values(by='Comments')
+                    st.dataframe(Oil_seal,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Conductivity_transmitter')
+                        display_tab('Oil_seal')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image33 = open('images/33.jpg', 'rb').read()
-                    st.image(image33, width=100)
-                    url = 'https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/conductivity-transmitter-clm223?t.tabId=product-overview'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                  
-            with tab2:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Flowmeter_controller = df_f[df_f['Comments'] == 'Flowmeter controller'].sort_values(by='Comments')
-                    st.dataframe(Flowmeter_controller,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Flowmeter_controller')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image34= open('images/34.PNG', 'rb').read()
-                    st.image(image34, width=150)
-                    url = 'https://www.burkert.com/en/type/8035'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                
-            with tab3:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Flow_module = df_f[df_f['Comments'] == 'Flow module'].sort_values(by='Comments')
-                    st.dataframe(Flow_module,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Flow_module')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image35= open('images/35.PNG', 'rb').read()
-                    st.image(image35, width=150)
-                    url = 'https://www.burkert.com/en/type/SE32'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                
-            with tab4:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Flow_monitor = df_f[df_f['Comments'] == 'Flow monitor sensor'].sort_values(by='Comments')
-                    st.dataframe(Flow_monitor,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Flow_monitor')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image36= open('images/36.PNG', 'rb').read()
-                    st.image(image36, width=150)
-                    url = 'https://www.ifm.com/de/en/product/SI1000'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                
-            with tab5:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    conductivity = df_f[df_f['Comments'] == 'Water conductivity'].sort_values(by='Comments')
-                    st.dataframe(conductivity,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('conductivity')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image37= open('images/37.PNG', 'rb').read()
-                    st.image(image37, width=150)
-                    url = 'https://www.directindustry.com/prod/emerson-automation-solutions-rosemount/product-36718-949557.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                
-            with tab6:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    STILMAS_SENSOR = df_f[df_f['Comments'] == 'Stilmas sensor'].sort_values(by='Comments')
-                    st.dataframe(STILMAS_SENSOR,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('STILMAS_SENSOR')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image38= open('images/38.PNG', 'rb').read()
-                    st.image(image38, width=150)
-                    url = 'https://www.ifm.com/my/en/product/TR7432'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    
-                
-            with tab8:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Valve = df_f[df_f['Comments'] == 'Water valve'].sort_values(by='Comments')
-                    st.dataframe(Valve,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Valve')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    pressure_transmitter, Angle_Valve   = st.tabs(['pressure_transmitter','Angle_Valve '])
-                    with pressure_transmitter:
-                        image39 = open('images/39.PNG', 'rb').read()
-                        st.image(image39, width=150)
-                        url = 'https://www.endress.com/en/field-instruments-overview/pressure/pressure-transmitter-cerabar-pmp71b?t.tabId=product-overview'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    with Angle_Valve :
-                        image40 = open('images/40.PNG', 'rb').read()
-                        st.image(image40, width=150)
-                        url = 'https://tameson.co.uk/products/al2a-spp-100-b-16-g1inch-ptfe-16bar-nc-angle-seat-valve-stainless-steel-brass'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-            with tab9:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    test = df_f[df_f['Comments'] == 'Water test '].sort_values(by='Comments')
-                    st.dataframe(test,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('test')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    PHOTOMETERS, Colorimetric = st.tabs(['PHOTOMETERS','Colorimetric'])
-                    with PHOTOMETERS:
-                        image42 = open('images/42.PNG', 'rb').read()
-                        st.image(image42, width=150)
-                        url = 'https://www.hannaservice.eu/water/environmental/photometers'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    with Colorimetric:
-                        image41 = open('images/41.PNG', 'rb').read()
-                        st.image(image41, width=150)
-                        url = 'https://www.hannaservice.eu/total-hardness-colorimetric-reagents-hi93735-0-product'
+                    O_RING ,OIL_SEAL, MECHANICAL_SEAL = st.tabs(['O RING','OIL SEAL','Mechanical SEAL'])
+                    with O_RING:
+                        image108 = open('images/108.PNG', 'rb').read()
+                        st.image(image108, width=150)
+                        url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/static-seals/o-rings/'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                         
-                
-            with tab10:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    pump = df_f[df_f['Comments'] == 'Water pump'].sort_values(by='Comments')
-                    st.dataframe(pump,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('pump')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    LOBE_PUMP,WHEEL_PUMP = st.tabs(['LOBE PUMP','WHEEL PUMP'])
-                    with LOBE_PUMP:
-                        image43 = open('images/43.jpg', 'rb').read()
-                        st.image(image43, width=150)
-                        url = 'https://www.chinastainlesssteelpump.com/Stainless-Steel-rotary-lobe-Pumps/Rotary-Lobe-Pumps-for-Chocolate.html'
+                    with OIL_SEAL:
+                        image109 = open('images/109.PNG', 'rb').read()
+                        st.image(image109, width=150)
+                        url = 'https://shop.gottwald-hydraulik.com/en/sealing-technology/rotary-seals/simmerrings-radial-shaft-seals/'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                    with WHEEL_PUMP:
-                        image44 = open('images/44.jpg', 'rb').read()
-                        st.image(image44, width=150)
-                        url = 'https://www.flowpumps.de/product-page/peripheral-pump-pe50brt'
+                        
+                    with MECHANICAL_SEAL:
+                        image110 = open('images/110.PNG', 'rb').read()
+                        st.image(image110, width=150)
+                        url = 'https://mechanical-seal.pro/eng/tortsevye-uplotneniya/r-109_r-8u/ushch-lnyuvach-mekhan-chniy-r-8u-11-8-car-sic-viton-304-pg/'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-            with tab12:
-                col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
-                st.dataframe(Uv,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Uv')
-            with col3:
-                st.subheader('image  for  these  part')
-                image45 = open('images/45.jpeg', 'rb').read()
-                st.image(image45, width=150)
-                url = 'https://pureaqua.com/viqua-sterilight-uv/'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-                
-            with tab13:
-                col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
-                st.dataframe(Ro,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('Ro')
-            with col3:
-                st.subheader('image  for  these  part')
-                image46 = open('images/46.jpeg', 'rb').read()
-                st.image(image46, width=150)
-                url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-                
-                
-        elif select_col == 'Fire Fighting':
-            
-            Fire_detector, Fire_valve = st.tabs(['Fire_detector','Fire_valve'])
-            with Fire_detector:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Fire_detector = df_f[df_f['Comments'] == 'Fire detector'].sort_values(by='Comments')
-                    st.dataframe(Fire_detector,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Fire_detector')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image47 = open('images/47.PNG', 'rb').read()
-                    st.image(image47, width=150)
-                    url = 'https://www.royal.ps/en/sanitary-ware/products/fire-fighting-system/water-flow-detector'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-
-            with Fire_valve:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Fire_valve = df_f[df_f['Comments'] == 'Fire valve'].sort_values(by='Comments')
-                    st.dataframe(Fire_valve,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Fire_valve')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image48 = open('images/48.PNG', 'rb').read()
-                    st.image(image48, width=150)
-                    url = 'https://www.giacomini.com/product/A56'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-                
-
-        elif select_col == 'AHU':
-            col1, col2, col3 = st.columns([30,3,13])
-            with col1:
-                AHU_Valve = df_f[df_f['Comments'] == 'Valve ahu'].sort_values(by='Comments')
-                st.dataframe(AHU_Valve,width=2000)
-                col4, col5, col6 = st.columns([2,1,2])
-                with col4:
-                    display_tab('AHU_Valve')
-            with col3:
-                st.subheader('image  for  these  part')
-                image49 = open('images/49.PNG', 'rb').read()
-                st.image(image49, width=150)
-                url = 'https://www.indiamart.com/proddetail/butterfly-valve-22160377997.html'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-        elif select_col == 'Filters':
-
-            tab1, tab2 ,tab3, tab4, tab5, tab6 ,tab7  = st.tabs(['Hepa filter','High filter','Pre filter','Pack filter','Pump filter','Emflon filter','Filters cartage'])
-
-            with tab1:
-                col1, col2, col3 = st.columns([30,3,13])
-                with col1:
-                    Hepa_filter = df_f[df_f['Comments'] == 'Hepa filter'].sort_values(by='Comments')
-                    st.dataframe(Hepa_filter,width=2000)
-                    col4, col5, col6 = st.columns([2,1,2])
-                    with col4:
-                        display_tab('Hepa_filter')
-                with col3:
-                    st.subheader('image  for  these  part')
-                    image50 = open('images/50.PNG', 'rb').read()
-                    st.image(image50, width=150)
-                    url = 'https://www.indiamart.com/proddetail/hepa-filters-13677374133.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-                
+                    
             with tab2:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    High_filter = df_f[df_f['Comments'] == 'High filter'].sort_values(by='Comments')
-                    st.dataframe(High_filter,width=2000)
+                    Gasket = df_f[df_f['Comments'] == 'Gasket'].sort_values(by='Comments')
+                    st.dataframe(Gasket,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('High_filter')
+                        display_tab('Gasket')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image51 = open('images/51.PNG', 'rb').read()
-                    st.image(image51, width=150)
-                    url = 'https://www.indiamart.com/proddetail/hepa-filters-13677374133.html'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-                
+                    Silicone ,Viton, Teflon,Valve_Seat = st.tabs(['Silicone','Viton','Teflon','Valve Seat'])
+                    with Silicone:
+                        image111 = open('images/111.PNG', 'rb').read()
+                        st.image(image111, width=200)
+                        url = 'https://www.brewerygaskets.com/1-5-red-silicone-tri-clamp-gasket/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with Viton:
+                        image112 = open('images/112.PNG', 'rb').read()
+                        st.image(image112, width=200)
+                        url = 'https://www.brewerygaskets.com/2-white-viton-tri-clamp-gasket/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with Teflon:
+                        image113 = open('images/113.PNG', 'rb').read()
+                        st.image(image113, width=200)
+                        url = 'https://www.brewerygaskets.com/1-5-white-teflon-100-virgin-ptfe-tri-clamp-gasket/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with Valve_Seat:
+                        image114 = open('images/114.PNG', 'rb').read()
+                        st.image(image114, width=200)
+                        url = 'https://www.brewerygaskets.com/tassalini-butterfly-valve-seat-1-1-2-orange-silicone-oem-style/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             with tab3:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    Pre_filter = df_f[df_f['Comments'] == 'Pre-filter'].sort_values(by='Comments')
-                    st.dataframe(Pre_filter,width=2000)
+                    Gauge = df_f[df_f['Comments'] == 'Gauge'].sort_values(by='Comments')
+                    st.dataframe(Gauge,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Pre_filter')
+                        display_tab('Gauge')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image52 = open('images/52.PNG', 'rb').read()
-                    st.image(image52, width=150)
-                    url = 'https://dir.indiamart.com/pune/pre-filter.html?enqformpdp=1'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-                
+                    Vacuum_Gauge , Differential_pressure = st.tabs(['Vacuum Gauge','Differential pressure'])
+                    with Vacuum_Gauge:
+                        image115 = open('images/115.PNG', 'rb').read()
+                        st.image(image115, width=200)
+                        url = 'https://shop.prmfiltration.com/products/30-0-in-hg-vacuum-gauge-35-3'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with Differential_pressure:
+                        image116 = open('images/116.PNG', 'rb').read()
+                        st.image(image116, width=200)
+                        url = 'https://shop.prmfiltration.com/collections/differential-pressure-gauges/products/differential-pressure-gauge-0-0-25-inches-of-water'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             with tab4:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    Packfilter = df_f[df_f['Comments'] == 'Packfilter'].sort_values(by='Comments')
-                    st.dataframe(Packfilter,width=2000)
+                    Solenoid_valve = df_f[df_f['Comments'] == 'Solenoid valve'].sort_values(by='Comments')
+                    st.dataframe(Solenoid_valve,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Pack_filter')
+                        display_tab('Solenoid_valve')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image53 = open('images/53.PNG', 'rb').read()
-                    st.image(image53, width=150)
-                    url = 'https://hepafiltersales.com/products/80085-01499-19-7-8x21-1-2x1-air-filter-12-pack'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-                
+                    Non_Return_Valve  , PNEUMATIC_VALVE ,Solenoid_Valve = st.tabs(['Non Return Valve ','PNEUMATIC VALVE','Solenoid Valve'])
+                    with Non_Return_Valve:
+                        image117 = open('images/117.PNG', 'rb').read()
+                        st.image(image117, width=150)
+                        url = 'https://tameson.com/products/617-12-012-g1-2inch-brass-relief-valve-2-12-bar-29-174-psi'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with PNEUMATIC_VALVE:
+                        image118 = open('images/118.PNG', 'rb').read()
+                        st.image(image118, width=200)
+                        url = 'https://www.electricsolenoidvalves.com/1-8-3-way-2-position-pneumatic-solenoid-valve/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with Solenoid_Valve:
+                        image119 = open('images/119.PNG', 'rb').read()
+                        st.image(image119, width=200)
+                        url = 'https://www.electricsolenoidvalves.com/1-2-stainless-steel-steam-solenoid-valve/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             with tab5:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    Pump_filter = df_f[df_f['Comments'] == 'Pump filter'].sort_values(by='Comments')
-                    st.dataframe(Pump_filter,width=2000)
+                    Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
+                    st.dataframe(Neumatic_hose,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Pump_filter')
+                        display_tab('Neumatic_hose')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image55 = open('images/55.PNG', 'rb').read()
-                    st.image(image55, width=150)
-                    url = 'https://www.buschvacuum.com/in/en/products/spare-parts-and-accessories/spare-parts/inlet-filters/'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-                
+                    PVC_hose  , pneumatic_hose  = st.tabs(['PVC hose ','pneumatic hose'])
+                    with PVC_hose:
+                        image120 = open('images/120.PNG', 'rb').read()
+                        st.image(image120, width=200)
+                        url = 'https://www.camthorne.co.uk/product/clear-braided-pvc-hose/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with pneumatic_hose:
+                        image121 = open('images/121.PNG', 'rb').read()
+                        st.image(image121, width=200)
+                        url = 'https://hpcontrol.eu/przewod-waz-pneumatyczny-poliuretanowy-pu-8-5-mm-50mb-niebieski.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
             with tab6:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    Emflon_filter = df_f[df_f['Comments'] == 'Emflon filter'].sort_values(by='Comments')
-                    st.dataframe(Emflon_filter,width=2000)
+                    Cylinder = df_f[df_f['Comments'] == 'Cylinder'].sort_values(by='Comments')
+                    st.dataframe(Cylinder,width=2000)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Emflon_filter')
+                        display_tab('Cylinder')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image54 = open('images/54.PNG', 'rb').read()
-                    st.image(image54, width=150)
-                    url = 'https://shop.pall.com/us/en/food-beverage/cannabis/zidMCY2230PFRWH4?CategoryName=filter-cartridges&CatalogID=products'
-                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-
-                
+                    RODLESS_CYLINDER ,VDMA_CYLINDER, PNEUMATIC_CYLINDER = st.tabs(['RODLESS CYLINDER','VDMA CYLINDER','PNEUMATIC CYLINDER'])
+                    with RODLESS_CYLINDER:
+                        image122 = open('images/122.PNG', 'rb').read()
+                        st.image(image122, width=200)
+                        url = 'https://www.disumtec.com/en/pneumatic-cylinders/50170028-rodless-cylinder.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with VDMA_CYLINDER:
+                        image123 = open('images/123.PNG', 'rb').read()
+                        st.image(image123, width=200)
+                        url = 'https://www.disumtec.com/en/pneumatic-cylinders/50040026-cnomo-pcn-cylinder.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    with PNEUMATIC_CYLINDER:
+                        image124 = open('images/124.PNG', 'rb').read()
+                        st.image(image124, width=200)
+                        url = 'https://www.disumtec.com/en/pneumatic-cylinders/50010004-pneumatic-cylinder-iso-6432.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
             with tab7:
                 col1, col2, col3 = st.columns([30,3,13])
                 with col1:
-                    Filters_cartage = df_f[df_f['Comments'] == 'Filters cartage'].sort_values(by='Comments')
-                    st.dataframe(Filters_cartage,width=2000)
+                    Regulator = df_f[df_f['Comments'] == 'Regulator'].sort_values(by='Comments')
+                    st.dataframe(Regulator,width=900)
                     col4, col5, col6 = st.columns([2,1,2])
                     with col4:
-                        display_tab('Filters_cartage')
+                        display_tab('Regulator')
                 with col3:
                     st.subheader('image  for  these  part')
-                    image56 = open('images/56.PNG', 'rb').read()
-                    st.image(image56, width=150)
-                    url = 'https://shop.pall.com/us/en/food-beverage/zidimmfdh4o'
+                    image125= open('images/125.PNG', 'rb').read()
+                    st.image(image125, width=150)
+                    url = 'https://www.disumtec.com/en/compressed-air-filter-regulators/32030008-22543-compressed-air-filter-regulator.html?mot_tcid=16c9b4d0-9039-43d1-bbd9-0c536a6fe56e#/thread-1_4'
                     st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        csv = df_f.to_csv(index=False)
-        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
-                    
-                  
+            csv = df_f.to_csv(index=False)
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
             
-    if __name__ == '__main__':
-
-        main()
-
-
-if page == 'LOTOTO':
+        if __name__ == '__main__':
     
-    def main():
-        st.markdown("""
-    <style>
-        /* Add your custom CSS styles here */
-        .stProgress > div > div > div {
-            background-color: #FFD700; /* Change the color of the loading spinner */
-            border-radius: 50%; /* Make the loading spinner circular */
-        }
-    </style>
-""", unsafe_allow_html=True)
-        with st.spinner("Data loaded successfully!"):
-            import time
-            time.sleep(1)
-            
-        col1, col2 = st.columns([2, 0.5])
-        with col1:
+            main()
+    
+    
+    if page == 'FORKLIFT': 
+        def main():
             st.markdown("""
-                <h2 style='text-align: center; font-size: 40px; color: red;'>
-                    Find your LOTOTO parts
-                </h2>
-            """, unsafe_allow_html=True)
+        <style>
+            /* Add your custom CSS styles here */
+            .stProgress > div > div > div {
+                background-color: #FFD700; /* Change the color of the loading spinner */
+                border-radius: 50%; /* Make the loading spinner circular */
+            }
+        </style>
+    """, unsafe_allow_html=True)
             
-        with col2:
-            search_keyword = st.text_input("Enter keyword to search:")
-            search_button = st.button("Search")
-            search_option = 'All Columns'
-        def search_in_dataframe(df_f, keyword, option):
-            if option == 'All Columns':
-                result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
-            else:
-                result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
-            return result
+            with st.spinner("Data loaded successfully!"):
+                import time
+                time.sleep(1)
+    
+            col1, col2 = st.columns([2, 0.75])         
+            with col1:
+                st.markdown("""
+                    <h2 style='text-align: center; font-size: 40px; color: red;'>
+                        Find your Forklift parts
+                    </h2>
+                """, unsafe_allow_html=True)
             
-        if search_button and search_keyword:
-            search_results = search_in_dataframe(df_f, search_keyword, search_option)
-            st.write(f"Search results for '{search_keyword}' in {search_option}:")
-            st.dataframe(search_results, width=700, height=200)
-
-        col1, col2, col3 = st.columns([30,3,13])
-        with col1:
-            LOTOTO = df_f[df_f['Comments'] == 'Lototo'].sort_values(by='Comments')
-            st.dataframe(LOTOTO,width=1000)
-            col4, col5, col6 = st.columns([2,1,2])
-            with col4:
-                display_tab('LOTOTO')
-        with col3:
-            st.subheader('image  for  these  part')
-            BOX ,GROUP_LOCK   = st.tabs(['BOX','GROUP LOCK'])
-            with BOX:
-                image132 = open('images/132.PNG', 'rb').read()
-                st.image(image132, width=200)
-                url = 'https://www.lockeylock.com/13-locks-portable-metal-group-lock-box-lk02-2-product/'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-            with GROUP_LOCK:
-                image133= open('images/133.PNG', 'rb').read()
-                st.image(image133, width=200)
-                url = 'https://www.lockeylock.com/factory-directly-loto-tools-combined-safety-lockout-tagout-station-kit-lg12-lockey-product/'
-                st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
-        csv = df_f.to_csv(index=False)
-        st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')        
-  
-
-    if __name__ == '__main__':
-
-        main()
-
-if page == 'Add New Item & delete':
-
-    try:
-        df_f = pd.read_csv('Eng Spare parts.csv')
-    except FileNotFoundError:
-        df_f = pd.DataFrame(columns=['Item description', 'Qty.'])
+            with col2:
+                search_keyword = st.text_input("Enter keyword to search:")
+                search_button = st.button("Search")
+                search_option = 'All Columns'
+            def search_in_dataframe(df_f, keyword, option):
+                if option == 'All Columns':
+                    result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+                else:
+                    result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+                return result
+            
+            if search_button and search_keyword:
+                search_results = search_in_dataframe(df_f, search_keyword, search_option)
+                st.write(f"Search results for '{search_keyword}' in {search_option}:")
+                st.dataframe(search_results, width=700, height=200)
+                
+            st.subheader('Select from these items')
+          
+            tab1, tab2 ,tab3, tab5, tab6 ,tab7  = st.tabs(['Forklift wheel','Forklift switch','Forklift coolant',
+            'Forklift control','Forklift carbon','Forklift break'])
     
-    # Function to add new item
-    def add_new_item(item_description, quantity):
-        global df_f  # Define df_f as global variable
-        new_row = {'Item description': item_description, 'Qty.': quantity}
-        df_f = df_f.append(new_row, ignore_index=True)
-        df_f.to_csv('Eng Spare parts.csv', index=False)
-        st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
-
-    def delete_item(row_index):
-        global df_f
-        item_description = df_f.loc[row_index, 'Item description']
-        df_f = df_f.drop(index=row_index).reset_index(drop=True)
-        df_f.to_csv('Eng Spare parts.csv', index=False)
-        st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
+            with tab1:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Forklift_wheel = df_f[df_f['Comments'] == 'Forklift wheel'].sort_values(by='Comments')
+                    st.dataframe(Forklift_wheel,width=900)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Forklift_wheel')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image126= open('images/126.PNG', 'rb').read()
+                    st.image(image126, width=200)
+                    url = 'https://directparts.eu/still/4974-230x70-82-45-drive-wheel-vulkollan-still-4359920-10009.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+            with tab2:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Forklift_switch = df_f[df_f['Comments'] == 'Forklift switch'].sort_values(by='Comments')
+                    st.dataframe(Forklift_switch,width=900)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Forklift_switch')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image127= open('images/127.PNG', 'rb').read()
+                    st.image(image127, width=200)
+                    url = 'https://directparts.eu/linde/5144-microswitch-linde-7915497021-10906.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+            with tab3:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Forklift_coolant = df_f[df_f['Comments'] == 'Forklift coolant'].sort_values(by='Comments')
+                    st.dataframe(Forklift_coolant,width=900)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Forklift_coolant')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image128= open('images/128.PNG', 'rb').read()
+                    st.image(image128, width=200)
+                    url = 'https://www.gsistore.com/products/york-013-03344-000-glycol-coolant'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+            with tab5:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Forklift_control = df_f[df_f['Comments'] == 'Forklift control'].sort_values(by='Comments')
+                    st.dataframe(Forklift_control,width=900)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Forklift_control')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image129= open('images/129.PNG', 'rb').read()
+                    st.image(image129, width=200)
+                    url = 'https://directparts.eu/still/5482-contactor-iskra-12088.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+            with tab6:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Forklift_carbon = df_f[df_f['Comments'] == 'Forklift carbon'].sort_values(by='Comments')
+                    st.dataframe(Forklift_carbon,width=900)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Forklift_carbon')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image130= open('images/130.PNG', 'rb').read()
+                    st.image(image130, width=200)
+                    url = 'https://directparts.eu/linde/5096-carbon-brush-4457096-10663.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+            with tab7:
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Forklift_break = df_f[df_f['Comments'] == 'Forklift break'].sort_values(by='Comments')
+                    st.dataframe(Forklift_break,width=900)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Forklift_break')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image131= open('images/131.PNG', 'rb').read()
+                    st.image(image131, width=200)
+                    url = 'https://directparts.eu/linde/5122-brake-shoe-108116.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+            csv = df_f.to_csv(index=False)
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+        if __name__ == '__main__':
     
-    # Streamlit app
-    def main():
-        global df_f  # Define df_f as global variable
-        st.title('Add New Item')
+            main()
     
-        # User inputs
-        item_description = st.text_input('Enter item description:')
-        quantity = st.number_input('Enter quantity:', min_value=0, step=1)
     
-        # Button to add new item
-        if st.button('Add Item'):
-            add_new_item(item_description, quantity)
-            st.write('## Updated Items')
-            st.dataframe(df_f)
-
-        st.write('## Delete Item')
-        row_index = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
-
-    # Button to delete item
-        if st.button('Delete Item', key='delete_item'):
-            delete_item(row_index)
-            st.write('## Updated Items')
-            st.dataframe(df_f)
+    if page == 'Utility area':
+        
+        def main():
+            
+            st.markdown("""
+        <style>
+            /* Add your custom CSS styles here */
+            .stProgress > div > div > div {
+                background-color: #FFD700; /* Change the color of the loading spinner */
+                border-radius: 50%; /* Make the loading spinner circular */
+            }
+        </style>
+    """, unsafe_allow_html=True)
+            
+            with st.spinner("Data loaded successfully!"):
+                import time
+                time.sleep(1)
     
-    if __name__ == '__main__':
-        main()
+            col1, col2 = st.columns([2, 0.75])
+            with col1:
+                st.markdown("""
+                    <h2 style='text-align: center; font-size: 40px; color: red;'>
+                        Find your Utility parts
+                    </h2>
+                """, unsafe_allow_html=True)
+            
+            with col2:
+                search_keyword = st.text_input("Enter keyword to search:")
+                search_button = st.button("Search")
+                search_option = 'All Columns'
+            def search_in_dataframe(df_f, keyword, option):
+                if option == 'All Columns':
+                    result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+                else:
+                    result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+                return result
+                
+            if search_button and search_keyword:
+                search_results = search_in_dataframe(df_f, search_keyword, search_option)
+                st.write(f"Search results for '{search_keyword}' in {search_option}:")
+                st.dataframe(search_results, width=700, height=200)
+          
+            col1, col2, col3 = st.columns([1,2,2])
+            with col1:
+                select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
+        
+                st.markdown("""
+                    <style>
+                    .stSelectbox label {
+                        font-size: 20px; 
+                        color: blue; 
+                    }
+                    </style>
+                """, unsafe_allow_html=True)
+                st.subheader('Select from these items')
+                        
+            if select_col == 'Water Station':    
+                tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab8, tab9 ,tab10, tab12,tab13 = st.tabs(['Conductivity transmitter','Flowmeter controller','Flow module',
+                    'Flow monitor','conductivity','Stilmas sensor','Valve','test','pump','Uv','Ro'])
+                
+                with tab1:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Conductivity_transmitter = df_f[df_f['Comments'] == 'Conductivity transmitter'].sort_values(by='Comments')
+                        st.dataframe(Conductivity_transmitter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Conductivity_transmitter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image33 = open('images/33.jpg', 'rb').read()
+                        st.image(image33, width=100)
+                        url = 'https://www.endress.com/en/field-instruments-overview/liquid-analysis-product-overview/conductivity-transmitter-clm223?t.tabId=product-overview'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                      
+                with tab2:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Flowmeter_controller = df_f[df_f['Comments'] == 'Flowmeter controller'].sort_values(by='Comments')
+                        st.dataframe(Flowmeter_controller,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Flowmeter_controller')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image34= open('images/34.PNG', 'rb').read()
+                        st.image(image34, width=150)
+                        url = 'https://www.burkert.com/en/type/8035'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    
+                with tab3:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Flow_module = df_f[df_f['Comments'] == 'Flow module'].sort_values(by='Comments')
+                        st.dataframe(Flow_module,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Flow_module')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image35= open('images/35.PNG', 'rb').read()
+                        st.image(image35, width=150)
+                        url = 'https://www.burkert.com/en/type/SE32'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    
+                with tab4:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Flow_monitor = df_f[df_f['Comments'] == 'Flow monitor sensor'].sort_values(by='Comments')
+                        st.dataframe(Flow_monitor,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Flow_monitor')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image36= open('images/36.PNG', 'rb').read()
+                        st.image(image36, width=150)
+                        url = 'https://www.ifm.com/de/en/product/SI1000'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    
+                with tab5:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        conductivity = df_f[df_f['Comments'] == 'Water conductivity'].sort_values(by='Comments')
+                        st.dataframe(conductivity,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('conductivity')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image37= open('images/37.PNG', 'rb').read()
+                        st.image(image37, width=150)
+                        url = 'https://www.directindustry.com/prod/emerson-automation-solutions-rosemount/product-36718-949557.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    
+                with tab6:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        STILMAS_SENSOR = df_f[df_f['Comments'] == 'Stilmas sensor'].sort_values(by='Comments')
+                        st.dataframe(STILMAS_SENSOR,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('STILMAS_SENSOR')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image38= open('images/38.PNG', 'rb').read()
+                        st.image(image38, width=150)
+                        url = 'https://www.ifm.com/my/en/product/TR7432'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
+                    
+                with tab8:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Valve = df_f[df_f['Comments'] == 'Water valve'].sort_values(by='Comments')
+                        st.dataframe(Valve,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Valve')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        pressure_transmitter, Angle_Valve   = st.tabs(['pressure_transmitter','Angle_Valve '])
+                        with pressure_transmitter:
+                            image39 = open('images/39.PNG', 'rb').read()
+                            st.image(image39, width=150)
+                            url = 'https://www.endress.com/en/field-instruments-overview/pressure/pressure-transmitter-cerabar-pmp71b?t.tabId=product-overview'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        with Angle_Valve :
+                            image40 = open('images/40.PNG', 'rb').read()
+                            st.image(image40, width=150)
+                            url = 'https://tameson.co.uk/products/al2a-spp-100-b-16-g1inch-ptfe-16bar-nc-angle-seat-valve-stainless-steel-brass'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                with tab9:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        test = df_f[df_f['Comments'] == 'Water test '].sort_values(by='Comments')
+                        st.dataframe(test,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('test')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        PHOTOMETERS, Colorimetric = st.tabs(['PHOTOMETERS','Colorimetric'])
+                        with PHOTOMETERS:
+                            image42 = open('images/42.PNG', 'rb').read()
+                            st.image(image42, width=150)
+                            url = 'https://www.hannaservice.eu/water/environmental/photometers'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        with Colorimetric:
+                            image41 = open('images/41.PNG', 'rb').read()
+                            st.image(image41, width=150)
+                            url = 'https://www.hannaservice.eu/total-hardness-colorimetric-reagents-hi93735-0-product'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                            
+                    
+                with tab10:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        pump = df_f[df_f['Comments'] == 'Water pump'].sort_values(by='Comments')
+                        st.dataframe(pump,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('pump')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        LOBE_PUMP,WHEEL_PUMP = st.tabs(['LOBE PUMP','WHEEL PUMP'])
+                        with LOBE_PUMP:
+                            image43 = open('images/43.jpg', 'rb').read()
+                            st.image(image43, width=150)
+                            url = 'https://www.chinastainlesssteelpump.com/Stainless-Steel-rotary-lobe-Pumps/Rotary-Lobe-Pumps-for-Chocolate.html'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        with WHEEL_PUMP:
+                            image44 = open('images/44.jpg', 'rb').read()
+                            st.image(image44, width=150)
+                            url = 'https://www.flowpumps.de/product-page/peripheral-pump-pe50brt'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                with tab12:
+                    col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
+                    st.dataframe(Uv,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Uv')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image45 = open('images/45.jpeg', 'rb').read()
+                    st.image(image45, width=150)
+                    url = 'https://pureaqua.com/viqua-sterilight-uv/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                    
+                with tab13:
+                    col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
+                    st.dataframe(Ro,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('Ro')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image46 = open('images/46.jpeg', 'rb').read()
+                    st.image(image46, width=150)
+                    url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+                    
+                    
+            elif select_col == 'Fire Fighting':
+                
+                Fire_detector, Fire_valve = st.tabs(['Fire_detector','Fire_valve'])
+                with Fire_detector:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Fire_detector = df_f[df_f['Comments'] == 'Fire detector'].sort_values(by='Comments')
+                        st.dataframe(Fire_detector,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Fire_detector')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image47 = open('images/47.PNG', 'rb').read()
+                        st.image(image47, width=150)
+                        url = 'https://www.royal.ps/en/sanitary-ware/products/fire-fighting-system/water-flow-detector'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+    
+                with Fire_valve:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Fire_valve = df_f[df_f['Comments'] == 'Fire valve'].sort_values(by='Comments')
+                        st.dataframe(Fire_valve,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Fire_valve')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image48 = open('images/48.PNG', 'rb').read()
+                        st.image(image48, width=150)
+                        url = 'https://www.giacomini.com/product/A56'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                    
+    
+            elif select_col == 'AHU':
+                col1, col2, col3 = st.columns([30,3,13])
+                with col1:
+                    AHU_Valve = df_f[df_f['Comments'] == 'Valve ahu'].sort_values(by='Comments')
+                    st.dataframe(AHU_Valve,width=2000)
+                    col4, col5, col6 = st.columns([2,1,2])
+                    with col4:
+                        display_tab('AHU_Valve')
+                with col3:
+                    st.subheader('image  for  these  part')
+                    image49 = open('images/49.PNG', 'rb').read()
+                    st.image(image49, width=150)
+                    url = 'https://www.indiamart.com/proddetail/butterfly-valve-22160377997.html'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+            elif select_col == 'Filters':
+    
+                tab1, tab2 ,tab3, tab4, tab5, tab6 ,tab7  = st.tabs(['Hepa filter','High filter','Pre filter','Pack filter','Pump filter','Emflon filter','Filters cartage'])
+    
+                with tab1:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Hepa_filter = df_f[df_f['Comments'] == 'Hepa filter'].sort_values(by='Comments')
+                        st.dataframe(Hepa_filter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Hepa_filter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image50 = open('images/50.PNG', 'rb').read()
+                        st.image(image50, width=150)
+                        url = 'https://www.indiamart.com/proddetail/hepa-filters-13677374133.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                    
+                with tab2:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        High_filter = df_f[df_f['Comments'] == 'High filter'].sort_values(by='Comments')
+                        st.dataframe(High_filter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('High_filter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image51 = open('images/51.PNG', 'rb').read()
+                        st.image(image51, width=150)
+                        url = 'https://www.indiamart.com/proddetail/hepa-filters-13677374133.html'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                    
+                with tab3:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Pre_filter = df_f[df_f['Comments'] == 'Pre-filter'].sort_values(by='Comments')
+                        st.dataframe(Pre_filter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Pre_filter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image52 = open('images/52.PNG', 'rb').read()
+                        st.image(image52, width=150)
+                        url = 'https://dir.indiamart.com/pune/pre-filter.html?enqformpdp=1'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                    
+                with tab4:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Packfilter = df_f[df_f['Comments'] == 'Packfilter'].sort_values(by='Comments')
+                        st.dataframe(Packfilter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Pack_filter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image53 = open('images/53.PNG', 'rb').read()
+                        st.image(image53, width=150)
+                        url = 'https://hepafiltersales.com/products/80085-01499-19-7-8x21-1-2x1-air-filter-12-pack'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                    
+                with tab5:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Pump_filter = df_f[df_f['Comments'] == 'Pump filter'].sort_values(by='Comments')
+                        st.dataframe(Pump_filter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Pump_filter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image55 = open('images/55.PNG', 'rb').read()
+                        st.image(image55, width=150)
+                        url = 'https://www.buschvacuum.com/in/en/products/spare-parts-and-accessories/spare-parts/inlet-filters/'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                    
+                with tab6:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Emflon_filter = df_f[df_f['Comments'] == 'Emflon filter'].sort_values(by='Comments')
+                        st.dataframe(Emflon_filter,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Emflon_filter')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image54 = open('images/54.PNG', 'rb').read()
+                        st.image(image54, width=150)
+                        url = 'https://shop.pall.com/us/en/food-beverage/cannabis/zidMCY2230PFRWH4?CategoryName=filter-cartridges&CatalogID=products'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+    
+                    
+                with tab7:
+                    col1, col2, col3 = st.columns([30,3,13])
+                    with col1:
+                        Filters_cartage = df_f[df_f['Comments'] == 'Filters cartage'].sort_values(by='Comments')
+                        st.dataframe(Filters_cartage,width=2000)
+                        col4, col5, col6 = st.columns([2,1,2])
+                        with col4:
+                            display_tab('Filters_cartage')
+                    with col3:
+                        st.subheader('image  for  these  part')
+                        image56 = open('images/56.PNG', 'rb').read()
+                        st.image(image56, width=150)
+                        url = 'https://shop.pall.com/us/en/food-beverage/zidimmfdh4o'
+                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+            csv = df_f.to_csv(index=False)
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
+                        
+                      
+                
+        if __name__ == '__main__':
+    
+            main()
+    
+    
+    if page == 'LOTOTO':
+        
+        def main():
+            st.markdown("""
+        <style>
+            /* Add your custom CSS styles here */
+            .stProgress > div > div > div {
+                background-color: #FFD700; /* Change the color of the loading spinner */
+                border-radius: 50%; /* Make the loading spinner circular */
+            }
+        </style>
+    """, unsafe_allow_html=True)
+            with st.spinner("Data loaded successfully!"):
+                import time
+                time.sleep(1)
+                
+            col1, col2 = st.columns([2, 0.5])
+            with col1:
+                st.markdown("""
+                    <h2 style='text-align: center; font-size: 40px; color: red;'>
+                        Find your LOTOTO parts
+                    </h2>
+                """, unsafe_allow_html=True)
+                
+            with col2:
+                search_keyword = st.text_input("Enter keyword to search:")
+                search_button = st.button("Search")
+                search_option = 'All Columns'
+            def search_in_dataframe(df_f, keyword, option):
+                if option == 'All Columns':
+                    result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
+                else:
+                    result = df_f[df_f[option].astype(str).str.contains(keyword, case=False)]
+                return result
+                
+            if search_button and search_keyword:
+                search_results = search_in_dataframe(df_f, search_keyword, search_option)
+                st.write(f"Search results for '{search_keyword}' in {search_option}:")
+                st.dataframe(search_results, width=700, height=200)
+    
+            col1, col2, col3 = st.columns([30,3,13])
+            with col1:
+                LOTOTO = df_f[df_f['Comments'] == 'Lototo'].sort_values(by='Comments')
+                st.dataframe(LOTOTO,width=1000)
+                col4, col5, col6 = st.columns([2,1,2])
+                with col4:
+                    display_tab('LOTOTO')
+            with col3:
+                st.subheader('image  for  these  part')
+                BOX ,GROUP_LOCK   = st.tabs(['BOX','GROUP LOCK'])
+                with BOX:
+                    image132 = open('images/132.PNG', 'rb').read()
+                    st.image(image132, width=200)
+                    url = 'https://www.lockeylock.com/13-locks-portable-metal-group-lock-box-lk02-2-product/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                with GROUP_LOCK:
+                    image133= open('images/133.PNG', 'rb').read()
+                    st.image(image133, width=200)
+                    url = 'https://www.lockeylock.com/factory-directly-loto-tools-combined-safety-lockout-tagout-station-kit-lg12-lockey-product/'
+                    st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+            csv = df_f.to_csv(index=False)
+            st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')        
+      
+    
+        if __name__ == '__main__':
+    
+            main()
+    
+    if page == 'Add New Item & delete':
+    
+        try:
+            df_f = pd.read_csv('Eng Spare parts.csv')
+        except FileNotFoundError:
+            df_f = pd.DataFrame(columns=['Item description', 'Qty.'])
+        
+        # Function to add new item
+        def add_new_item(item_description, quantity):
+            global df_f  # Define df_f as global variable
+            new_row = {'Item description': item_description, 'Qty.': quantity}
+            df_f = df_f.append(new_row, ignore_index=True)
+            df_f.to_csv('Eng Spare parts.csv', index=False)
+            st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
+    
+        def delete_item(row_index):
+            global df_f
+            item_description = df_f.loc[row_index, 'Item description']
+            df_f = df_f.drop(index=row_index).reset_index(drop=True)
+            df_f.to_csv('Eng Spare parts.csv', index=False)
+            st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
+        
+        # Streamlit app
+        def main():
+            global df_f  # Define df_f as global variable
+            st.title('Add New Item')
+        
+            # User inputs
+            item_description = st.text_input('Enter item description:')
+            quantity = st.number_input('Enter quantity:', min_value=0, step=1)
+        
+            # Button to add new item
+            if st.button('Add Item'):
+                add_new_item(item_description, quantity)
+                st.write('## Updated Items')
+                st.dataframe(df_f)
+    
+            st.write('## Delete Item')
+            row_index = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
+    
+        # Button to delete item
+            if st.button('Delete Item', key='delete_item'):
+                delete_item(row_index)
+                st.write('## Updated Items')
+                st.dataframe(df_f)
+        
+        if __name__ == '__main__':
+            main()
      
 
 
