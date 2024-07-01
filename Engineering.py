@@ -20,8 +20,8 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 
 users = {
-    "user1": "password1",
-    "user2": "password2",
+    "KRXS742": "password1",
+    "KNHP322": "411900",
     "user3": "password3",
     "user4": "password4",
     "user5": "password5",
