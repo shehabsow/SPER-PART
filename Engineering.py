@@ -93,7 +93,7 @@ else:
         st.session_state.df = pd.read_csv('Eng Spare parts.csv')
 
     page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
-                    'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete'])
+                    'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete','View Logs'])
    
 
     if page == 'Mechanical parts':
@@ -2067,7 +2067,14 @@ else:
                 st.dataframe(df_f)
         
         if __name__ == '__main__':
+            
             main()
+
+    elif page == 'View Logs':
+        st.header('User Activity Logs')
+        if st.session_state.logs:
+            logs_df = pd.DataFrame(st.session_state.logs)
+            st.dataframe(logs_df)
      
 
 
