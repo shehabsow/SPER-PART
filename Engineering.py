@@ -2071,10 +2071,15 @@ else:
             main()
 
     elif page == 'View Logs':
-        st.header('User Activity Logs')
-        if st.session_state.logs:
-            logs_df = pd.DataFrame(st.session_state.logs)
-            st.dataframe(logs_df)
+        def main():
+            st.header('User Activity Logs')
+            if st.session_state.logs:
+                logs_df = pd.DataFrame(st.session_state.logs)
+                st.dataframe(logs_df)
+
+        if __name__ == '__main__':
+            
+            main()
      
 
 
