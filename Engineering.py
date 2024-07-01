@@ -48,14 +48,19 @@ def update_quantity(row_index, quantity, operation, username):
     st.session_state.df.to_csv('Eng Spare parts.csv', index=False)
     st.success(f"Quantity updated successfully by {username}! New Quantity: {int(st.session_state.df.loc[row_index, 'Qty.'])}")
 
-    st.session_state.logs.append({
+    log_entry = {
         'user': username,
         'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'item': st.session_state.df.loc[row_index, 'Item description'],
         'old_quantity': old_quantity,
         'new_quantity': new_quantity,
         'operation': operation
-    })
+    }
+    st.session_state.logs.append(log_entry)
+    
+    # حفظ السجلات إلى ملف CSV
+    logs_df = pd.DataFrame(st.session_state.logs)
+    logs_df.to_csv('logs.csv', index=False)
 
 # عرض التبويبات
 def display_tab(tab_name):
@@ -91,11 +96,16 @@ else:
     # قراءة البيانات
     if 'df' not in st.session_state:
         st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-
+    try:
+        logs_df = pd.read_csv('logs.csv')
+        st.session_state.logs = logs_df.to_dict('records')
+    except FileNotFoundError:
+        st.session_state.logs = []
+        
     page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete','View Logs'])
    
-
+    
     if page == 'Mechanical parts':
         def main():
             
