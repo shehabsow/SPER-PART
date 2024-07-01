@@ -20,55 +20,79 @@ csv_path = 'Eng Spare parts.csv'
 page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                     'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete'])
 
-if 'df' not in st.session_state:
-    st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-df_f = st.session_state.df
+users = {
+    "user1": "password1",
+    "user2": "password2",
+    "user3": "password3",
+    "user4": "password4",
+    "user5": "password5",
+    "user6": "password6"
+}
 
-def update_quantity(row_index, quantity, operation):
+# دالة لتسجيل الدخول
+def login(username, password):
+    if username in users and users[username] == password:
+        st.session_state.logged_in = True
+        st.session_state.username = username
+    else:
+        st.error("Incorrect username or password")
+
+# دالة لتحديث الكمية
+def update_quantity(row_index, quantity, operation, username):
+    old_quantity = st.session_state.df.loc[row_index, 'Qty.']
     if operation == 'add':
-        df_f.loc[row_index, 'Qty.'] += quantity
+        st.session_state.df.loc[row_index, 'Qty.'] += quantity
     elif operation == 'subtract':
-        df_f.loc[row_index, 'Qty.'] -= quantity
-    df_f.to_csv('Eng Spare parts.csv', index=False)
-    st.success(f"Quantity updated successfully! New Quantity: {df_f.loc[row_index, 'Qty.']}")
-    st.session_state.update_button_clicked = True
+        st.session_state.df.loc[row_index, 'Qty.'] -= quantity
+    new_quantity = st.session_state.df.loc[row_index, 'Qty.']
 
+    st.session_state.df.to_csv('Eng Spare parts.csv', index=False)
+    st.success(f"Quantity updated successfully by {username}! New Quantity: {int(st.session_state.df.loc[row_index, 'Qty.'])}")
+
+    st.session_state.logs.append({
+        'user': username,
+        'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'item': st.session_state.df.loc[row_index, 'Item description'],
+        'old_quantity': old_quantity,
+        'new_quantity': new_quantity,
+        'operation': operation
+    })
+
+# عرض التبويبات
 def display_tab(tab_name):
-    st.header(f'{tab_name}')
-    st.markdown(f"""
-        <style>
-        .custom-label-{tab_name} {{
-            font-size: 20px; /* حجم الخط */
-            font-style: italic;
-            color: blue; /* لون النص */
-        }}
-        </style>
-        <label class="custom-label-{tab_name}">Select row number : </label>
-        """, unsafe_allow_html=True)
-
-    row_number = st.number_input('', min_value=0, max_value=len(df_f)-1, step=1, key=f'{tab_name}_row_number', help="Enter the row number to select the item")
+    st.header(f'{tab_name} Tab')
+    row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(st.session_state.df)-1, step=1, key=f'{tab_name}_row_number')
 
     st.markdown(f"""
-        <div style='font-size: 20px; color: green;'>Selected Item: {df_f.loc[row_number, 'Item description']}</div>
-        <div style='font-size: 20px; color: green;'>Current Quantity: {int(df_f.loc[row_number, 'Qty.'])}</div>
-        <div style='font-size: 20px; color: red;'>Location: {df_f.loc[row_number, 'Location']}</div>
-        """, unsafe_allow_html=True)
-    st.markdown(f"""
-        <style>
-        .custom-quantity-{tab_name} {{
-            font-size: 20px;
-            font-style: italic;
-            color: blue; 
-        }}
-        </style>
-        <label class="custom-quantity-{tab_name}">Enter quantity : </label>
-        """, unsafe_allow_html=True)
-    quantity = st.number_input('', min_value=1, step=1, key=f'{tab_name}_quantity')
+    <div style='font-size: 20px; color: blue;'>Selected Item: {st.session_state.df.loc[row_number, 'Item description']}</div>
+    <div style='font-size: 20px; color: blue;'>Current Quantity: {int(st.session_state.df.loc[row_number, 'Qty.'])}</div>
+    <div style='font-size: 20px; color: red;'>Location: {st.session_state.df.loc[row_number, 'Location']}</div>
+    """, unsafe_allow_html=True)
+
+    quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'{tab_name}_quantity')
     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
+
+    if st.button('Update Quantity', key=f'{tab_name}_update_button'):
+        update_quantity(row_number, quantity, operation, st.session_state.username)
+
+# واجهة تسجيل الدخول
+if 'logged_in' not in st.session_state:
+    st.session_state.logged_in = False
+    st.session_state.logs = []
+
+if not st.session_state.logged_in:
+    st.title("Login")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    if st.button("Login"):
+        login(username, password)
+else:
+    st.write(f"Welcome {st.session_state.username}")
     
-    if st.button(f'Update Quantity for {tab_name}', key=f'{tab_name}_update_button'):
-        update_quantity(row_number, quantity, operation)
-    csv = df_f.to_csv(index=False)
+    # قراءة البيانات
+    if 'df' not in st.session_state:
+        st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+
    
 
 if page == 'Mechanical parts':
