@@ -132,7 +132,7 @@ else:
                 else:
                     st.error("Passwords do not match!")
     else:
-        st.subheader(f"Log in by {users[st.session_state.username]['name']}}")
+        st.subheader(f"Log in by {users[st.session_state.username]['name']}")
         
         # قراءة البيانات
         if 'df' not in st.session_state:
