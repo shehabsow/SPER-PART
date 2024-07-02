@@ -2137,7 +2137,7 @@ else:
 
                 # Button to add new item
                 if st.button('Add Item'):
-                    add_new_item(item_description, quantity ,Part ,Manufacturer ,Location ,Comments,username)
+                    add_new_item(item_description, quantity ,Part ,Manufacturer ,Location ,Comments)
                     st.write('## Updated Items')
                     st.dataframe(df_f)
         
