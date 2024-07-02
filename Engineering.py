@@ -114,9 +114,11 @@ if 'logged_in' not in st.session_state:
 
 if not st.session_state.logged_in:
     with st.form(key='login_form'):
-        username = st.text_input("Username")
-        password = st.text_input("Password", type="password")
-        submit_button = st.form_submit_button(label='Login')
+        col1, col2 = st.columns([1, 2])
+        with col1:
+            username = st.text_input("Username")
+            password = st.text_input("Password", type="password")
+            submit_button = st.form_submit_button(label='Login')
     if st.button("Login"):
         login(username, password)
 else:
