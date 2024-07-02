@@ -19,14 +19,26 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 
 
-users = {
-    "user1": {"password": "password1", "first_login": True},
-    "user2": {"password": "password2", "first_login": True},
-    "user3": {"password": "password3", "first_login": True},
-    "user4": {"password": "password4", "first_login": True},
-    "user5": {"password": "password5", "first_login": True},
-    "user6": {"password": "password6", "first_login": True}
-}
+def load_users():
+    try:
+        with open('users.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {
+            "user1": {"password": "password1", "first_login": True},
+            "user2": {"password": "password2", "first_login": True},
+            "user3": {"password": "password3", "first_login": True},
+            "user4": {"password": "password4", "first_login": True},
+            "user5": {"password": "password5", "first_login": True},
+            "user6": {"password": "password6", "first_login": True}
+        }
+
+# حفظ بيانات المستخدمين إلى ملف JSON
+def save_users(users):
+    with open('users.json', 'w') as f:
+        json.dump(users, f)
+
+users = load_users()
 
 # دالة لتسجيل الدخول
 def login(username, password):
@@ -41,8 +53,10 @@ def login(username, password):
 def update_password(username, new_password):
     users[username]["password"] = new_password
     users[username]["first_login"] = False
+    save_users(users)
     st.session_state.first_login = False
     st.success("Password updated successfully!")
+
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
     old_quantity = st.session_state.df.loc[row_index, 'Qty.']
