@@ -22,7 +22,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 def load_users():
     try:
-        with open('users2.json', 'r') as f:
+        with open('users3.json', 'r') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
@@ -35,26 +35,26 @@ def load_users():
             "kibx268": {"password": "kibx268", "first_login": True, "name": "Zeinab Mobarak" }}  #Zinab
 
 # حفظ بيانات المستخدمين إلى ملف JSON
-def save_users(users2):
-    with open('users2.json', 'w') as f:
-        json.dump(users2, f)
+def save_users(users3):
+    with open('users3.json', 'w') as f:
+        json.dump(users3, f)
 
 users2 = load_users()
 
 # دالة لتسجيل الدخول
 def login(username, password):
-    if username in users2 and users2[username]["password"] == password:
+    if username in users3 and users3[username]["password"] == password:
         st.session_state.logged_in = True
         st.session_state.username = username
-        st.session_state.first_login = users2[username]["first_login"]
+        st.session_state.first_login = users3[username]["first_login"]
     else:
         st.error("Incorrect username or password")
 
 # دالة لتحديث كلمة المرور
 def update_password(username, new_password):
-    users2[username]["password"] = new_password
-    users2[username]["first_login"] = False
-    save_users(users2)
+    users3[username]["password"] = new_password
+    users3[username]["first_login"] = False
+    save_users(users3)
     st.session_state.first_login = False
     st.success("Password updated successfully!")
 
@@ -129,9 +129,9 @@ else:
             st.button("Update Password")
             if st.button("Change Password"):
                 if new_password == confirm_password:
-                    users[st.session_state.username]['password'] = new_password
-                    users[st.session_state.username]['first_login'] = False
-                    save_users(users2)
+                    users3[st.session_state.username]['password'] = new_password
+                    users3[st.session_state.username]['first_login'] = False
+                    save_users(users3)
                     st.session_state.first_login = False
                     st.success("Password changed successfully!")
                 else:
