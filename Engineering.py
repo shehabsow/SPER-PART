@@ -129,9 +129,9 @@ else:
             st.button("Change Password")
             if st.button("Log in"):
                 if new_password == confirm_password:
-                    users[st.session_state.username]['password'] = new_password
-                    users[st.session_state.username]['first_login'] = False
-                    save_users(users)
+                    users3[st.session_state.username]['password'] = new_password
+                    users3[st.session_state.username]['first_login'] = False
+                    save_users(users3)
                     st.session_state.first_login = False
                     st.success("Password changed successfully!")
                 else:
