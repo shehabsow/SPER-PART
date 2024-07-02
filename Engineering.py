@@ -117,9 +117,8 @@ if not st.session_state.logged_in:
     with col2:
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
-        submit_button = st.form_submit_button(label='submit')
         if st.button("Login"):
-            login(username, password)
+        login(username, password)
 else:
     if st.session_state.first_login:
         col1, col2, col3 = st.columns([1, 1, 1])
