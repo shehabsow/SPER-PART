@@ -26,13 +26,13 @@ def load_users():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
-            "knhp322": {"password": "knhp322", "first_login": True}, # shehab
-            "krxs742": {"password": "krxs742", "first_login": True}, # ashry
-            "kxsv748": {"password": "kxsv748", "first_login": True}, # el masry
-            "kvwp553": {"password": "kvwp553", "first_login": True}, # sameh
-            "knfb489": {"password": "knfb489", "first_login": True}, # yasser
-            "kjjd308": {"password": "kjjd308", "first_login": True}    # kaleed 
-        }
+            "knhp322": {"password": "knhp322", "first_login": True, "name": "Shehab Ayman "},    # shehab
+            "krxs742": {"password": "krxs742", "first_login": True, "name": "Mohamed Ashry"},    # ashry
+            "kxsv748": {"password": "kxsv748", "first_login": True, "name": "Mohamed El masry"}, # el masry
+            "kvwp553": {"password": "kvwp553", "first_login": True, "name": "sameh"},            # sameh
+            "knfb489": {"password": "knfb489", "first_login": True, "name": "Yasser Hassan"},    # yasser
+            "kjjd308": {"password": "kjjd308", "first_login": True, "name": "Kaleed "},          # kaleed
+            "kibx268": {"password": "kibx268", "first_login": True, "name": "Zeinab Mobarak" }}  #Zinab
 
 # حفظ بيانات المستخدمين إلى ملف JSON
 def save_users(users2):
@@ -132,7 +132,7 @@ else:
                 else:
                     st.error("Passwords do not match!")
     else:
-        st.subheader(f"Log in by {st.session_state.username}")
+        st.subheader(f"Log in by {users[st.session_state.username]['name']}}")
         
         # قراءة البيانات
         if 'df' not in st.session_state:
