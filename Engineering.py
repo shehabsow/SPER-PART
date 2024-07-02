@@ -26,12 +26,12 @@ def load_users():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
-            "knhp322": {"password": "password1", "first_login": True},
-            "user2": {"password": "password2", "first_login": True},
-            "user3": {"password": "password3", "first_login": True},
-            "user4": {"password": "password4", "first_login": True},
-            "user5": {"password": "password5", "first_login": True},
-            "user6": {"password": "password6", "first_login": True}
+            "knhp322": {"password": "password1", "first_login": True}, # shehab
+            "krxs742": {"password": "password2", "first_login": True}, # ashry
+            "kxsv748": {"password": "password3", "first_login": True}, # el masry
+            "kvwp553": {"password": "password4", "first_login": True}, # sameh
+            "knfb489": {"password": "password5", "first_login": True}, # yasser
+            "user6": {"password": "password6", "first_login": True}    # kaleed 
         }
 
 # حفظ بيانات المستخدمين إلى ملف JSON
