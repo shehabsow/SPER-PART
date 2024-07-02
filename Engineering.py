@@ -2086,7 +2086,7 @@ else:
                 df_f = pd.DataFrame(columns=['Item description', 'Qty.','Part #','Manufacturer','Location','Comments'])
             
             # Function to add new item
-            def add_new_item(item_description, quantity, Manufacturer ,Location ,Comments ,Part):
+            def add_new_item(item_description, quantity, Manufacturer ,Location ,Comments ,Part,username):
                 global df_f  # Define df_f as global variable
                 new_row = {'Item description': item_description, 'Qty.': quantity ,'Part #': Part ,'Manufacturer': Manufacturer,'Location' : Location ,'Comments' :Comments}
                 df_f = df_f.append(new_row, ignore_index=True)
