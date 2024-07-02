@@ -22,7 +22,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 def load_users():
     try:
-        with open('users.json', 'w') as f:
+        with open('users2.json', 'w') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
@@ -35,33 +35,33 @@ def load_users():
         }
 
 # حفظ بيانات المستخدمين إلى ملف JSON
-def save_users(users):
-    with open('users.json', 'w') as f:
-        json.dump(users, f)
+def save_users(users2):
+    with open('users2.json', 'w') as f:
+        json.dump(users2, f)
 
-users = load_users()
+users2 = load_users()
 
 # دالة لتسجيل الدخول
 def login(username, password):
-    if username in users and users[username]["password"] == password:
+    if username in users2 and users2[username]["password"] == password:
         st.session_state.logged_in = True
         st.session_state.username = username
-        st.session_state.first_login = users[username]["first_login"]
+        st.session_state.first_login = users2[username]["first_login"]
     else:
         st.error("Incorrect username or password")
 
 # دالة لتحديث كلمة المرور
 def update_password(username, new_password):
-    users[username]["password"] = new_password
-    users[username]["first_login"] = False
+    users2[username]["password"] = new_password
+    users2[username]["first_login"] = False
     save_users(users)
     st.session_state.first_login = False
     st.success("Password updated successfully!")
 
 # دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
 def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
-    global users
-    users = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
+    global users2
+    users2 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
     save_users(users)
 
 # دالة لتحديث الكمية
@@ -132,7 +132,7 @@ else:
                 else:
                     st.error("Passwords do not match!")
     else:
-        st.write(f"Welcome {st.session_state.username}")
+        st.write(f"Log in by {st.session_state.username}")
         
         # قراءة البيانات
         if 'df' not in st.session_state:
