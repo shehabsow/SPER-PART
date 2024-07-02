@@ -2086,7 +2086,7 @@ else:
             # Function to add new item
             def add_new_item(item_description, quantity, Manufacturer ,Location ,Comments ,Part):
                 global df_f  # Define df_f as global variable
-                new_row = {'Item description': item_description, 'Qty.': quantity ,'Part #': Part ,'Manufacturer': Manufacturer,'Location' , Location ,'Comments' , Comments}
+                new_row = {'Item description': item_description, 'Qty.': quantity ,'Part #': Part ,'Manufacturer': Manufacturer,'Location' : Location ,'Comments' :Comments}
                 df_f = df_f.append(new_row, ignore_index=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
