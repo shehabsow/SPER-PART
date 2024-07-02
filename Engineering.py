@@ -39,7 +39,7 @@ def save_users(users3):
     with open('users3.json', 'w') as f:
         json.dump(users3, f)
 
-users2 = load_users()
+users3 = load_users()
 
 # دالة لتسجيل الدخول
 def login(username, password):
