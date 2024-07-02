@@ -128,14 +128,15 @@ else:
             confirm_password = st.text_input("Confirm Password", type="password")
             st.button("Change Password")
             st.button("Log in")
-            if new_password == confirm_password:
-                users3[st.session_state.username]['password'] = new_password
-                users3[st.session_state.username]['first_login'] = False
-                save_users(users3)
-                st.session_state.first_login = False
-                st.success("Password changed successfully!")
-            else:
-                st.error("Passwords do not match")
+            if st.button("Log in"):
+                if new_password == confirm_password:
+                    users[st.session_state.username]['password'] = new_password
+                    users[st.session_state.username]['first_login'] = False
+                    save_users(users)
+                    st.session_state.first_login = False
+                    st.success("Password changed successfully!")
+                else:
+                st.error("Passwords do not match"))
     else:
         st.subheader(f"Log in by {users3[st.session_state.username]['name']}")
         
