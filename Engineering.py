@@ -123,7 +123,7 @@ else:
     if st.session_state.first_login:
         col1, col2, col3 = st.columns([1, 1, 1])
         with col2:
-            st.title("Change Password")
+            st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
             if st.button("Update Password"):
@@ -132,7 +132,7 @@ else:
                 else:
                     st.error("Passwords do not match!")
     else:
-        st.write(f"Log in by {st.session_state.username}")
+        st.subheader(f"Log in by {st.session_state.username}")
         
         # قراءة البيانات
         if 'df' not in st.session_state:
