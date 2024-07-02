@@ -59,7 +59,7 @@ def update_password(username, new_password):
     st.success("Password updated successfully!")
 
 # دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
-def reset_passwords_and_update_usernames(new_usernames, new_password="default_password"):
+def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
     global users
     users = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
     save_users(users)
