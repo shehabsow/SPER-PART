@@ -25,14 +25,7 @@ def load_users():
         with open('users.json', 'r') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
-        return {
-            "user1": {"password": "password1", "first_login": True},
-            "user2": {"password": "password2", "first_login": True},
-            "user3": {"password": "password3", "first_login": True},
-            "user4": {"password": "password4", "first_login": True},
-            "user5": {"password": "password5", "first_login": True},
-            "user6": {"password": "password6", "first_login": True}
-        }
+        return }
 
 # حفظ بيانات المستخدمين إلى ملف JSON
 def save_users(users):
