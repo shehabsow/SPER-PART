@@ -114,8 +114,8 @@ if 'logged_in' not in st.session_state:
 
 if not st.session_state.logged_in:
     with st.form(key='login_form'):
-        col1, col2 = st.columns([.5, 1])
-        with col1:
+        col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
             username = st.text_input("Username")
             password = st.text_input("Password", type="password")
             submit_button = st.form_submit_button(label='submit')
@@ -123,8 +123,8 @@ if not st.session_state.logged_in:
         login(username, password)
 else:
     if st.session_state.first_login:
-        col1, col2 = st.columns([.5, 1])
-        with col1:
+         col1, col2, col3 = st.columns([1, 2, 1])
+        with col2:
             st.title("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
