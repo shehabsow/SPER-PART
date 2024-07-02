@@ -26,7 +26,7 @@ def load_users():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
-            "knhp322": {"password": "password1", "first_login": True}, # shehab
+            "knhp322": {"password": "knhp322", "first_login": True}, # shehab
             "krxs742": {"password": "password2", "first_login": True}, # ashry
             "kxsv748": {"password": "password3", "first_login": True}, # el masry
             "kvwp553": {"password": "password4", "first_login": True}, # sameh
