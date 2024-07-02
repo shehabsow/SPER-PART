@@ -123,14 +123,16 @@ if not st.session_state.logged_in:
         login(username, password)
 else:
     if st.session_state.first_login:
-        st.title("Change Password")
-        new_password = st.text_input("New Password", type="password")
-        confirm_password = st.text_input("Confirm Password", type="password")
-        if st.button("Update Password"):
-            if new_password == confirm_password:
-                update_password(st.session_state.username, new_password)
-            else:
-                st.error("Passwords do not match!")
+        col1, col2 = st.columns([.5, 1])
+        with col1:
+            st.title("Change Password")
+            new_password = st.text_input("New Password", type="password")
+            confirm_password = st.text_input("Confirm Password", type="password")
+            if st.button("Update Password"):
+                if new_password == confirm_password:
+                    update_password(st.session_state.username, new_password)
+                else:
+                    st.error("Passwords do not match!")
     else:
         st.write(f"Welcome {st.session_state.username}")
         
