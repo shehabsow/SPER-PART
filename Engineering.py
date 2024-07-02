@@ -89,6 +89,8 @@ def update_quantity(row_index, quantity, operation, username):
     # حفظ السجلات إلى ملف CSV
     logs_df = pd.DataFrame(st.session_state.logs)
     logs_df.to_csv('logs.csv', index=False)
+    with open('logs.json', 'w') as f:
+        json.dump(st.session_state.logs, f)
 
 # عرض التبويبات
 def display_tab(tab_name):
@@ -2090,6 +2092,17 @@ else:
                 df_f = df_f.append(new_row, ignore_index=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
+                log_entry = {
+                    'user': username,
+                    'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    'item': item_description,
+                    'old_quantity': 0,
+                    'new_quantity': quantity,
+                    'operation': 'add'
+                    }
+                st.session_state.logs.append(log_entry)
+                with open('logs.json', 'w') as f:
+                    json.dump(st.session_state.logs, f)
         
             def delete_item(row_index):
                 global df_f
@@ -2097,6 +2110,17 @@ else:
                 df_f = df_f.drop(index=row_index).reset_index(drop=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
+                log_entry = {
+                    'user': username,
+                    'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                    'item': item_description,
+                    'old_quantity': 0,
+                    'new_quantity': quantity,
+                    'operation': 'add'
+                    }
+                st.session_state.logs.append(log_entry)
+                with open('logs.json', 'w') as f:
+                    json.dump(st.session_state.logs, f)
             
             # Streamlit app
             def main():
