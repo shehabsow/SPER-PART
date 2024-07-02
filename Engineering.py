@@ -2092,17 +2092,7 @@ else:
                 df_f = df_f.append(new_row, ignore_index=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
-                log_entry = {
-                    
-                    'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                    'item': item_description,
-                    'old_quantity': 0,
-                    'new_quantity': quantity,
-                    'operation': 'add'
-                    }
-                st.session_state.logs.append(log_entry)
-                with open('logs.json', 'w') as f:
-                    json.dump(st.session_state.logs, f)
+                
         
             def delete_item(row_index):
                 global df_f
