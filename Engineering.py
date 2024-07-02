@@ -87,8 +87,8 @@ def update_quantity(row_index, quantity, operation, username):
     st.session_state.logs.append(log_entry)
     
     # حفظ السجلات إلى ملف CSV
-    with open('logs.json', 'w') as f:
-        json.dump(st.session_state.logs, f)
+    logs_df = pd.DataFrame(st.session_state.logs)
+    logs_df.to_csv('logs.csv', index=False)
 
 
 
