@@ -54,7 +54,7 @@ def login(username, password):
 def update_password(username, new_password):
     users2[username]["password"] = new_password
     users2[username]["first_login"] = False
-    save_users(users)
+    save_users(users2)
     st.session_state.first_login = False
     st.success("Password updated successfully!")
 
