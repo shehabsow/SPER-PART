@@ -123,7 +123,7 @@ if not st.session_state.logged_in:
         login(username, password)
 else:
     if st.session_state.first_login:
-         col1, col2, col3 = st.columns([1, 2, 1])
+        col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
             st.title("Change Password")
             new_password = st.text_input("New Password", type="password")
