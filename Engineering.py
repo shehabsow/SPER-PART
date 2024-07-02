@@ -60,9 +60,9 @@ def update_password(username, new_password):
 
 # دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
 def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
-    global users2
-    users2 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
-    save_users(users2)
+    global users3
+    users3 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
+    save_users(users3)
 
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
@@ -126,8 +126,8 @@ else:
             st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
-            st.button("Update Password")
-            if st.button("Change Password"):
+            st.button("Change Password")
+            if st.button("Log in"):
                 if new_password == confirm_password:
                     users3[st.session_state.username]['password'] = new_password
                     users3[st.session_state.username]['first_login'] = False
