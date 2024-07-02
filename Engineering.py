@@ -126,11 +126,11 @@ else:
             st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
-            if st.button("Update Password"):
-                if new_password == confirm_password:
-                    update_password(st.session_state.username, new_password)
-                else:
-                    st.error("Passwords do not match!")
+            st.button("Update Password"):
+            if new_password == confirm_password:
+                update_password(st.session_state.username, new_password)
+            else:
+                st.error("Passwords do not match!")
     else:
         st.subheader(f"Log in by {users2[st.session_state.username]['name']}")
         
