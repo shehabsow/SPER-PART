@@ -2122,7 +2122,7 @@ else:
                     st.dataframe(df_f)
         
                 st.write('## Delete Item')
-                row_index = st.number_input('Enter row number to delete:', min_value=0, max_value=len(df_f)-1, step=1)
+                row_index = st.number_input('Enter row number to delete:', max_value=len(df_f)-1, step=1)
         
             # Button to delete item
                 if st.button('Delete Item', key='delete_item'):
