@@ -62,7 +62,7 @@ def update_password(username, new_password):
 def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
     global users2
     users2 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
-    save_users(users)
+    save_users(users2)
 
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
