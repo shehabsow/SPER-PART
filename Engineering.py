@@ -136,7 +136,7 @@ else:
                     st.session_state.first_login = False
                     st.success("Password changed successfully!")
                 else:
-                    st.error("Passwords do not match"))
+                    st.error("Passwords do not match")
     else:
         st.subheader(f"Log in by {users3[st.session_state.username]['name']}")
         
