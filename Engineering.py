@@ -31,7 +31,7 @@ def load_users():
             "kxsv748": {"password": "password3", "first_login": True}, # el masry
             "kvwp553": {"password": "password4", "first_login": True}, # sameh
             "knfb489": {"password": "password5", "first_login": True}, # yasser
-            "user6": {"password": "password6", "first_login": True}    # kaleed 
+            "kjjd308": {"password": "password6", "first_login": True}    # kaleed 
         }
 
 # حفظ بيانات المستخدمين إلى ملف JSON
