@@ -137,7 +137,7 @@ else:
                 else:
                     st.error("Passwords do not match")
     else:
-        st.markdown(f"<div style='text-align: left; font-size: 24px; color: green;'>Log in by {users3[st.session_state.username]['name']}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: right; font-size: 24px; color: green;'>Log in by {users3[st.session_state.username]['name']}</div>", unsafe_allow_html=True)
         
         # قراءة البيانات
         if 'df' not in st.session_state:
