@@ -2106,7 +2106,11 @@ else:
                 # User inputs
                 item_description = st.text_input('Enter item description:')
                 quantity = st.number_input('Enter quantity:', min_value=0, step=1)
-            
+                Part = st.number_input('Enter Part NO:', min_value=0, step=1)
+                Manufacturer = st.text_input('Enter item Manufacturer:')
+                Location = st.text_input('Enter item Location:')
+                Comments = st.text_input('Enter item Comments:')
+
                 # Button to add new item
                 if st.button('Add Item'):
                     add_new_item(item_description, quantity)
