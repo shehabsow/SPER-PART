@@ -26,7 +26,7 @@ def load_users():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
-            "knhp322": {"password": "password1", "first_login": True},
+            "user1": {"password": "password1", "first_login": True},
             "user2": {"password": "password2", "first_login": True},
             "user3": {"password": "password3", "first_login": True},
             "user4": {"password": "password4", "first_login": True},
@@ -57,6 +57,12 @@ def update_password(username, new_password):
     save_users(users)
     st.session_state.first_login = False
     st.success("Password updated successfully!")
+
+# دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
+def reset_passwords_and_update_usernames(new_usernames, new_password="default_password"):
+    global users
+    users = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
+    save_users(users)
 
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
