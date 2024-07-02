@@ -127,7 +127,7 @@ else:
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
             st.button("Change Password")
-            if st.button("Log in"):
+            st.button("Log in"):
                 if new_password == confirm_password:
                     users3[st.session_state.username]['password'] = new_password
                     users3[st.session_state.username]['first_login'] = False
