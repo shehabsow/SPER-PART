@@ -2093,7 +2093,7 @@ else:
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
                 log_entry = {
-                    'user': username,
+                    
                     'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'item': item_description,
                     'old_quantity': 0,
@@ -2111,12 +2111,12 @@ else:
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
                 log_entry = {
-                    'user': username,
+                    
                     'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
                     'item': item_description,
                     'old_quantity': 0,
                     'new_quantity': quantity,
-                    'operation': 'add'
+                    'operation': 'delete'
                     }
                 st.session_state.logs.append(log_entry)
                 with open('logs.json', 'w') as f:
