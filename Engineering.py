@@ -2086,7 +2086,7 @@ else:
                 df_f = pd.DataFrame(columns=['Item description', 'Qty.','Part #','Manufacturer','Location','Comments'])
             
             # Function to add new item
-            def add_new_item(item_description, quantity, Manufacturer ,Location ,Comments ,Part,username):
+            def add_new_item(item_description, quantity, Manufacturer ,Location ,Comments ,Part):
                 global df_f  # Define df_f as global variable
                 new_row = {'Item description': item_description, 'Qty.': quantity ,'Part #': Part ,'Manufacturer': Manufacturer,'Location' : Location ,'Comments' :Comments}
                 df_f = df_f.append(new_row, ignore_index=True)
@@ -2100,17 +2100,7 @@ else:
                 df_f = df_f.drop(index=row_index).reset_index(drop=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
-                log_entry = {
-                    
-                    'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                    'item': item_description,
-                    'old_quantity': 0,
-                    'new_quantity': quantity,
-                    'operation': 'delete'
-                    }
-                st.session_state.logs.append(log_entry)
-                with open('logs.json', 'w') as f:
-                    json.dump(st.session_state.logs, f)
+                
             
             # Streamlit app
             def main():
