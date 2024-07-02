@@ -22,7 +22,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 def load_users():
     try:
-        with open('users.json', 'r') as f:
+        with open('users.json', 'w') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
