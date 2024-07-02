@@ -24,7 +24,7 @@ def load_users():
     try:
         with open('users.json', 'r') as f:
             return json.load(f)
-    except FileNotFoundError:
+    except (FileNotFoundError, json.JSONDecodeError):
         return {
             "user1": {"password": "password1", "first_login": True},
             "user2": {"password": "password2", "first_login": True},
