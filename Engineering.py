@@ -2086,13 +2086,15 @@ else:
                 df_f = pd.DataFrame(columns=['Item description', 'Qty.','Part #','Manufacturer','Location','Comments'])
             
             # Function to add new item
-            def add_new_item(item_description, quantity,Part, Manufacturer ,Location ,Comments ):
+            def add_new_item(item_description, quantity, Part, Manufacturer, Location, Comments):
                 global df_f  # Define df_f as global variable
-                new_row = {'Item description': item_description, 'Qty.': quantity ,'Part #': Part ,'Manufacturer': Manufacturer,'Location' : Location ,'Comments' :Comments}
+                new_row = {'Item description': item_description, 'Qty.': quantity, 'Part #': Part, 'Manufacturer': Manufacturer, 'Location': Location, 'Comments': Comments}
                 df_f = df_f.append(new_row, ignore_index=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
-                reset_inputs()
+                reset_inputs()  # Reset inputs after adding new item
+                
+            # Function to reset input fields
             def reset_inputs():
                 st.session_state['item_description'] = ''
                 st.session_state['quantity'] = 0
@@ -2100,29 +2102,28 @@ else:
                 st.session_state['Manufacturer'] = ''
                 st.session_state['Location'] = ''
                 st.session_state['Comments'] = ''
-        
+                
             def delete_item(row_index):
                 global df_f
                 item_description = df_f.loc[row_index, 'Item description']
                 df_f = df_f.drop(index=row_index).reset_index(drop=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.warning(f"Item '{item_description}' at row {row_index} deleted successfully!")
-                
             
             # Streamlit app
             def main():
                 global df_f
-                col1, col2, col3 = st.columns([1,3 , 1])
-                with col2:# Define df_f as global variable
+                col1, col2, col3 = st.columns([1, 3, 1])
+                with col2:  # Define df_f as global variable
                     st.title('Add New Item')
                 
                     # User inputs
-                    item_description = st.text_input('Enter item description:')
-                    quantity = st.number_input('Enter quantity:', min_value=0, step=1)
-                    Part =  st.text_input('Enter Part NO:')
-                    Manufacturer = st.text_input('Enter item Manufacturer:')
-                    Location = st.text_input('Enter item Location:')
-                    Comments = st.text_input('Enter item Comments:')
+                    item_description = st.text_input('Enter item description:', key='item_description')
+                    quantity = st.number_input('Enter quantity:', min_value=0, step=1, key='quantity')
+                    Part = st.text_input('Enter Part NO:', key='Part')
+                    Manufacturer = st.text_input('Enter item Manufacturer:', key='Manufacturer')
+                    Location = st.text_input('Enter item Location:', key='Location')
+                    Comments = st.text_input('Enter item Comments:', key='Comments')
     
                     # Button to add new item
                     if st.button('Add Item'):
@@ -2132,14 +2133,15 @@ else:
                             add_new_item(item_description, quantity, Part, Manufacturer, Location, Comments)
                             st.write('## Updated Items')
                             st.dataframe(df_f)
-
+                    
+                    # Button to reset inputs
                     if st.button('Reset Inputs'):
                         reset_inputs()
             
                     st.write('## Delete Item')
                     row_index = st.number_input('Enter row number to delete:', max_value=len(df_f)-1, step=1)
-            
-                # Button to delete item
+                    
+                    # Button to delete item
                     if st.button('Delete Item', key='delete_item'):
                         delete_item(row_index)
                         st.write('## Updated Items')
