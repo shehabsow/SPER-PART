@@ -2112,7 +2112,7 @@ else:
                     # User inputs
                     item_description = st.text_input('Enter item description:')
                     quantity = st.number_input('Enter quantity:', min_value=0, step=1)
-                    Part = st.number_input('Enter Part NO:', min_value=0, step=1)
+                    Part = st.number_input('Enter Part NO:')
                     Manufacturer = st.text_input('Enter item Manufacturer:')
                     Location = st.text_input('Enter item Location:')
                     Comments = st.text_input('Enter item Comments:')
