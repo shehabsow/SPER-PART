@@ -139,7 +139,7 @@ else:
                 else:
                     st.error("Passwords do not match")
     else:
-        st.markdown(f"<div style='text-align: right; font-size: 20px; color: green;'> Log in by : {users3[st.session_state.username]['name']}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: right; font-size: 20px; color: green;'> Login by : {users3[st.session_state.username]['name']}</div>", unsafe_allow_html=True)
         
         # قراءة البيانات
         if 'df' not in st.session_state:
@@ -2112,16 +2112,19 @@ else:
                     # User inputs
                     item_description = st.text_input('Enter item description:')
                     quantity = st.number_input('Enter quantity:', min_value=0, step=1)
-                    Part = st.number_input('Enter Part NO:', min_value=0)
+                    Part =  st.text_input('Enter Part NO:', min_value=0)
                     Manufacturer = st.text_input('Enter item Manufacturer:')
                     Location = st.text_input('Enter item Location:')
                     Comments = st.text_input('Enter item Comments:')
     
                     # Button to add new item
                     if st.button('Add Item'):
-                        add_new_item(item_description, quantity ,Part ,Manufacturer ,Location ,Comments)
-                        st.write('## Updated Items')
-                        st.dataframe(df_f)
+                        if not item_description or not Part or not Manufacturer or not Location or not Comments:
+                            st.error("Please fill in all the fields.")
+                        else:
+                            add_new_item(item_description, quantity, Part, Manufacturer, Location, Comments)
+                            st.write('## Updated Items')
+                            st.dataframe(df_f)
             
                     st.write('## Delete Item')
                     row_index = st.number_input('Enter row number to delete:', max_value=len(df_f)-1, step=1)
