@@ -2105,7 +2105,7 @@ else:
             # Streamlit app
             def main():
                 global df_f
-                col1, col2, col3 = st.columns([1, 1, 1])
+                col1, col2, col3 = st.columns([1, 2, 1])
                 with col2:# Define df_f as global variable
                     st.title('Add New Item')
                 
