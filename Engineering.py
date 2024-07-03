@@ -2094,12 +2094,12 @@ else:
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
                 reset_inputs()
             def reset_inputs():
-            st.session_state['item_description'] = ''
-            st.session_state['quantity'] = 0
-            st.session_state['Part'] = ''
-            st.session_state['Manufacturer'] = ''
-            st.session_state['Location'] = ''
-            st.session_state['Comments'] = ''
+                st.session_state['item_description'] = ''
+                st.session_state['quantity'] = 0
+                st.session_state['Part'] = ''
+                st.session_state['Manufacturer'] = ''
+                st.session_state['Location'] = ''
+                st.session_state['Comments'] = ''
         
             def delete_item(row_index):
                 global df_f
