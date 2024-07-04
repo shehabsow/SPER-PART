@@ -2143,6 +2143,16 @@ else:
                 if st.session_state.logs:
                     logs_df = pd.DataFrame(st.session_state.logs)
                     st.dataframe(logs_df)
+                    
+                    if st.button('Clear Logs'):
+                        st.session_state.logs = []
+                        try:
+                            os.remove('logs.csv')
+                        except FileNotFoundError:
+                            pass
+                        st.success("Logs cleared successfully!")
+                else:
+                    st.write("No logs available.")
     
             if __name__ == '__main__':
                 
