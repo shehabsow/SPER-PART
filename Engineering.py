@@ -2092,7 +2092,6 @@ else:
                 df_f = df_f.append(new_row, ignore_index=True)
                 df_f.to_csv('Eng Spare parts.csv', index=False)
                 st.success(f"New item '{item_description}' added successfully with quantity {quantity}!")
-                reset_inputs()  # Reset inputs after adding new item
                 
             # Function to reset input fields
             def reset_inputs():
@@ -2116,6 +2115,9 @@ else:
                 col1, col2, col3 = st.columns([1, 3, 1])
                 with col2:  # Define df_f as global variable
                     st.title('Add New Item')
+
+                    if 'item_description' not in st.session_state:
+                        reset_inputs()
                 
                     # User inputs
                     item_description = st.text_input('Enter item description:', key='item_description')
@@ -2133,6 +2135,7 @@ else:
                             add_new_item(item_description, quantity, Part, Manufacturer, Location, Comments)
                             st.write('## Updated Items')
                             st.dataframe(df_f)
+                            reset_inputs()
                     
                     # Button to reset inputs
                     if st.button('Reset Inputs'):
