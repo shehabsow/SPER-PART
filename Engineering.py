@@ -2145,6 +2145,8 @@ else:
                 if st.session_state.logs:
                     logs_df = pd.DataFrame(st.session_state.logs)
                     st.dataframe(logs_df)
+                    csv = logs_df.to_csv(index=False)
+                    st.download_button(label="Download Logs as CSV", data=csv, file_name='user_logs.csv', mime='text/csv')
                     
                     if st.button('Clear Logs'):
                         st.session_state.logs = []
