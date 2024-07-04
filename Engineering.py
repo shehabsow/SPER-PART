@@ -1368,7 +1368,7 @@ else:
                         
                 with tab5:
                     col1, col2, col3 = st.columns([30,3,13])
-                    with col1:
+                with col1:
                         Neumatic_hose = df_f[df_f['Comments'] == 'Neumatic hose'].sort_values(by='Comments')
                         st.dataframe(Neumatic_hose,width=2000)
                         col4, col5, col6 = st.columns([2,1,2])
