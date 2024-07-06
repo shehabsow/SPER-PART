@@ -2147,13 +2147,7 @@ else:
                     csv = logs_df.to_csv(index=False)
                     st.download_button(label="Download Logs as CSV", data=csv, file_name='user_logs.csv', mime='text/csv')
                     
-                    if st.button('Clear Logs'):
-                        st.session_state.logs = []
-                        try:
-                            os.remove('logs.csv')
-                        except FileNotFoundError:
-                            pass
-                        st.success("Logs cleared successfully!")
+
                 else:
                     st.write("No logs available.")
     
