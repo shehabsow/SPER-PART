@@ -102,7 +102,7 @@ def display_tab(tab_name):
     <div style='font-size: 20px; color: red;'>Location: {st.session_state.df.loc[row_number, 'Location']}</div>
     """, unsafe_allow_html=True)
 
-    quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=0, step=1, key=f'{tab_name}_quantity')
+    quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=1, step=1, key=f'{tab_name}_quantity')
     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
 
     if st.button('Update Quantity', key=f'{tab_name}_update_button'):
