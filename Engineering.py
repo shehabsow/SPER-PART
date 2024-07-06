@@ -2133,7 +2133,7 @@ else:
                         st.dataframe(df_f)
                     csv = df_f.to_csv(index=False)
                     st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
-                st.dataframe(df_f)
+                    st.dataframe(df_f)
                 
             if __name__ == '__main__':
                 
