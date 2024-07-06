@@ -73,7 +73,7 @@ def update_quantity(row_index, quantity, operation, username):
         st.session_state.df.loc[row_index, 'Qty.'] -= quantity
     new_quantity = st.session_state.df.loc[row_index, 'Qty.']
     if new_quantity <= 1:
-        st.warning(f"Warning: Quantity of item '{st.session_state.df.loc[row_index, 'Item description']}' at row {row_index} is {new_quantity}!")
+        st.write(f"Warning: Quantity of item '{st.session_state.df.loc[row_index, 'Item description']}' at row {row_index} is {new_quantity}!")
         st.session_state.df.loc[row_index, 'Qty.'] = max(1, new_quantity)  # Ensure quantity does not go below 1
 
 
