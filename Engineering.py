@@ -147,6 +147,8 @@ else:
         # قراءة البيانات
         if 'df' not in st.session_state:
             st.session_state.df = pd.read_csv('Eng Spare parts.csv')
+            st.session_state.df.reset_index(drop=True, inplace=True)
+            st.session_state.df['Row Number'] = st.session_state.df.index + 1
         try:
             logs_df = pd.read_csv('logs.csv')
             st.session_state.logs = logs_df.to_dict('records')
