@@ -94,7 +94,7 @@ def update_quantity(row_index, quantity, operation, username):
 # عرض التبويبات
 def display_tab(tab_name):
     st.header(f'{tab_name} Tab')
-    row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(st.session_state.df)-1, step=1, key=f'{tab_name}_row_number')
+    row_number = st.text_input(f'Select row number for {tab_name}:',  key=f'{tab_name}_row_number')
 
     st.markdown(f"""
     <div style='font-size: 20px; color: blue;'>Selected Item: {st.session_state.df.loc[row_number, 'Item description']}</div>
