@@ -15,7 +15,7 @@ st.set_page_config(
 )
 
 
-
+egypt_tz = pytz.timezone('Africa/Cairo')
 df_f = pd.read_csv('Eng Spare parts.csv')
 
 
@@ -77,7 +77,7 @@ def update_quantity(row_index, quantity, operation, username):
 
     log_entry = {
         'user': username,
-        'time': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+        'time':  datetime.now(egypt_tz).strftime('%Y-%m-%d %H:%M:%S'),
         'item': st.session_state.df.loc[row_index, 'Item description'],
         'old_quantity': old_quantity,
         'new_quantity': new_quantity,
