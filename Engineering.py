@@ -536,7 +536,7 @@ else:
                         url = 'https://www.shoplinco.com/colson-polyurethane-heavy-duty-total-lock-swivel-caster-8-x-2-1000-lbs-cap/'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 csv = df_f.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+                st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
                     
             if __name__ == '__main__':
         
@@ -1199,7 +1199,7 @@ else:
                         url = 'https://electroshope.com/product/panel-buzzer-24vdc-cbz-10dc'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 csv = st.session_state.df.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+                st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
         
             
             if __name__ == '__main__':
@@ -1431,7 +1431,7 @@ else:
                         url = 'https://www.disumtec.com/en/compressed-air-filter-regulators/32030008-22543-compressed-air-filter-regulator.html?mot_tcid=16c9b4d0-9039-43d1-bbd9-0c536a6fe56e#/thread-1_4'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 csv = df_f.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+                st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
                 
             if __name__ == '__main__':
         
@@ -1573,7 +1573,7 @@ else:
                         url = 'https://directparts.eu/linde/5122-brake-shoe-108116.html'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 csv = df_f.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+                st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
             if __name__ == '__main__':
         
                 main()
@@ -2000,7 +2000,7 @@ else:
                             url = 'https://shop.pall.com/us/en/food-beverage/zidimmfdh4o'
                             st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 csv = df_f.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
+                st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')   
                             
                           
                     
@@ -2070,7 +2070,7 @@ else:
                         url = 'https://www.lockeylock.com/factory-directly-loto-tools-combined-safety-lockout-tagout-station-kit-lg12-lockey-product/'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                 csv = df_f.to_csv(index=False)
-                st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')        
+                st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')        
           
         
             if __name__ == '__main__':
@@ -2132,7 +2132,7 @@ else:
                         st.write('## Updated Items')
                         st.dataframe(df_f)
                     csv = df_f.to_csv(index=False)
-                    st.download_button(label="Download updated CSV", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
+                    st.download_button(label="Download updated sheet", data=csv, file_name='updated_spare_parts.csv', mime='text/csv')
                     st.dataframe(df_f)
                 
             if __name__ == '__main__':
@@ -2146,7 +2146,7 @@ else:
                     logs_df = pd.DataFrame(st.session_state.logs)
                     st.dataframe(logs_df)
                     csv = logs_df.to_csv(index=False)
-                    st.download_button(label="Download Logs as CSV", data=csv, file_name='user_logs.csv', mime='text/csv')
+                    st.download_button(label="Download Logs as sheet", data=csv, file_name='user_logs.csv', mime='text/csv')
                     
 
                 else:
