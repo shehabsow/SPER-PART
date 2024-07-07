@@ -89,7 +89,11 @@ def update_quantity(row_index, quantity, operation, username):
     logs_df = pd.DataFrame(st.session_state.logs)
     logs_df.to_csv('logs.csv', index=False)
 
+st.session_state.df = pd.read_csv('Eng Spare parts.csv')
 
+# إضافة عمود جديد للصفوف يبدأ من 1
+st.session_state.df.reset_index(drop=True, inplace=True)
+st.session_state.df['Row Number'] = st.session_state.df.index + 1
 
 # عرض التبويبات
 def display_tab(tab_name):
