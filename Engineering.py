@@ -94,21 +94,13 @@ def update_quantity(row_index, quantity, operation, username):
 # عرض التبويبات
 def display_tab(tab_name):
     st.header(f'{tab_name} Tab')
-    row_number = st.text_input(f'Select row number for {tab_name}:',  key=f'{tab_name}_row_number')
+    row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(st.session_state.df)-1, step=1, key=f'{tab_name}_row_number')
 
-    if row_number:
-        try:
-            row_number = int(row_number) - 1  # تحويل النص إلى عدد صحيح وفهرسة تبدأ من 1
-            if row_number < 0 or row_number >= len(st.session_state.df):
-                st.error("Invalid row number")
-            else:
-                st.markdown(f"""
-                <div style='font-size: 20px; color: blue;'>Selected Item: {st.session_state.df.loc[row_number, 'Item description']}</div>
-                <div style='font-size: 20px; color: blue;'>Current Quantity: {int(st.session_state.df.loc[row_number, 'Qty.'])}</div>
-                <div style='font-size: 20px; color: red;'>Location: {st.session_state.df.loc[row_number, 'Location']}</div>
-                """, unsafe_allow_html=True)
-        except ValueError:
-            st.error("Please enter a valid row number")
+    st.markdown(f"""
+    <div style='font-size: 20px; color: blue;'>Selected Item: {st.session_state.df.loc[row_number, 'Item description']}</div>
+    <div style='font-size: 20px; color: blue;'>Current Quantity: {int(st.session_state.df.loc[row_number, 'Qty.'])}</div>
+    <div style='font-size: 20px; color: red;'>Location: {st.session_state.df.loc[row_number, 'Location']}</div>
+    """, unsafe_allow_html=True)
 
     quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=1, step=1, key=f'{tab_name}_quantity')
     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
