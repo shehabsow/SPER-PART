@@ -91,7 +91,7 @@ def update_quantity(row_index, quantity, operation, username):
 
 # عرض التبويبات
 def display_tab(tab_name):
-    st.header(f'{tab_name} Tab')
+    st.header(f'{tab_name}')
     row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(st.session_state.df)-1, step=1, key=f'{tab_name}_row_number')
 
     st.markdown(f"""
