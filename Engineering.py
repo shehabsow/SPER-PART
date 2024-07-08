@@ -6,13 +6,10 @@ import requests
 from datetime import datetime
 import json
 
-
-
 st.set_page_config(
     layout="wide",
     page_title='Earthquake analysis',
-    page_icon='🪙'
-)
+    page_icon='🪙')
 
 
 egypt_tz = pytz.timezone('Africa/Cairo')
@@ -38,8 +35,8 @@ def load_users():
 def save_users(users3):
     with open('users3.json', 'w') as f:
         json.dump(users3, f)
-
 users3 = load_users()
+
 
 # دالة لتسجيل الدخول
 def login(username, password):
@@ -50,6 +47,7 @@ def login(username, password):
     else:
         st.error("Incorrect username or password")
 
+
 # دالة لتحديث كلمة المرور
 def update_password(username, new_password):
     users3[username]["password"] = new_password
@@ -58,11 +56,13 @@ def update_password(username, new_password):
     st.session_state.first_login = False
     st.success("Password updated successfully!")
 
+
 # دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
 def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
     global users3
     users3 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
     save_users(users3)
+
 
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
@@ -74,43 +74,42 @@ def update_quantity(row_index, quantity, operation, username):
     new_quantity = st.session_state.df.loc[row_index, 'Qty.']
     st.session_state.df.to_csv('Eng Spare parts.csv', index=False)
     st.success(f"Quantity updated successfully by {username}! New Quantity: {int(st.session_state.df.loc[row_index, 'Qty.'])}")
-
     log_entry = {
         'user': username,
         'time':  datetime.now(egypt_tz).strftime('%Y-%m-%d %H:%M:%S'),
         'item': st.session_state.df.loc[row_index, 'Item description'],
         'old_quantity': old_quantity,
         'new_quantity': new_quantity,
-        'operation': operation
-    }
+        'operation': operation}
     st.session_state.logs.append(log_entry)
     
     # حفظ السجلات إلى ملف CSV
     logs_df = pd.DataFrame(st.session_state.logs)
     logs_df.to_csv('logs.csv', index=False)
 
+
 # عرض التبويبات
 def display_tab(tab_name):
     st.header(f'{tab_name}')
     row_number = st.number_input(f'Select row number for {tab_name}:', min_value=0, max_value=len(st.session_state.df)-1, step=1, key=f'{tab_name}_row_number')
-
+    
     st.markdown(f"""
     <div style='font-size: 20px; color: blue;'>Selected Item: {st.session_state.df.loc[row_number, 'Item description']}</div>
     <div style='font-size: 20px; color: blue;'>Current Quantity: {int(st.session_state.df.loc[row_number, 'Qty.'])}</div>
     <div style='font-size: 20px; color: red;'>Location: {st.session_state.df.loc[row_number, 'Location']}</div>
     """, unsafe_allow_html=True)
-
+    
     quantity = st.number_input(f'Enter quantity for {tab_name}:', min_value=1, step=1, key=f'{tab_name}_quantity')
     operation = st.radio(f'Choose operation for {tab_name}:', ('add', 'subtract'), key=f'{tab_name}_operation')
 
     if st.button('Update Quantity', key=f'{tab_name}_update_button'):
         update_quantity(row_number, quantity, operation, st.session_state.username)
 
+
 # واجهة تسجيل الدخول
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
     st.session_state.logs = []
-
 if not st.session_state.logged_in:
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
@@ -140,18 +139,17 @@ else:
         
         # قراءة البيانات
         if 'df' not in st.session_state:
-            st.session_state.df = pd.read_csv('Eng Spare parts.csv')
-           
+            st.session_state.df = pd.read_csv('Eng Spare parts.csv') 
         try:
             logs_df = pd.read_csv('logs.csv')
             st.session_state.logs = logs_df.to_dict('records')
         except FileNotFoundError:
             st.session_state.logs = []
-            
+
+        
         page =  st.sidebar.radio('Select page', ['Utility area','Mechanical parts', 'Electrical parts',
                         'Neumatic parts','FORKLIFT','LOTOTO','Add New Item & delete','View Logs'])
        
-        
         if page == 'Mechanical parts':
             def main():
                 
@@ -183,8 +181,6 @@ else:
                     search_keyword = st.text_input("Enter keyword to search:", search_keyword)
                     search_button = st.button("Search")
                     search_option = 'All Columns'
-                
-                # Function to search in dataframe
                 def search_in_dataframe(df_f, keyword, option):
                     if option == 'All Columns':
                         result = df_f[df_f.apply(lambda row: row.astype(str).str.contains(keyword, case=False).any(), axis=1)]
@@ -204,9 +200,9 @@ else:
                     search_results = search_in_dataframe(df_f, search_keyword, search_option)
                     st.write(f"Search results for '{search_keyword}' in {search_option}:")
                     st.dataframe(search_results, width=1000, height=200)
-                
                 # Set refreshed state to clear search keyword on page refresh
                 st.session_state.refreshed = True 
+                
                         
                 tab1, tab2 ,tab3, tab4,tab5, tab6 ,tab7, tab8 ,tab10, tab11 ,tab12, tab13, tab14  = st.tabs(['Bearing', 'Belts','Shaft','Spring',
                 'leaflet rooler','Cam','Clutch','Oil _ grease','Chain','Gearbox','Door','Couplin','Wheel CASTOR'])
@@ -219,7 +215,6 @@ else:
                         col4, col5, col6 = st.columns([2,1,2])
                         with col4:
                             display_tab('peraing')
-                            
                     with col3:
                         st.subheader('image  for  these  part')
                         SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
@@ -996,6 +991,7 @@ else:
                         st.image(image91, width=150)
                         url = 'https://www.wago.com/us/protection-devices/push-in-type-jumper-bar/p/859-408'
                         st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        
                 with tab21:
                     col1, col2, col3 = st.columns([30,3,13])
                     with col1:
@@ -1057,10 +1053,10 @@ else:
                         
         
                 st.header('Select from these items')
+                
                 tab25 ,tab26, tab27, tab28 ,tab29, tab30, tab31  = st.tabs(['Ups','Power_supply','Electricity',
                 'Feedback','Battery','Electronic_board','Electronic_buzzer'])
         
-                
         
                 with tab25:
                     col1, col2, col3 = st.columns([30,3,13])
@@ -1623,7 +1619,6 @@ else:
                 col1, col2, col3 = st.columns([1,2,2])
                 with col1:
                     select_col = st.selectbox('Select page:', ['Water Station','Fire Fighting','Filters', 'AHU'], key='select_page')
-            
                     st.markdown("""
                         <style>
                         .stSelectbox label {
@@ -2154,13 +2149,3 @@ else:
             if __name__ == '__main__':
                 
                 main()
-     
-
-
-
-
-    
- 
-
-
-        
