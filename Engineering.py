@@ -129,7 +129,10 @@ else:
             new_password = st.text_input("New Password", type="password")
             confirm_new_password = st.text_input("Confirm Password", type="password")
             if st.button("Change Password"):
-                update_password(st.session_state.username, new_password, confirm_new_password)
+                if not new_password or not confirm_new_password:
+                    st.error("Please fill in all the fields.")
+                else:
+                    update_password(st.session_state.username, new_password, confirm_new_password)
                     
             
     else:
