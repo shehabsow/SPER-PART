@@ -128,7 +128,7 @@ else:
             st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_new_password = st.text_input("Confirm Password", type="password")
-            if st.button("Change Password"):
+            if st.button("login"):
                 if not new_password or not confirm_new_password:
                     st.error("Please fill in all the fields.")
                 else:
