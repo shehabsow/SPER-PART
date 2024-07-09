@@ -51,11 +51,14 @@ def login(username, password):
 
 # دالة لتحديث كلمة المرور
 def update_password(username, new_password):
-    users3[username]["password"] = new_password
-    users3[username]["first_login"] = False
-    save_users(users3)
-    st.session_state.first_login = False
-    st.success("Password updated successfully!")
+    if new_password == confirm_new_password:
+        users3[username]["password"] = new_password
+        users3[username]["first_login"] = False
+        save_users(users3)
+        st.session_state.first_login = False
+        st.success("Password updated successfully!")
+    else:
+        st.error("! Passwords do not match")
 
 
 # دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
@@ -125,16 +128,10 @@ else:
             st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
-            st.button("Change Password")
-            if st.button("Log in"):
-                if new_password == confirm_password:
-                    users3[st.session_state.username]['password'] = new_password
-                    users3[st.session_state.username]['first_login'] = False
-                    save_users(users3)
-                    st.session_state.first_login = False
-                    st.success("Password changed successfully!")
-                else:
-                    st.error("Passwords do not match")
+            if st.button("Change Password")
+                update_password(st.session_state.username, new_password, confirm_password)
+                    
+            
     else:
         st.markdown(f"<div style='text-align: right; font-size: 20px; color: green;'> Login by : {users3[st.session_state.username]['name']}</div>", unsafe_allow_html=True)
         
