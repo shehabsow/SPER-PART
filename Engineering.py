@@ -128,7 +128,7 @@ else:
             st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
             confirm_password = st.text_input("Confirm Password", type="password")
-            if st.button("Change Password")
+            if st.button("Change Password"):
                 update_password(st.session_state.username, new_password, confirm_password)
                     
             
