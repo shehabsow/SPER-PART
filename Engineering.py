@@ -29,7 +29,8 @@ def load_users():
             "kvwp553": {"password": "kvwp553", "first_login": True, "name": "sameh"},            # sameh
             "knfb489": {"password": "knfb489", "first_login": True, "name": "Yasser Hassan"},    # yasser
             "kjjd308": {"password": "kjjd308", "first_login": True, "name": "Kaleed "},          # kaleed
-            "kibx268": {"password": "kibx268", "first_login": True, "name": "Zeinab Mobarak" }}  #Zinab
+            "kibx268": {"password": "kibx268", "first_login": True, "name": "Zeinab Mobarak"},     #Zinab
+            "engy": {"password": "1234", "first_login": True, "name": "D.Engy"}} 
 
 # حفظ بيانات المستخدمين إلى ملف JSON
 def save_users(users3):
