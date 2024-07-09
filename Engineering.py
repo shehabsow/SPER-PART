@@ -19,7 +19,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 def load_users():
     try:
-        with open('users3.json', 'r') as f:
+        with open('users4.json', 'r') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
@@ -33,18 +33,18 @@ def load_users():
             "engy": {"password": "1234", "first_login": True, "name": "D.Engy"}} 
 
 # حفظ بيانات المستخدمين إلى ملف JSON
-def save_users(users3):
-    with open('users3.json', 'w') as f:
-        json.dump(users3, f)
-users3 = load_users()
+def save_users(users4):
+    with open('users4.json', 'w') as f:
+        json.dump(users4, f)
+users4 = load_users()
 
 
 # دالة لتسجيل الدخول
 def login(username, password):
-    if username in users3 and users3[username]["password"] == password:
+    if username in users4 and users4[username]["password"] == password:
         st.session_state.logged_in = True
         st.session_state.username = username
-        st.session_state.first_login = users3[username]["first_login"]
+        st.session_state.first_login = users4[username]["first_login"]
     else:
         st.error("Incorrect username or password")
 
@@ -52,9 +52,9 @@ def login(username, password):
 # دالة لتحديث كلمة المرور
 def update_password(username, new_password,confirm_new_password):
     if new_password == confirm_new_password:
-        users3[username]["password"] = new_password
-        users3[username]["first_login"] = False
-        save_users(users3)
+        users4[username]["password"] = new_password
+        users4[username]["first_login"] = False
+        save_users(users4)
         st.session_state.first_login = False
         st.success("Password updated successfully!")
     else:
@@ -63,9 +63,9 @@ def update_password(username, new_password,confirm_new_password):
 
 # دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
 def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
-    global users3
-    users3 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
-    save_users(users3)
+    global users4
+    users4 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
+    save_users(users4)
 
 
 # دالة لتحديث الكمية
