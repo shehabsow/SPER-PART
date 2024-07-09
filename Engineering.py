@@ -50,7 +50,7 @@ def login(username, password):
 
 
 # دالة لتحديث كلمة المرور
-def update_password(username, new_password):
+def update_password(username, new_password,confirm_new_password):
     if new_password == confirm_new_password:
         users3[username]["password"] = new_password
         users3[username]["first_login"] = False
@@ -127,9 +127,9 @@ else:
         with col2:
             st.subheader("Change Password")
             new_password = st.text_input("New Password", type="password")
-            confirm_password = st.text_input("Confirm Password", type="password")
+            confirm_new_password = st.text_input("Confirm Password", type="password")
             if st.button("Change Password"):
-                update_password(st.session_state.username, new_password, confirm_password)
+                update_password(st.session_state.username, new_password, confirm_new_password)
                     
             
     else:
