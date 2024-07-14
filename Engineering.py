@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import pytz
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 
 st.set_page_config(
@@ -23,14 +23,15 @@ def load_users():
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
-            "knhp322": {"password": "knhp322", "first_login": True, "name": "Shehab Ayman "},    # shehab
-            "krxs742": {"password": "krxs742", "first_login": True, "name": "Mohamed Ashry"},    # ashry
-            "kxsv748": {"password": "kxsv748", "first_login": True, "name": "Mohamed El masry"}, # el masry
-            "kvwp553": {"password": "kvwp553", "first_login": True, "name": "sameh"},            # sameh
-            "knfb489": {"password": "knfb489", "first_login": True, "name": "Yasser Hassan"},    # yasser
-            "kjjd308": {"password": "kjjd308", "first_login": True, "name": "Kaleed "},          # kaleed
-            "kibx268": {"password": "kibx268", "first_login": True, "name": "Zeinab Mobarak"},     #Zinab
-            "engy": {"password": "1234", "first_login": True, "name": "D.Engy"}} 
+            "knhp322": {"password": "knhp322", "first_login": True, "name": "Shehab Ayman", "last_password_update": str(datetime.now(egypt_tz))},
+            "krxs742": {"password": "krxs742", "first_login": True, "name": "Mohamed Ashry", "last_password_update": str(datetime.now(egypt_tz))},
+            "kxsv748": {"password": "kxsv748", "first_login": True, "name": "Mohamed El masry", "last_password_update": str(datetime.now(egypt_tz))},
+            "kvwp553": {"password": "kvwp553", "first_login": True, "name": "sameh", "last_password_update": str(datetime.now(egypt_tz))},
+            "knfb489": {"password": "knfb489", "first_login": True, "name": "Yasser Hassan", "last_password_update": str(datetime.now(egypt_tz))},
+            "kjjd308": {"password": "kjjd308", "first_login": True, "name": "Kaleed", "last_password_update": str(datetime.now(egypt_tz))},
+            "kibx268": {"password": "kibx268", "first_login": True, "name": "Zeinab Mobarak", "last_password_update": str(datetime.now(egypt_tz))},
+            "engy": {"password": "1234", "first_login": True, "name": "D.Engy", "last_password_update": str(datetime.now(egypt_tz))}
+        } 
 
 # حفظ بيانات المستخدمين إلى ملف JSON
 def save_users(users):
