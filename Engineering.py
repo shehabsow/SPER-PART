@@ -33,10 +33,10 @@ def load_users():
             "engy": {"password": "1234", "first_login": True, "name": "D.Engy"}} 
 
 # حفظ بيانات المستخدمين إلى ملف JSON
-def save_users(users4):
+def save_users(users):
     with open('users4.json', 'w') as f:
-        json.dump(users4, f)
-users4 = load_users()
+        json.dump(users, f)
+users = load_users()
 
 
 # دالة لتسجيل الدخول
@@ -45,6 +45,11 @@ def login(username, password):
         st.session_state.logged_in = True
         st.session_state.username = username
         st.session_state.first_login = users4[username]["first_login"]
+        last_password_update = datetime.strptime(users[username]["last_password_update"], '%Y-%m-%d %H:%M:%S.%f%z')
+        if datetime.now(egypt_tz) - last_password_update > timedelta(days=30):
+            st.session_state.password_expired = True
+        else:
+            st.session_state.password_expired = False
     else:
         st.error("Incorrect username or password")
 
@@ -54,20 +59,14 @@ def update_password(username, new_password,confirm_new_password):
     if new_password == confirm_new_password:
         users4[username]["password"] = new_password
         users4[username]["first_login"] = False
-        save_users(users4)
+        users[username]["last_password_update"] = str(datetime.now(egypt_tz))
+        save_users(users)
         st.session_state.first_login = False
+        st.session_state.password_expired = False
         st.success("Password updated successfully!")
     else:
         st.error("! Passwords do not match")
-
-
-# دالة لإعادة تعيين كلمات المرور الافتراضية وتحديث الأسماء
-def reset_passwords_and_update_usernames(new_usernames, new_password="password"):
-    global users4
-    users4 = {new_usernames[i]: {"password": new_password, "first_login": True} for i in range(len(new_usernames))}
-    save_users(users4)
-
-
+        
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
     old_quantity = st.session_state.df.loc[row_index, 'Qty.']
