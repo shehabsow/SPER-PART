@@ -58,8 +58,8 @@ def login(username, password):
 # دالة لتحديث كلمة المرور
 def update_password(username, new_password,confirm_new_password):
     if new_password == confirm_new_password:
-        users4[username]["password"] = new_password
-        users4[username]["first_login"] = False
+        users[username]["password"] = new_password
+        users[username]["first_login"] = False
         users[username]["last_password_update"] = str(datetime.now(egypt_tz))
         save_users(users)
         st.session_state.first_login = False
