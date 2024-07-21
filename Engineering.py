@@ -8,7 +8,7 @@ import json
 
 st.set_page_config(
     layout="wide",
-    page_title='Earthquake analysis',
+    page_title='SPER-PART',
     page_icon='🪙')
 
 
