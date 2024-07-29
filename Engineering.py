@@ -85,7 +85,7 @@ def update_password(username, new_password, confirm_new_password):
         users[username]["password"] = new_password
         users[username]["first_login"] = False
         users[username]["last_password_update"] = str(datetime.now(egypt_tz))
-        save_users(users1)
+        save_users(users)
         st.session_state.first_login = False
         st.session_state.password_expired = False
         st.success("Password updated successfully!")
