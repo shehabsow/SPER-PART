@@ -19,7 +19,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 def load_users():
     try:
-        with open('users.json', 'r') as f:
+        with open('users1.json', 'r') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
@@ -35,8 +35,8 @@ def load_users():
 
 # Save users data to JSON file
 def save_users(users):
-    with open('users.json', 'w') as f:
-        json.dump(users, f)
+    with open('users1.json', 'w') as f:
+        json.dump(users1, f)
 
 # Load logs from files
 def load_logs():
@@ -54,11 +54,11 @@ def load_logs():
 
 # Login function
 def login(username, password):
-    if username in users and users[username]["password"] == password:
+    if username in users1 and users[username]["password"] == password:
         st.session_state.logged_in = True
         st.session_state.username = username
         st.session_state.first_login = users[username]["first_login"]
-        last_password_update = datetime.strptime(users[username]["last_password_update"], '%Y-%m-%d %H:%M:%S.%f%z')
+        last_password_update = datetime.strptime(users1[username]["last_password_update"], '%Y-%m-%d %H:%M:%S.%f%z')
         if datetime.now(egypt_tz) - last_password_update > timedelta(days=30):
             st.session_state.password_expired = True
         else:
@@ -69,9 +69,9 @@ def login(username, password):
 # Update password function
 def update_password(username, new_password, confirm_new_password):
     if new_password == confirm_new_password:
-        users[username]["password"] = new_password
-        users[username]["first_login"] = False
-        users[username]["last_password_update"] = str(datetime.now(egypt_tz))
+        users1[username]["password"] = new_password
+        users1[username]["first_login"] = False
+        users1[username]["last_password_update"] = str(datetime.now(egypt_tz))
         save_users(users)
         st.session_state.first_login = False
         st.session_state.password_expired = False
@@ -82,10 +82,10 @@ def update_password(username, new_password, confirm_new_password):
 # Function to add new location
 def update_password(username, new_password, confirm_new_password):
     if new_password == confirm_new_password:
-        users[username]["password"] = new_password
-        users[username]["first_login"] = False
-        users[username]["last_password_update"] = str(datetime.now(egypt_tz))
-        save_users(users)
+        users1[username]["password"] = new_password
+        users1[username]["first_login"] = False
+        users1[username]["last_password_update"] = str(datetime.now(egypt_tz))
+        save_users(users1)
         st.session_state.first_login = False
         st.session_state.password_expired = False
         st.success("Password updated successfully!")
