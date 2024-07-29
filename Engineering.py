@@ -69,9 +69,9 @@ def login(username, password):
 # Update password function
 def update_password(username, new_password, confirm_new_password):
     if new_password == confirm_new_password:
-        users1[username]["password"] = new_password
-        users1[username]["first_login"] = False
-        users1[username]["last_password_update"] = str(datetime.now(egypt_tz))
+        users[username]["password"] = new_password
+        users[username]["first_login"] = False
+        users[username]["last_password_update"] = str(datetime.now(egypt_tz))
         save_users(users)
         st.session_state.first_login = False
         st.session_state.password_expired = False
@@ -79,18 +79,7 @@ def update_password(username, new_password, confirm_new_password):
     else:
         st.error("Passwords do not match!")
 
-# Function to add new location
-def update_password(username, new_password, confirm_new_password):
-    if new_password == confirm_new_password:
-        users1[username]["password"] = new_password
-        users1[username]["first_login"] = False
-        users1[username]["last_password_update"] = str(datetime.now(egypt_tz))
-        save_users(users1)
-        st.session_state.first_login = False
-        st.session_state.password_expired = False
-        st.success("Password updated successfully!")
-    else:
-        st.error("Passwords do not match!")
+# Function to add
 
         
 # دالة لتحديث الكمية
