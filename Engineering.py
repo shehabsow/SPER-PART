@@ -36,7 +36,7 @@ def load_users():
 # Save users data to JSON file
 def save_users(users):
     with open('users.json', 'w') as f:
-        json.dump(users1, f)
+        json.dump(users, f)
 
 # Load logs from files
 def load_logs():
