@@ -58,7 +58,7 @@ def login(username, password):
         st.session_state.logged_in = True
         st.session_state.username = username
         st.session_state.first_login = users[username]["first_login"]
-        last_password_update = datetime.strptime(users1[username]["last_password_update"], '%Y-%m-%d %H:%M:%S.%f%z')
+        last_password_update = datetime.strptime(users[username]["last_password_update"], '%Y-%m-%d %H:%M:%S.%f%z')
         if datetime.now(egypt_tz) - last_password_update > timedelta(days=30):
             st.session_state.password_expired = True
         else:
