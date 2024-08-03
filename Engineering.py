@@ -1857,7 +1857,7 @@ else:
 
                         with col3:
                             st.subheader('image  for  these  part')
-                            image46 = open('images/46.jpeg', 'rb').read()
+                            image46 = open('images/Capture.PNG', 'rb').read()
                             st.image(image46, width=150)
                             url = 'https://swaninstruments.ch/product/ami-ise-universal/'
                             st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
