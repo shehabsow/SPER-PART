@@ -1846,16 +1846,18 @@ else:
                             url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
                             st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
-                   with tab14:
-                       col1, col2, col3 = st.columns([30,3,13])
+                    with tab14:
+                        col1, col2, col3 = st.columns([30,3,13])
                         with col1:
-                            TOC = df_f[df_f['Comments'] == 'TOC'].sort_values(by='Comments')
+                            Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
                             st.dataframe(Ro,width=2000)
                             col4, col5, col6 = st.columns([2,1,2])
                             with col4:
                                 display_tab('TOC')
+                      
+                            
+        
                     
-                        
                         
                 elif select_col == 'Fire Fighting':
                     
