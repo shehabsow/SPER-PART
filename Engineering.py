@@ -1817,43 +1817,43 @@ else:
         
                     with tab12:
                         col1, col2, col3 = st.columns([30,3,13])
-                    with col1:
-                        Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
-                        st.dataframe(Uv,width=2000)
-                        col4, col5, col6 = st.columns([2,1,2])
-                        with col4:
-                            display_tab('Uv')
-                    with col3:
-                        st.subheader('image  for  these  part')
-                        image45 = open('images/45.jpeg', 'rb').read()
-                        st.image(image45, width=150)
-                        url = 'https://pureaqua.com/viqua-sterilight-uv/'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        with col1:
+                            Uv = df_f[df_f['Comments'] == 'Water uv'].sort_values(by='Comments')
+                            st.dataframe(Uv,width=2000)
+                            col4, col5, col6 = st.columns([2,1,2])
+                            with col4:
+                                display_tab('Uv')
+                        with col3:
+                            st.subheader('image  for  these  part')
+                            image45 = open('images/45.jpeg', 'rb').read()
+                            st.image(image45, width=150)
+                            url = 'https://pureaqua.com/viqua-sterilight-uv/'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                         
                         
                     with tab13:
                         col1, col2, col3 = st.columns([30,3,13])
-                    with col1:
-                        Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
-                        st.dataframe(Ro,width=2000)
-                        col4, col5, col6 = st.columns([2,1,2])
-                        with col4:
-                            display_tab('Ro')
-                    with col3:
-                        st.subheader('image  for  these  part')
-                        image46 = open('images/46.jpeg', 'rb').read()
-                        st.image(image46, width=150)
-                        url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
-                        st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
+                        with col1:
+                            Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
+                            st.dataframe(Ro,width=2000)
+                            col4, col5, col6 = st.columns([2,1,2])
+                            with col4:
+                                display_tab('Ro')
+                        with col3:
+                            st.subheader('image  for  these  part')
+                            image46 = open('images/46.jpeg', 'rb').read()
+                            st.image(image46, width=150)
+                            url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
 
                    with tab14:
                        col1, col2, col3 = st.columns([30,3,13])
-                    with col1:
-                        TOC = df_f[df_f['Comments'] == 'TOC'].sort_values(by='Comments')
-                        st.dataframe(Ro,width=2000)
-                        col4, col5, col6 = st.columns([2,1,2])
-                        with col4:
-                            display_tab('TOC')
+                        with col1:
+                            TOC = df_f[df_f['Comments'] == 'TOC'].sort_values(by='Comments')
+                            st.dataframe(Ro,width=2000)
+                            col4, col5, col6 = st.columns([2,1,2])
+                            with col4:
+                                display_tab('TOC')
                     
                         
                         
