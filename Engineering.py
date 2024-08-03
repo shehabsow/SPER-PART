@@ -1859,7 +1859,7 @@ else:
                             st.subheader('image  for  these  part')
                             image46 = open('images/46.jpeg', 'rb').read()
                             st.image(image46, width=150)
-                            url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
+                            url = 'https://swaninstruments.ch/product/ami-ise-universal/'
                             st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                       
                             
