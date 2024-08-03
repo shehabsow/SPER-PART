@@ -1854,6 +1854,13 @@ else:
                             col4, col5, col6 = st.columns([2,1,2])
                             with col4:
                                 display_tab('TOC')
+
+                        with col3:
+                            st.subheader('image  for  these  part')
+                            image46 = open('images/46.jpeg', 'rb').read()
+                            st.image(image46, width=150)
+                            url = 'https://www.hongtekfiltration.com/RO-membrane-elements/XLP-Series-RO-membrane-elements.html'
+                            st.components.v1.html(f'<a href="{url}" target="_blank" style="background-color: #FFD700;">Go to Web Page</a>')
                       
                             
         
