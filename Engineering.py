@@ -1849,8 +1849,8 @@ else:
                     with tab14:
                         col1, col2, col3 = st.columns([30,3,13])
                         with col1:
-                            Ro = df_f[df_f['Comments'] == 'Water ro'].sort_values(by='Comments')
-                            st.dataframe(Ro,width=2000)
+                            TOC = df_f[df_f['Comments'] == 'TOC'].sort_values(by='Comments')
+                            st.dataframe(TOC,width=2000)
                             col4, col5, col6 = st.columns([2,1,2])
                             with col4:
                                 display_tab('TOC')
