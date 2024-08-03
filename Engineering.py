@@ -80,17 +80,7 @@ def update_password(username, new_password, confirm_new_password):
         st.error("Passwords do not match!")
 
 # Function to add
-def update_password(username, new_password, confirm_new_password):
-    if new_password == confirm_new_password:
-        users[username]["password"] = new_password
-        users[username]["first_login"] = False
-        users[username]["last_password_update"] = str(datetime.now(egypt_tz))
-        save_users(users)
-        st.session_state.first_login = False
-        st.session_state.password_expired = False
-        st.success("Password updated successfully!")
-    else:
-        st.error("Passwords do not match!")
+
         
 # دالة لتحديث الكمية
 def update_quantity(row_index, quantity, operation, username):
