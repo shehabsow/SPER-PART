@@ -54,7 +54,7 @@ def load_logs():
 
 # Login function
 def login(username, password):
-    if username in users1 and users[username]["password"] == password:
+    if username in users and users[username]["password"] == password:
         st.session_state.logged_in = True
         st.session_state.username = username
         st.session_state.first_login = users[username]["first_login"]
@@ -123,7 +123,7 @@ def display_tab(tab_name):
     if st.button('Update Quantity', key=f'{tab_name}_update_button'):
         update_quantity(row_number, quantity, operation, st.session_state.username)
 
-users1 = load_users()
+users = load_users()
 # واجهة تسجيل الدخول
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
