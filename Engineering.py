@@ -54,7 +54,7 @@ def load_logs():
 
 # Login function
 def login(username, password):
-    if username in users and users[username]["password"] == password:
+    if username in users1 and users[username]["password"] == password:
         st.session_state.logged_in = True
         st.session_state.username = username
         st.session_state.first_login = users[username]["first_login"]
