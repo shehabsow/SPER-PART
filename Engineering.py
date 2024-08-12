@@ -19,7 +19,7 @@ df_f = pd.read_csv('Eng Spare parts.csv')
 
 def load_users():
     try:
-        with open('users.json', 'r') as f:
+        with open('users1.json', 'r') as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         return {
@@ -35,7 +35,7 @@ def load_users():
 
 # Save users data to JSON file
 def save_users(users):
-    with open('users.json', 'w') as f:
+    with open('users1.json', 'w') as f:
         json.dump(users, f)
 
 # Load logs from files
@@ -123,7 +123,7 @@ def display_tab(tab_name):
     if st.button('Update Quantity', key=f'{tab_name}_update_button'):
         update_quantity(row_number, quantity, operation, st.session_state.username)
 
-users = load_users()
+users1 = load_users()
 # واجهة تسجيل الدخول
 if 'logged_in' not in st.session_state:
     st.session_state.logged_in = False
