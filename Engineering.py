@@ -229,11 +229,11 @@ else:
                 with tab1:
                     col1, col2, col3 = st.columns([30,3,13])
                     with col1:
-                        pearing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
-                        st.dataframe(pearing,width=2000)
+                        Bearing = df_f[df_f['Comments'] == 'Bearing'].sort_values(by='Comments')
+                        st.dataframe(Bearing,width=2000)
                         col4, col5, col6 = st.columns([2,1,2])
                         with col4:
-                            display_tab('pearing')
+                            display_tab('Bearing')
                     with col3:
                         st.subheader('image  for  these  part')
                         SKF,ASAHI,INA,KBC,IKO,NTN,NB = st.tabs(['SKF','ASAHI','INA','IKO','KBC','NB','NTN'])
